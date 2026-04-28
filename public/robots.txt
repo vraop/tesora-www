@@ -1,0 +1,32 @@
+# Allow all crawlers + LLM ingest agents.
+# Tesora's strategy is broad reach, not gating. Block only utility paths.
+
+User-agent: *
+Allow: /
+Disallow: /_
+Disallow: /draft/
+
+# Explicit allow for major LLM ingest agents (some respect User-agent: *,
+# but being explicit avoids surprises if a vendor changes posture later).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://tesora.ai/sitemap-index.xml

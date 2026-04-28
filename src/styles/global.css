@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens go here once /design-consultation produces DESIGN.md.
+ * For now, restrained defaults that won't fight whatever direction we pick:
+ * a serif/sans pairing for credibility (audience is chief actuaries — they
+ * read Bloomberg and academic papers, not landing-page headlines).
+ */
+
+@theme {
+  --font-sans: "Inter", "ui-sans-serif", "system-ui", "sans-serif";
+  --font-serif: "Source Serif 4", "Georgia", "ui-serif", "serif";
+  --font-mono: "JetBrains Mono", "ui-monospace", "monospace";
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}

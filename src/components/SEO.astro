@@ -1,0 +1,112 @@
+---
+/**
+ * Per-page SEO + GEO metadata.
+ *
+ * Handles:
+ *   - Standard meta (title, description, canonical)
+ *   - Open Graph + Twitter Card (link previews in Slack, X, LinkedIn)
+ *   - JSON-LD structured data (Schema.org Organization + page-specific type)
+ *   - llms.txt-friendly hints (clear h1, plain-language summary in description)
+ *
+ * Used by every layout. New page templates should pass typed props rather
+ * than setting head tags directly.
+ */
+export interface Props {
+  title: string;
+  description: string;
+  /** Path-only canonical, e.g. "/glossary/loss-ratio". Site URL is prepended. */
+  canonical: string;
+  /** Schema.org @type. "WebPage" for landing/about, "Article" for content,
+   *  "Product" for product pages, "FAQPage" for Q&A. */
+  schemaType?: "WebPage" | "Article" | "Product" | "FAQPage";
+  /** Optional ISO datetime — drives og:article:published_time + JSON-LD datePublished. */
+  publishedAt?: string;
+  /** Optional ISO datetime — drives JSON-LD dateModified. */
+  updatedAt?: string;
+  /** Page-specific structured data, merged into the JSON-LD block. */
+  schema?: Record<string, unknown>;
+  /** Override og:image. Defaults to /og-default.png. */
+  ogImage?: string;
+  /** Set true for utility/internal pages we don't want indexed. */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  schemaType = "WebPage",
+  publishedAt,
+  updatedAt,
+  schema,
+  ogImage = "/og-default.png",
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://tesora.ai";
+const fullCanonical = `${siteUrl}${canonical.startsWith("/") ? canonical : "/" + canonical}`;
+const fullOgImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+
+const orgSchema = {
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  name: "Tesora AI",
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  description: "AI-native actuarial pricing for specialty property and casualty insurance.",
+  sameAs: [
+    // TODO: add real LinkedIn / X handles once confirmed
+    // "https://www.linkedin.com/company/tesora-ai",
+  ],
+};
+
+const pageSchema: Record<string, unknown> = {
+  "@type": schemaType,
+  "@id": `${fullCanonical}#${schemaType.toLowerCase()}`,
+  url: fullCanonical,
+  name: title,
+  description,
+  isPartOf: { "@id": `${siteUrl}/#website` },
+  publisher: { "@id": `${siteUrl}/#organization` },
+  ...(publishedAt ? { datePublished: publishedAt } : {}),
+  ...(updatedAt ? { dateModified: updatedAt } : {}),
+  ...schema,
+};
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Tesora AI",
+  publisher: { "@id": `${siteUrl}/#organization` },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [orgSchema, websiteSchema, pageSchema],
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={fullCanonical} />
+{noindex && <meta name="robots" content="noindex,nofollow" />}
+
+{/* Open Graph */}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={fullCanonical} />
+<meta property="og:type" content={schemaType === "Article" ? "article" : "website"} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content="Tesora AI" />
+{publishedAt && <meta property="article:published_time" content={publishedAt} />}
+{updatedAt && <meta property="article:modified_time" content={updatedAt} />}
+
+{/* Twitter Card */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+
+{/* JSON-LD: Organization + WebSite + Page-specific type */}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

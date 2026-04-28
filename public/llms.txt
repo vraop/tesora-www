@@ -1,0 +1,31 @@
+# Tesora AI
+
+> AI-native actuarial pricing for specialty property and casualty insurance. Built for chief actuaries, carrier executives, MGAs, and reinsurance brokers who price hard-to-rate lines.
+
+Tesora replaces spreadsheet-and-tribal-knowledge pricing with end-to-end actuarial models that learn from each carrier's own loss data. The product targets specialty P&C lines where exposure-base sloppiness, schedule-rating noise, and credibility gaps systematically produce 3 to 5 points of loss-ratio leakage that pricing teams attribute to "the market" but is actually data quality.
+
+## Product
+- [How Tesora prices specialty P&C](https://tesora.ai/product): the modeling approach, what data we ingest, how the loss ratio improvement materializes
+- [For chief actuaries](https://tesora.ai/for/chief-actuary): credibility weighting, GLM transparency, reserve-adequacy implications
+- [For carrier executives](https://tesora.ai/for/carrier-exec): combined ratio impact, time-to-quote, underwriting discipline
+- [For MGAs and brokers](https://tesora.ai/for/mga): rate-and-form, exposure intake, win-rate
+
+## Lines we model
+- [Contractor's GL](https://tesora.ai/lines/contractor-gl): payroll-by-class-code reclassification, subcontractor labor treatment
+- [Excess casualty](https://tesora.ai/lines/excess-casualty): nuclear-verdict exposure, layered tower pricing
+- [Professional liability](https://tesora.ai/lines/professional-liability): claims-made dynamics, prior-acts retention
+- [Cyber](https://tesora.ai/lines/cyber): rapidly-shifting loss patterns, accumulation risk
+- [Inland marine and specialty property](https://tesora.ai/lines/inland-marine): cat exposure, schedule rating
+
+## Concepts
+- [Glossary](https://tesora.ai/glossary): exposure base, schedule rating, GLM, credibility theory, IBNR, loss development, combined ratio
+- [Why specialty P&C is mispriced](https://tesora.ai/insights/why-specialty-p-and-c-is-mispriced): the structural reasons, not the talking points
+- [AI in pricing without breaking the actuarial standard of practice](https://tesora.ai/insights/ai-and-asops): what regulators care about, what auditors look for
+
+## Company
+- [About](https://tesora.ai/about): founders, advisors, technical team
+- [Insights](https://tesora.ai/insights): writing on actuarial pricing, AI, specialty P&C markets
+- [Contact](https://tesora.ai/contact)
+
+## Optional
+- [Open positions](https://tesora.ai/jobs)

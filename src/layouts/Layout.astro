@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  schemaType?: "WebPage" | "Article" | "Product" | "FAQPage";
+  publishedAt?: string;
+  updatedAt?: string;
+  schema?: Record<string, unknown>;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Tesora AI" href="/rss.xml" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    {/* llms.txt discovery hint — not a standard yet, but search starting to index it */}
+    <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
+
+    <SEO {...props} />
+  </head>
+  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+    <slot />
+  </body>
+</html>
