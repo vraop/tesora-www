@@ -26,6 +26,12 @@ Marketing + content site for Tesora AI. Specialty P&C actuarial pricing. Audienc
 - `public/` — static assets, `robots.txt`, `llms.txt`, favicons.
 - `scripts/` — one-shot generators (content, sitemap helpers, deploy).
 
+## Design System
+
+Read `DESIGN.md` before any visual or UI decision. All font choices, colors, spacing, and aesthetic direction are defined there. Do not deviate without explicit user approval. In `/qa` or `/design-review` mode, flag any code that doesn't match `DESIGN.md`.
+
+Direction in one line: working-paper editorial. Source Serif 4 (display + body), Inter Tight (UI), JetBrains Mono (data). Ink + bone + oxblood accent. Marginalia gutter on long-form. No purple gradients, no centered SaaS hero, no abstract orbs.
+
 ## Voice
 
 All Vivek-as-author text comes from `tesora-harness/shared/prompts/voice.ts` (concise, warm, to the point; no em dashes; banned vocabulary list). When generating content for this site, **import or vendor that file** — never re-derive the voice. The harness is at `~/tesora-harness/`.

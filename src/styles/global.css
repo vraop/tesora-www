@@ -1,20 +1,119 @@
 @import "tailwindcss";
 
 /*
- * Design tokens go here once /design-consultation produces DESIGN.md.
- * For now, restrained defaults that won't fight whatever direction we pick:
- * a serif/sans pairing for credibility (audience is chief actuaries — they
- * read Bloomberg and academic papers, not landing-page headlines).
+ * Tesora AI design tokens. Source of truth: DESIGN.md.
+ * Working-paper editorial. Restrained palette + serif body.
+ *
+ * Do not deviate without updating DESIGN.md first.
  */
 
 @theme {
-  --font-sans: "Inter", "ui-sans-serif", "system-ui", "sans-serif";
-  --font-serif: "Source Serif 4", "Georgia", "ui-serif", "serif";
+  --font-display: "Source Serif 4", Georgia, "ui-serif", serif;
+  --font-body: "Source Serif 4", Georgia, "ui-serif", serif;
+  --font-sans: "Inter Tight", "Inter", "ui-sans-serif", "system-ui", sans-serif;
   --font-mono: "JetBrains Mono", "ui-monospace", "monospace";
+
+  /* Neutrals */
+  --color-ink: #0E0E0C;
+  --color-bone: #FAF7F0;
+  --color-stone: #E8E3D7;
+  --color-smoke: #6B6760;
+  --color-char: #2A2823;
+
+  /* Accent */
+  --color-oxblood: #7D2B2B;
+
+  /* Semantic */
+  --color-forest: #2D5A3D;
+  --color-mustard: #8B6914;
+  --color-slate: #2C5469;
+
+  /* Spacing scale (8px base, 1.5x rhythm) */
+  --spacing-2xs: 0.125rem;  /* 2px */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+  --spacing-4xl: 6rem;      /* 96px */
+}
+
+:root {
+  /* Mode-aware aliases. Components reference these, not the raw tokens. */
+  --bg: var(--color-bone);
+  --bg-panel: var(--color-stone);
+  --fg: var(--color-ink);
+  --fg-muted: var(--color-smoke);
+  --rule: rgba(14, 14, 12, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg: var(--color-char);
+  --bg-panel: #1A1815;
+  --fg: var(--color-bone);
+  --fg-muted: #9A958B;
+  --rule: rgba(250, 247, 240, 0.14);
 }
 
 html {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
+  font-feature-settings: "kern", "onum";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.125rem;  /* 18px */
+  line-height: 1.65;
+}
+
+/* Tabular numerals for any element marked .tabular */
+.tabular {
+  font-feature-settings: "tnum", "kern";
+}
+
+/* Drop cap on first paragraph of long-form articles */
+.prose > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 0.9;
+  float: left;
+  margin: 4px 8px 0 0;
+  color: var(--fg);
+}
+
+/* Section markers — eyebrow tags */
+.section-marker {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;  /* 11px */
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-weight: 600;
+}
+
+/* Footnote refs */
+.footnote-ref {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  vertical-align: super;
+  color: var(--color-oxblood);
+  text-decoration: none;
+  margin: 0 1px;
+}
+
+/* Body links */
+.prose a {
+  color: var(--color-oxblood);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-oxblood) 40%, transparent);
+}
+.prose a:hover {
+  border-bottom-color: var(--color-oxblood);
 }

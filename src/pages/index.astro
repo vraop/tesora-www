@@ -8,26 +8,47 @@ import Layout from "../layouts/Layout.astro";
   canonical="/"
   schemaType="WebPage"
 >
-  <main class="mx-auto max-w-3xl px-6 py-24">
-    <p class="text-sm uppercase tracking-wider text-neutral-500">Tesora AI</p>
-    <h1 class="mt-4 font-serif text-5xl leading-tight text-neutral-900">
+  <header class="mx-auto max-w-[1100px] px-8 py-5 flex justify-between items-baseline border-b border-[var(--rule)] font-sans text-sm tracking-wide">
+    <div class="flex gap-12 items-baseline">
+      <span class="font-display font-semibold text-lg tracking-wide">Tesora AI</span>
+      <nav class="space-x-6">
+        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">Product</a>
+        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">Lines</a>
+        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">Insights</a>
+        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-[1100px] px-8 py-24">
+    <p class="section-marker mb-4">§ Tesora AI · Vol. 1 No. 1 · Specialty P&amp;C Pricing</p>
+
+    <h1 class="font-display font-semibold text-[3.25rem] leading-[1.08] tracking-[-0.018em] max-w-[780px]">
       Specialty P&amp;C pricing isn't a market problem. It's a data problem.
     </h1>
-    <p class="mt-6 text-lg leading-relaxed text-neutral-700">
-      Three to five points of loss-ratio leakage in contractor's GL, excess casualty,
-      and professional lines isn't social inflation or nuclear verdicts. It's exposure
-      bases captured wrong on day one, schedule-rating credits that run on vibes, and
-      GLMs trained on data the rater never saw clean. Tesora fixes the data and the
-      model together.
+
+    <p class="font-display italic text-[1.375rem] font-normal text-[var(--fg-muted)] mt-6 max-w-[680px] leading-[1.5]">
+      Three to five points of loss-ratio leakage in contractor's GL, excess casualty, and professional lines isn't social inflation or nuclear verdicts. It's exposure bases captured wrong on day one, schedule-rating credits that run on vibes, and GLMs trained on data the rater never saw clean.
     </p>
 
-    <div class="mt-12 border-l-2 border-neutral-900 pl-6">
-      <p class="text-sm font-medium text-neutral-500">Site under reconstruction</p>
-      <p class="mt-2 text-neutral-700">
-        Design system in progress. Long-form pages on lines, audiences, and concepts
-        are in production. Reach out if you want to talk specialty P&amp;C pricing
-        before the new site lands.
-      </p>
+    <p class="font-sans text-xs uppercase tracking-[0.06em] text-[var(--fg-muted)] mt-8">
+      <span>Vivek Rao, CEO · Tesora AI · April 2026</span>
+      <span class="ml-3">
+        <a href="#" class="text-[var(--color-oxblood)] border-b border-current">Read the working paper →</a>
+      </span>
+    </p>
+
+    <div class="mt-10 px-7 py-6 bg-[var(--bg-panel)] border-l-2 border-[var(--color-oxblood)] font-mono text-sm leading-7 max-w-[680px] tabular">
+      <div class="font-sans text-xs uppercase tracking-[0.16em] text-[var(--fg-muted)] mb-3 font-semibold">
+        Empirical pattern · contractor GL, n=14 carriers, 2022 AY
+      </div>
+      Reported loss ratio (intake exposure base): <strong>62.4%</strong><br />
+      Reconciled loss ratio (audit-true exposure):  <strong>66.1%</strong><br />
+      Δ attributable to exposure-base error:        <strong>+3.7 pts</strong>
     </div>
   </main>
+
+  <footer class="mx-auto max-w-[1100px] px-8 py-10 border-t border-[var(--rule)] font-sans text-xs tracking-wide text-[var(--fg-muted)]">
+    <p>Tesora AI · AI-native actuarial pricing for specialty P&amp;C · vivek@tesora.ai</p>
+  </footer>
 </Layout>

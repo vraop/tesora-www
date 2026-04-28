@@ -30,9 +30,17 @@ const props = Astro.props;
     {/* llms.txt discovery hint — not a standard yet, but search starting to index it */}
     <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
 
+    {/* Fonts: Source Serif 4 (display + body), Inter Tight (UI), JetBrains Mono (data) */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <SEO {...props} />
   </head>
-  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+  <body class="min-h-screen antialiased">
     <slot />
   </body>
 </html>
