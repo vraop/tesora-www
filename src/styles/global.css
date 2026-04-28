@@ -2,15 +2,16 @@
 
 /*
  * Tesora AI design tokens. Source of truth: DESIGN.md.
- * Working-paper editorial. Restrained palette + serif body.
+ * Minimal modern. Sans-only typography (Inter Tight). Generous whitespace.
  *
  * Do not deviate without updating DESIGN.md first.
  */
 
 @theme {
-  --font-display: "Source Serif 4", Georgia, "ui-serif", serif;
-  --font-body: "Source Serif 4", Georgia, "ui-serif", serif;
-  --font-sans: "Inter Tight", "Inter", "ui-sans-serif", "system-ui", sans-serif;
+  --font-display: "Inter Tight", "ui-sans-serif", "system-ui", sans-serif;
+  --font-body: "Inter Tight", "ui-sans-serif", "system-ui", sans-serif;
+  --font-sans: "Inter Tight", "ui-sans-serif", "system-ui", sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "ui-serif", serif; /* optional, long-form only */
   --font-mono: "JetBrains Mono", "ui-monospace", "monospace";
 
   /* Neutrals */
@@ -28,7 +29,7 @@
   --color-mustard: #8B6914;
   --color-slate: #2C5469;
 
-  /* Spacing scale (8px base, 1.5x rhythm) */
+  /* Spacing scale (8px base, generous rhythm) */
   --spacing-2xs: 0.125rem;  /* 2px */
   --spacing-xs: 0.25rem;    /* 4px */
   --spacing-sm: 0.5rem;     /* 8px */
@@ -36,8 +37,8 @@
   --spacing-lg: 1.5rem;     /* 24px */
   --spacing-xl: 2rem;       /* 32px */
   --spacing-2xl: 3rem;      /* 48px */
-  --spacing-3xl: 4rem;      /* 64px */
-  --spacing-4xl: 6rem;      /* 96px */
+  --spacing-3xl: 5rem;      /* 80px */
+  --spacing-4xl: 8rem;      /* 128px */
 }
 
 :root {
@@ -46,7 +47,7 @@
   --bg-panel: var(--color-stone);
   --fg: var(--color-ink);
   --fg-muted: var(--color-smoke);
-  --rule: rgba(14, 14, 12, 0.12);
+  --rule: rgba(14, 14, 12, 0.10);
 }
 
 [data-theme="dark"] {
@@ -54,12 +55,12 @@
   --bg-panel: #1A1815;
   --fg: var(--color-bone);
   --fg-muted: #9A958B;
-  --rule: rgba(250, 247, 240, 0.14);
+  --rule: rgba(250, 247, 240, 0.12);
 }
 
 html {
   font-family: var(--font-body);
-  font-feature-settings: "kern", "onum";
+  font-feature-settings: "kern", "ss01";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -67,8 +68,8 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-size: 1.125rem;  /* 18px */
-  line-height: 1.65;
+  font-size: 1.0625rem;  /* 17px */
+  line-height: 1.6;
 }
 
 /* Tabular numerals for any element marked .tabular */
@@ -76,44 +77,74 @@ body {
   font-feature-settings: "tnum", "kern";
 }
 
-/* Drop cap on first paragraph of long-form articles */
-.prose > p:first-of-type::first-letter {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 4rem;
-  line-height: 0.9;
-  float: left;
-  margin: 4px 8px 0 0;
-  color: var(--fg);
-}
-
-/* Section markers — eyebrow tags */
-.section-marker {
+/* Eyebrow tag — use sparingly */
+.eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;  /* 11px */
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-muted);
   font-weight: 600;
 }
 
-/* Footnote refs */
-.footnote-ref {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  vertical-align: super;
+/* Body links */
+.prose a,
+.link {
   color: var(--color-oxblood);
   text-decoration: none;
-  margin: 0 1px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.prose a:hover,
+.link:hover {
+  border-bottom-color: var(--color-oxblood);
 }
 
-/* Body links */
-.prose a {
-  color: var(--color-oxblood);
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-oxblood) 40%, transparent);
+/* Primary button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  padding: 0.75rem 1.5rem;
+  background: var(--fg);
+  color: var(--bg);
+  border: 1px solid var(--fg);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 200ms, border-color 200ms, color 200ms;
 }
-.prose a:hover {
-  border-bottom-color: var(--color-oxblood);
+.btn:hover {
+  background: var(--color-oxblood);
+  border-color: var(--color-oxblood);
+  color: var(--color-bone);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--fg);
+}
+.btn-secondary:hover {
+  background: transparent;
+  color: var(--color-oxblood);
+  border-color: var(--color-oxblood);
+}
+
+/* Ghost / link CTA */
+.btn-ghost {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-oxblood);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 200ms;
+}
+.btn-ghost:hover {
+  color: var(--color-ink);
 }

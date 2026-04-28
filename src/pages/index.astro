@@ -1,5 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const customers = ["Liberty Re", "Berkshire Specialty", "Sompo", "Argo Group", "RLI", "Markel"];
+
+const features = [
+  {
+    eyebrow: "Exposure base",
+    headline: "Pricing is downstream of intake.",
+    body:
+      "Reclassification at audit, inconsistent subcontractor labor, gross-versus-net payroll: the captured exposure unit is wrong before the GLM sees it. Tesora reconciles intake to audit-true exposure across the whole book.",
+  },
+  {
+    eyebrow: "Schedule rating",
+    headline: "Credits and debits without the vibes.",
+    body:
+      "Schedule rating is where pricing discipline goes to die. Tesora applies a transparent credit framework grounded in the carrier's own loss data, with every adjustment auditable back to a documented basis.",
+  },
+  {
+    eyebrow: "GLM transparency",
+    headline: "Every coefficient explainable to a regulator.",
+    body:
+      "GLM coefficients, credibility weights, and selection logic are surfaced inline. Nothing is hidden behind a black-box scoring API. Built to pass an actuarial standard of practice review.",
+  },
+];
 ---
 
 <Layout
@@ -8,47 +31,89 @@ import Layout from "../layouts/Layout.astro";
   canonical="/"
   schemaType="WebPage"
 >
-  <header class="mx-auto max-w-[1100px] px-8 py-5 flex justify-between items-baseline border-b border-[var(--rule)] font-sans text-sm tracking-wide">
-    <div class="flex gap-12 items-baseline">
-      <span class="font-display font-semibold text-lg tracking-wide">Tesora AI</span>
-      <nav class="space-x-6">
-        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">Product</a>
-        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">Lines</a>
-        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">Insights</a>
-        <a href="#" class="text-[var(--fg)] hover:text-[var(--color-oxblood)]">About</a>
+  {/* Top nav */}
+  <header class="sticky top-0 z-10 backdrop-blur-sm bg-[var(--bg)]/85 border-b border-transparent">
+    <div class="mx-auto max-w-[1100px] px-8 py-5 flex justify-between items-center text-sm">
+      <a href="/" class="font-semibold text-base tracking-tight">Tesora AI</a>
+      <nav class="hidden sm:flex gap-8 text-[var(--fg)]">
+        <a href="#" class="hover:text-[var(--color-oxblood)]">Product</a>
+        <a href="#" class="hover:text-[var(--color-oxblood)]">Lines</a>
+        <a href="#" class="hover:text-[var(--color-oxblood)]">Insights</a>
+        <a href="#" class="hover:text-[var(--color-oxblood)]">About</a>
       </nav>
+      <a href="#contact" class="btn">Talk to us</a>
     </div>
   </header>
 
-  <main class="mx-auto max-w-[1100px] px-8 py-24">
-    <p class="section-marker mb-4">§ Tesora AI · Vol. 1 No. 1 · Specialty P&amp;C Pricing</p>
-
-    <h1 class="font-display font-semibold text-[3.25rem] leading-[1.08] tracking-[-0.018em] max-w-[780px]">
-      Specialty P&amp;C pricing isn't a market problem. It's a data problem.
+  {/* Hero */}
+  <section class="mx-auto max-w-[1100px] px-8 pt-32 pb-24 text-center">
+    <p class="eyebrow mb-6">Specialty P&amp;C</p>
+    <h1 class="font-semibold text-[3.5rem] leading-[1.05] tracking-[-0.022em] max-w-[860px] mx-auto">
+      Actuarial pricing for the lines that don't fit a textbook.
     </h1>
-
-    <p class="font-display italic text-[1.375rem] font-normal text-[var(--fg-muted)] mt-6 max-w-[680px] leading-[1.5]">
-      Three to five points of loss-ratio leakage in contractor's GL, excess casualty, and professional lines isn't social inflation or nuclear verdicts. It's exposure bases captured wrong on day one, schedule-rating credits that run on vibes, and GLMs trained on data the rater never saw clean.
+    <p class="text-[1.25rem] leading-[1.5] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
+      Tesora is AI-native pricing for specialty property and casualty. Built by people who priced contractor's GL, excess casualty, and professional lines before they built software for it.
     </p>
-
-    <p class="font-sans text-xs uppercase tracking-[0.06em] text-[var(--fg-muted)] mt-8">
-      <span>Vivek Rao, CEO · Tesora AI · April 2026</span>
-      <span class="ml-3">
-        <a href="#" class="text-[var(--color-oxblood)] border-b border-current">Read the working paper →</a>
-      </span>
-    </p>
-
-    <div class="mt-10 px-7 py-6 bg-[var(--bg-panel)] border-l-2 border-[var(--color-oxblood)] font-mono text-sm leading-7 max-w-[680px] tabular">
-      <div class="font-sans text-xs uppercase tracking-[0.16em] text-[var(--fg-muted)] mb-3 font-semibold">
-        Empirical pattern · contractor GL, n=14 carriers, 2022 AY
-      </div>
-      Reported loss ratio (intake exposure base): <strong>62.4%</strong><br />
-      Reconciled loss ratio (audit-true exposure):  <strong>66.1%</strong><br />
-      Δ attributable to exposure-base error:        <strong>+3.7 pts</strong>
+    <div class="mt-10 flex gap-4 justify-center items-center">
+      <a href="#contact" class="btn">Talk to Tesora</a>
+      <a href="#how" class="btn-ghost">See how it works →</a>
     </div>
-  </main>
+  </section>
 
-  <footer class="mx-auto max-w-[1100px] px-8 py-10 border-t border-[var(--rule)] font-sans text-xs tracking-wide text-[var(--fg-muted)]">
+  {/* Customer strip */}
+  <section class="mx-auto max-w-[1100px] px-8 py-12 border-t border-b border-[var(--rule)]">
+    <p class="eyebrow text-center mb-6">Trusted by specialty carriers and brokers</p>
+    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4">
+      {customers.map((name) => (
+        <span class="text-[var(--fg-muted)] font-medium tracking-tight text-base">{name}</span>
+      ))}
+    </div>
+  </section>
+
+  {/* Thesis section */}
+  <section id="how" class="mx-auto max-w-[1100px] px-8 py-32 text-center">
+    <p class="eyebrow mb-6">The thesis</p>
+    <h2 class="font-semibold text-[2.25rem] leading-[1.15] tracking-[-0.012em] max-w-[760px] mx-auto">
+      Specialty P&amp;C isn't mispriced because the market won't bear the rate. It's mispriced because the data was wrong on day one.
+    </h2>
+    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-6 max-w-[680px] mx-auto">
+      Three to five points of loss-ratio leakage in contractor's GL, excess casualty, and professional lines isn't social inflation or nuclear verdicts. It's exposure bases captured wrong on day one, schedule-rating credits that run on vibes, and GLMs trained on data the rater never saw clean. Tesora fixes the data and the model together.
+    </p>
+  </section>
+
+  {/* Features (three two-column blocks) */}
+  <section class="mx-auto max-w-[1100px] px-8 pb-32 space-y-24">
+    {features.map((f, i) => (
+      <div class={`grid md:grid-cols-12 gap-10 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
+        {/* Visual placeholder — product UI screenshot goes here once we have one */}
+        <div class="md:col-span-6 md:[direction:ltr]">
+          <div class="aspect-[5/3] rounded-md border border-[var(--rule)] bg-[var(--bg-panel)] flex items-center justify-center">
+            <span class="font-mono text-xs text-[var(--fg-muted)] tabular">[ {f.eyebrow} · screenshot ]</span>
+          </div>
+        </div>
+        <div class="md:col-span-5 md:[direction:ltr]">
+          <p class="eyebrow mb-3">{f.eyebrow}</p>
+          <h3 class="font-semibold text-[1.5rem] leading-[1.25] tracking-[-0.005em]">{f.headline}</h3>
+          <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-4">{f.body}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  {/* CTA section */}
+  <section id="contact" class="mx-auto max-w-[1100px] px-8 py-32 text-center border-t border-[var(--rule)]">
+    <h2 class="font-semibold text-[2rem] leading-[1.2] tracking-[-0.012em] max-w-[640px] mx-auto">
+      Talk to a team that has actually priced these lines.
+    </h2>
+    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
+      We respond within a business day. No marketing forms. Email Vivek directly.
+    </p>
+    <div class="mt-8">
+      <a href="mailto:vivek@tesora.ai" class="btn">vivek@tesora.ai</a>
+    </div>
+  </section>
+
+  <footer class="mx-auto max-w-[1100px] px-8 py-10 border-t border-[var(--rule)] text-xs text-[var(--fg-muted)]">
     <p>Tesora AI · AI-native actuarial pricing for specialty P&amp;C · vivek@tesora.ai</p>
   </footer>
 </Layout>

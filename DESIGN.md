@@ -1,67 +1,67 @@
 # Design System — Tesora AI
 
-Working-paper editorial. Restrained, technically dense, type-driven. Says "institutional credibility" without saying "institutional." If a chief actuary lands on a sub-page and thinks *"these people read the working papers,"* the design did its job.
+Minimal modern. Sans-only typography, center-aligned hero, generous whitespace, one accent color. The simplicity is the message: *the team that understands specialty P&C deepest doesn't need to overstate it.*
 
-This file is the source of truth for every visual decision on `tesora-www` and any other Tesora-AI marketing or content surface. Do not deviate without explicit user approval.
+Reference points (in order): joinargos.com, numeral.com, linear.app. Anti-references: Duck Creek's cosmic orb, Earnix's centered-CTA template, every "intelligent platform" landing page.
+
+This file is the source of truth for every visual decision on `tesora-www` and any other Tesora marketing or content surface. Do not deviate without explicit user approval.
 
 ## Product Context
 
-- **What this is:** AI-native actuarial pricing for specialty property and casualty insurance.
+- **What this is:** AI-native actuarial pricing for specialty property and casualty insurance. The repo (`tesora-www`) replaces the current SPA at tesora.ai when it ships.
 - **Who it's for:** Chief actuaries, carrier executives, MGAs, reinsurance brokers. The chief actuary is the primary buyer; everything optimizes for their trust.
-- **Space / industry:** Specialty P&C insurance. Peers (and visual reference points): Akur8, Earnix, Verisk, Moody's RMS, Milliman, Guidewire, Duck Creek.
 - **Project type:** Marketing + content site with hundreds of programmatic sub-pages targeting long-tail SEO and LLM lookup ("best actuarial tools," "specialty P&C pricing for X," etc.).
-- **Brand stance (from /design-consultation D2):** *The team that understands specialty P&C the deepest.* Founder credibility, technical depth, opinion-forward.
+- **Brand stance (from /design-consultation D2):** *The team that understands specialty P&C the deepest.* Founder credibility, technical depth, opinion-forward, restrained.
 
 ## Aesthetic Direction
 
-- **Direction:** Editorial / Magazine. Strong typographic hierarchy, asymmetric grids, footnotes as a design language, marginalia gutter, drop caps on long-form, section markers (§1, §2) like a journal.
-- **Decoration level:** Intentional. Hairline rules between sections, paper-feel background, scholarly conventions. No hero illustrations, no abstract orbs, no purple gradients, no centered-everything, no stock photography.
-- **Mood:** A serious technical journal that happens to be selling software. Closer to The Economist or a Federal Reserve working paper than to any current B2B SaaS landing page.
-- **Reference points:** academic journals (working-paper format), The Economist (editorial density), Christian Bök / Kris Sowersby type specimens (typographic confidence). Anti-references: Duck Creek's cosmic orb hero, Earnix's centered-CTA template, every "intelligent platform" landing page.
+- **Direction:** Minimal modern. Restrained. Whitespace-driven.
+- **Decoration level:** Minimal. Type, color, and spacing do the work. No hairline rules every section, no decorative texture, no drop caps, no scholarly conventions on marketing pages.
+- **Mood:** A confident, technically-credible team that's done the work and isn't shouting about it. Closer to Argos or early Stripe than to Notion.
+- **Reference points:** joinargos.com (clean centered hero, two-column feature blocks, black/white/photo restraint), numeral.com (one strong accent + product screenshots + clear feature sections), linear.app (whitespace + opinionated typographic minimalism).
+- **Anti-references:** Duck Creek's cosmic orb hero, Earnix's "Compete. Differentiate. Grow." stat blocks, any site with abstract animated illustrations or purple gradients.
 
 ## Typography
 
-All fonts are free and self-hostable. Load via Google Fonts initially, migrate to self-hosted woff2 before launch.
+One typeface family does most of the work. Discipline through weight, size, italic, and tracking — not through serif/sans pairing.
 
-- **Display / Hero:** **Source Serif 4** — weights 600/700, optical size 32–60. Rationale: institutional weight without coldness, designed for paragraph-scale display use.
-- **Body:** **Source Serif 4** — weight 400/500, optical size 8–18. line-height 1.65. Prose at 65ch max. Drop caps on the first paragraph of long-form articles. Rationale: serif body is the deliberate departure from category. Says "this is something to read," not "this is something to scroll."
-- **UI / Sans:** **Inter Tight** — weights 400/500/600/700. For navigation, labels, captions, data, buttons. Tabular-nums on. Rationale: restrained sans, less overused than Inter, reads as "engineered" not "trendy."
-- **Data / Tables:** **Inter Tight** with `font-feature-settings: "tnum"` for body-density data. **JetBrains Mono** for equations, code, technical examples (loss-ratio formulas, GLM snippets, schedule-rating math).
-- **Code / Mono:** **JetBrains Mono** — weights 400/500.
+- **Display + Body + UI:** **Inter Tight** — weights 400/500/600/700, italic supported. Tabular-nums on for data. Rationale: argos and numeral both run sans-only; the simplicity of one family is the move. Inter Tight is restrained, less overused than Inter, less identifiable as "the AI startup font."
+- **Code / Data / Equations:** **JetBrains Mono** — weights 400/500. Used sparingly for actual code samples, equations, and class-code data tables. Not for body text.
+- **Optional pull quote serif:** **Source Serif 4** — available for occasional editorial moments on long-form content (pull quotes, working-paper-style article hero on `/insights/*` pages). NOT used on marketing pages. Loaded only on routes that explicitly opt in.
 - **Loading:**
   ```html
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   ```
 
 ### Type Scale
 
-| Level | Size | Line height | Tracking | Use |
-|-------|------|-------------|----------|-----|
-| display-xl | 64px | 1.05 | -0.02em | rare, big-statement pages |
-| display | 52px / 3.25rem | 1.08 | -0.018em | hero headlines |
-| h2 | 36px / 2.25rem | 1.15 | -0.01em | article section titles |
-| h3 | 26px / 1.625rem | 1.2 | -0.005em | sub-section titles |
-| deck | 22px / 1.375rem | 1.5 | 0 | hero subdeck (italic) |
-| body | 18px / 1.125rem | 1.65 | 0 | prose |
-| body-sm | 16px / 1rem | 1.55 | 0 | secondary prose, captions |
-| ui | 14px / 0.875rem | 1.55 | 0.02em | buttons, navigation, labels |
-| micro | 11px / 0.6875rem | 1.4 | 0.16em | section markers, eyebrow tags (uppercase) |
+| Level | Size | Line height | Tracking | Weight | Use |
+|-------|------|-------------|----------|--------|-----|
+| display | 56px / 3.5rem | 1.05 | -0.022em | 600 | hero headlines (centered) |
+| h2 | 36px / 2.25rem | 1.15 | -0.012em | 600 | section titles |
+| h3 | 22px / 1.375rem | 1.3 | -0.005em | 600 | sub-section titles, feature headings |
+| deck | 20px / 1.25rem | 1.5 | 0 | 400 | hero subdeck (regular weight, color: smoke) |
+| body | 17px / 1.0625rem | 1.6 | 0 | 400 | prose |
+| body-sm | 15px / 0.9375rem | 1.55 | 0 | 400 | secondary prose |
+| ui | 14px / 0.875rem | 1.5 | 0 | 500 | navigation, buttons |
+| micro | 12px / 0.75rem | 1.4 | 0.04em | 500 | captions, footnote markers |
+| eyebrow | 12px / 0.75rem | 1.4 | 0.12em (uppercase) | 600 | section eyebrow tags (sparingly) |
 
 ## Color
 
-Restrained. One accent (oxblood). Neutrals do most of the work.
+One accent. Neutrals do most of the work.
 
 | Token | Hex | Use |
 |-------|-----|-----|
-| `--ink` | `#0E0E0C` | text, headers, primary surface in dark mode |
+| `--ink` | `#0E0E0C` | text, headers |
 | `--bone` | `#FAF7F0` | background — paper feel, not pure white |
 | `--stone` | `#E8E3D7` | panel surfaces, callout backgrounds |
-| `--smoke` | `#6B6760` | muted text, captions, marginalia |
+| `--smoke` | `#6B6760` | muted text, captions, secondary metadata |
 | `--char` | `#2A2823` | dark-mode background |
-| `--oxblood` | `#7D2B2B` | **accent** — links, emphasis, footnote refs, active states. Used rarely. |
-| `--rule` | `rgba(14,14,12,0.12)` | hairline borders between sections |
+| `--oxblood` | `#7D2B2B` | **accent** — links, CTAs, emphasis. Used sparingly. |
+| `--rule` | `rgba(14,14,12,0.10)` | hairline borders (rare; use whitespace first) |
 
 ### Semantic
 
@@ -69,7 +69,7 @@ Restrained. One accent (oxblood). Neutrals do most of the work.
 |-------|-----|-----|
 | `--forest` | `#2D5A3D` | success states, positive deltas |
 | `--mustard` | `#8B6914` | warnings, caution |
-| `--oxblood` | `#7D2B2B` | errors (reuses accent — error and emphasis share visual treatment) |
+| `--oxblood` | `#7D2B2B` | errors (reuses accent) |
 | `--slate` | `#2C5469` | informational |
 
 ### Dark Mode
@@ -78,96 +78,97 @@ Restrained. One accent (oxblood). Neutrals do most of the work.
 - Surface: `#1A1815`
 - Foreground: `--bone`
 - Muted: `#9A958B`
-- Rule: `rgba(250,247,240,0.14)`
-- Saturation reduced ~10% on accent: oxblood remains `#7D2B2B` since it already reads warm.
+- Rule: `rgba(250,247,240,0.12)`
 
 ## Spacing
 
 - **Base unit:** 8px.
-- **Density:** Comfortable. Vertical rhythm via 1.5x type scale. Generous paragraph and section spacing.
+- **Density:** Generous. Whitespace is the design tool.
 
 | Token | px | Use |
 |-------|----|-----|
-| `space-2xs` | 2 | hairline adjustments |
+| `space-2xs` | 2 | inline adjustments |
 | `space-xs` | 4 | inline gaps |
-| `space-sm` | 8 | tight stack |
-| `space-md` | 16 | standard stack |
+| `space-sm` | 8 | tight stacks |
+| `space-md` | 16 | standard stacks |
 | `space-lg` | 24 | section internal spacing |
-| `space-xl` | 32 | section breaks, button padding |
-| `space-2xl` | 48 | between major sections |
-| `space-3xl` | 64 | hero padding |
-| `space-4xl` | 96 | landmark separation |
+| `space-xl` | 32 | between subsections |
+| `space-2xl` | 48 | between major sections (smaller spacing for short pages) |
+| `space-3xl` | 80 | between major sections (default) |
+| `space-4xl` | 128 | landmark separation, hero padding |
 
 ## Layout
 
-- **Approach:** Hybrid. Editorial (asymmetric, marginalia gutter) for marketing pages and long-form content. Grid-disciplined for product / dashboard sections.
-- **Grid:** 12-column at `≥1024px`, 8-column at `≥768px`, single-column below.
-- **Max content width:** 680px for prose, 1100px for the editorial container, 1200px for product/tooling.
-- **Marginalia gutter:** Right-side gutter (200px) on long-form articles for footnote refs, citation links, and related-page navigation. Sticky-positioned to follow scroll.
+- **Approach:** Center-aligned by default. Editorial asymmetry only on long-form content pages (e.g. `/insights/*`).
+- **Container:** `max-width: 1100px`, padded 32px / 48px depending on viewport. Marketing sections use `max-width: 720px` for prose blocks.
+- **Hero:** Centered, vertically generous (128px top, 96px bottom). Headline + deck + primary CTA. Optional secondary link below.
+- **Feature sections:** Two-column or single-column. Image / product screenshot on one side, headline + body on the other. Argos-style. No icons in colored circles.
+- **Customer logo strip:** Single horizontal band, centered, restrained typographic logos (or grayscale image marks once provided). Caption above ("Trusted by") in `eyebrow` style.
 - **Border radius:** Hierarchical, used minimally:
-  - `radius-none` (0): default
-  - `radius-sm` (2px): inputs, small tags
-  - `radius-md` (4px): callouts, panels (rare)
-  - `radius-full` (9999px): never used. The system is rectangular.
-- **Navigation:** No sticky nav with shadow. Hairline border instead. Logo left, nav items right, all in Inter Tight 14px.
+  - `radius-none` (0): default for buttons, panels
+  - `radius-sm` (3px): inputs
+  - `radius-md` (6px): images, screenshots
+  - `radius-full` (9999px): never on the marketing surface; reserved for product UI components only
+- **Navigation:** No sticky shadow. Hairline border only when scrolled. Logo left, nav center, CTA right.
 
 ## Motion
 
-- **Approach:** Minimal-functional. Animation is for comprehension, not decoration.
-- **Easing:** `enter: cubic-bezier(0.16, 1, 0.3, 1)` (ease-out), `exit: cubic-bezier(0.4, 0, 1, 1)` (ease-in), `move: cubic-bezier(0.4, 0, 0.2, 1)` (ease-in-out).
+- **Approach:** Minimal-functional. Animation aids comprehension, never decoration.
+- **Easing:** `enter: cubic-bezier(0.16, 1, 0.3, 1)`, `exit: cubic-bezier(0.4, 0, 1, 1)`, `move: cubic-bezier(0.4, 0, 0.2, 1)`.
 - **Duration:** `micro` 80ms, `short` 200ms, `medium` 320ms, `long` 500ms.
-- **Allowed:** Subtle fade-in on scroll-into-view for long-form sections (max 200ms, no transform). Hover state on links (instant border-bottom). Page transitions are instant.
+- **Allowed:** Subtle fade-in on scroll-into-view for feature sections (max 200ms, no transform). Hover state on links. Page transitions are instant.
 - **Forbidden:** Hover wobbles, parallax, decorative scroll-driven animation, hero animations, abstract motion.
 
 ## Components
 
 ### Buttons
 
-- **Primary:** ink background, bone text, 1px ink border, no radius, 10px × 20px padding, Inter Tight 13px 600 uppercase 0.06em tracking.
+- **Primary:** ink background, bone text, no border, 4px radius optional, 12px × 24px padding, Inter Tight 14px 500. Hover: oxblood background.
 - **Secondary:** transparent background, ink text, 1px ink border, otherwise identical.
-- **Ghost:** transparent, oxblood text, no border, 1px oxblood border-bottom only, 10px × 0 padding.
+- **Ghost / link CTA:** transparent, oxblood text, no border, no padding, underline on hover only.
 
 ### Links
 
-- Body links: oxblood text, 1px oxblood border-bottom at 40% opacity. On hover, border-bottom goes to full opacity. No underline-skip-ink hacks.
+- Body links: oxblood text, no underline, hover gets a 1px border-bottom in oxblood.
+- Footer links: smoke text, hover ink. No underline.
 
-### Footnote markers
+### Customer logo strip
 
-- Superscripted oxblood numbers in Inter Tight 11px 600. Click target jumps to the marginalia entry.
+- Centered, single row at desktop, stacks at mobile. 16px gap between marks. Small `eyebrow`-style caption above ("Trusted by"). Logos are grayscale or single-tone; never full-color brand images.
+
+### Feature section (two-column)
+
+- Image / screenshot: 6 cols, rounded 6px corners, no shadow. Subtle `--rule` border at 60% opacity.
+- Text column: 5 cols, 1-col gap. Eyebrow tag (optional), h2 headline, body paragraph, optional link CTA.
+- Vertical alignment: top-aligned at desktop, stacks at mobile.
+
+### Pull quote (long-form only)
+
+- Optional Source Serif 4 italic at 28px, max-width 600px, indented 32px, color: ink. Used sparingly on `/insights/*` pages.
 
 ### Data tables
 
-- Hairline top + bottom borders. No outer side borders. Header row in Inter Tight 11px 600 uppercase 0.1em tracking, smoke color. Data rows in Inter Tight 14px tabular-nums. Hairline between rows.
-
-### Callouts
-
-- Stone background (`#E8E3D7`), 2px oxblood left border, 24px × 28px padding. Inter Tight or JetBrains Mono content. Used sparingly — once or twice per long-form article max.
-
-### Section markers
-
-- Eyebrow tag in Inter Tight 11px 600 uppercase 0.18em tracking, smoke color. Format: `§ {Section name}` or `§ 1 · Insights`.
+- Hairline top + bottom borders only. No outer side borders. Header row: Inter Tight 12px 600 uppercase 0.04em tracking, smoke. Data: Inter Tight 14px tabular-nums.
 
 ## Decisions Log
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2026-04-28 | Initial design system created | /design-consultation D1-D4. Research on 8 category competitors confirmed convergence; differentiation play is editorial typography over corporate-AI-SaaS. Approved by user. |
-| 2026-04-28 | Source Serif 4 chosen as both display AND body | Adobe-licensed but free, optical-sizing built-in, designed for paragraph display. Rejected: Söhne (paid), Crimson Pro (less weight options), Spectral (slightly weaker hierarchy). |
-| 2026-04-28 | Inter Tight chosen for sans, NOT Inter | Inter is on the gstack overused list. Inter Tight is restrained, less identifiable as "the AI startup font," and pairs well with serif body. |
-| 2026-04-28 | Oxblood accent #7D2B2B, not corporate blue | Differentiation. Reads academic/Eastern, not insurance-corporate. Distinguishes Tesora in screenshots and search-result thumbnails. |
-| 2026-04-28 | Footnotes / marginalia gutter as design language | GEO bonus: scholarly conventions signal authority that LLMs reward when ranking authoritative sources. SEO bonus: real footnotes link to real cited sources. |
-| 2026-04-28 | No hero illustration, no abstract orb, no centered hero | Three of the four competitor sites use one of these. Tesora avoids all three on purpose. |
+| 2026-04-28 | Initial design system created (working-paper editorial) | /design-consultation D1-D4. Research on 8 category competitors confirmed convergence; differentiation play was editorial typography. |
+| 2026-04-28 | Pivot to minimal-modern simplicity (joinargos.com / numeral.com reference) | User reviewed initial direction and asked for argos/numeral simplicity. Brand stance unchanged ("team that understands specialty P&C deepest") but route changes from academic-gravitas to restrained-competence. Inter Tight now primary; Source Serif 4 demoted to optional long-form pull-quote use. Marginalia gutter, drop caps, § section markers removed. |
+| 2026-04-28 | Inter Tight kept over Inter | Inter is on the gstack overused list. Inter Tight is restrained, less identifiable as "the AI startup font," and works as a single-family system at multiple weights. |
+| 2026-04-28 | Oxblood accent retained (#7D2B2B) | Numeral has bold orange; argos has effectively no accent. Tesora keeps oxblood as the single restrained accent — distinguishes from corporate-blue category default and reads serious without shouting. |
 
 ## Anti-Patterns (do not ship)
 
 - Purple or violet gradients of any kind.
 - 3-column "feature grid" with icons in colored circles.
-- Centered hero with rounded button below.
 - Abstract orb / cosmic / particle hero illustration.
-- Stock photography of business people in conference rooms.
+- Stock photography of generic business people in conference rooms (real team photos OK on About).
 - "Built for X" / "Designed for Y" / "Intelligent platform" copy patterns.
-- Bubble-radius (full pill) on every element.
-- Inter or system-ui as the primary body font.
+- Bubble-radius (full pill) on marketing surfaces. (Product UI exception only.)
+- Two typefaces fighting for attention. Inter Tight does most of the work.
 - Animation longer than 320ms.
 - Em dashes (use periods, parentheses, or commas instead).
 - "AI" used as marketing buzz. The product *is* AI; we don't need to say it in every headline.
+- Hairline rules between every section. Whitespace first; rule only when whitespace is ambiguous.
