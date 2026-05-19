@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
@@ -27,7 +30,7 @@ jobs:
         env:
           PUBLIC_BASE: /tesora-www-preview
           PUBLIC_SITE: https://vraop.github.io
-        run: bun run build
+        run: bunx astro build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
