@@ -1,0 +1,81 @@
+---
+export interface Props {
+  videoSrc?: string;
+  posterSrc?: string;
+  eyebrow?: string;
+  headline: string;
+  deck: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+}
+
+const {
+  videoSrc = "/video/hero-loop.mp4",
+  posterSrc = "/video/hero-poster.jpg",
+  eyebrow,
+  headline,
+  deck,
+  primaryCta = { label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" },
+  secondaryCta,
+} = Astro.props;
+---
+
+<section class="relative isolate w-full overflow-hidden bg-[var(--color-ink)]" style="min-height: 88vh;">
+  <video
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster={posterSrc}
+    aria-hidden="true"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
+
+  <div class="absolute inset-0 -z-10 bg-[var(--color-ink)]/55"></div>
+
+  <div class="relative mx-auto max-w-[1180px] px-6 md:px-10 flex flex-col items-center justify-center text-center" style="min-height: 88vh; padding-top: 12rem; padding-bottom: 8rem;">
+    {eyebrow && <p class="eyebrow mb-6 text-[var(--color-bone)]/80">{eyebrow}</p>}
+
+    <h1 class="font-semibold text-[3.5rem] md:text-[4.25rem] leading-[1.02] tracking-[-0.025em] text-[var(--color-bone)] max-w-[920px]">
+      {headline}
+    </h1>
+
+    <p class="mt-7 text-[1.25rem] leading-[1.45] text-[var(--color-bone)]/85 max-w-[680px]">
+      {deck}
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-5 justify-center items-center">
+      <a
+        href={primaryCta.href}
+        class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-tight bg-[var(--color-bone)] text-[var(--color-ink)] hover:bg-[var(--color-oxblood)] hover:text-[var(--color-bone)] transition-colors"
+      >
+        {primaryCta.label}
+      </a>
+      {secondaryCta && (
+        <a
+          href={secondaryCta.href}
+          class="inline-flex items-center text-sm font-medium tracking-tight text-[var(--color-bone)]/90 hover:text-[var(--color-bone)] transition-colors"
+        >
+          {secondaryCta.label} →
+        </a>
+      )}
+    </div>
+
+    <div class="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-5 px-6">
+      <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--color-bone)]/55">Backed by</p>
+      <img src="/logos/foundation-capital.svg" alt="Foundation Capital" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
+      <span class="text-[var(--color-bone)]/35 text-xs">·</span>
+      <img src="/logos/y-combinator.svg" alt="Y Combinator S25" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
+    </div>
+  </div>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      section video {
+        display: none;
+      }
+    }
+  </style>
+</section>

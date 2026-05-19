@@ -1,0 +1,76 @@
+---
+export interface Tab {
+  id: string;
+  label: string;
+}
+
+export interface Props {
+  tabs: Tab[];
+  initial?: string;
+}
+
+const { tabs, initial } = Astro.props;
+const initialId = initial ?? tabs[0]?.id;
+---
+
+<div class="tesora-tabs" data-initial={initialId}>
+  <div class="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-[var(--rule)]">
+    {tabs.map((t) => (
+      <button
+        type="button"
+        data-tab={t.id}
+        class={`tesora-tab-trigger relative pb-3 text-sm font-medium tracking-tight transition-colors ${
+          t.id === initialId
+            ? "text-[var(--fg)]"
+            : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
+        }`}
+      >
+        {t.label}
+        <span
+          class={`absolute -bottom-px left-0 right-0 h-[2px] ${
+            t.id === initialId ? "bg-[var(--color-oxblood)]" : "bg-transparent"
+          }`}
+          aria-hidden="true"
+        ></span>
+      </button>
+    ))}
+  </div>
+
+  <div class="mt-10">
+    <slot />
+  </div>
+</div>
+
+<script>
+  const containers = document.querySelectorAll<HTMLElement>(".tesora-tabs");
+  containers.forEach((container) => {
+    const triggers = container.querySelectorAll<HTMLButtonElement>(".tesora-tab-trigger");
+    const panels = container.querySelectorAll<HTMLElement>(".tesora-tab-panel");
+    const initial = container.dataset.initial;
+
+    const show = (id: string) => {
+      triggers.forEach((t) => {
+        const active = t.dataset.tab === id;
+        t.classList.toggle("text-[var(--fg)]", active);
+        t.classList.toggle("text-[var(--fg-muted)]", !active);
+        const underline = t.querySelector("span");
+        if (underline) {
+          underline.classList.toggle("bg-[var(--color-oxblood)]", active);
+          underline.classList.toggle("bg-transparent", !active);
+        }
+      });
+      panels.forEach((p) => {
+        p.hidden = p.dataset.tab !== id;
+      });
+    };
+
+    triggers.forEach((t) => {
+      t.addEventListener("click", () => {
+        const id = t.dataset.tab;
+        if (id) show(id);
+      });
+    });
+
+    if (initial) show(initial);
+  });
+</script>

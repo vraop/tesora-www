@@ -15,6 +15,20 @@ export interface Props {
 }
 
 const props = Astro.props;
+
+/**
+ * Analytics + advertising. Set in .env (or hosting env):
+ *   PUBLIC_GA_ID=G-XXXXXXX        // GA4 measurement id
+ *   PUBLIC_ADS_ID=AW-XXXXXXX      // Google Ads conversion id
+ *   PUBLIC_GTM_ID=GTM-XXXXXXX     // optional: Google Tag Manager
+ *
+ * Missing vars are no-ops. Production-only rendering is enforced below.
+ */
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const ADS_ID = import.meta.env.PUBLIC_ADS_ID;
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+const IS_PROD = import.meta.env.PROD;
+const enableAnalytics = IS_PROD && (GA_ID || ADS_ID || GTM_ID);
 ---
 
 <!doctype html>
@@ -27,7 +41,7 @@ const props = Astro.props;
     <link rel="alternate" type="application/rss+xml" title="Tesora AI" href="/rss.xml" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
-    {/* llms.txt discovery hint — not a standard yet, but search starting to index it */}
+    {/* llms.txt discovery hint, not a standard yet but search starting to index it */}
     <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
 
     {/* Fonts: Inter Tight (everything), JetBrains Mono (code/data only).
@@ -40,8 +54,28 @@ const props = Astro.props;
     />
 
     <SEO {...props} />
+
+    {enableAnalytics && GTM_ID && (
+      <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`} />
+    )}
+
+    {enableAnalytics && (GA_ID || ADS_ID) && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID ?? ADS_ID}`}></script>
+        <script is:inline set:html={`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          ${GA_ID ? `gtag('config', '${GA_ID}', { anonymize_ip: true });` : ""}
+          ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
+        `} />
+      </>
+    )}
   </head>
   <body class="min-h-screen antialiased">
+    {enableAnalytics && GTM_ID && (
+      <noscript set:html={`<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`} />
+    )}
     <slot />
   </body>
 </html>

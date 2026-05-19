@@ -1,8 +1,12 @@
 # Design System — Tesora AI
 
-Minimal modern. Sans-only typography, center-aligned hero, generous whitespace, one accent color. The simplicity is the message: *the team that understands specialty P&C deepest doesn't need to overstate it.*
+Frontier-lab restraint with one cinematic moment. Sans-only typography, generous whitespace, one accent color. The home hero is full-bleed dark video. Everything below the hero stays bone-and-ink working-paper restraint. The simplicity is the message: *frontier AI for actuaries — built by a team that has actually priced these lines.*
 
-Reference points (in order): joinargos.com, numeral.com, linear.app. Anti-references: Duck Creek's cosmic orb, Earnix's centered-CTA template, every "intelligent platform" landing page.
+Reference points (in order): vulcan.ai (headline framing, agent definitions, restraint), legora.com (cinematic hero, tabbed product, "precedent highlights" news strip), joinargos.com (section structure, security page, two-column features). Anti-references: Duck Creek's cosmic orb, Earnix's centered-CTA template, every "intelligent platform" landing page.
+
+## Headline framing
+
+The category line is **"Frontier AI for actuaries."** Borrowed pattern from vulcan.ai (Frontier AI for law and government). Used verbatim on the homepage hero. Sub-pages may extend it (e.g. "Frontier AI for specialty P&C pricing") but the noun phrase is fixed.
 
 This file is the source of truth for every visual decision on `tesora-www` and any other Tesora marketing or content surface. Do not deviate without explicit user approval.
 
@@ -13,12 +17,25 @@ This file is the source of truth for every visual decision on `tesora-www` and a
 - **Project type:** Marketing + content site with hundreds of programmatic sub-pages targeting long-tail SEO and LLM lookup ("best actuarial tools," "specialty P&C pricing for X," etc.).
 - **Brand stance (from /design-consultation D2):** *The team that understands specialty P&C the deepest.* Founder credibility, technical depth, opinion-forward, restrained.
 
+## Information Architecture
+
+Top nav (mirrors Legora's pattern, Vulcan-vocabulary):
+
+- **Agents** — product catalog (Migrate, Manage, Refit, Triage). Vulcan-style agent definitions.
+- **Customers** — admitted, non-admitted, students (tabbed sub-page).
+- **Security** — SOC 2 Type II, SOX, ASOP 56/41/12, NAIC Model Bulletin 2023-25.
+- **Research** — Federico's GNN/relational-AI work, Philo's actuarial articles, substack tracker.
+- **Company** — News, Careers, About.
+- **CTA right side:** "Talk to Tesora."
+
+Footer carries: Foundation Capital + Y Combinator marks, llms.txt link, contact.
+
 ## Aesthetic Direction
 
-- **Direction:** Minimal modern. Restrained. Whitespace-driven.
-- **Decoration level:** Minimal. Type, color, and spacing do the work. No hairline rules every section, no decorative texture, no drop caps, no scholarly conventions on marketing pages.
-- **Mood:** A confident, technically-credible team that's done the work and isn't shouting about it. Closer to Argos or early Stripe than to Notion.
-- **Reference points:** joinargos.com (clean centered hero, two-column feature blocks, black/white/photo restraint), numeral.com (one strong accent + product screenshots + clear feature sections), linear.app (whitespace + opinionated typographic minimalism).
+- **Direction:** Frontier-lab restraint with one cinematic moment (hero only). Below the hero, whitespace-driven editorial body.
+- **Decoration level:** Minimal everywhere except the hero. Type, color, and spacing do the work. No hairline rules every section, no decorative texture on body pages.
+- **Mood:** A confident, technically-credible team that's done the work and isn't shouting about it. Frontier-lab confidence in vocabulary (agents, control plane, review gates), Argos editorial restraint in body.
+- **Reference points:** vulcan.ai (austere agent catalog, "Frontier AI for [X]" headline), legora.com (cinematic full-bleed hero, tabbed product section, precedent-highlights news strip), joinargos.com (security page, section spacing, two-column features).
 - **Anti-references:** Duck Creek's cosmic orb hero, Earnix's "Compete. Differentiate. Grow." stat blocks, any site with abstract animated illustrations or purple gradients.
 
 ## Typography
@@ -101,7 +118,8 @@ One accent. Neutrals do most of the work.
 
 - **Approach:** Center-aligned by default. Editorial asymmetry only on long-form content pages (e.g. `/insights/*`).
 - **Container:** `max-width: 1100px`, padded 32px / 48px depending on viewport. Marketing sections use `max-width: 720px` for prose blocks.
-- **Hero:** Centered, vertically generous (128px top, 96px bottom). Headline + deck + primary CTA. Optional secondary link below.
+- **Hero (homepage only):** Full-bleed cinematic. Dark Veo 3.1 background video (paper texture, light through blinds, an actuarial figure at a desk, slow camera on numbers). Min-height 88vh. Headline "Frontier AI for actuaries." centered, bone color (`--bone`) over a 40% ink scrim. Deck below in `--bone` at 80% opacity. Single CTA: "Talk to Tesora." Optional secondary ghost link in oxblood. Video is muted, autoplays, loops, `playsinline`. Reduced-motion fallback: static frame.
+- **Hero (sub-pages):** Editorial. Bone background, ink text, centered, generous (128px top, 96px bottom). No video below the homepage.
 - **Feature sections:** Two-column or single-column. Image / product screenshot on one side, headline + body on the other. Argos-style. No icons in colored circles.
 - **Customer logo strip:** Single horizontal band, centered, restrained typographic logos (or grayscale image marks once provided). Caption above ("Trusted by") in `eyebrow` style.
 - **Border radius:** Hierarchical, used minimally:
@@ -132,9 +150,30 @@ One accent. Neutrals do most of the work.
 - Body links: oxblood text, no underline, hover gets a 1px border-bottom in oxblood.
 - Footer links: smoke text, hover ink. No underline.
 
-### Customer logo strip
+### Backgrounds strip (replaces customer logo strip)
 
-- Centered, single row at desktop, stacks at mobile. 16px gap between marks. Small `eyebrow`-style caption above ("Trusted by"). Logos are grayscale or single-tone; never full-color brand images.
+The team's institutional backgrounds — not customers — carry credibility at this stage. Strip of grayscale wordmarks: GenRe, Berkley Specialty Excess, Hereford, McKinsey, Sycamore, Kumo Labs, Google. Eyebrow caption above: `The team comes from`. Single horizontal row, gentle continuous scroll at desktop (40s loop, pauses on hover), 16px gap. Mobile: static two-row stack. Logos are grayscale wordmarks only — never full-color brand images. Reduced-motion: static strip, no scroll.
+
+### Investor strip (footer)
+
+Foundation Capital + Y Combinator. Two grayscale marks. No caption.
+
+### Agent definition (Vulcan-style)
+
+Each agent gets a short paragraph in a flat panel:
+
+```
+[AGENT NAME · eyebrow]
+[One-line definition. Imperative, factual.]
+[2-3 sentence body explaining what it does on real data.]
+[Optional: linked artifact (filing, screenshot, regression test).]
+```
+
+No icons in colored circles. No 3-column "feature grid." Agents are listed as text blocks, separated by `--rule` hairlines or generous whitespace. The shared substrate ("Agents run on a control plane with review gates and an actuarial audit trail.") sits below the catalog as a single panel in `--stone`.
+
+### News ticker (Reuters-style)
+
+Single-column timeline. Each item: date (eyebrow, monospace), 1-line headline (h3 weight), 1-2 sentence body. No images. Hairline rule between items. Used on `/news`. Most recent at top.
 
 ### Feature section (two-column)
 
@@ -158,6 +197,7 @@ One accent. Neutrals do most of the work.
 | 2026-04-28 | Pivot to minimal-modern simplicity (joinargos.com / numeral.com reference) | User reviewed initial direction and asked for argos/numeral simplicity. Brand stance unchanged ("team that understands specialty P&C deepest") but route changes from academic-gravitas to restrained-competence. Inter Tight now primary; Source Serif 4 demoted to optional long-form pull-quote use. Marginalia gutter, drop caps, § section markers removed. |
 | 2026-04-28 | Inter Tight kept over Inter | Inter is on the gstack overused list. Inter Tight is restrained, less identifiable as "the AI startup font," and works as a single-family system at multiple weights. |
 | 2026-04-28 | Oxblood accent retained (#7D2B2B) | Numeral has bold orange; argos has effectively no accent. Tesora keeps oxblood as the single restrained accent — distinguishes from corporate-blue category default and reads serious without shouting. |
+| 2026-05-19 | Pivot to frontier-lab framing + cinematic hero (Vulcan + Legora) | Vivek directive. Vulcan.ai's "Frontier AI for [X]" pattern is the headline framework. Legora-style full-bleed dark video hero on `/` only. Body pages stay editorial-restraint. Customer logo strip replaced with backgrounds strip (where the team is from), since real customer logos do not yet exist and fake ones burn credibility with chief actuaries. New IA: Agents, Customers (tabs: admitted / non-admitted / students), Security, Research, News, Careers, About. |
 
 ## Anti-Patterns (do not ship)
 

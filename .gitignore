@@ -23,3 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .gstack/
+
+# claude local
+.claude/
+
+# env (env*.txt shadows from TextEdit)
+.env*

@@ -1,108 +1,142 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import CinematicHero from "../components/CinematicHero.astro";
+import BackgroundsStrip from "../components/BackgroundsStrip.astro";
+import AgentDef from "../components/AgentDef.astro";
+import NewsItem from "../components/NewsItem.astro";
 
-const customers = ["Liberty Re", "Berkshire Specialty", "Sompo", "Argo Group", "RLI", "Markel"];
-
-const features = [
+const agents = [
   {
-    eyebrow: "Exposure base",
-    headline: "Pricing is downstream of intake.",
-    body:
-      "Reclassification at audit, inconsistent subcontractor labor, gross-versus-net payroll: the captured exposure unit is wrong before the GLM sees it. Tesora reconciles intake to audit-true exposure across the whole book.",
+    name: "Migrate",
+    oneLiner: "Pull any rater in.",
+    body: "Internal models, competitor SERFF filings, ISO/bureau loops, legacy spreadsheets. Tesora reconstructs the rater with source tracing back to the originating filing.",
   },
   {
-    eyebrow: "Schedule rating",
-    headline: "Credits and debits without the vibes.",
-    body:
-      "Schedule rating is where pricing discipline goes to die. Tesora applies a transparent credit framework grounded in the carrier's own loss data, with every adjustment auditable back to a documented basis.",
+    name: "Manage",
+    oneLiner: "Stand up, edit, test, deploy. Every change governed.",
+    body: "Audit-trailed, SOX-aligned, SOC 2 Type II. Filings stay current with state, exposure, and trend. Reviewers sign off in the same surface they read the change in.",
   },
   {
-    eyebrow: "GLM transparency",
-    headline: "Every coefficient explainable to a regulator.",
-    body:
-      "GLM coefficients, credibility weights, and selection logic are surfaced inline. Nothing is hidden behind a black-box scoring API. Built to pass an actuarial standard of practice review.",
+    name: "Refit",
+    oneLiner: "Ask the questions actuaries actually want answered.",
+    body: "Is this rater keeping up with trend? Are factors stale? Which classes are bleeding margin and which are carrying the book? The refit agent surfaces the answer with the data behind it.",
+  },
+];
+
+const news = [
+  {
+    date: "2026 · MAY",
+    headline: "Philo Bishay joins Tesora as Head of Actuarial.",
+    body: "Philo, a former chief actuary with fifteen years inside the rating function, joins to lead actuarial product and customer engagement.",
+  },
+  {
+    date: "2025 · OCT",
+    headline: "Top startup finalist at DPW Amsterdam 2025.",
+    body: "DPW Amsterdam selected Tesora as a top startup finalist in its 2025 procurement-and-insurance innovation showcase.",
+  },
+  {
+    date: "2025 · SEP",
+    headline: "Tesora completes Y Combinator S25.",
+    body: "Tesora completed the Y Combinator Summer 2025 cohort focused on AI-native applications for regulated industries.",
   },
 ];
 ---
 
 <Layout
-  title="Tesora AI — actuarial pricing for specialty property and casualty"
-  description="AI-native actuarial pricing for specialty P&C. Built for chief actuaries, carrier executives, MGAs, and reinsurance brokers who price hard-to-rate lines."
+  title="Tesora · Frontier AI for actuaries"
+  description="Frontier AI for actuaries. Tesora is the AI-native pricing substrate for specialty P&C carriers and MGAs. Migrate, Manage, and Refit any rater with a control plane built for chief actuaries."
   canonical="/"
   schemaType="WebPage"
 >
-  {/* Top nav */}
-  <header class="sticky top-0 z-10 backdrop-blur-sm bg-[var(--bg)]/85 border-b border-transparent">
-    <div class="mx-auto max-w-[1100px] px-8 py-5 flex justify-between items-center text-sm">
-      <a href="/" class="font-semibold text-base tracking-tight">Tesora AI</a>
-      <nav class="hidden sm:flex gap-8 text-[var(--fg)]">
-        <a href="#" class="hover:text-[var(--color-oxblood)]">Product</a>
-        <a href="#" class="hover:text-[var(--color-oxblood)]">Lines</a>
-        <a href="#" class="hover:text-[var(--color-oxblood)]">Insights</a>
-        <a href="#" class="hover:text-[var(--color-oxblood)]">About</a>
-      </nav>
-      <a href="#contact" class="btn">Talk to us</a>
-    </div>
-  </header>
+  <Header variant="transparent" />
 
-  {/* Hero */}
-  <section class="mx-auto max-w-[1100px] px-8 pt-32 pb-24 text-center">
-    <p class="eyebrow mb-6">Specialty P&amp;C</p>
-    <h1 class="font-semibold text-[3.5rem] leading-[1.05] tracking-[-0.022em] max-w-[860px] mx-auto">
-      Actuarial pricing for the lines that don't fit a textbook.
-    </h1>
-    <p class="text-[1.25rem] leading-[1.5] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
-      Tesora is AI-native pricing for specialty property and casualty. Built by people who priced contractor's GL, excess casualty, and professional lines before they built software for it.
-    </p>
-    <div class="mt-10 flex gap-4 justify-center items-center">
-      <a href="#contact" class="btn">Talk to Tesora</a>
-      <a href="#how" class="btn-ghost">See how it works →</a>
-    </div>
-  </section>
+  <CinematicHero
+    headline="Frontier AI for actuaries."
+    deck="Tesora is the AI-native pricing substrate for specialty property and casualty. Migrate any rater. Manage every change. Refit on real loss data."
+    primaryCta={{ label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" }}
+    secondaryCta={{ label: "See the agents", href: "/agents" }}
+  />
 
-  {/* Customer strip */}
-  <section class="mx-auto max-w-[1100px] px-8 py-12 border-t border-b border-[var(--rule)]">
-    <p class="eyebrow text-center mb-6">Trusted by specialty carriers and brokers</p>
-    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-4">
-      {customers.map((name) => (
-        <span class="text-[var(--fg-muted)] font-medium tracking-tight text-base">{name}</span>
-      ))}
-    </div>
-  </section>
+  <BackgroundsStrip />
 
-  {/* Thesis section */}
-  <section id="how" class="mx-auto max-w-[1100px] px-8 py-32 text-center">
-    <p class="eyebrow mb-6">The thesis</p>
-    <h2 class="font-semibold text-[2.25rem] leading-[1.15] tracking-[-0.012em] max-w-[760px] mx-auto">
-      Specialty P&amp;C isn't mispriced because the market won't bear the rate. It's mispriced because the data was wrong on day one.
-    </h2>
-    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-6 max-w-[680px] mx-auto">
-      Three to five points of loss-ratio leakage in contractor's GL, excess casualty, and professional lines isn't social inflation or nuclear verdicts. It's exposure bases captured wrong on day one, schedule-rating credits that run on vibes, and GLMs trained on data the rater never saw clean. Tesora fixes the data and the model together.
-    </p>
-  </section>
-
-  {/* Features (three two-column blocks) */}
-  <section class="mx-auto max-w-[1100px] px-8 pb-32 space-y-24">
-    {features.map((f, i) => (
-      <div class={`grid md:grid-cols-12 gap-10 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
-        {/* Visual placeholder — product UI screenshot goes here once we have one */}
-        <div class="md:col-span-6 md:[direction:ltr]">
-          <div class="aspect-[5/3] rounded-md border border-[var(--rule)] bg-[var(--bg-panel)] flex items-center justify-center">
-            <span class="font-mono text-xs text-[var(--fg-muted)] tabular">[ {f.eyebrow} · screenshot ]</span>
-          </div>
+  {/* Proof row */}
+  <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center md:text-left">
+        <div>
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">~10 min</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">ISO Ohio Commercial Auto reconstructed end to end.</p>
         </div>
-        <div class="md:col-span-5 md:[direction:ltr]">
-          <p class="eyebrow mb-3">{f.eyebrow}</p>
-          <h3 class="font-semibold text-[1.5rem] leading-[1.25] tracking-[-0.005em]">{f.headline}</h3>
-          <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-4">{f.body}</p>
+        <div class="md:border-l md:border-[var(--rule)] md:pl-6">
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">$442.80</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Quote on a test policy, traceable back to the originating filing.</p>
+        </div>
+        <div class="md:border-l md:border-[var(--rule)] md:pl-6">
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">4 agents</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Migrate, Manage, Refit, Triage. One control plane.</p>
         </div>
       </div>
-    ))}
+    </div>
   </section>
 
-  {/* CTA section */}
-  <section id="contact" class="mx-auto max-w-[1100px] px-8 py-32 text-center border-t border-[var(--rule)]">
-    <h2 class="font-semibold text-[2rem] leading-[1.2] tracking-[-0.012em] max-w-[640px] mx-auto">
+  {/* Thesis */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center">
+    <p class="eyebrow mb-6">The thesis</p>
+    <h2 class="font-semibold text-[2.5rem] leading-[1.1] tracking-[-0.015em] max-w-[820px] mx-auto">
+      Insurance was a relay race. AI compresses the layers. Whoever holds the context wins.
+    </h2>
+    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
+      Pricing context lives in two places today: the underwriter's head and the actuary's spreadsheets. Neither is durable. Neither survives a model migration. Tesora is the durable substrate: filings, raters, submissions, exposures, portfolio, in a single graph with lineage from the originating SERFF document to the quoted premium.
+    </p>
+  </section>
+
+  {/* Agents preview */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <p class="eyebrow mb-3">The agents</p>
+        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
+          Three primitives. One control plane.
+        </h2>
+      </div>
+      <a href="/agents" class="link hidden md:inline-block text-sm">All agents →</a>
+    </div>
+
+    <div>
+      {agents.map((a) => (
+        <AgentDef name={a.name} oneLiner={a.oneLiner} body={a.body} />
+      ))}
+    </div>
+    <p class="mt-10 md:hidden">
+      <a href="/agents" class="link text-sm">All agents →</a>
+    </p>
+  </section>
+
+  {/* Precedent / News strip */}
+  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="eyebrow mb-3">Precedent</p>
+          <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
+            What's happened recently.
+          </h2>
+        </div>
+        <a href="/news" class="link hidden md:inline-block text-sm">Full timeline →</a>
+      </div>
+      <div>
+        {news.map((n) => (
+          <NewsItem date={n.date} headline={n.headline} body={n.body} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center">
+    <h2 class="font-semibold text-[2.25rem] leading-[1.15] tracking-[-0.012em] max-w-[680px] mx-auto">
       Talk to a team that has actually priced these lines.
     </h2>
     <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
@@ -113,7 +147,5 @@ const features = [
     </div>
   </section>
 
-  <footer class="mx-auto max-w-[1100px] px-8 py-10 border-t border-[var(--rule)] text-xs text-[var(--fg-muted)]">
-    <p>Tesora AI · AI-native actuarial pricing for specialty P&amp;C · vivek@tesora.ai</p>
-  </footer>
+  <Footer />
 </Layout>

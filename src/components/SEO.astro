@@ -19,9 +19,9 @@ export interface Props {
   /** Schema.org @type. "WebPage" for landing/about, "Article" for content,
    *  "Product" for product pages, "FAQPage" for Q&A. */
   schemaType?: "WebPage" | "Article" | "Product" | "FAQPage";
-  /** Optional ISO datetime — drives og:article:published_time + JSON-LD datePublished. */
+  /** Optional ISO datetime. Drives og:article:published_time + JSON-LD datePublished. */
   publishedAt?: string;
-  /** Optional ISO datetime — drives JSON-LD dateModified. */
+  /** Optional ISO datetime. Drives JSON-LD dateModified. */
   updatedAt?: string;
   /** Page-specific structured data, merged into the JSON-LD block. */
   schema?: Record<string, unknown>;

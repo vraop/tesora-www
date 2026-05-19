@@ -1,0 +1,27 @@
+---
+export interface Props {
+  name: string;
+  oneLiner: string;
+  body: string;
+  artifact?: { label: string; href: string };
+}
+
+const { name, oneLiner, body, artifact } = Astro.props;
+---
+
+<article class="grid md:grid-cols-12 gap-6 md:gap-10 py-12 border-t border-[var(--rule)] first:border-t-0">
+  <div class="md:col-span-4">
+    <p class="eyebrow mb-3">Agent</p>
+    <h3 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.012em]">{name}</h3>
+  </div>
+
+  <div class="md:col-span-8">
+    <p class="font-medium text-[1.125rem] leading-[1.45] text-[var(--fg)]">{oneLiner}</p>
+    <p class="mt-4 text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)]">{body}</p>
+    {artifact && (
+      <p class="mt-5">
+        <a href={artifact.href} class="link text-sm">{artifact.label} →</a>
+      </p>
+    )}
+  </div>
+</article>

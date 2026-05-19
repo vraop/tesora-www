@@ -1,0 +1,97 @@
+{
+  "aesthetic": {
+    "texture": "fine paper-grain texture, gentle film grain, deep shadows",
+    "light": "warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows",
+    "palette": "ink-on-bone palette, muted ox-blood accent, no saturated colors",
+    "motion": "slow, restrained, observational; no quick cuts, no zooms past 5 percent",
+    "camera": "85mm lens feel, shallow depth of field, locked-off or 1cm dolly only",
+    "framing": "human-eye level, off-center subject, generous negative space",
+    "duration_seconds": 8,
+    "aspect": "16:9",
+    "resolution": "1920x1080",
+    "audio": "silent (web background video, autoplay-muted)",
+    "ban": [
+      "text overlays",
+      "logos",
+      "stock-photo conference rooms",
+      "abstract orbs or particles",
+      "neon or violet",
+      "drone shots",
+      "fast cuts"
+    ]
+  },
+  "prompts": [
+    {
+      "page": "home",
+      "url": "/",
+      "use": "hero",
+      "subject": "an actuary at a wood-trimmed desk, mid-30s, sleeves rolled, half-turned toward a paper print of a SERFF rate filing on the desk",
+      "numbers": "the camera slowly settles on a single column of figures on the page: $442.80 quote, 0.873 trend factor, 6/6 regression",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: an actuary at a wood-trimmed desk, mid-30s, sleeves rolled, half-turned toward a paper print of a SERFF rate filing on the desk.\nFocal numbers (camera should let the viewer read them): the camera slowly settles on a single column of figures on the page: $442.80 quote, 0.873 trend factor, 6/6 regression.\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/hero-poster.jpg"
+    },
+    {
+      "page": "agents",
+      "url": "/agents",
+      "use": "section",
+      "subject": "a close-up of a hand annotating a printed rate page with a fountain pen; a second sheet underneath shows a state-filing diff in monospace",
+      "numbers": "the pen circles a single field labeled 'territorial relativity' and underlines a delta of +0.012",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: a close-up of a hand annotating a printed rate page with a fountain pen; a second sheet underneath shows a state-filing diff in monospace.\nFocal numbers (camera should let the viewer read them): the pen circles a single field labeled 'territorial relativity' and underlines a delta of +0.012.\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/agents-poster.jpg"
+    },
+    {
+      "page": "customers",
+      "url": "/customers",
+      "use": "section",
+      "subject": "a wide desk shared by two people: one set of papers labeled in pencil 'non-admitted', another stack labeled 'admitted', and a notebook between them",
+      "numbers": "the notebook page is open to a small table with seven rows of class codes and loss ratios",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: a wide desk shared by two people: one set of papers labeled in pencil 'non-admitted', another stack labeled 'admitted', and a notebook between them.\nFocal numbers (camera should let the viewer read them): the notebook page is open to a small table with seven rows of class codes and loss ratios.\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/customers-poster.jpg"
+    },
+    {
+      "page": "security",
+      "url": "/security",
+      "use": "section",
+      "subject": "an ordered stack of bound regulatory documents on a desk — top binding reads 'ASOP 56', second 'NAIC Model Bulletin' — a coffee cup at the edge of frame",
+      "numbers": "a small monitor in the background shows a green audit-trail log scrolling slowly",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: an ordered stack of bound regulatory documents on a desk — top binding reads 'ASOP 56', second 'NAIC Model Bulletin' — a coffee cup at the edge of frame.\nFocal numbers (camera should let the viewer read them): a small monitor in the background shows a green audit-trail log scrolling slowly.\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/security-poster.jpg"
+    },
+    {
+      "page": "research",
+      "url": "/research",
+      "use": "section",
+      "subject": "a working paper on a desk, hand-drawn graph node diagram in the margin, equations in pencil; a laptop in the background dimly displays a relational schema",
+      "numbers": "one equation is visible: a GLM link function with credibility weight Z = n / (n + k)",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: a working paper on a desk, hand-drawn graph node diagram in the margin, equations in pencil; a laptop in the background dimly displays a relational schema.\nFocal numbers (camera should let the viewer read them): one equation is visible: a GLM link function with credibility weight Z = n / (n + k).\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/research-poster.jpg"
+    },
+    {
+      "page": "news",
+      "url": "/news",
+      "use": "skip",
+      "subject": "n/a — news page uses no background video, just typography",
+      "numbers": "n/a",
+      "prompt": "",
+      "fallback_still": ""
+    },
+    {
+      "page": "careers",
+      "url": "/careers",
+      "use": "section",
+      "subject": "an empty New York office at dusk; one desk lamp on; a single notebook open with the words 'agent orchestrator' visible in the corner",
+      "numbers": "a wall calendar in soft focus shows the current month with one date circled",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: an empty New York office at dusk; one desk lamp on; a single notebook open with the words 'agent orchestrator' visible in the corner.\nFocal numbers (camera should let the viewer read them): a wall calendar in soft focus shows the current month with one date circled.\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/careers-poster.jpg"
+    },
+    {
+      "page": "about",
+      "url": "/about",
+      "use": "section",
+      "subject": "three coffee cups on a desk arranged casually; three notebooks open in front of them; a window with blinds in the background",
+      "numbers": "one notebook shows hand-drawn portraits of three people; the others show equations and rate factor tables",
+      "prompt": "Cinematic background video for the Tesora AI website. Goal: convey quantitative truth and frontier-lab restraint, not SaaS marketing.\n\nSubject: three coffee cups on a desk arranged casually; three notebooks open in front of them; a window with blinds in the background.\nFocal numbers (camera should let the viewer read them): one notebook shows hand-drawn portraits of three people; the others show equations and rate factor tables.\n\nLighting: warm late-afternoon light through office blinds, horizontal slats casting soft striped shadows.\nTexture: fine paper-grain texture, gentle film grain, deep shadows.\nPalette: ink-on-bone palette, muted ox-blood accent, no saturated colors.\nMotion: slow, restrained, observational; no quick cuts, no zooms past 5 percent.\nCamera: 85mm lens feel, shallow depth of field, locked-off or 1cm dolly only.\nFraming: human-eye level, off-center subject, generous negative space.\n\nAudio: silent (web background video, autoplay-muted).\nDuration: 8 seconds, looping seamlessly. Aspect: 16:9, 1920x1080.\n\nStrict no-go list: text overlays; logos; stock-photo conference rooms; abstract orbs or particles; neon or violet; drone shots; fast cuts.\n\nReference aesthetic: a still from a working-paper documentary; not a software-product ad. Borrow restraint from joinargos.com, framing discipline from legora.com hero, vocabulary calm of vulcan.ai.",
+      "fallback_still": "/video/about-poster.jpg"
+    }
+  ]
+}

@@ -6,15 +6,20 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
+const PREVIEW_SITE = process.env.PUBLIC_SITE;
+const PREVIEW_BASE = process.env.PUBLIC_BASE;
+
 export default defineConfig({
   // Public canonical URL. Used for sitemap, canonical tags, og:url, etc.
   // Update when DNS cuts over to this site.
-  site: "https://tesora.ai",
+  site: PREVIEW_SITE || "https://tesora.ai",
+  base: PREVIEW_BASE || undefined,
 
-  // Force trailing-slash-free URLs for cleaner SEO + LLM citations.
-  trailingSlash: "never",
+  // Directory build (one folder per route) so any static host serves
+  // /agents, /customers, etc. without extensionless-URL rewrites.
+  trailingSlash: "ignore",
   build: {
-    format: "file",
+    format: "directory",
   },
 
   vite: {

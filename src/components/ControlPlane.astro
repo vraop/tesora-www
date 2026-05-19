@@ -1,0 +1,39 @@
+---
+const guarantees = [
+  {
+    label: "Review gates",
+    body: "Every agent action proposes a change; a credentialed actuary accepts or rejects. No silent writes to a rate plan.",
+  },
+  {
+    label: "Actuarial audit trail",
+    body: "Each accepted change ties to the originating filing, the prompt, the model version, the reviewer, and the timestamp. SOX-aligned, ASOP-compliant, SERFF-traceable.",
+  },
+  {
+    label: "Reproducible runs",
+    body: "Every quote, every regression test, every model fit replays from the same inputs. Re-run an exam in two years and get the same answer.",
+  },
+];
+---
+
+<section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+    <div class="max-w-[760px]">
+      <p class="eyebrow mb-5">Control plane</p>
+      <h2 class="font-semibold text-[2.25rem] leading-[1.15] tracking-[-0.012em]">
+        Every agent runs on a control plane built for actuaries who sign rate filings.
+      </h2>
+      <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+        Tesora agents do not act unilaterally. Every change is proposed, reviewed, and recorded. The substrate is the same one a chief actuary would build if they had unlimited engineering time: a single graph of filings, raters, exposures, and quotes, with every edit lineage-tracked.
+      </p>
+    </div>
+
+    <dl class="mt-16 grid md:grid-cols-3 gap-10 md:gap-12">
+      {guarantees.map((g) => (
+        <div>
+          <dt class="font-semibold text-[1.125rem] tracking-tight">{g.label}</dt>
+          <dd class="mt-3 text-[0.95rem] leading-[1.6] text-[var(--fg-muted)]">{g.body}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

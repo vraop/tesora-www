@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import AgentDef from "../components/AgentDef.astro";
+import ControlPlane from "../components/ControlPlane.astro";
+
+const agents = [
+  {
+    name: "Migrate",
+    oneLiner: "Pull any rater in.",
+    body: "Internal models, competitor SERFF filings, ISO and bureau loops, legacy spreadsheets, vendor black boxes. Migrate reconstructs the rater field by field with lineage to the originating filing. A demo on three SERFF filings reconstructed ISO Ohio Commercial Auto end to end in about ten minutes: fifteen-field schema generated, six of six regression tests passing, dec-page-faithful GUI shipped, $442.80 quote on a test policy.",
+    artifact: { label: "See the rating engine demo", href: "/agents#demo" },
+  },
+  {
+    name: "Manage",
+    oneLiner: "Stand up, edit, test, deploy. Every change governed.",
+    body: "Manage is the workbench. Edits to a rate plan land as proposed changes, run through actuarial review, generate regression tests automatically, and deploy with the filing artifact attached. Audit-trailed, SOX-aligned, ASOP 56 compliant, SOC 2 Type II. Re-run the same change in two years and it produces the same answer.",
+  },
+  {
+    name: "Refit",
+    oneLiner: "Ask the questions actuaries actually want answered.",
+    body: "Is this rater keeping up with trend? Which factors are stale? Which classes are bleeding margin? Refit reads the in-force book and the loss triangle, runs the GLM, and proposes factor updates with credibility weights and selection logic exposed inline. Nothing is hidden behind a scoring API.",
+  },
+  {
+    name: "Triage",
+    oneLiner: "Cleaner submissions, faster decisions.",
+    body: "Submission Triage sits on top of the same substrate. Inbound submissions are parsed, classes assigned, exposures normalized, and routed to the right underwriter with the rate-relevant context attached. Originally surfaced as everysubmission.com; now folded into the Tesora agent stack.",
+  },
+];
+---
+
+<Layout
+  title="Agents · Tesora"
+  description="Tesora's four agents (Migrate, Manage, Refit, Triage) run on a control plane built for actuaries who sign rate filings."
+  canonical="/agents"
+  schemaType="WebPage"
+>
+  <Header />
+
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pt-32 pb-20 text-center">
+    <p class="eyebrow mb-6">Agents</p>
+    <h1 class="font-semibold text-[3.25rem] leading-[1.05] tracking-[-0.022em] max-w-[860px] mx-auto">
+      Frontier AI for specialty P&amp;C pricing.
+    </h1>
+    <p class="text-[1.25rem] leading-[1.5] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
+      Four agents. One control plane. Every action proposed, reviewed, and recorded. Built for actuaries who sign rate filings, not for a demo loop.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
+    {agents.map((a) => (
+      <AgentDef
+        name={a.name}
+        oneLiner={a.oneLiner}
+        body={a.body}
+        artifact={a.artifact}
+      />
+    ))}
+  </section>
+
+  <ControlPlane />
+
+  {/* Demo */}
+  <section id="demo" class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+    <div class="grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-6">
+        <p class="eyebrow mb-3">Live demo</p>
+        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
+          ISO Ohio Commercial Auto, reconstructed in ten minutes.
+        </h2>
+        <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+          Three SERFF filings in. Schema identified by Migrate. Fifteen fields generated. Six of six regression tests passing. Dec-page-faithful GUI shipped. A live quote of $442.80 on a test policy. End to end, on real public data, in about ten minutes.
+        </p>
+        <p class="mt-5 text-sm text-[var(--fg-muted)]">
+          The video below is the unedited capture.
+        </p>
+      </div>
+      <div class="md:col-span-6">
+        <div class="aspect-video rounded-md border border-[var(--rule)] overflow-hidden bg-[var(--bg-panel)]">
+          <video
+            class="h-full w-full object-cover"
+            controls
+            preload="metadata"
+            poster="/video/rating-engine-poster.jpg"
+          >
+            <source src="/video/rating-engine-demo.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
