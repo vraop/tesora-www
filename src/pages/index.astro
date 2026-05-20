@@ -57,35 +57,47 @@ const copilotPatterns = [
 
   <BackgroundsStrip />
 
-  {/* Proof row — time compression on specific workflows */}
+  {/* Economic shape — sized in actuarial terms */}
   <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-14">
-      <p class="eyebrow mb-8">Time back, per workflow</p>
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10 mb-12">
+        <div class="md:col-span-5">
+          <p class="eyebrow mb-3">The economics</p>
+          <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
+            Pricing leakage is measured in points, not percent.
+          </h2>
+        </div>
+        <p class="md:col-span-7 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
+          Chief actuaries grade their work in basis points of loss ratio. The Workbench is sized for the line items where those points come from.
+        </p>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
         <div>
           <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            3 weeks <span class="text-[var(--color-oxblood)]">→</span> 10 min
+            1 pt LR <span class="text-[var(--color-oxblood)]">=</span> $1M / yr
           </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Rater from a competitor's filing.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Tesora reads the SERFF filing, reconstructs the rate plan, and stands up a callable quoting API.</p>
+          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">On a $100M specialty book.</p>
+          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">The audit agent catches schedule-rating drift, exposure-base errors, and class-code mismatches before they compound over a cycle.</p>
         </div>
         <div class="md:border-l md:border-[var(--rule)] md:pl-6">
           <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            2 days <span class="text-[var(--color-oxblood)]">→</span> 5 min
+            3-5 pts <span class="text-[var(--color-oxblood)]">·</span> contractor's GL
           </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Loss-run normalization across carriers.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Five carriers, five formats, one normalized table you can run the standard analyses on.</p>
+          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Exposure-base leakage.</p>
+          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Most of it captured wrong on day one. The substrate normalizes exposure across submissions before they reach the rater.</p>
         </div>
         <div class="md:border-l md:border-[var(--rule)] md:pl-6">
           <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            1 week <span class="text-[var(--color-oxblood)]">→</span> 1 hr
+            6 wk <span class="text-[var(--color-oxblood)]">→</span> 1 wk
           </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Rate-committee brief.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Filing diffs, class-level trends, and a defensible narrative, with every claim cited back to the filing.</p>
+          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Time-to-rate.</p>
+          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">A six-week filing cycle prices six weeks of new business against stale assumptions. Faster cycles tighten the feedback loop.</p>
         </div>
       </div>
+
       <p class="mt-10 text-xs text-[var(--fg-muted)] leading-relaxed max-w-[860px]">
-        Benchmarks from pilot work with specialty P&amp;C teams. Your own baseline, graded on Day 0, is the only number we promise to beat.
+        Sizing reflects observed specialty P&amp;C dynamics, not a savings promise. Your own baseline, graded on Day 0, is the only number we promise to beat.
       </p>
     </div>
   </section>
