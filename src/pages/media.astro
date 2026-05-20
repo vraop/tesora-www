@@ -3,20 +3,19 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import NewsItem from "../components/NewsItem.astro";
 import { u } from "../lib/url";
 
 const team = [
   {
     name: "Vivek Rao",
-    role: "Co-founder & CEO",
-    body: "Vivek leads AI and product. Before Tesora, a consultant at McKinsey and a private-equity investor focused on insurance. Sets the wedge and runs the customer motion. Built the first version of the rater himself.",
+    role: "CEO",
+    body: "Vivek is co-founder and CEO of Tesora. Previously at McKinsey and as a private-equity investor focused on insurance.",
     affiliations: [{ slug: "mckinsey", alt: "McKinsey & Company" }],
   },
   {
     name: "Federico Reyes Gomez",
-    role: "Co-founder & CTO",
-    body: "Federico leads engineering and the substrate. Previously led ML research on graph neural networks for relational and tabular data at Kumo Labs (Stanford). Owns the typed ontology underneath every Tesora agent.",
+    role: "CTO",
+    body: "Federico is co-founder and CTO of Tesora. Previously led ML research on graph neural networks for relational and tabular data at Kumo Labs and Stanford.",
     affiliations: [
       { slug: "kumo", alt: "Kumo Labs" },
       { slug: "stanford", alt: "Stanford" },
@@ -24,66 +23,72 @@ const team = [
   },
   {
     name: "Philo Bishay",
-    role: "Head of Actuarial",
-    body: "Philo is a former chief actuary with fifteen years in the rating function across specialty P&C carriers and MGAs. Steers actuarial product direction and sits in every first call with a chief actuary. Holds FCAS.",
+    role: "Chief Product Officer",
+    body: "Philo is Chief Product Officer at Tesora. Previously a chief actuary with fifteen years in specialty P&C pricing. FCAS.",
     affiliations: [],
   },
 ];
 
-const news = [
+// Single blog feed — announcements + posts, newest first.
+const blog = [
+  {
+    date: "2026 · OCT (FORTHCOMING)",
+    kind: "post",
+    title: "The chief actuary's case for AI agents.",
+    authors: "Philo Bishay, Vivek Rao",
+    body: "What changes when a credentialed actuary works alongside a credentialed agent. Working draft for the CAS Annual Meeting panel.",
+  },
   {
     date: "2026 · MAY",
-    headline: "Philo Bishay joins Tesora as Head of Actuarial.",
-    body: "Philo, a former chief actuary with fifteen years inside the rating function, joins to lead actuarial product and customer engagement.",
+    kind: "news",
+    title: "Philo Bishay joins Tesora as Chief Product Officer.",
+    body: "Philo, a former chief actuary with fifteen years inside the rating function, joins to lead product.",
+  },
+  {
+    date: "2026 · APR",
+    kind: "post",
+    title: "The substrate thesis: why insurance is next.",
+    authors: "Vivek Rao",
+    body: "Software had a substrate. Law is getting one. Insurance is next. The case for a typed, lineage-bearing graph underneath rating, and why context is the thing that compounds.",
+    href: "https://tesoraai.substack.com/",
+  },
+  {
+    date: "2026 · APR",
+    kind: "post",
+    title: "Schedule rating without the vibes.",
+    authors: "Philo Bishay, Vivek Rao",
+    body: "Schedule rating is where pricing discipline goes to die. A transparent credit framework grounded in the carrier's own loss data, with every adjustment auditable.",
+    href: "https://tesoraai.substack.com/",
+  },
+  {
+    date: "2026 · MAR",
+    kind: "post",
+    title: "Exposure-base leakage in contractor's GL.",
+    authors: "Philo Bishay",
+    body: "Three to five points of loss-ratio leakage in contractor's GL isn't social inflation. It's exposure bases captured wrong on day one.",
+    href: "https://tesoraai.substack.com/",
+  },
+  {
+    date: "2026 · MAR",
+    kind: "post",
+    title: "Reconstructing a state filing in ten minutes.",
+    authors: "Vivek Rao",
+    body: "Walkthrough of how the Workbench reads three SERFF filings and yields a working rater with side-by-side regression tests against the original filings.",
+    href: "https://tesoraai.substack.com/",
   },
   {
     date: "2025 · OCT",
-    headline: "Top startup award finalist at DPW Amsterdam 2025.",
+    kind: "news",
+    title: "Top startup award finalist at DPW Amsterdam 2025.",
     body: "Tesora was a top startup award finalist at DPW Amsterdam 2025.",
     logo: { slug: "dpw", alt: "DPW Amsterdam" },
   },
   {
     date: "2025 · SEP",
-    headline: "Tesora completes Y Combinator S25.",
+    kind: "news",
+    title: "Tesora completes Y Combinator S25.",
     body: "Tesora completed the Y Combinator Summer 2025 cohort focused on AI-native applications for regulated industries.",
     logo: { slug: "y-combinator", alt: "Y Combinator S25" },
-  },
-];
-
-const teamWriting = [
-  {
-    title: "The substrate thesis: why insurance is next.",
-    authors: "Vivek Rao",
-    date: "2026 · APR",
-    body: "Software had a substrate. Law is getting one. Insurance is next. The case for a typed, lineage-bearing graph underneath rating, and why context is the thing that compounds.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    title: "Schedule rating without the vibes.",
-    authors: "Philo Bishay, Vivek Rao",
-    date: "2026 · APR",
-    body: "Schedule rating is where pricing discipline goes to die. A transparent credit framework grounded in the carrier's own loss data, with every adjustment auditable.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    title: "Exposure-base leakage in contractor's GL.",
-    authors: "Philo Bishay",
-    date: "2026 · MAR",
-    body: "Three to five points of loss-ratio leakage in contractor's GL isn't social inflation. It's exposure bases captured wrong on day one.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    title: "The chief actuary's case for AI agents.",
-    authors: "Philo Bishay, Vivek Rao",
-    date: "2026 · OCT (FORTHCOMING)",
-    body: "What changes when a credentialed actuary works alongside a credentialed agent. Working draft for the CAS Annual Meeting panel.",
-  },
-  {
-    title: "Reconstructing a state filing in ten minutes.",
-    authors: "Vivek Rao",
-    date: "2026 · MAR",
-    body: "Walkthrough of how the Workbench reads three SERFF filings and yields a working rater with side-by-side regression tests against the original filings.",
-    href: "https://tesoraai.substack.com/",
   },
 ];
 
@@ -118,7 +123,7 @@ const federicoWork = [
   <CinematicHero
     videoSrc={u("/video/research-loop.mp4")}
     headline="The team, the writing, the record."
-    deck="Tesora pairs three load-bearing credentials. Relational-AI research from Stanford and Kumo Labs on the engineering side. Former chief-actuary depth at specialty P&C carriers on the practice side. McKinsey and private-equity insurance experience on the customer side."
+    deck="Researchers and operators from Stanford, Kumo Labs, McKinsey, and the rating function inside specialty P&C carriers."
     primaryCta={{ label: "Read on Substack", href: "https://tesoraai.substack.com/" }}
     secondaryCta={{ label: "Email the team", href: "mailto:founders@tesora.ai" }}
   />
@@ -171,47 +176,37 @@ const federicoWork = [
     </div>
   </section>
 
-  {/* Recent / News */}
-  <section class="bg-[var(--bg)] border-b border-[var(--rule)]" id="recent">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-      <div class="flex items-end justify-between mb-10">
-        <div>
-          <p class="eyebrow mb-3">Recent</p>
-          <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
-            What's happened recently.
-          </h2>
-        </div>
-        <a href={u("/news")} class="link hidden md:inline-block text-sm">Full timeline →</a>
-      </div>
-      <div>
-        {news.map((n) => (
-          <NewsItem date={n.date} headline={n.headline} body={n.body} logo={n.logo} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* Tesora Team writing */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24" id="writing">
+  {/* Blog — news + writing in one feed */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24" id="blog">
     <div class="grid md:grid-cols-12 gap-10 mb-12">
       <div class="md:col-span-4">
-        <p class="eyebrow mb-3">Writing</p>
+        <p class="eyebrow mb-3">Blog</p>
         <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
-          Working notes, not white papers.
+          Notes and announcements.
         </h2>
       </div>
       <p class="md:col-span-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-        Short pieces with a clear point of view, by the actuaries and engineers building Tesora. The byline is the team. Each piece names the specific author so you know who to write back to.
+        Short pieces from the people building Tesora, mixed in with company news. Newest first.
       </p>
     </div>
 
     <div>
-      {teamWriting.map((p) => (
+      {blog.map((p) => (
         <article class="grid md:grid-cols-12 gap-6 md:gap-10 py-8 border-t border-[var(--rule)] first:border-t-0">
           <div class="md:col-span-3">
             <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{p.date}</p>
-            <p class="mt-2 text-[0.8125rem] text-[var(--fg-muted)]">Tesora Team</p>
-            <p class="text-[0.8125rem] text-[var(--fg)]">{p.authors}</p>
+            <p class="mt-2 text-[0.8125rem] text-[var(--fg-muted)]">
+              {p.kind === "news" ? "Tesora" : p.authors}
+            </p>
+            {p.logo && (
+              <img
+                src={u(`/logos/${p.logo.slug}.svg`)}
+                alt={p.logo.alt}
+                class="mt-3 h-4 w-auto opacity-60"
+                style="filter: var(--logo-filter);"
+                loading="lazy"
+              />
+            )}
           </div>
           <div class="md:col-span-9">
             <h3 class="font-semibold text-[1.25rem] leading-[1.25] tracking-[-0.005em]">{p.title}</h3>
