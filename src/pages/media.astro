@@ -9,8 +9,12 @@ const team = [
   {
     name: "Vivek Rao",
     role: "CEO",
-    body: "Vivek is co-founder and CEO of Tesora. Previously at McKinsey and as a private-equity investor focused on insurance.",
-    affiliations: [{ slug: "mckinsey", alt: "McKinsey & Company" }],
+    body: "Vivek is co-founder and CEO of Tesora. Previously at McKinsey (PE-focused and insurtech) and as a private-equity investor at Sycamore Partners.",
+    affiliations: [
+      { slug: "mckinsey", alt: "McKinsey & Company" },
+      { slug: "sycamore", alt: "Sycamore Partners" },
+    ],
+    linkedin: "",
   },
   {
     name: "Federico Reyes Gomez",
@@ -20,12 +24,14 @@ const team = [
       { slug: "kumo", alt: "Kumo Labs" },
       { slug: "stanford", alt: "Stanford" },
     ],
+    linkedin: "",
   },
   {
     name: "Philo Bishay",
     role: "Chief Product Officer",
-    body: "Philo is Chief Product Officer at Tesora. Previously a chief actuary with fifteen years in specialty P&C pricing.",
+    body: "Philo is Chief Product Officer at Tesora. Previously a chief actuary with fifteen years in specialty P&C pricing, including roles at Gen Re and Berkley Re.",
     affiliations: [],
+    linkedin: "",
   },
 ];
 
@@ -134,7 +140,22 @@ const federicoWork = [
     {team.map((m) => (
       <article class="grid md:grid-cols-12 gap-6 md:gap-10 py-10 border-t border-[var(--rule)] first:border-t-0">
         <div class="md:col-span-4">
-          <h3 class="font-semibold text-[1.5rem] leading-[1.2] tracking-[-0.008em]">{m.name}</h3>
+          <div class="flex items-baseline gap-3 flex-wrap">
+            <h3 class="font-semibold text-[1.5rem] leading-[1.2] tracking-[-0.008em]">{m.name}</h3>
+            {m.linkedin && (
+              <a
+                href={m.linkedin}
+                target="_blank"
+                rel="noopener"
+                aria-label={`${m.name} on LinkedIn`}
+                class="inline-flex items-center justify-center text-[var(--fg-muted)] hover:text-[var(--color-oxblood)] transition-colors"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+                </svg>
+              </a>
+            )}
+          </div>
           <p class="mt-2 text-sm text-[var(--fg-muted)]">{m.role}</p>
           {m.affiliations.length > 0 && (
             <div class="mt-4 flex items-center gap-4">
@@ -160,18 +181,36 @@ const federicoWork = [
   {/* Investors */}
   <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]" id="investors">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
-      <div class="grid md:grid-cols-12 gap-10">
+      <div class="grid md:grid-cols-12 gap-10 mb-12">
         <div class="md:col-span-5">
           <p class="eyebrow mb-3">Investors</p>
           <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
-            Foundation Capital. Y Combinator S25.
+            Backed by the people who fund regulated-industry AI.
           </h2>
         </div>
         <div class="md:col-span-7">
           <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-            Foundation Capital led our seed in early 2026. Y Combinator backed us in the S25 cohort focused on AI-native applications for regulated industries.
+            Foundation Capital led our seed in early 2026. Y Combinator backed us in the S25 cohort focused on AI-native applications for regulated industries. Z47 (formerly Matrix Partners) and DeVC joined as co-investors.
           </p>
         </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 items-center">
+        {[
+          { slug: "foundation-capital", alt: "Foundation Capital", h: 28 },
+          { slug: "y-combinator", alt: "Y Combinator S25", h: 28 },
+          { slug: "z47", alt: "Z47 (fka Matrix Partners)", h: 28 },
+          { slug: "devc", alt: "DeVC", h: 28 },
+        ].map((inv) => (
+          <div class="flex items-center justify-center py-2">
+            <img
+              src={u(`/logos/${inv.slug}.svg`)}
+              alt={inv.alt}
+              style={`height: ${inv.h}px; filter: var(--logo-filter);`}
+              class="w-auto opacity-70 hover:opacity-100 transition-opacity"
+              loading="lazy"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </section>
