@@ -1,15 +1,26 @@
-# Veo 3.1 prompt set for Tesora site (warm + tech-forward, US)
+# Veo 3.1 prompt set for Tesora site (warm + actuarial-form professional, US)
 
-Used for the scroll-driven cinematic bands modeled after vulcan.ai.
+Used for the scroll-driven cinematic bands modeled after vulcan.ai but
+tilted toward actuarial-form professionalism: the holographic substrate
+is built out of *real* actuarial artifacts (loss triangles, ILF curves,
+distribution fits, schedule-rating matrices, layered exposure stacks),
+not generic mission-control flourish.
 
-**Aesthetic anchor (2026 refresh):**
+**Aesthetic anchor (2026 actuarial-form refresh):**
 - Vulcan.ai mission-control feel: holographic data layers hovering above
   a geographic substrate, cinematic depth, anamorphic flares, atmospheric
-  haze, mission-room interiors at dusk.
-- Actuarial tilt: the substrate is the US specialty P&C domain —
-  continental terrain, dusk skyline, holographic loss triangles,
-  pricing-flow wireframes, schedule-rating geometry, exposure heat zones.
-  Never slide rules, leather binders, brass embossers, Rolodexes, oak.
+  haze, mission-room interiors at dusk. Restrained — not Hollywood.
+- Actuarial-form substrate: every holographic layer is a recognizable
+  pricing artifact rendered as glowing electric indigo wireframe — loss
+  triangles, ILF curves, layered exposure stacks, frequency-severity
+  distribution fits, schedule-rating credit/debit matrices, on-leveling
+  ladders, OEP/AEP exceedance curves. Geometry only, no rendered numbers
+  or letters. Never slide rules, leather binders, brass embossers,
+  Rolodexes, oak, fountain pens.
+- Professional restraint: dignified pacing, controlled motion, no kinetic
+  flicker. The shot should read like a chief-actuary mission room, not a
+  sci-fi trailer. Single human silhouettes (if any) stand calmly, no
+  faces, no gesture. Tasteful, not theatrical.
 - US, not generic. Continental outlines and dusk skylines should read as
   North America (no rendered place names, only terrain shape).
 - Palette: warm dusk amber (sunset orange to deep indigo sky), electric
@@ -36,25 +47,30 @@ data — county-line outlines pulse faintly in electric indigo (#4338CA),
 amber heat zones flicker softly across wind, hail, and wildfire-prone
 regions (no rendered state names, no city labels, only abstract terrain
 shape). Above the terrain, a translucent 3D loss-development triangle
-floats mid-frame as a glowing electric indigo wireframe. Thin amber
-data streams flow upward from the surface into the triangle. Horizon
-graded sunset amber into deep indigo. Anamorphic lens flares,
-atmospheric haze, drifting particles. Cinematic, filmic, mission-control
-feel. No legible text, no place names, no logos. Subject matter only.
+floats mid-frame as a glowing electric indigo wireframe — the staircase
+of accident years and development periods clearly readable as geometry,
+no rendered numbers. Beside it, a layered exposure stack hangs as
+parallel translucent indigo planes. Thin amber data streams flow upward
+from the surface into the triangle. Horizon graded sunset amber into
+deep indigo. Restrained anamorphic flares, atmospheric haze, drifting
+particles. Cinematic, filmic, professional mission-control feel. No
+legible text, no place names, no logos. Subject matter only.
 
 ## agents-loop.mp4
 
 Slow camera orbit inside a warm-lit modern operations room at dusk. A
-large translucent holographic wall display shows four mission steps
-connected by glowing electric indigo lines, each step marked only with
-an abstract glyph (folder shape, gear shape, chart shape, seal shape —
-no readable text). The glyphs pulse in slow sequence as data streams in
-amber travel along the connecting lines. Warm tungsten light spills from
-low fixtures along the floor edge. A single human silhouette in the
-foreground stands with arms folded, out of focus. Floor-to-ceiling glass
-behind reveals a US dusk continental terrain in soft focus. Anamorphic
-flares, shallow depth of field. Cinematic, filmic, modern mission-control
-feel. No readable text, no logos.
+large translucent holographic wall display shows four pricing artifacts
+arranged left to right and connected by glowing electric indigo lines:
+a loss triangle staircase, a frequency-severity distribution fit (a
+glowing indigo curve), a schedule-rating credit/debit matrix as a
+geometric grid, and a closed circular seal. Each artifact pulses in
+slow sequence as data streams in amber travel along the connecting
+lines. Warm tungsten light spills from low fixtures along the floor
+edge. A single human silhouette in the foreground stands calmly with
+arms folded, out of focus, no gesture. Floor-to-ceiling glass behind
+reveals a US dusk continental terrain in soft focus. Restrained
+anamorphic flares, shallow depth of field. Cinematic, filmic,
+professional mission-control feel. No readable text, no logos.
 
 ## customers-loop.mp4
 
@@ -72,13 +88,15 @@ place names, no logos.
 ## research-loop.mp4
 
 High aerial view over a holographic data surface at dusk. A 3D
-typed-graph wireframe spans the frame — nodes marked only by abstract
-glyphs (no readable letters), edges shimmering amber as pulses of data
-travel between them. Beneath the graph, a translucent US continental
-outline glows faintly in electric indigo. Warm dusk light catches the
-wireframe from one side. Camera slowly rotates. Shallow depth of field,
-anamorphic flares, atmospheric particles. Cinematic, filmic,
-mission-control feel. No legible text, no place names, no logos.
+typed-graph wireframe spans the frame — nodes shaped as small pricing
+artifacts (a tiny triangle staircase, a stacked exposure layer, a
+distribution curve), edges shimmering amber as pulses of data travel
+between them. Beneath the graph, a translucent US continental outline
+glows faintly in electric indigo. Warm dusk light catches the wireframe
+from one side. Camera slowly rotates with controlled, professional
+pacing. Shallow depth of field, restrained anamorphic flares,
+atmospheric particles. Cinematic, filmic, professional mission-control
+feel. No legible text, no place names, no logos.
 
 ## security-loop.mp4
 
@@ -116,13 +134,14 @@ field. Cinematic, filmic. No readable text, no logos.
 Slow cinematic camera push across a warm-lit modern desk surface at
 dusk. Three translucent holographic panels float above the desk in a
 staggered row, each rendered as a glowing electric indigo wireframe —
-first an ingest stack (abstract layered sheets), second a pricing flow
-(nodes and edges), third a chart silhouette (bar and line shapes, no
-numbers). Amber tungsten light from below wraps the panels. A US
-continental terrain glows faintly in soft focus through floor-to-ceiling
-glass beyond. Anamorphic flares, atmospheric particles. Cinematic,
-filmic, modern mission-control feel. No readable text, no place names,
-no logos.
+first a loss-run grid (rows and columns as pure geometry, no numbers),
+second a pricing-flow wireframe (rate-manual nodes connected by ILF
+edges and territory factors), third an on-leveling ladder rising in
+stepped indigo bars. Amber tungsten light from below wraps the panels.
+A US continental terrain glows faintly in soft focus through
+floor-to-ceiling glass beyond. Restrained anamorphic flares, atmospheric
+particles. Cinematic, filmic, professional mission-control feel. No
+readable text, no place names, no logos.
 
 ## writing-loop.mp4
 
@@ -206,9 +225,16 @@ the beam. Filmic, slow, cinematic. No letters, no numbers, no logos.
   warm cream surface (#FAF7F0). Avoid cold cyan, avoid pure white, avoid
   brown/leather/oak.
 - Subject grammar: warm holographic AI substrate floating *above* the
-  US actuarial domain (continental terrain, dusk skyline, exposure heat
-  zones, pricing-flow wireframes, schedule-rating geometry). Never slide
-  rules, leather binders, brass embossers, fountain pens, Rolodexes.
+  US actuarial domain. Substrate built from recognizable pricing
+  artifacts as geometry only: loss-development triangles, ILF curves,
+  layered exposure stacks, frequency-severity distribution fits,
+  schedule-rating credit/debit matrices, on-leveling ladders, OEP/AEP
+  exceedance curves, territory-factor wireframes. Never slide rules,
+  leather binders, brass embossers, fountain pens, Rolodexes, oak.
+- Professional restraint: dignified pacing, controlled motion, no
+  kinetic flicker. Reads like a chief-actuary mission room, not a sci-fi
+  trailer. Single human silhouettes (if any) stand calmly, no faces,
+  no gesture.
 - Skyline cue: when the prompt includes a skyline, frame it as soft-focus
   dusk through floor-to-ceiling glass. Continental US silhouette but no
   recognizable landmarks, no rendered place names.

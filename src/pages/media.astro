@@ -5,36 +5,6 @@ import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
 import { u } from "../lib/url";
 
-const team = [
-  {
-    name: "Vivek Rao",
-    role: "CEO",
-    body: "Vivek is co-founder and CEO of Tesora. Previously at McKinsey (PE-focused and insurtech) and as a private-equity investor at Sycamore Partners.",
-    affiliations: [
-      { slug: "mckinsey", alt: "McKinsey & Company" },
-      { slug: "sycamore", alt: "Sycamore Partners" },
-    ],
-    linkedin: "",
-  },
-  {
-    name: "Federico Reyes Gomez",
-    role: "CTO",
-    body: "Federico is co-founder and CTO of Tesora. Previously led ML research on graph neural networks for relational and tabular data at Kumo Labs and Stanford.",
-    affiliations: [
-      { slug: "kumo", alt: "Kumo Labs" },
-      { slug: "stanford", alt: "Stanford" },
-    ],
-    linkedin: "",
-  },
-  {
-    name: "Philo Bishay",
-    role: "Chief Product Officer",
-    body: "Philo is Chief Product Officer at Tesora. Previously a chief actuary with fifteen years in specialty P&C pricing, including roles at Gen Re and Berkley Re.",
-    affiliations: [],
-    linkedin: "",
-  },
-];
-
 // Single blog feed — announcements + posts, newest first.
 const blog = [
   {
@@ -98,7 +68,7 @@ const blog = [
   },
 ];
 
-const federicoWork = [
+const priorResearch = [
   {
     title: "Relational deep learning for enterprise data.",
     venue: "Stanford / Kumo Labs · 2024",
@@ -112,7 +82,7 @@ const federicoWork = [
   {
     title: "Learned ontologies for heterogeneous tabular sources.",
     venue: "Working note · 2025",
-    body: "How Tesora reconciles SERFF fields, ISO field codes, and carrier-internal schemas without a hand-written mapping layer. The technique generalizes from raters to submissions to portfolio.",
+    body: "Reconciling SERFF fields, ISO field codes, and carrier-internal schemas without a hand-written mapping layer. The technique generalizes from raters to submissions to portfolio.",
     logos: [],
   },
 ];
@@ -120,7 +90,7 @@ const federicoWork = [
 
 <Layout
   title="Media · Tesora"
-  description="Tesora pairs relational-AI research on the engineering side, former chief-actuary depth on the practice side, and McKinsey and private-equity insurance experience on the customer side. Backed by Foundation Capital and Y Combinator."
+  description="Notes, announcements, and prior research from Tesora. Backed by Foundation Capital and Y Combinator."
   canonical="/media"
   schemaType="WebPage"
 >
@@ -128,55 +98,11 @@ const federicoWork = [
 
   <CinematicHero
     videoSrc={u("/video/research-loop.mp4")}
-    headline="The team, the writing, the record."
-    deck="Researchers and operators from Stanford, Kumo Labs, McKinsey, and the rating function inside specialty P&C carriers."
+    headline="Notes, announcements, and prior research."
+    deck="Short pieces on specialty P&C pricing, the substrate thesis, and the rating function — mixed in with company news."
     primaryCta={{ label: "Read on Substack", href: "https://tesoraai.substack.com/" }}
-    secondaryCta={{ label: "Email the team", href: "mailto:founders@tesora.ai" }}
+    secondaryCta={{ label: "Email us", href: "mailto:founders@tesora.ai" }}
   />
-
-  {/* Team */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24" id="team">
-    <p class="eyebrow mb-8">Team</p>
-    {team.map((m) => (
-      <article class="grid md:grid-cols-12 gap-6 md:gap-10 py-10 border-t border-[var(--rule)] first:border-t-0">
-        <div class="md:col-span-4">
-          <div class="flex items-baseline gap-3 flex-wrap">
-            <h3 class="font-semibold text-[1.5rem] leading-[1.2] tracking-[-0.008em]">{m.name}</h3>
-            {m.linkedin && (
-              <a
-                href={m.linkedin}
-                target="_blank"
-                rel="noopener"
-                aria-label={`${m.name} on LinkedIn`}
-                class="inline-flex items-center justify-center text-[var(--fg-muted)] hover:text-[var(--color-oxblood)] transition-colors"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
-                </svg>
-              </a>
-            )}
-          </div>
-          <p class="mt-2 text-sm text-[var(--fg-muted)]">{m.role}</p>
-          {m.affiliations.length > 0 && (
-            <div class="mt-4 flex items-center gap-4">
-              {m.affiliations.map((a) => (
-                <img
-                  src={u(`/logos/${a.slug}.svg`)}
-                  alt={a.alt}
-                  class="h-4 w-auto opacity-60"
-                  style="filter: var(--logo-filter);"
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          )}
-        </div>
-        <div class="md:col-span-8">
-          <p class="text-[1.0625rem] leading-[1.65] text-[var(--fg)]">{m.body}</p>
-        </div>
-      </article>
-    ))}
-  </section>
 
   {/* Investors */}
   <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]" id="investors">
@@ -261,23 +187,22 @@ const federicoWork = [
     </div>
   </section>
 
-  {/* Federico's prior research — kept distinct */}
+  {/* Prior research */}
   <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]" id="prior-research">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
       <div class="grid md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-4">
           <p class="eyebrow mb-3">Prior research</p>
           <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
-            Federico Reyes Gomez
+            The research under the substrate.
           </h2>
-          <p class="text-sm text-[var(--fg-muted)] mt-2">Co-founder &amp; CTO</p>
         </div>
         <p class="md:col-span-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-          Federico's prior published work on graph neural networks for relational and tabular data is the technical foundation underneath Tesora's substrate. Kept distinct because the research predates the company and lives in academic venues under his name.
+          The technical foundation underneath Tesora's substrate — published work on graph neural networks for relational and tabular data, kept distinct because it predates the company and lives in academic venues.
         </p>
       </div>
       <div>
-        {federicoWork.map((w) => (
+        {priorResearch.map((w) => (
           <article class="border-t border-[var(--rule)] py-8 first:border-t-0">
             <div class="flex items-center gap-4 flex-wrap">
               <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.venue}</p>
