@@ -51,7 +51,7 @@ const workflows: Workflow[] = [
   },
 ];
 
-const copilotPatterns = [
+const workbenchPatterns = [
   {
     label: "Be conversational.",
     body: "Type what you would say to a junior analyst.",
@@ -77,7 +77,7 @@ const copilotPatterns = [
 
 <Layout
   title="The Agents · Tesora"
-  description="The Tesora Actuarial Workbench and its agents. Ingest messy data, build and deploy raters, run standard pricing analyses, audit and share. The Copilot runs the spreadsheet work and the write-up. You stay in the driver's seat."
+  description="The Tesora Actuarial Workbench and its agents. Built for chief actuaries at specialty P&C carriers and MGAs. Ingest messy data, build and deploy raters, run standard pricing analyses, audit and share."
   canonical="/agents"
   schemaType="WebPage"
 >
@@ -86,9 +86,9 @@ const copilotPatterns = [
   <CinematicHero
     videoSrc={u("/video/agents-loop.mp4")}
     headline="Frontier AI for actuaries. Starting with the Workbench."
-    deck="The Copilot runs the spreadsheet work, the data wrangling, and the write-up. You stay in the driver's seat."
+    deck="Built for chief actuaries at specialty P&C carriers and MGAs. The Workbench runs the spreadsheet work, the data wrangling, and the write-up. You stay in the driver's seat."
     primaryCta={{ label: "Request a walkthrough", href: "mailto:founders@tesora.ai?subject=Workbench%20walkthrough" }}
-    secondaryCta={{ label: "How to work with the Copilot", href: "#copilot" }}
+    secondaryCta={{ label: "How to work with the Workbench", href: "#workbench" }}
   />
 
   {/* Time back, per workflow */}
@@ -184,15 +184,15 @@ const copilotPatterns = [
     align="center"
   />
 
-  {/* How to work with the Copilot */}
-  <section id="copilot" class="bg-[var(--bg-panel)] border-y border-[var(--rule)] scroll-mt-24">
+  {/* How to work with the Workbench */}
+  <section id="workbench" class="bg-[var(--bg-panel)] border-y border-[var(--rule)] scroll-mt-24">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
       <div class="flex items-center gap-3 mb-10">
-        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
-        <p class="eyebrow">How to work with the Copilot</p>
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#4338CA)]" aria-hidden="true"></span>
+        <p class="eyebrow">How to work with the Workbench</p>
       </div>
       <div class="grid md:grid-cols-4 gap-8">
-        {copilotPatterns.map((p) => (
+        {workbenchPatterns.map((p) => (
           <div>
             <p class="font-semibold text-[1rem]">{p.label}</p>
             <p class="mt-2 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{p.body}</p>
