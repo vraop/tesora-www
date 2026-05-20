@@ -2,8 +2,8 @@
 import { u } from "../lib/url";
 
 const investors = [
-  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg") },
-  { name: "Y Combinator", logo: u("/logos/y-combinator.svg") },
+  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg"), tag: "Seed (2026)" },
+  { name: "Y Combinator", logo: u("/logos/y-combinator.svg"), tag: "Batch S25" },
 ];
 
 const footerNav = [
@@ -32,18 +32,24 @@ const footerNav = [
 
       <div class="md:col-span-4">
         <p class="eyebrow mb-4">Backed by</p>
-        <div class="flex items-center gap-8">
+        <ul class="flex flex-col gap-4">
           {investors.map((inv) => (
-            <img
-              src={inv.logo}
-              alt={inv.name}
-              class="h-6 w-auto max-w-[140px] object-contain opacity-75 hover:opacity-100 transition-opacity"
-              style="filter: grayscale(1) brightness(0.4);"
-              loading="lazy"
-              decoding="async"
-            />
+            <li class="flex items-center gap-4">
+              <img
+                src={inv.logo}
+                alt={inv.name}
+                class="h-7 w-7 rounded-full object-contain"
+                style="filter: var(--logo-filter);"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="flex flex-col leading-tight">
+                <span class="text-sm font-semibold text-[var(--fg)]">{inv.name}</span>
+                <span class="text-xs text-[var(--fg-muted)]">{inv.tag}</span>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <div class="md:col-span-3">
@@ -61,7 +67,7 @@ const footerNav = [
     </div>
 
     <div class="mt-12 pt-6 border-t border-[var(--rule)] flex flex-col md:flex-row justify-between gap-3 text-xs text-[var(--fg-muted)]">
-      <p>© {new Date().getFullYear()} Tesora AI. AI-native actuarial pricing for specialty P&amp;C.</p>
+      <p>© {new Date().getFullYear()} Tesora AI · Made in USA · HQ: NY &amp; SF · YC Batch S25</p>
       <p>
         <a href={u("/llms.txt")} class="hover:text-[var(--fg)]">llms.txt</a>
       </p>

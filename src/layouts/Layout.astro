@@ -54,6 +54,9 @@ const enableAnalytics = IS_PROD && (GA_ID || ADS_ID || GTM_ID);
       rel="stylesheet"
     />
 
+    {/* Pre-paint theme apply to prevent FOUC. */}
+    <script is:inline set:html={`(function(){try{var s=localStorage.getItem('tesora-theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var m=s||(d?'dark':'light');document.documentElement.setAttribute('data-theme',m);}catch(e){}})();`} />
+
     <SEO {...props} />
 
     {enableAnalytics && GTM_ID && (

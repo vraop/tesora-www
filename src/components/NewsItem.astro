@@ -21,7 +21,7 @@ const logoExt = logo?.ext ?? "svg";
         src={u(`/logos/${logo.slug}.${logoExt}`)}
         alt={logo.alt}
         class="mt-3 h-5 w-auto opacity-70"
-        style="filter: grayscale(1) brightness(0.5);"
+        style="filter: var(--logo-filter);"
         loading="lazy"
       />
     )}

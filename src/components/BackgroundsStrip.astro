@@ -66,9 +66,9 @@ const doubled = [...backgrounds, ...backgrounds];
   .bg-strip-mark {
     height: 28px;
     width: auto;
-    max-width: 160px;
+    max-width: 180px;
     object-fit: contain;
-    filter: grayscale(1) brightness(0.45);
+    filter: var(--logo-filter);
     opacity: 0.78;
     transition: opacity 200ms ease, filter 200ms ease;
   }

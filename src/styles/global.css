@@ -48,6 +48,9 @@
   --fg: var(--color-ink);
   --fg-muted: var(--color-smoke);
   --rule: rgba(14, 14, 12, 0.10);
+  /* Logo treatment: dim and desaturate against light background. */
+  --logo-filter: grayscale(1) brightness(0.45);
+  --logo-filter-inv: brightness(0) invert(0); /* keep dark on light */
 }
 
 [data-theme="dark"] {
@@ -56,6 +59,13 @@
   --fg: var(--color-bone);
   --fg-muted: #9A958B;
   --rule: rgba(250, 247, 240, 0.12);
+  /* In dark mode, brighten logos so they remain legible on ink/char bg. */
+  --logo-filter: grayscale(1) brightness(1.6) contrast(0.85);
+  --logo-filter-inv: brightness(0) invert(1);
+}
+
+html, body {
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
 html {
