@@ -6,57 +6,47 @@ import CinematicHero from "../components/CinematicHero.astro";
 import VideoBand from "../components/VideoBand.astro";
 import { u } from "../lib/url";
 
-type Feature = { label: string; body: string; wip?: boolean };
-type Workflow = { num: string; title: string; intro: string; features: Feature[] };
+type Workflow = { num: string; title: string; body: string; outcomes: string[] };
 
 const workflows: Workflow[] = [
   {
     num: "01",
-    title: "Trustworthy data ingestion and cleaning.",
-    intro: "Load the messy stuff. Turn it into something you can actually analyze.",
-    features: [
-      { label: "Upload anything", body: "Loss runs, SOVs, exposure files, rate manuals, filings, objection letters. PDF, Excel, CSV, Word." },
-      { label: "Auto-classification and extraction", body: "Documents are read, tagged (loss run vs. SOV vs. filing), and key data is pulled out for you." },
-      { label: "Normalization", body: "Multiple carriers' loss runs reshaped into one consistent table you can work with." },
-      { label: "Anomaly detection", body: "Triangle outliers, suspicious development factors, missing periods, duplicate claims, exposure-base mismatches." },
-      { label: "Source citations", body: "Every number traces back to the exact page and cell in the original document. Click any value to see where it came from." },
+    title: "Ingest the messy stuff.",
+    body: "Load loss runs, SOVs, filings, and rate manuals in any format. Tesora reads them back as data you can analyze.",
+    outcomes: [
+      "PDF, Excel, CSV, Word.",
+      "Auto-classified, normalized, anomaly-checked.",
+      "Every value cites the page and cell it came from.",
     ],
   },
   {
     num: "02",
     title: "Build, test, and deploy raters.",
-    intro: "Turn a rate manual or filing into a working, production-ready pricing model.",
-    features: [
-      { label: "Rater construction", body: "Base rates, territory factors, class factors, ILFs, schedule mods, minimum premiums." },
-      { label: "One-click deployment", body: "Every new rater ships with a callable API and a quoting UI. No engineering ticket, no separate release." },
-      { label: "SOX-compliant controls", body: "Author / reviewer / approver separation, full audit trail, immutable version history, required sign-off before a rater goes live." },
-      { label: "Side-by-side comparison", body: "Quote the same risk through old vs. new plan, your rater vs. a competitor's, current filing vs. proposed." },
-      { label: "Test cases and regressions", body: "Store known-good inputs and expected premiums. Re-run after every change." },
+    body: "From a filing or rate manual to a callable pricing API. SOX-grade controls, regression tests, no engineering ticket.",
+    outcomes: [
+      "Base rates, territory and class factors, ILFs, schedule mods.",
+      "Author / reviewer / approver separation. Immutable history.",
+      "Side-by-side quotes against current plan or a competitor's.",
     ],
   },
   {
     num: "03",
     title: "Run the standard analyses.",
-    intro: "Ask in plain English. Get a full report with charts and commentary.",
-    features: [
-      { label: "Pricing", body: "Loss trend, on-leveling, loss-cost, credibility weighting, rate adequacy, expense build-ups." },
-      { label: "Distribution fitting", body: "Lognormal, Pareto, Poisson, Weibull, Negative Binomial with AIC selection." },
-      { label: "Risk metrics", body: "VaR, TVaR, aggregate loss simulation, large-loss frequency." },
-      { label: "Reinsurance structuring", body: "XOL layers, aggregate stop-loss, attachment sensitivity, cession analysis." },
-      { label: "Coverage and portfolio cuts", body: "By line, state, year, segment, cap tier, sector." },
-      { label: "Reserving", body: "Loss triangles, age-to-age factors, chain-ladder, Bornhuetter-Ferguson, IBNR, frequency-severity.", wip: true },
+    body: "Ask in plain English. Get a report with charts, methodology, and citations.",
+    outcomes: [
+      "Loss trend, on-leveling, distribution fitting, VaR / TVaR.",
+      "XOL structuring, aggregate stop-loss, cession analysis.",
+      "Reserving — chain-ladder, BF, IBNR. In development.",
     ],
   },
   {
     num: "04",
     title: "Compare, audit, and share.",
-    intro: "Iterate on the work, not just deliver it.",
-    features: [
-      { label: "Reports are living documents", body: "Ask for a new chart, an extra year, a different segmentation. The report extends rather than restarts." },
-      { label: "Side-by-side scenarios", body: "Compare methods (chain ladder vs. BF), assumptions (3% vs. 5% trend), or programs (current vs. proposed structure)." },
-      { label: "Automatic audit", body: "Every analysis is reviewed by a specialist agent against actuarial best practice. Critical and major issues are flagged and fixed before hand-off." },
-      { label: "Best-practice consults", body: "The Copilot cites internal actuarial docs when picking a method, so you can see why it chose what it did." },
-      { label: "Artifact panel", body: "Every workflow becomes a tab with the spreadsheet, charts, and narrative your reviewer or underwriter can open directly." },
+    body: "Iterate on the work, not just deliver it. A specialist audit agent catches issues before hand-off.",
+    outcomes: [
+      "Reports extend — new chart, new year, new segmentation.",
+      "Audit agent grades every analysis against actuarial best practice.",
+      "Every workflow lands as a tab a reviewer can open.",
     ],
   },
 ];
@@ -101,30 +91,20 @@ const copilotPatterns = [
     secondaryCta={{ label: "How to work with the Copilot", href: "#copilot" }}
   />
 
-  {/* Four numbered workflows */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-    {workflows.map((w) => (
-      <article class="grid md:grid-cols-12 gap-8 md:gap-12 py-12 border-t border-[var(--rule)] first:border-t-0">
-        <div class="md:col-span-4">
+  {/* Workflows 01 + 02 */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32">
+    {workflows.slice(0, 2).map((w) => (
+      <article class="grid md:grid-cols-12 gap-10 md:gap-16 py-20 border-t border-[var(--rule)] first:border-t-0">
+        <div class="md:col-span-5">
           <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
-          <h2 class="mt-2 font-semibold text-[1.625rem] leading-[1.15] tracking-[-0.01em]">{w.title}</h2>
-          <p class="mt-3 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{w.intro}</p>
+          <h2 class="mt-3 font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
+          <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
         </div>
-        <ul class="md:col-span-8 grid sm:grid-cols-2 gap-x-8 gap-y-6">
-          {w.features.map((f) => (
-            <li class="flex gap-3">
-              <span
-                class="mt-1 inline-block h-2 w-2 rounded-full flex-shrink-0"
-                style={`background: ${f.wip ? "var(--color-bone-dim, #c8b48a)" : "var(--color-oxblood, #6b1a1a)"}; opacity: ${f.wip ? "0.5" : "0.85"};`}
-                aria-hidden="true"
-              ></span>
-              <div>
-                <p class="font-semibold text-[0.9375rem] leading-tight">
-                  {f.label}
-                  {f.wip && <span class="ml-2 text-[0.6875rem] uppercase tracking-wider text-[var(--fg-muted)]">in development</span>}
-                </p>
-                <p class="mt-1 text-[0.875rem] leading-[1.55] text-[var(--fg-muted)]">{f.body}</p>
-              </div>
+        <ul class="md:col-span-7 flex flex-col gap-5 self-center">
+          {w.outcomes.map((line) => (
+            <li class="flex gap-4 items-start">
+              <span class="mt-[0.65rem] inline-block h-px w-6 bg-[var(--color-oxblood,#6b1a1a)]/70 flex-shrink-0" aria-hidden="true"></span>
+              <p class="text-[1.0625rem] leading-[1.5] text-[var(--fg)]">{line}</p>
             </li>
           ))}
         </ul>
@@ -137,13 +117,38 @@ const copilotPatterns = [
     eyebrow="The substrate"
     headline="One typed graph holds the work."
     body="Filings, raters, loss runs, and submissions live in one substrate. The agents reason over it. The actuary signs against it."
+    height="tall"
+    align="center"
   />
+
+  {/* Workflows 03 + 04 */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32">
+    {workflows.slice(2, 4).map((w) => (
+      <article class="grid md:grid-cols-12 gap-10 md:gap-16 py-20 border-t border-[var(--rule)] first:border-t-0">
+        <div class="md:col-span-5">
+          <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
+          <h2 class="mt-3 font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
+          <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
+        </div>
+        <ul class="md:col-span-7 flex flex-col gap-5 self-center">
+          {w.outcomes.map((line) => (
+            <li class="flex gap-4 items-start">
+              <span class="mt-[0.65rem] inline-block h-px w-6 bg-[var(--color-oxblood,#6b1a1a)]/70 flex-shrink-0" aria-hidden="true"></span>
+              <p class="text-[1.0625rem] leading-[1.5] text-[var(--fg)]">{line}</p>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
 
   <VideoBand
     videoSrc={u("/video/customers-loop.mp4")}
     eyebrow="Lineage by default"
     headline="Every value carries its citation."
-    body="A factor, a base rate, a credit, a quote. Each one traces back to the page and cell it came from. No black box, no hand-waving."
+    body="A factor, a base rate, a credit, a quote. Each one traces back to the page and cell it came from."
+    height="tall"
+    align="center"
   />
 
   {/* How to work with the Copilot */}
