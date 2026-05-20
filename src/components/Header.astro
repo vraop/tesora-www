@@ -9,15 +9,39 @@ const { variant = "light" } = Astro.props;
 const agentsHref = u("/agents");
 
 const customersMenu = [
-  { label: "Admitted carriers", href: `${u("/customers")}#admitted` },
-  { label: "Non-admitted (E&S)", href: `${u("/customers")}#non-admitted` },
-  { label: "Students & education", href: u("/students") },
+  {
+    label: "Admitted carriers",
+    sub: "Filing-driven raters with SOX-grade audit.",
+    href: `${u("/customers")}#admitted`,
+  },
+  {
+    label: "Non-admitted (E&S)",
+    sub: "Bind-ready pricing under E&S speed.",
+    href: `${u("/customers")}#non-admitted`,
+  },
+  {
+    label: "Students & education",
+    sub: "For actuarial programs and exam study.",
+    href: u("/students"),
+  },
 ];
 
 const companyMenu = [
-  { label: "Team & writing", href: u("/media") },
-  { label: "Careers", href: u("/careers") },
-  { label: "Security", href: u("/security") },
+  {
+    label: "Team & writing",
+    sub: "Founders, advisors, and recent notes.",
+    href: u("/media"),
+  },
+  {
+    label: "Careers",
+    sub: "Engineering, actuarial, GTM.",
+    href: u("/careers"),
+  },
+  {
+    label: "Security",
+    sub: "SOC 2 Type II. SOX-ready. ASOP-aware.",
+    href: u("/security"),
+  },
 ];
 
 const demoHref = "mailto:founders@tesora.ai?subject=Tesora%20demo";
@@ -70,15 +94,20 @@ const panelTextClass =
           </svg>
         </button>
         <div
-          class={`absolute right-0 top-full mt-3 min-w-[200px] py-2 ${panelBgClass} ${panelTextClass} shadow-lg hidden`}
+          class={`absolute right-0 top-full mt-3 w-[320px] p-2 ${panelBgClass} ${panelTextClass} shadow-xl rounded-sm hidden`}
           data-menu-panel
         >
           {customersMenu.map((item) => (
             <a
               href={item.href}
-              class="block px-4 py-2 text-sm hover:text-[var(--color-oxblood)] transition-colors"
+              class="block px-3 py-2.5 rounded-sm hover:bg-[var(--color-oxblood)]/8 group transition-colors"
             >
-              {item.label}
+              <p class="font-semibold text-[0.9375rem] leading-tight group-hover:text-[var(--color-oxblood)] transition-colors">
+                {item.label}
+              </p>
+              <p class="mt-0.5 text-[0.8125rem] leading-snug text-[var(--fg-muted)]">
+                {item.sub}
+              </p>
             </a>
           ))}
         </div>
@@ -98,15 +127,20 @@ const panelTextClass =
           </svg>
         </button>
         <div
-          class={`absolute right-0 top-full mt-3 min-w-[200px] py-2 ${panelBgClass} ${panelTextClass} shadow-lg hidden`}
+          class={`absolute right-0 top-full mt-3 w-[320px] p-2 ${panelBgClass} ${panelTextClass} shadow-xl rounded-sm hidden`}
           data-menu-panel
         >
           {companyMenu.map((item) => (
             <a
               href={item.href}
-              class="block px-4 py-2 text-sm hover:text-[var(--color-oxblood)] transition-colors"
+              class="block px-3 py-2.5 rounded-sm hover:bg-[var(--color-oxblood)]/8 group transition-colors"
             >
-              {item.label}
+              <p class="font-semibold text-[0.9375rem] leading-tight group-hover:text-[var(--color-oxblood)] transition-colors">
+                {item.label}
+              </p>
+              <p class="mt-0.5 text-[0.8125rem] leading-snug text-[var(--fg-muted)]">
+                {item.sub}
+              </p>
             </a>
           ))}
         </div>

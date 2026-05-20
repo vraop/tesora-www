@@ -98,7 +98,7 @@ const copilotPatterns = [
     headline="Frontier AI for actuaries. Starting with the Workbench."
     deck="The Copilot runs the spreadsheet work, the data wrangling, and the write-up. You stay in the driver's seat."
     primaryCta={{ label: "Request a walkthrough", href: "mailto:founders@tesora.ai?subject=Workbench%20walkthrough" }}
-    secondaryCta={{ label: "See the demo capture", href: "#demo" }}
+    secondaryCta={{ label: "How to work with the Copilot", href: "#copilot" }}
   />
 
   {/* Four numbered workflows */}
@@ -133,17 +133,17 @@ const copilotPatterns = [
   </section>
 
   <VideoBand
-    videoSrc={u("/video/demo-build.mp4")}
-    eyebrow="The rater, materializing"
-    headline="From three SERFF filings to a working ISO rater."
-    body="Input schema, loss-cost cells, ILF tables, regression tests. The rater appears on the right as the agent reads the filing on the left."
+    videoSrc={u("/video/research-loop.mp4")}
+    eyebrow="The substrate"
+    headline="One typed graph holds the work."
+    body="Filings, raters, loss runs, and submissions live in one substrate. The agents reason over it. The actuary signs against it."
   />
 
   <VideoBand
-    videoSrc={u("/video/demo-quote.mp4")}
-    eyebrow="Lineage to the dec page"
-    headline="Estimated total premium: $442.80."
-    body="The dec page, the rating drivers, and the premium are one substrate. Every value traces back to the originating SERFF filing. No black box."
+    videoSrc={u("/video/customers-loop.mp4")}
+    eyebrow="Lineage by default"
+    headline="Every value carries its citation."
+    body="A factor, a base rate, a credit, a quote. Each one traces back to the page and cell it came from. No black box, no hand-waving."
   />
 
   {/* How to work with the Copilot */}
@@ -163,36 +163,6 @@ const copilotPatterns = [
             </p>
           </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  {/* Demo */}
-  <section id="demo" class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-    <div class="grid md:grid-cols-12 gap-10 items-center">
-      <div class="md:col-span-6">
-        <p class="eyebrow mb-3">Demo capture</p>
-        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
-          ISO Ohio Commercial Auto, reconstructed in ten minutes.
-        </h2>
-        <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          Three SERFF filings in. Schema identified. Fifteen fields generated. Six of six regression tests passing. Dec-page-faithful GUI shipped. A live quote of $442.80 on a test policy. End to end, on real public data.
-        </p>
-        <p class="mt-5 text-sm text-[var(--fg-muted)]">
-          The video is the unedited capture.
-        </p>
-      </div>
-      <div class="md:col-span-6">
-        <div class="aspect-video rounded-md border border-[var(--rule)] overflow-hidden bg-[var(--bg-panel)]">
-          <video
-            class="h-full w-full object-cover"
-            controls
-            preload="metadata"
-            poster="/video/rating-engine-poster.jpg"
-          >
-            <source src={u("/video/rating-engine-demo.mp4")} type="video/mp4" />
-          </video>
-        </div>
       </div>
     </div>
   </section>

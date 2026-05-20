@@ -88,6 +88,57 @@ ASOP-style binder, no visible writing on the cover.
 
 ---
 
+---
+
+## Vertical walkthrough variants (9:16, 1080x1920)
+
+Same subject matter as the horizontal loops, reframed for portrait. Used in
+mobile-only bands and for product-landing tiles where a tall format reads
+better. Generate at 1080x1920, 8 seconds, silent.
+
+## walkthrough-ingest-vertical.mp4 (new)
+
+Vertical reframe. Slow tilt-down along a tall stack of papers on a wood
+desk: top sheet is a loss run with handwritten columns, middle sheets are
+SOV pages with ruled grids, bottom is a bound rate manual with a leather
+spine. A hand turns a single page slowly. Brass desk lamp warm light from
+upper right. Shallow depth of field, ink texture visible. No legible text
+or numbers, no logos.
+
+## walkthrough-rater-vertical.mp4 (new)
+
+Vertical reframe. Slow camera dolly upward along the side of an oak desk:
+slide rule at the bottom, a worn leather-bound book of loss tables in the
+middle, a brass desk lamp casting warm filament glow at the top. Dust
+motes drift through the beam. Cinematic, color-graded teal and amber.
+Shallow depth of field. No legible text, no numbers, no logos.
+
+## walkthrough-analyze-vertical.mp4 (new)
+
+Vertical reframe. Top-to-bottom tilt across a tall stack of bound
+actuarial reports in unlabeled tan covers. The topmost report is open,
+showing only bar and line silhouettes (no rendered letters or numbers). A
+coffee mug and slide rule rest beside the stack. Soft natural light from a
+high window. Filmic. No legible text anywhere in frame.
+
+## walkthrough-audit-vertical.mp4 (new)
+
+Vertical reframe. Close vertical shot of hands placing a brass embosser
+onto a thick document, then pressing down. The embosser leaves a circular
+impression with a generic seal shape, no readable text. A second hand
+enters and stamps a small completion mark below. Slow motion, shallow
+depth of field, warm tungsten light. Only ruled columns visible in the
+bokeh, no words.
+
+## walkthrough-writing-vertical.mp4 (new)
+
+Vertical reframe. Close shot framed top-to-bottom of a fountain pen
+writing in a notebook. The strokes are deliberate but focus is shallow so
+ink reads as texture, not letters. The pen lifts, dips into an inkwell,
+returns. Brass desk lamp warm light from upper frame. Filmic, slow.
+
+---
+
 ## Prompt hygiene
 
 - Always end the prompt with: "No legible text anywhere in frame. No

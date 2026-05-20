@@ -60,20 +60,24 @@ const copilotPatterns = [
   {/* Proof row */}
   <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-14">
+      <p class="eyebrow mb-6">What one credentialed actuary recovers in a year</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center md:text-left">
         <div>
-          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">~10 min</p>
-          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">ISO Ohio Commercial Auto reconstructed end to end, with regression tests passing.</p>
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">~1,564 hrs</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Recovered from 1,874 hours of recurring activity. ~83% of the book of work, per actuary, per year.</p>
         </div>
         <div class="md:border-l md:border-[var(--rule)] md:pl-6">
-          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">$442.80</p>
-          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Live quote on a test policy, traceable back to the originating filing.</p>
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">~$271K</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Dollars saved per credentialed actuary, at a fully-loaded rate of $173.33/hr. Compounds across the team.</p>
         </div>
         <div class="md:border-l md:border-[var(--rule)] md:pl-6">
-          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">4 workflows</p>
-          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Ingest. Build. Analyze. Audit. One Workbench, one Copilot.</p>
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">~6.0×</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Productivity multiplier. 1,874 hours of recurring work compressed to ~300 hours of human review and sign-off.</p>
         </div>
       </div>
+      <p class="mt-8 text-xs text-[var(--fg-muted)] leading-relaxed max-w-[860px]">
+        Bottom-up estimate against 22 recurring activities. Salary $312,000 · productive hours 1,800/yr · fully-loaded rate $173.33/hr. POC is graded against your baseline on Day 0, not ours.
+      </p>
     </div>
   </section>
 
@@ -145,10 +149,10 @@ const copilotPatterns = [
   </section>
 
   <VideoBand
-    videoSrc={u("/video/demo-quote.mp4")}
-    eyebrow="Live, on real public data"
-    headline="Three SERFF filings in. One $442.80 quote out."
-    body="ISO Ohio Commercial Auto, reconstructed end to end. Six of six regression tests passing. A dec-page-faithful GUI. The premium ties back to the loss cost and ILF on the original filing page."
+    videoSrc={u("/video/research-loop.mp4")}
+    eyebrow="The substrate"
+    headline="A typed graph from filing to premium."
+    body="Loss runs, SOVs, filings, raters, and the actuary's reasoning live in one substrate, with lineage from the originating page all the way to the quote. Every number has a citation."
   />
 
   <Footer />

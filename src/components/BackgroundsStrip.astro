@@ -19,13 +19,15 @@ const doubled = [...backgrounds, ...backgrounds];
     <div class="bg-strip-mask">
       <div class="bg-strip-track">
         {doubled.map((b) => (
-          <img
-            src={u(`/logos/${b.slug}.${b.ext}`)}
-            alt={b.label}
-            class="bg-strip-mark"
-            loading="lazy"
-            decoding="async"
-          />
+          <div class="bg-strip-cell">
+            <img
+              src={u(`/logos/${b.slug}.${b.ext}`)}
+              alt={b.label}
+              class="bg-strip-mark"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -53,7 +55,6 @@ const doubled = [...backgrounds, ...backgrounds];
 
   .bg-strip-track {
     display: flex;
-    gap: 4rem;
     width: max-content;
     animation: bg-strip-scroll 40s linear infinite;
     align-items: center;
@@ -63,17 +64,25 @@ const doubled = [...backgrounds, ...backgrounds];
     animation-play-state: paused;
   }
 
+  .bg-strip-cell {
+    width: 200px;
+    flex: 0 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .bg-strip-mark {
     height: 28px;
     width: auto;
-    max-width: 180px;
+    max-width: 100%;
     object-fit: contain;
     filter: var(--logo-filter);
     opacity: 0.78;
     transition: opacity 200ms ease, filter 200ms ease;
   }
 
-  .bg-strip-mark:hover {
+  .bg-strip-cell:hover .bg-strip-mark {
     opacity: 1;
     filter: grayscale(0) brightness(1);
   }
@@ -92,7 +101,11 @@ const doubled = [...backgrounds, ...backgrounds];
       animation: none;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem 3rem;
+    }
+    .bg-strip-cell {
+      width: auto;
+      flex: 0 0 auto;
+      padding: 0.75rem 1.5rem;
     }
   }
 </style>
