@@ -1,4 +1,6 @@
 ---
+import { u } from "../lib/url";
+
 const backgrounds = [
   { slug: "genre", label: "Gen Re", ext: "svg" },
   { slug: "wrberkley", label: "W.R. Berkley", ext: "svg" },
@@ -19,7 +21,7 @@ const doubled = [...backgrounds, ...backgrounds];
       <div class="bg-strip-track">
         {doubled.map((b) => (
           <img
-            src={`/logos/${b.slug}.${b.ext}`}
+            src={u(`/logos/${b.slug}.${b.ext}`)}
             alt={b.label}
             class="bg-strip-mark"
             loading="lazy"

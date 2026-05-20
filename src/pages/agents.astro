@@ -4,13 +4,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AgentDef from "../components/AgentDef.astro";
 import ControlPlane from "../components/ControlPlane.astro";
+import { u } from "../lib/url";
 
 const agents = [
   {
     name: "Migrate",
     oneLiner: "Pull any rater in.",
     body: "Internal models, competitor SERFF filings, ISO and bureau loops, legacy spreadsheets, vendor black boxes. Migrate reconstructs the rater field by field with lineage to the originating filing. A demo on three SERFF filings reconstructed ISO Ohio Commercial Auto end to end in about ten minutes: fifteen-field schema generated, six of six regression tests passing, dec-page-faithful GUI shipped, $442.80 quote on a test policy.",
-    artifact: { label: "See the rating engine demo", href: "/agents#demo" },
+    artifact: { label: "See the rating engine demo", href: u("/agents#demo") },
   },
   {
     name: "Manage",
@@ -84,7 +85,7 @@ const agents = [
             preload="metadata"
             poster="/video/rating-engine-poster.jpg"
           >
-            <source src="/video/rating-engine-demo.mp4" type="video/mp4" />
+            <source src={u("/video/rating-engine-demo.mp4")} type="video/mp4" />
           </video>
         </div>
       </div>

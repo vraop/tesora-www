@@ -6,6 +6,7 @@ import CinematicHero from "../components/CinematicHero.astro";
 import BackgroundsStrip from "../components/BackgroundsStrip.astro";
 import AgentDef from "../components/AgentDef.astro";
 import NewsItem from "../components/NewsItem.astro";
+import { u } from "../lib/url";
 
 const agents = [
   {
@@ -56,7 +57,7 @@ const news = [
     headline="Frontier AI for actuaries."
     deck="Tesora is the AI-native pricing substrate for specialty property and casualty. Migrate any rater. Manage every change. Refit on real loss data."
     primaryCta={{ label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" }}
-    secondaryCta={{ label: "See the agents", href: "/agents" }}
+    secondaryCta={{ label: "See the agents", href: u("/agents") }}
   />
 
   <BackgroundsStrip />
@@ -101,7 +102,7 @@ const news = [
           Three primitives. One control plane.
         </h2>
       </div>
-      <a href="/agents" class="link hidden md:inline-block text-sm">All agents →</a>
+      <a href={u("/agents")} class="link hidden md:inline-block text-sm">All agents →</a>
     </div>
 
     <div>
@@ -110,7 +111,7 @@ const news = [
       ))}
     </div>
     <p class="mt-10 md:hidden">
-      <a href="/agents" class="link text-sm">All agents →</a>
+      <a href={u("/agents")} class="link text-sm">All agents →</a>
     </p>
   </section>
 
@@ -124,7 +125,7 @@ const news = [
             What's happened recently.
           </h2>
         </div>
-        <a href="/news" class="link hidden md:inline-block text-sm">Full timeline →</a>
+        <a href={u("/news")} class="link hidden md:inline-block text-sm">Full timeline →</a>
       </div>
       <div>
         {news.map((n) => (

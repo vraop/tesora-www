@@ -1,15 +1,17 @@
 ---
+import { u } from "../lib/url";
+
 export interface Props {
   variant?: "light" | "transparent";
 }
 const { variant = "light" } = Astro.props;
 
 const navItems = [
-  { label: "Agents", href: "/agents" },
-  { label: "Customers", href: "/customers" },
-  { label: "Security", href: "/security" },
-  { label: "Research", href: "/research" },
-  { label: "Company", href: "/about" },
+  { label: "Agents", href: u("/agents") },
+  { label: "Customers", href: u("/customers") },
+  { label: "Security", href: u("/security") },
+  { label: "Research", href: u("/research") },
+  { label: "Company", href: u("/about") },
 ];
 
 const positionClass =
@@ -34,7 +36,7 @@ const toggleClass =
 
 <header class={`${positionClass} z-50 ${bgClass}`}>
   <div class={`mx-auto max-w-[1180px] px-6 md:px-10 py-5 flex justify-between items-center text-sm ${textClass}`}>
-    <a href="/" class="font-semibold text-base tracking-tight">Tesora</a>
+    <a href={u("/")} class="font-semibold text-base tracking-tight">Tesora</a>
 
     <nav class="hidden md:flex gap-8">
       {navItems.map((item) => (

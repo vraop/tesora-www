@@ -1,4 +1,6 @@
 ---
+import { u } from "../lib/url";
+
 export interface Props {
   videoSrc?: string;
   posterSrc?: string;
@@ -10,32 +12,46 @@ export interface Props {
 }
 
 const {
-  videoSrc = "/video/hero-loop.mp4",
-  posterSrc = "/video/hero-poster.jpg",
+  videoSrc,
+  posterSrc,
   eyebrow,
   headline,
   deck,
   primaryCta = { label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" },
   secondaryCta,
 } = Astro.props;
+
+// Render the video layer only when an actual asset is provided. Otherwise the
+// hero falls back to an animated gradient mesh so we never ship a 404 background.
+const hasVideo = Boolean(videoSrc);
 ---
 
-<section class="relative isolate w-full overflow-hidden bg-[var(--color-ink)]" style="min-height: 88vh;">
-  <video
-    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
-    autoplay
-    muted
-    loop
-    playsinline
-    poster={posterSrc}
-    aria-hidden="true"
-  >
-    <source src={videoSrc} type="video/mp4" />
-  </video>
+<section class="hero-section relative isolate w-full overflow-hidden bg-[var(--color-ink)]">
+  {hasVideo && (
+    <video
+      class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster={posterSrc}
+      aria-hidden="true"
+    >
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+  )}
 
-  <div class="absolute inset-0 -z-10 bg-[var(--color-ink)]/55"></div>
+  {!hasVideo && (
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-mesh"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-scanline"></div>
+    </div>
+  )}
 
-  <div class="relative mx-auto max-w-[1180px] px-6 md:px-10 flex flex-col items-center justify-center text-center" style="min-height: 88vh; padding-top: 12rem; padding-bottom: 8rem;">
+  <div class="absolute inset-0 -z-10 bg-[var(--color-ink)]/45"></div>
+
+  <div class="relative mx-auto max-w-[1180px] px-6 md:px-10 flex flex-col items-center justify-center text-center hero-stack">
     {eyebrow && <p class="eyebrow mb-6 text-[var(--color-bone)]/80">{eyebrow}</p>}
 
     <h1 class="font-semibold text-[3.5rem] md:text-[4.25rem] leading-[1.02] tracking-[-0.025em] text-[var(--color-bone)] max-w-[920px]">
@@ -65,17 +81,112 @@ const {
 
     <div class="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-5 px-6">
       <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--color-bone)]/55">Backed by</p>
-      <img src="/logos/foundation-capital.svg" alt="Foundation Capital" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
+      <img src={u("/logos/foundation-capital.svg")} alt="Foundation Capital" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
       <span class="text-[var(--color-bone)]/35 text-xs">·</span>
-      <img src="/logos/y-combinator.svg" alt="Y Combinator S25" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
+      <img src={u("/logos/y-combinator.svg")} alt="Y Combinator S25" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
     </div>
   </div>
-
-  <style>
-    @media (prefers-reduced-motion: reduce) {
-      section video {
-        display: none;
-      }
-    }
-  </style>
 </section>
+
+<style>
+  .hero-section {
+    min-height: 88vh;
+  }
+  .hero-stack {
+    min-height: 88vh;
+    padding-top: 12rem;
+    padding-bottom: 8rem;
+  }
+
+  /* Animated gradient mesh fallback when no video is supplied.
+     Soft drift across three radial blobs, with a fine dot grid and a slow
+     scanline. Reads as cinematic data infrastructure, not stock footage. */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    background: var(--color-ink, #0e0e0c);
+    overflow: hidden;
+  }
+
+  .hero-mesh {
+    position: absolute;
+    inset: -25%;
+    background:
+      radial-gradient(38% 38% at 22% 28%, color-mix(in oklab, var(--color-oxblood, #6b1a1a) 55%, transparent) 0%, transparent 70%),
+      radial-gradient(34% 40% at 78% 68%, color-mix(in oklab, #2a3a52 70%, transparent) 0%, transparent 70%),
+      radial-gradient(30% 30% at 50% 100%, color-mix(in oklab, #c8b48a 30%, transparent) 0%, transparent 70%);
+    filter: blur(40px) saturate(110%);
+    animation: hero-mesh-drift 24s ease-in-out infinite alternate;
+    opacity: 0.85;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-bone, #efe9d9) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-bone, #efe9d9) 8%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at 50% 40%, black 35%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 35%, transparent 80%);
+    opacity: 0.55;
+  }
+
+  .hero-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in oklab, var(--color-bone, #efe9d9) 35%, transparent) 35%,
+      color-mix(in oklab, var(--color-bone, #efe9d9) 60%, transparent) 50%,
+      color-mix(in oklab, var(--color-bone, #efe9d9) 35%, transparent) 65%,
+      transparent
+    );
+    top: 0;
+    animation: hero-scan 14s linear infinite;
+    opacity: 0.45;
+  }
+
+  @keyframes hero-mesh-drift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(2%, -1.5%, 0) scale(1.04);
+    }
+    100% {
+      transform: translate3d(-1.5%, 2%, 0) scale(1.02);
+    }
+  }
+
+  @keyframes hero-scan {
+    0% {
+      top: -2%;
+      opacity: 0;
+    }
+    8% {
+      opacity: 0.45;
+    }
+    92% {
+      opacity: 0.45;
+    }
+    100% {
+      top: 102%;
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-section video {
+      display: none;
+    }
+    .hero-mesh,
+    .hero-scanline {
+      animation: none;
+    }
+  }
+</style>

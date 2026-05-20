@@ -1,17 +1,19 @@
 ---
+import { u } from "../lib/url";
+
 const investors = [
-  { name: "Foundation Capital", logo: "/logos/foundation-capital.svg" },
-  { name: "Y Combinator", logo: "/logos/y-combinator.svg" },
+  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg") },
+  { name: "Y Combinator", logo: u("/logos/y-combinator.svg") },
 ];
 
 const footerNav = [
-  { label: "Agents", href: "/agents" },
-  { label: "Customers", href: "/customers" },
-  { label: "Security", href: "/security" },
-  { label: "Research", href: "/research" },
-  { label: "News", href: "/news" },
-  { label: "Careers", href: "/careers" },
-  { label: "About", href: "/about" },
+  { label: "Agents", href: u("/agents") },
+  { label: "Customers", href: u("/customers") },
+  { label: "Security", href: u("/security") },
+  { label: "Research", href: u("/research") },
+  { label: "News", href: u("/news") },
+  { label: "Careers", href: u("/careers") },
+  { label: "About", href: u("/about") },
 ];
 ---
 
@@ -61,7 +63,7 @@ const footerNav = [
     <div class="mt-12 pt-6 border-t border-[var(--rule)] flex flex-col md:flex-row justify-between gap-3 text-xs text-[var(--fg-muted)]">
       <p>© {new Date().getFullYear()} Tesora AI. AI-native actuarial pricing for specialty P&amp;C.</p>
       <p>
-        <a href="/llms.txt" class="hover:text-[var(--fg)]">llms.txt</a>
+        <a href={u("/llms.txt")} class="hover:text-[var(--fg)]">llms.txt</a>
       </p>
     </div>
   </div>
