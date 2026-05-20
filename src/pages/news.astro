@@ -14,11 +14,13 @@ const items = [
     date: "2025 · OCT",
     headline: "Tesora named top startup finalist at DPW Amsterdam 2025.",
     body: "AMSTERDAM. DPW selected Tesora AI as a top startup finalist at its 2025 Amsterdam summit, recognizing the company's work on AI-driven pricing and procurement workflows for the insurance industry.",
+    logo: { slug: "dpw", alt: "DPW Amsterdam" },
   },
   {
     date: "2025 · SEP",
     headline: "Tesora completes Y Combinator S25.",
     body: "NEW YORK. Tesora AI, the AI-native pricing substrate for specialty property and casualty, today announced completion of the Y Combinator Summer 2025 cohort. The program focused on AI-native applications for regulated industries.",
+    logo: { slug: "y-combinator", alt: "Y Combinator S25" },
   },
 ];
 ---
@@ -45,7 +47,7 @@ const items = [
 
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-32">
     {items.map((n) => (
-      <NewsItem date={n.date} headline={n.headline} body={n.body} />
+      <NewsItem date={n.date} headline={n.headline} body={n.body} logo={n.logo} />
     ))}
   </section>
 

@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CinematicHero from "../components/CinematicHero.astro";
+import { u } from "../lib/url";
 
 const compliance = [
   {
@@ -64,19 +66,14 @@ const dataPosture = [
   canonical="/security"
   schemaType="WebPage"
 >
-  <Header />
+  <Header variant="transparent" />
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pt-32 pb-16">
-    <div class="max-w-[820px]">
-      <p class="eyebrow mb-6">Security</p>
-      <h1 class="font-semibold text-[3rem] leading-[1.08] tracking-[-0.02em]">
-        Built for the regulatory posture chief actuaries answer to.
-      </h1>
-      <p class="text-[1.125rem] leading-[1.6] text-[var(--fg-muted)] mt-7 max-w-[680px]">
-        Specialty P&amp;C is a regulated industry. Tesora is engineered for the standard of practice a chief actuary signs against, not the standard a SaaS vendor checks a box for.
-      </p>
-    </div>
-  </section>
+  <CinematicHero
+    videoSrc={u("/video/security-loop.mp4")}
+    headline="Built for the regulatory posture chief actuaries answer to."
+    deck="Specialty P&C is a regulated industry. Tesora is engineered for the standard of practice a chief actuary signs against, not the standard a SaaS vendor checks a box for."
+    primaryCta={{ label: "Request SOC 2", href: "mailto:security@tesora.ai" }}
+  />
 
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
     <p class="eyebrow mb-8">Compliance</p>

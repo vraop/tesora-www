@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AgentDef from "../components/AgentDef.astro";
 import ControlPlane from "../components/ControlPlane.astro";
+import CinematicHero from "../components/CinematicHero.astro";
 import { u } from "../lib/url";
 
 const agents = [
@@ -37,17 +38,15 @@ const agents = [
   canonical="/agents"
   schemaType="WebPage"
 >
-  <Header />
+  <Header variant="transparent" />
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pt-32 pb-20 text-center">
-    <p class="eyebrow mb-6">Agents</p>
-    <h1 class="font-semibold text-[3.25rem] leading-[1.05] tracking-[-0.022em] max-w-[860px] mx-auto">
-      Frontier AI for specialty P&amp;C pricing.
-    </h1>
-    <p class="text-[1.25rem] leading-[1.5] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
-      Four agents. One control plane. Every action proposed, reviewed, and recorded. Built for actuaries who sign rate filings, not for a demo loop.
-    </p>
-  </section>
+  <CinematicHero
+    videoSrc={u("/video/agents-loop.mp4")}
+    headline="Frontier AI for specialty P&C pricing."
+    deck="Four agents. One control plane. Every action proposed, reviewed, and recorded. Built for actuaries who sign rate filings, not for a demo loop."
+    primaryCta={{ label: "See the demo", href: "#demo" }}
+    secondaryCta={{ label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" }}
+  />
 
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
     {agents.map((a) => (

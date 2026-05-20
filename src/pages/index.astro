@@ -36,11 +36,13 @@ const news = [
     date: "2025 · OCT",
     headline: "Top startup finalist at DPW Amsterdam 2025.",
     body: "DPW Amsterdam selected Tesora as a top startup finalist in its 2025 procurement-and-insurance innovation showcase.",
+    logo: { slug: "dpw", alt: "DPW Amsterdam" },
   },
   {
     date: "2025 · SEP",
     headline: "Tesora completes Y Combinator S25.",
     body: "Tesora completed the Y Combinator Summer 2025 cohort focused on AI-native applications for regulated industries.",
+    logo: { slug: "y-combinator", alt: "Y Combinator S25" },
   },
 ];
 ---
@@ -130,7 +132,7 @@ const news = [
       </div>
       <div>
         {news.map((n) => (
-          <NewsItem date={n.date} headline={n.headline} body={n.body} />
+          <NewsItem date={n.date} headline={n.headline} body={n.body} logo={n.logo} />
         ))}
       </div>
     </div>
