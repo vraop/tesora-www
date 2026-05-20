@@ -4,26 +4,38 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
 import BackgroundsStrip from "../components/BackgroundsStrip.astro";
-import AgentDef from "../components/AgentDef.astro";
 import NewsItem from "../components/NewsItem.astro";
+import VideoBand from "../components/VideoBand.astro";
 import { u } from "../lib/url";
 
-const agents = [
+const workflows = [
   {
-    name: "Migrate",
-    oneLiner: "Pull any rater in.",
-    body: "Internal models, competitor SERFF filings, ISO/bureau loops, legacy spreadsheets. Tesora reconstructs the rater with source tracing back to the originating filing.",
+    num: "01",
+    title: "Ingest the messy stuff.",
+    body: "Loss runs, SOVs, exposure files, rate manuals, filings, objection letters. PDF, Excel, CSV, Word. Auto-classified, normalized, and source-cited back to the original page and cell.",
   },
   {
-    name: "Manage",
-    oneLiner: "Stand up, edit, test, deploy. Every change governed.",
-    body: "Audit-trailed, SOX-aligned, SOC 2 Type II. Filings stay current with state, exposure, and trend. Reviewers sign off in the same surface they read the change in.",
+    num: "02",
+    title: "Build, test, and deploy raters.",
+    body: "Turn a rate manual or filing into a working pricing model. Base rates, territory factors, ILFs, schedule mods. Every rater ships with a callable API, a quoting UI, regression tests, and a SOX-compliant audit trail.",
   },
   {
-    name: "Refit",
-    oneLiner: "Ask the questions actuaries actually want answered.",
-    body: "Is this rater keeping up with trend? Are factors stale? Which classes are bleeding margin and which are carrying the book? The refit agent surfaces the answer with the data behind it.",
+    num: "03",
+    title: "Run the standard analyses.",
+    body: "Ask in plain English. Loss trend, on-leveling, credibility weighting, distribution fitting, VaR and TVaR, XOL structuring, portfolio cuts. The Copilot writes the report with charts, citations, and commentary.",
   },
+  {
+    num: "04",
+    title: "Compare, audit, and share.",
+    body: "Reports are living documents — extend a chart, add a year, swap a method, re-segment. A specialist audit agent catches issues before hand-off. Every workflow becomes a tab your reviewer or underwriter can open directly.",
+  },
+];
+
+const copilotPatterns = [
+  { label: "Be conversational.", body: "Type what you'd say to a junior analyst.", example: "Trend these losses to 2026 at 4%." },
+  { label: "Point at data.", body: "Tell it which vault or file to use.", example: "Use the loss run in the Q1 vault." },
+  { label: "Iterate freely.", body: "Each follow-up extends the existing report.", example: "Add a state-level breakdown. Also fit a Pareto." },
+  { label: "Ask why.", body: "Methodology and source citations are one question away.", example: "Why chain ladder here and not BF?" },
 ];
 
 const news = [
@@ -49,7 +61,7 @@ const news = [
 
 <Layout
   title="Tesora · Frontier AI for actuaries"
-  description="Frontier AI for actuaries. Tesora is the AI-native pricing substrate for specialty P&C carriers and MGAs. Migrate, Manage, and Refit any rater with a control plane built for chief actuaries."
+  description="Frontier AI for actuaries. The Tesora Workbench ingests filings, builds and deploys raters, runs standard pricing analyses, and audits the work. The Copilot does the spreadsheet work; you stay in the driver's seat."
   canonical="/"
   schemaType="WebPage"
 >
@@ -58,9 +70,9 @@ const news = [
   <CinematicHero
     videoSrc={u("/video/hero-loop.mp4")}
     headline="Frontier AI for actuaries."
-    deck="Tesora is the AI-native pricing substrate for specialty property and casualty. Migrate any rater. Manage every change. Refit on real loss data."
-    primaryCta={{ label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" }}
-    secondaryCta={{ label: "See the agents", href: u("/agents") }}
+    deck="The Tesora Workbench ingests filings, builds raters, runs the standard analyses, and audits the work. The Copilot does the spreadsheet wrangling and the write-up. You stay in the driver's seat."
+    primaryCta={{ label: "Request a walkthrough", href: "mailto:founders@tesora.ai?subject=Workbench%20walkthrough" }}
+    secondaryCta={{ label: "Meet the agents", href: u("/agents") }}
   />
 
   <BackgroundsStrip />
@@ -71,15 +83,15 @@ const news = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center md:text-left">
         <div>
           <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">~10 min</p>
-          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">ISO Ohio Commercial Auto reconstructed end to end.</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">ISO Ohio Commercial Auto reconstructed end to end, with regression tests passing.</p>
         </div>
         <div class="md:border-l md:border-[var(--rule)] md:pl-6">
           <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">$442.80</p>
-          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Quote on a test policy, traceable back to the originating filing.</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Live quote on a test policy, traceable back to the originating filing.</p>
         </div>
         <div class="md:border-l md:border-[var(--rule)] md:pl-6">
-          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">4 agents</p>
-          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Migrate, Manage, Refit, Triage. One control plane.</p>
+          <p class="font-mono text-[1.75rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">4 workflows</p>
+          <p class="mt-3 text-sm text-[var(--fg-muted)] leading-snug">Ingest. Build. Analyze. Audit. One Workbench, one Copilot.</p>
         </div>
       </div>
     </div>
@@ -89,41 +101,82 @@ const news = [
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center">
     <p class="eyebrow mb-6">The thesis</p>
     <h2 class="font-semibold text-[2.5rem] leading-[1.1] tracking-[-0.015em] max-w-[820px] mx-auto">
-      Insurance was a relay race. AI compresses the layers. Whoever holds the context wins.
+      Pricing was a relay race across spreadsheets, vendor models, and one actuary's memory. The Workbench compresses it.
     </h2>
     <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
-      Pricing context lives in two places today: the underwriter's head and the actuary's spreadsheets. Neither is durable. Neither survives a model migration. Tesora is the durable substrate: filings, raters, submissions, exposures, portfolio, in a single graph with lineage from the originating SERFF document to the quoted premium.
+      Loss runs, SOVs, filings, raters, and the actuary's reasoning live in five different places today. The Workbench holds them in one substrate, with lineage from the originating page of the SERFF filing all the way to the quoted premium. Every number has a citation.
     </p>
   </section>
 
-  {/* Agents preview */}
+  <VideoBand
+    videoSrc={u("/video/customers-loop.mp4")}
+    eyebrow="One Workbench"
+    headline="Ingest. Build. Analyze. Audit."
+    body="Four workflows. One Copilot. Built for actuaries new to AI tools, deep enough for a chief actuary on Day 1."
+    align="center"
+  />
+
+  {/* Workbench preview — four numbered workflows */}
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
     <div class="flex items-end justify-between mb-10">
       <div>
-        <p class="eyebrow mb-3">The agents</p>
-        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
-          Three primitives. One control plane.
+        <p class="eyebrow mb-3">The Workbench</p>
+        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[640px]">
+          Four workflows. One Copilot. Built for actuaries new to AI tools.
         </h2>
       </div>
-      <a href={u("/agents")} class="link hidden md:inline-block text-sm">All agents →</a>
+      <a href={u("/agents")} class="link hidden md:inline-block text-sm">Full spec →</a>
     </div>
 
-    <div>
-      {agents.map((a) => (
-        <AgentDef name={a.name} oneLiner={a.oneLiner} body={a.body} />
+    <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+      {workflows.map((w) => (
+        <article class="border-t border-[var(--rule)] pt-6">
+          <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
+          <h3 class="mt-2 font-semibold text-[1.25rem] leading-[1.25] tracking-[-0.005em]">{w.title}</h3>
+          <p class="mt-3 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
+        </article>
       ))}
     </div>
+
     <p class="mt-10 md:hidden">
-      <a href={u("/agents")} class="link text-sm">All agents →</a>
+      <a href={u("/agents")} class="link text-sm">Full spec →</a>
     </p>
   </section>
 
-  {/* Precedent / News strip */}
+  {/* How to work with the Copilot */}
   <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
+        <p class="eyebrow">How to work with the Copilot</p>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        {copilotPatterns.map((p) => (
+          <div>
+            <p class="font-semibold text-[1rem]">{p.label}</p>
+            <p class="mt-2 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{p.body}</p>
+            <p class="mt-4 text-[0.9375rem] italic leading-[1.5] text-[var(--fg)] border-l-2 border-[var(--color-oxblood,#6b1a1a)] pl-3">
+              "{p.example}"
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <VideoBand
+    videoSrc={u("/video/security-loop.mp4")}
+    eyebrow="Lineage"
+    headline="Every number cites the filing page or loss-run cell it came from."
+    body="Reviewers and regulators see the chain. Quotes link back to the originating SERFF filing. No black box."
+  />
+
+  {/* News strip */}
+  <section class="bg-[var(--bg)] border-b border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
       <div class="flex items-end justify-between mb-10">
         <div>
-          <p class="eyebrow mb-3">Precedent</p>
+          <p class="eyebrow mb-3">Recent</p>
           <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
             What's happened recently.
           </h2>
@@ -141,13 +194,13 @@ const news = [
   {/* CTA */}
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center">
     <h2 class="font-semibold text-[2.25rem] leading-[1.15] tracking-[-0.012em] max-w-[680px] mx-auto">
-      Talk to a team that has actually priced these lines.
+      Send us one filing or one loss run.
     </h2>
     <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
-      We respond within a business day. No marketing forms. Email Vivek directly.
+      We'll show you the Workbench applied to your data, not a canned demo. Business-day response.
     </p>
     <div class="mt-8">
-      <a href="mailto:vivek@tesora.ai" class="btn">vivek@tesora.ai</a>
+      <a href="mailto:founders@tesora.ai" class="btn">founders@tesora.ai</a>
     </div>
   </section>
 

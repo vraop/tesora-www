@@ -1,0 +1,189 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import CinematicHero from "../components/CinematicHero.astro";
+import VideoBand from "../components/VideoBand.astro";
+import { u } from "../lib/url";
+
+// Tesora team writing. Byline is the team; each piece cites the specific author(s).
+const teamWriting = [
+  {
+    title: "The substrate thesis: why insurance is next.",
+    authors: "Vivek Rao",
+    date: "2026 · APR",
+    body: "Software had a substrate. Law is getting one. Insurance is next. The case for a typed, lineage-bearing graph underneath rating, and why context is the thing that compounds.",
+    href: "https://tesoraai.substack.com/",
+  },
+  {
+    title: "Schedule rating without the vibes.",
+    authors: "Philo Bishay, Vivek Rao",
+    date: "2026 · APR",
+    body: "Schedule rating is where pricing discipline goes to die. A transparent credit framework grounded in the carrier's own loss data, with every adjustment auditable.",
+    href: "https://tesoraai.substack.com/",
+  },
+  {
+    title: "Exposure-base leakage in contractor's GL.",
+    authors: "Philo Bishay",
+    date: "2026 · MAR",
+    body: "Three to five points of loss-ratio leakage in contractor's GL isn't social inflation. It's exposure bases captured wrong on day one.",
+    href: "https://tesoraai.substack.com/",
+  },
+  {
+    title: "The chief actuary's case for AI agents.",
+    authors: "Philo Bishay, Vivek Rao",
+    date: "2026 · OCT (FORTHCOMING)",
+    body: "What changes when a credentialed actuary works alongside a credentialed agent. Working draft for the CAS Annual Meeting panel.",
+  },
+  {
+    title: "Reconstructing a state filing in ten minutes.",
+    authors: "Vivek Rao",
+    date: "2026 · MAR",
+    body: "Walkthrough of how the Workbench takes three SERFF filings and produces a working rater with regression tests and a $442.80 quote on a test policy.",
+    href: "https://tesoraai.substack.com/",
+  },
+];
+
+// Federico's prior published research. Kept distinct because the work predates Tesora
+// and lives in academic venues under his name.
+const federicoWork = [
+  {
+    title: "Relational deep learning for enterprise data.",
+    venue: "Stanford / Kumo Labs · 2024",
+    body: "Graph neural networks operating directly on relational tables. The prior research that underpins the substrate Tesora uses to hold filings, raters, exposures, and quotes as one typed graph.",
+    href: "https://relbench.stanford.edu",
+    logos: [
+      { slug: "stanford", alt: "Stanford" },
+      { slug: "kumo", alt: "Kumo Labs" },
+    ],
+  },
+  {
+    title: "Learned ontologies for heterogeneous tabular sources.",
+    venue: "Working note · 2025",
+    body: "How Tesora reconciles SERFF fields, ISO field codes, and carrier-internal schemas without a hand-written mapping layer. The technique generalizes from raters to submissions to portfolio.",
+    logos: [],
+  },
+];
+---
+
+<Layout
+  title="Media · Tesora"
+  description="Writing and research from the Tesora team on rating, pricing, and the AI substrate underneath specialty P&C."
+  canonical="/media"
+  schemaType="WebPage"
+>
+  <Header variant="transparent" />
+
+  <CinematicHero
+    videoSrc={u("/video/research-loop.mp4")}
+    headline="Working notes from the team."
+    deck="We post the rating-and-pricing thinking that doesn't fit on a sales page. The Tesora Team writes; each piece cites the actuary or engineer who led it."
+    primaryCta={{ label: "Read on Substack", href: "https://tesoraai.substack.com/" }}
+    secondaryCta={{ label: "Email the authors", href: "mailto:founders@tesora.ai" }}
+  />
+
+  {/* Tesora Team writing */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+    <div class="grid md:grid-cols-12 gap-10 mb-12">
+      <div class="md:col-span-4">
+        <p class="eyebrow mb-3">The Tesora Team</p>
+        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
+          Working notes, not white papers.
+        </h2>
+      </div>
+      <p class="md:col-span-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
+        Short pieces with a clear point of view, by the actuaries and engineers building Tesora. The byline is the team. Each piece names the specific author so you know who to write back to.
+      </p>
+    </div>
+
+    <div>
+      {teamWriting.map((p) => (
+        <article class="grid md:grid-cols-12 gap-6 md:gap-10 py-8 border-t border-[var(--rule)] first:border-t-0">
+          <div class="md:col-span-3">
+            <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{p.date}</p>
+            <p class="mt-2 text-[0.8125rem] text-[var(--fg-muted)]">Tesora Team</p>
+            <p class="text-[0.8125rem] text-[var(--fg)]">{p.authors}</p>
+          </div>
+          <div class="md:col-span-9">
+            <h3 class="font-semibold text-[1.25rem] leading-[1.25] tracking-[-0.005em]">{p.title}</h3>
+            <p class="mt-2 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{p.body}</p>
+            {p.href && (
+              <p class="mt-3">
+                <a href={p.href} class="link text-sm" target="_blank" rel="noopener">Read on Substack →</a>
+              </p>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <VideoBand
+    videoSrc={u("/video/workbench-loop.mp4")}
+    eyebrow="Why we write"
+    headline="The thinking that doesn't fit on a sales page."
+    body="Most rating research lives in slide decks no one reads twice. We post short, opinionated notes on what we're seeing and what we're building."
+  />
+
+  {/* Federico's prior research — kept distinct */}
+  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+      <div class="grid md:grid-cols-12 gap-10 mb-10">
+        <div class="md:col-span-4">
+          <p class="eyebrow mb-3">Prior research</p>
+          <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
+            Federico Reyes Gomez
+          </h2>
+          <p class="text-sm text-[var(--fg-muted)] mt-2">Co-founder &amp; CTO</p>
+        </div>
+        <p class="md:col-span-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
+          Federico's prior published work on graph neural networks for relational and tabular data is the technical foundation underneath Tesora's substrate. Kept distinct on this page because the research predates the company and lives in academic venues under his name.
+        </p>
+      </div>
+      <div>
+        {federicoWork.map((w) => (
+          <article class="border-t border-[var(--rule)] py-8 first:border-t-0">
+            <div class="flex items-center gap-4 flex-wrap">
+              <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.venue}</p>
+              {w.logos && w.logos.length > 0 && (
+                <div class="flex items-center gap-3">
+                  {w.logos.map((l) => (
+                    <img
+                      src={u(`/logos/${l.slug}.svg`)}
+                      alt={l.alt}
+                      class="h-4 w-auto opacity-60"
+                      style="filter: grayscale(1) brightness(0.5);"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+            <h3 class="mt-2 font-semibold text-[1.25rem] leading-[1.25] tracking-[-0.005em]">{w.title}</h3>
+            <p class="mt-2 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
+            {w.href && (
+              <p class="mt-3">
+                <a href={w.href} class="link text-sm" target="_blank" rel="noopener">Read →</a>
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Substack CTA */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24 text-center border-t border-[var(--rule)]">
+    <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em] max-w-[640px] mx-auto">
+      Subscribe at tesoraai.substack.com.
+    </h2>
+    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
+      One or two pieces a month. No marketing. No drip. The actuaries and engineers writing in their own voice.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="https://tesoraai.substack.com/" class="btn" target="_blank" rel="noopener">Subscribe on Substack</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -2,39 +2,92 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import AgentDef from "../components/AgentDef.astro";
-import ControlPlane from "../components/ControlPlane.astro";
 import CinematicHero from "../components/CinematicHero.astro";
+import VideoBand from "../components/VideoBand.astro";
 import { u } from "../lib/url";
 
-const agents = [
+type Feature = { label: string; body: string; wip?: boolean };
+type Workflow = { num: string; title: string; intro: string; features: Feature[] };
+
+const workflows: Workflow[] = [
   {
-    name: "Migrate",
-    oneLiner: "Pull any rater in.",
-    body: "Internal models, competitor SERFF filings, ISO and bureau loops, legacy spreadsheets, vendor black boxes. Migrate reconstructs the rater field by field with lineage to the originating filing. A demo on three SERFF filings reconstructed ISO Ohio Commercial Auto end to end in about ten minutes: fifteen-field schema generated, six of six regression tests passing, dec-page-faithful GUI shipped, $442.80 quote on a test policy.",
-    artifact: { label: "See the rating engine demo", href: u("/agents#demo") },
+    num: "01",
+    title: "Trustworthy data ingestion and cleaning.",
+    intro: "Load the messy stuff. Turn it into something you can actually analyze.",
+    features: [
+      { label: "Upload anything", body: "Loss runs, SOVs, exposure files, rate manuals, filings, objection letters. PDF, Excel, CSV, Word." },
+      { label: "Auto-classification and extraction", body: "Documents are read, tagged (loss run vs. SOV vs. filing), and key data is pulled out for you." },
+      { label: "Normalization", body: "Multiple carriers' loss runs reshaped into one consistent table you can work with." },
+      { label: "Anomaly detection", body: "Triangle outliers, suspicious development factors, missing periods, duplicate claims, exposure-base mismatches." },
+      { label: "Source citations", body: "Every number traces back to the exact page and cell in the original document. Click any value to see where it came from." },
+    ],
   },
   {
-    name: "Manage",
-    oneLiner: "Stand up, edit, test, deploy. Every change governed.",
-    body: "Manage is the workbench. Edits to a rate plan land as proposed changes, run through actuarial review, generate regression tests automatically, and deploy with the filing artifact attached. Audit-trailed, SOX-aligned, ASOP 56 compliant, SOC 2 Type II. Re-run the same change in two years and it produces the same answer.",
+    num: "02",
+    title: "Build, test, and deploy raters.",
+    intro: "Turn a rate manual or filing into a working, production-ready pricing model.",
+    features: [
+      { label: "Rater construction", body: "Base rates, territory factors, class factors, ILFs, schedule mods, minimum premiums." },
+      { label: "One-click deployment", body: "Every new rater ships with a callable API and a quoting UI. No engineering ticket, no separate release." },
+      { label: "SOX-compliant controls", body: "Author / reviewer / approver separation, full audit trail, immutable version history, required sign-off before a rater goes live." },
+      { label: "Side-by-side comparison", body: "Quote the same risk through old vs. new plan, your rater vs. a competitor's, current filing vs. proposed." },
+      { label: "Test cases and regressions", body: "Store known-good inputs and expected premiums. Re-run after every change." },
+    ],
   },
   {
-    name: "Refit",
-    oneLiner: "Ask the questions actuaries actually want answered.",
-    body: "Is this rater keeping up with trend? Which factors are stale? Which classes are bleeding margin? Refit reads the in-force book and the loss triangle, runs the GLM, and proposes factor updates with credibility weights and selection logic exposed inline. Nothing is hidden behind a scoring API.",
+    num: "03",
+    title: "Run the standard analyses.",
+    intro: "Ask in plain English. Get a full report with charts and commentary.",
+    features: [
+      { label: "Pricing", body: "Loss trend, on-leveling, loss-cost, credibility weighting, rate adequacy, expense build-ups." },
+      { label: "Distribution fitting", body: "Lognormal, Pareto, Poisson, Weibull, Negative Binomial with AIC selection." },
+      { label: "Risk metrics", body: "VaR, TVaR, aggregate loss simulation, large-loss frequency." },
+      { label: "Reinsurance structuring", body: "XOL layers, aggregate stop-loss, attachment sensitivity, cession analysis." },
+      { label: "Coverage and portfolio cuts", body: "By line, state, year, segment, cap tier, sector." },
+      { label: "Reserving", body: "Loss triangles, age-to-age factors, chain-ladder, Bornhuetter-Ferguson, IBNR, frequency-severity.", wip: true },
+    ],
   },
   {
-    name: "Triage",
-    oneLiner: "Cleaner submissions, faster decisions.",
-    body: "Submission Triage sits on top of the same substrate. Inbound submissions are parsed, classes assigned, exposures normalized, and routed to the right underwriter with the rate-relevant context attached. Originally surfaced as everysubmission.com; now folded into the Tesora agent stack.",
+    num: "04",
+    title: "Compare, audit, and share.",
+    intro: "Iterate on the work, not just deliver it.",
+    features: [
+      { label: "Reports are living documents", body: "Ask for a new chart, an extra year, a different segmentation. The report extends rather than restarts." },
+      { label: "Side-by-side scenarios", body: "Compare methods (chain ladder vs. BF), assumptions (3% vs. 5% trend), or programs (current vs. proposed structure)." },
+      { label: "Automatic audit", body: "Every analysis is reviewed by a specialist agent against actuarial best practice. Critical and major issues are flagged and fixed before hand-off." },
+      { label: "Best-practice consults", body: "The Copilot cites internal actuarial docs when picking a method, so you can see why it chose what it did." },
+      { label: "Artifact panel", body: "Every workflow becomes a tab with the spreadsheet, charts, and narrative your reviewer or underwriter can open directly." },
+    ],
+  },
+];
+
+const copilotPatterns = [
+  {
+    label: "Be conversational.",
+    body: "Type what you would say to a junior analyst.",
+    example: "Trend these losses to 2026 at 4%.",
+  },
+  {
+    label: "Point at data.",
+    body: "Tell it which vault or file to use.",
+    example: "Use the loss run in the Q1 vault.",
+  },
+  {
+    label: "Iterate freely.",
+    body: "Each follow-up extends the existing report.",
+    example: "Add a state-level breakdown. Also fit a Pareto. Audit this.",
+  },
+  {
+    label: "Ask why.",
+    body: "Methodology and source citations are always one question away.",
+    example: "Why chain ladder here and not BF?",
   },
 ];
 ---
 
 <Layout
-  title="Agents · Tesora"
-  description="Tesora's four agents (Migrate, Manage, Refit, Triage) run on a control plane built for actuaries who sign rate filings."
+  title="The Agents · Tesora"
+  description="The Tesora Actuarial Workbench and its agents. Ingest messy data, build and deploy raters, run standard pricing analyses, audit and share. The Copilot runs the spreadsheet work and the write-up. You stay in the driver's seat."
   canonical="/agents"
   schemaType="WebPage"
 >
@@ -42,38 +95,84 @@ const agents = [
 
   <CinematicHero
     videoSrc={u("/video/agents-loop.mp4")}
-    headline="Frontier AI for specialty P&C pricing."
-    deck="Four agents. One control plane. Every action proposed, reviewed, and recorded. Built for actuaries who sign rate filings, not for a demo loop."
-    primaryCta={{ label: "See the demo", href: "#demo" }}
-    secondaryCta={{ label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" }}
+    headline="Frontier AI for actuaries. Starting with the Workbench."
+    deck="The Copilot runs the spreadsheet work, the data wrangling, and the write-up. You stay in the driver's seat."
+    primaryCta={{ label: "Request a walkthrough", href: "mailto:founders@tesora.ai?subject=Workbench%20walkthrough" }}
+    secondaryCta={{ label: "See the demo capture", href: "#demo" }}
   />
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
-    {agents.map((a) => (
-      <AgentDef
-        name={a.name}
-        oneLiner={a.oneLiner}
-        body={a.body}
-        artifact={a.artifact}
-      />
+  {/* Four numbered workflows */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+    {workflows.map((w) => (
+      <article class="grid md:grid-cols-12 gap-8 md:gap-12 py-12 border-t border-[var(--rule)] first:border-t-0">
+        <div class="md:col-span-4">
+          <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
+          <h2 class="mt-2 font-semibold text-[1.625rem] leading-[1.15] tracking-[-0.01em]">{w.title}</h2>
+          <p class="mt-3 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{w.intro}</p>
+        </div>
+        <ul class="md:col-span-8 grid sm:grid-cols-2 gap-x-8 gap-y-6">
+          {w.features.map((f) => (
+            <li class="flex gap-3">
+              <span
+                class="mt-1 inline-block h-2 w-2 rounded-full flex-shrink-0"
+                style={`background: ${f.wip ? "var(--color-bone-dim, #c8b48a)" : "var(--color-oxblood, #6b1a1a)"}; opacity: ${f.wip ? "0.5" : "0.85"};`}
+                aria-hidden="true"
+              ></span>
+              <div>
+                <p class="font-semibold text-[0.9375rem] leading-tight">
+                  {f.label}
+                  {f.wip && <span class="ml-2 text-[0.6875rem] uppercase tracking-wider text-[var(--fg-muted)]">in development</span>}
+                </p>
+                <p class="mt-1 text-[0.875rem] leading-[1.55] text-[var(--fg-muted)]">{f.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </article>
     ))}
   </section>
 
-  <ControlPlane />
+  <VideoBand
+    videoSrc={u("/video/customers-loop.mp4")}
+    eyebrow="The Copilot"
+    headline="One Copilot. Every workflow. Conversational by default."
+    body="Type what you'd say to a junior analyst. The Copilot picks the method, runs the math, cites the source, writes the report, and surfaces anything it isn't sure about."
+  />
+
+  {/* How to work with the Copilot */}
+  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
+        <p class="eyebrow">How to work with the Copilot</p>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        {copilotPatterns.map((p) => (
+          <div>
+            <p class="font-semibold text-[1rem]">{p.label}</p>
+            <p class="mt-2 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{p.body}</p>
+            <p class="mt-4 text-[0.9375rem] italic leading-[1.5] text-[var(--fg)] border-l-2 border-[var(--color-oxblood,#6b1a1a)] pl-3">
+              "{p.example}"
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
   {/* Demo */}
   <section id="demo" class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
     <div class="grid md:grid-cols-12 gap-10 items-center">
       <div class="md:col-span-6">
-        <p class="eyebrow mb-3">Live demo</p>
+        <p class="eyebrow mb-3">Demo capture</p>
         <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
           ISO Ohio Commercial Auto, reconstructed in ten minutes.
         </h2>
         <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          Three SERFF filings in. Schema identified by Migrate. Fifteen fields generated. Six of six regression tests passing. Dec-page-faithful GUI shipped. A live quote of $442.80 on a test policy. End to end, on real public data, in about ten minutes.
+          Three SERFF filings in. Schema identified. Fifteen fields generated. Six of six regression tests passing. Dec-page-faithful GUI shipped. A live quote of $442.80 on a test policy. End to end, on real public data.
         </p>
         <p class="mt-5 text-sm text-[var(--fg-muted)]">
-          The video below is the unedited capture.
+          The video is the unedited capture.
         </p>
       </div>
       <div class="md:col-span-6">
@@ -88,6 +187,19 @@ const agents = [
           </video>
         </div>
       </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center border-t border-[var(--rule)]">
+    <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[680px] mx-auto">
+      Want a walkthrough on your own filings?
+    </h2>
+    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
+      Send us one filing or one loss run. We'll show you the Workbench applied to your data, not a canned demo.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="mailto:founders@tesora.ai?subject=Workbench%20walkthrough" class="btn">founders@tesora.ai</a>
     </div>
   </section>
 

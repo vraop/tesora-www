@@ -10,14 +10,15 @@
     "aspect": "16:9",
     "resolution": "1920x1080",
     "audio": "silent (web background video, autoplay-muted)",
-    "ban": [
-      "text overlays",
-      "logos",
+    "absolute_ban": [
+      "any readable text in the scene",
+      "any letters, numbers, words on books, spines, papers, monitors, notebooks, calendars, signs, computer screens, or whiteboards",
+      "any titles, labels, captions, or handwriting that could be read",
+      "any logos, brand marks, or watermarks",
       "stock-photo conference rooms",
-      "abstract orbs or particles",
-      "neon or violet",
-      "drone shots",
-      "fast cuts"
+      "abstract orbs, particles, or volumetric light beams",
+      "neon, violet, magenta",
+      "drone shots, fast cuts, fast zooms"
     ]
   },
   "prompts": [
@@ -25,53 +26,41 @@
       "page": "home",
       "url": "/",
       "use": "hero",
-      "subject": "an actuary at a wood-trimmed desk, mid-30s, sleeves rolled, half-turned toward a paper print of a SERFF rate filing on the desk",
-      "numbers": "the camera slowly settles on a single column of figures on the page: $442.80 quote, 0.873 trend factor, 6/6 regression",
-      "prompt": "Cinematic documentary-style background footage of a quiet office desk. On the desk: a printed insurance rate filing on cream paper, a fountain pen resting beside it, a leather-bound notebook open to a page of handwritten figures, a stoneware coffee cup. No people are visible in the frame.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the paper. Fine paper-grain texture, gentle film grain, deep shadows. Color palette is ink on bone, muted oxblood accent on the notebook ribbon, no saturated colors.\n\nMotion is slow, restrained, observational. The camera barely moves, at most a one-centimeter dolly forward. The striped shadows drift almost imperceptibly as if the sun is setting. Shallow depth of field, 85mm lens feel. Eye level with the desk surface. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays. No logos. No abstract particles, no neon colors, no fast cuts.",
+      "prompt": "Cinematic documentary-style background footage of a quiet wood-trimmed desk in a working office. On the desk: a single sheet of cream-colored paper face-down (no visible writing), a vintage fountain pen resting beside it with a small brass cap, a closed leather-bound notebook with a small oxblood ribbon, a stoneware coffee cup half full. The paper, the notebook, and the cup are all blank surfaces. No visible text anywhere. No people, no faces, no hands.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk surface and the closed notebook. Fine paper-grain texture, gentle film grain, deep shadows. Color palette is ink on bone, muted oxblood accent on the notebook ribbon, no saturated colors.\n\nMotion is slow, restrained, observational. The camera barely moves, at most a one-centimeter dolly forward. The striped shadows drift almost imperceptibly as if the sun is setting. Shallow depth of field, 85mm lens feel. Eye level with the desk surface. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nABSOLUTELY NO readable text or letters or numbers in any part of the frame. No words, no labels, no signage, no titles on any object. No logos, no brand marks, no text overlays. No abstract particles, no neon colors, no fast cuts.",
       "fallback_still": "/video/hero-poster.jpg"
     },
     {
-      "page": "agents",
-      "url": "/agents",
+      "page": "workbench",
+      "url": "/workbench",
       "use": "section",
-      "subject": "a printed rate page on the desk, a fountain pen resting on it, a second printed sheet underneath showing a monospace state-filing diff with small green and red marks",
-      "numbers": "the diff sheet shows several rows of code in a fixed-width font",
-      "prompt": "Cinematic documentary-style background footage of a quiet desk. On the desk: a printed insurance rate page on cream paper, a fountain pen resting on top of it, and a second printed sheet partially underneath showing a monospace state-filing diff with small green and red marks. No people in the frame.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the paper. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, a single muted oxblood pen cap, no saturated colors.\n\nMotion is slow, restrained, observational. A near-stationary camera at most drifts one centimeter forward. The slatted shadows shift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays. No logos. No abstract particles, no neon colors, no fast cuts.",
-      "fallback_still": "/video/agents-poster.jpg"
+      "prompt": "Cinematic documentary-style background footage of a quiet desk. On the desk: a stack of blank cream-colored paper face-down (no writing visible), a vintage fountain pen with a small brass cap resting on the top sheet, a closed leather-bound notebook with a small oxblood ribbon beside it. No people in the frame. No visible text on any object.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the paper. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, a single muted oxblood pen detail, no saturated colors.\n\nMotion is slow, restrained, observational. A near-stationary camera at most drifts one centimeter forward. The slatted shadows shift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nABSOLUTELY NO readable text, letters, numbers, words, labels, captions, or handwriting anywhere in the frame. No logos. No text overlays. No abstract particles, no neon colors, no fast cuts.",
+      "fallback_still": "/video/workbench-poster.jpg"
     },
     {
       "page": "customers",
       "url": "/customers",
       "use": "section",
-      "subject": "a wide desk with two stacks of papers — one pencil-labeled 'non-admitted', the other 'admitted' — a leather notebook open between them",
-      "numbers": "the notebook page shows seven handwritten rows of class codes and loss ratios",
-      "prompt": "Cinematic documentary-style background footage of a quiet wide desk. On the desk: two neat stacks of paper, the left stack labeled in pencil at the top 'non-admitted', the right stack labeled 'admitted', a leather-bound notebook open between them showing a small handwritten table with seven rows of class codes and loss ratios in ink. A stoneware coffee cup at the edge of frame. No people in the frame.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and across both stacks. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, muted oxblood accent on the notebook ribbon, no saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays. No logos. No abstract particles, no neon colors, no fast cuts.",
+      "prompt": "Cinematic documentary-style background footage of a quiet wide desk. On the desk: two neat stacks of blank cream-colored paper side by side, with no writing or labels on any sheet. A closed leather-bound notebook with a small oxblood ribbon rests between the two stacks. A stoneware coffee cup at the edge of the frame. No people in the frame. No visible text on any object.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and across both stacks. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, muted oxblood accent on the notebook ribbon, no saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nABSOLUTELY NO readable text, letters, numbers, words, labels, captions, or handwriting anywhere in the frame. No logos. No text overlays. No abstract particles, no neon colors, no fast cuts.",
       "fallback_still": "/video/customers-poster.jpg"
     },
     {
       "page": "security",
       "url": "/security",
       "use": "section",
-      "subject": "an ordered stack of bound regulatory documents on a desk, top binding reads 'ASOP 56', second reads 'NAIC Model Bulletin', a stoneware coffee cup at the edge of frame, a small monitor in the soft background showing a green scrolling log",
-      "numbers": "the green log on the small monitor scrolls slowly",
-      "prompt": "Cinematic documentary-style background footage of a quiet desk. On the desk: an ordered stack of bound regulatory documents, the top binding reads 'ASOP 56', the binding under it reads 'NAIC Model Bulletin'. A stoneware coffee cup sits at the edge of the frame. In the soft background, a small flat monitor shows a green monospace audit log scrolling slowly. No people in the frame.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the bindings. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette with the muted green of the monitor and a small oxblood ribbon on one binding, no other saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. Only the audit log scrolls. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays beyond the bindings and the log. No logos. No abstract particles, no neon colors, no fast cuts.",
+      "prompt": "Cinematic documentary-style background footage of a quiet desk in a working office. On the desk: a small ordered stack of three closed leather-bound notebooks, all with blank dark covers and no titles or letters on any spine or cover. A small oxblood ribbon trails from one notebook. A stoneware coffee cup sits at the edge of the frame. No people in the frame. No monitors, no screens, no visible text on any surface.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the stacked notebooks. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette with the small oxblood ribbon as the only color accent, no saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nABSOLUTELY NO readable text, letters, numbers, words, labels, captions, titles, or handwriting anywhere in the frame. No book titles. No spine text. No logos. No text overlays. No monitors with text. No abstract particles, no neon colors, no fast cuts.",
       "fallback_still": "/video/security-poster.jpg"
     },
     {
       "page": "research",
       "url": "/research",
       "use": "section",
-      "subject": "a working paper on a desk with a hand-drawn graph node diagram in the margin in pencil, equations beside it; a laptop in soft background dimly displays a relational schema",
-      "numbers": "one visible equation reads Z = n / (n + k)",
-      "prompt": "Cinematic documentary-style background footage of a quiet desk. On the desk: a working paper on cream paper. In the margin of the paper, a hand-drawn graph node diagram in pencil — small circles connected by thin lines. Beside the diagram, two pencil equations are legible, including the line Z = n / (n + k). A laptop sits in the soft background, dimly displaying a relational database schema in monospace. No people in the frame.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the paper. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, muted oxblood underline on one equation, no other saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays. No logos. No abstract particles, no neon colors, no fast cuts.",
+      "prompt": "Cinematic documentary-style background footage of a quiet desk. On the desk: a single sheet of cream paper face-down (no writing visible). On top of the paper, a small set of polished brass geometric shapes — three small spheres and a few thin connecting rods arranged to suggest a node-and-edge diagram, like an architect's model. A vintage fountain pen rests beside the arrangement. No people in the frame. No visible text or letters or numbers on any surface.\n\nLighting is warm late-afternoon sun through office blinds. Horizontal slats cast soft striped shadows across the desk and the paper. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, warm brass accent on the small geometric pieces, no saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nABSOLUTELY NO readable text, letters, numbers, words, labels, captions, equations, or handwriting anywhere in the frame. No book titles. No logos. No text overlays. No abstract particles, no neon colors, no fast cuts.",
       "fallback_still": "/video/research-poster.jpg"
     },
     {
       "page": "news",
       "url": "/news",
       "use": "skip",
-      "subject": "n/a — news page uses no background video, just typography",
-      "numbers": "n/a",
       "prompt": "",
       "fallback_still": ""
     },
@@ -79,18 +68,14 @@
       "page": "careers",
       "url": "/careers",
       "use": "section",
-      "subject": "an empty New York office at dusk, one desk lamp on, a notebook open on the desk with the handwritten words 'agent orchestrator' in the corner",
-      "numbers": "a wall calendar in soft focus shows the current month with one date circled",
-      "prompt": "Cinematic documentary-style background footage of an empty New York office at dusk. The office is quiet. One brass desk lamp is on, casting a warm pool of light over a wood desk. On the desk, a leather-bound notebook is open to a page where the handwritten words 'agent orchestrator' are legible in the lower corner. In the soft background, a wall calendar shows the current month with one date circled in pencil. Tall windows behind the desk show the blue dusk of a city skyline, blinds half-open. No people in the frame.\n\nLighting is the warm lamp glow against the cooler blue dusk light from the windows. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette with the small warm pool of lamp light, no other saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. A distant building light or two outside the window may shift. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays. No logos. No abstract particles, no neon colors, no fast cuts.",
+      "prompt": "Cinematic documentary-style background footage of an empty New York office at dusk. The office is quiet. One brass desk lamp is on, casting a warm pool of light over a polished wood desk. On the desk: a closed leather-bound notebook with a small oxblood ribbon, a stoneware coffee cup, and a vintage fountain pen. The notebook and all surfaces are blank — no titles, no writing visible anywhere. Tall windows behind the desk show the deep blue dusk of a city skyline through half-open horizontal blinds. No people in the frame. No screens, no monitors, no visible text anywhere.\n\nLighting is the warm lamp glow against the cooler blue dusk light from the windows. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette with the small warm pool of lamp light and the oxblood ribbon accent, no other saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. A distant building light or two outside the window may shift. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a documentary, not a software product ad.\n\nABSOLUTELY NO readable text, letters, numbers, words, labels, captions, or handwriting anywhere in the frame. No book titles, no spine text, no calendar visible. No logos. No text overlays. No abstract particles, no neon colors, no fast cuts.",
       "fallback_still": "/video/careers-poster.jpg"
     },
     {
       "page": "about",
       "url": "/about",
       "use": "section",
-      "subject": "three stoneware coffee cups on a wood desk casually arranged, three leather-bound notebooks open in front of them, one notebook shows pencil sketches of three figures, the others show equations and rate factor tables, a window with blinds in the background",
-      "numbers": "n/a, the visual is about the three open notebooks side by side",
-      "prompt": "Cinematic documentary-style background footage of a quiet wood desk. On the desk: three stoneware coffee cups arranged casually as if three colleagues just stepped away. In front of the cups, three leather-bound notebooks lie open side by side. The leftmost notebook shows three small pencil character sketches of three figures. The middle notebook shows neat handwritten equations. The right notebook shows a rate-factor table with rows of ink figures. In the soft background, a window with half-open horizontal blinds. No people in the frame.\n\nLighting is warm late-afternoon sun through the blinds. Horizontal slats cast soft striped shadows across the desk and the three notebooks. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, muted oxblood ribbons on two of the notebooks, no other saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nNo people, no faces, no hands. No text overlays. No logos. No abstract particles, no neon colors, no fast cuts.",
+      "prompt": "Cinematic documentary-style background footage of a quiet wood desk. On the desk: three stoneware coffee cups arranged casually as if three colleagues just stepped away. In front of the cups, three closed leather-bound notebooks with blank dark covers — no titles or letters visible — rest side by side, each with a small oxblood ribbon. In the soft background, a window with half-open horizontal blinds. No people in the frame. No visible text on any object.\n\nLighting is warm late-afternoon sun through the blinds. Horizontal slats cast soft striped shadows across the desk and the three notebooks. Fine paper-grain texture, gentle film grain, deep shadows. Ink-on-bone palette, muted oxblood ribbons as the only color accent, no other saturated colors.\n\nMotion is slow, restrained, observational. The camera is nearly stationary. The slatted shadows drift almost imperceptibly. Shallow depth of field, 85mm lens feel. Eye level with the desk. The frame reads as a still from a working-paper documentary, not a software product ad.\n\nABSOLUTELY NO readable text, letters, numbers, words, labels, captions, or handwriting anywhere in the frame. No book titles, no spine text. No logos. No text overlays. No abstract particles, no neon colors, no fast cuts.",
       "fallback_still": "/video/about-poster.jpg"
     }
   ]

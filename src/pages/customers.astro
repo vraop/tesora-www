@@ -4,12 +4,12 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Tabs from "../components/Tabs.astro";
 import CinematicHero from "../components/CinematicHero.astro";
+import VideoBand from "../components/VideoBand.astro";
 import { u } from "../lib/url";
 
 const tabs = [
   { id: "non-admitted", label: "Non-admitted (E&S)" },
   { id: "admitted", label: "Admitted carriers" },
-  { id: "students", label: "Actuarial students" },
 ];
 
 const specialtyLines = [
@@ -21,11 +21,29 @@ const specialtyLines = [
   { name: "Transactional E&S (program business)", note: "Multi-class program raters reconstructed from filings and stood up in days, not quarters." },
   { name: "Inland marine and specialty property", note: "Construction-class accumulation, exposure-base reconciliation, valuation discipline." },
 ];
+
+const specialtyCapabilities = [
+  { label: "Loss-cost and pricing", body: "Trending, on-leveling, credibility weighting, expense build-up. Plain-English asks. Citations to the underlying loss run cells." },
+  { label: "Distribution fitting", body: "Lognormal, Pareto, Poisson, Weibull, Negative Binomial. AIC-driven selection. Charts and parameter tables in the report." },
+  { label: "Risk metrics", body: "VaR, TVaR, aggregate loss simulation, large-loss frequency, return-period curves." },
+  { label: "Reinsurance structuring", body: "XOL layers, aggregate stop-loss, attachment sensitivity, cession analysis." },
+  { label: "Reserving (in development)", body: "Loss triangles, age-to-age factors, chain-ladder, Bornhuetter-Ferguson, IBNR. Frequency-severity for low-credibility lines." },
+  { label: "Audit agent", body: "Specialist agent re-runs every analysis against actuarial best practice and flags critical issues before hand-off." },
+];
+
+const admittedCapabilities = [
+  { label: "Filing diff", body: "Every competitor filing diffed against the prior version. Factor moves, schedule rating bands, base rates, surcharges. One view." },
+  { label: "Class trends", body: "Roll up filing moves to class-level trend signals. Contractor classes, telematics credits, replacement cost, ordinance and law." },
+  { label: "Loss-cost benchmarks", body: "Tesora ingests public bureau loss costs and competitor filings; you compare against your own book in plain English." },
+  { label: "Defensible briefs", body: "Briefings for rate committee and state DOI prep, with each claim cited back to the originating filing artifact." },
+  { label: "Rater reconstruction", body: "Stand up a working rater from a competitor's manual or your own legacy plan. Quote test risks side by side." },
+  { label: "Audit agent", body: "Specialist agent verifies methodology and surfaces issues before the rate committee sees the deck." },
+];
 ---
 
 <Layout
   title="Customers · Tesora"
-  description="Tesora serves specialty P&C carriers, admitted carriers needing market intelligence, and actuarial students with research access."
+  description="Tesora serves specialty P&C carriers pricing the lines that don't fit a textbook, and admitted carriers monitoring filings and benchmarking competitors."
   canonical="/customers"
   schemaType="WebPage"
 >
@@ -33,16 +51,27 @@ const specialtyLines = [
 
   <CinematicHero
     videoSrc={u("/video/customers-loop.mp4")}
-    headline="Built for chief actuaries. Extended to the rooms they share."
-    deck="Tesora's primary buyer is the chief actuary at a specialty P&C carrier or MGA. The same substrate serves admitted carriers as market intelligence and actuarial students as research access."
-    primaryCta={{ label: "Talk to Tesora", href: "mailto:vivek@tesora.ai" }}
+    headline="Built for chief actuaries."
+    deck="Specialty and excess carriers price the lines where every risk is bespoke. Admitted carriers watch what their competitors actually file. Tesora is one substrate, two motions, one Copilot."
+    primaryCta={{ label: "Talk to Tesora", href: "mailto:founders@tesora.ai" }}
+    secondaryCta={{ label: "For actuarial students →", href: u("/students") }}
   />
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-32">
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pt-20 pb-12">
+    <p class="eyebrow mb-3">Two buyers</p>
+    <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[720px]">
+      Use the tabs to figure out which one fits.
+    </h2>
+    <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] max-w-[680px]">
+      The agents and the workflows are the same. The center of gravity changes. Specialty carriers lead with loss-cost and structuring. Admitted carriers lead with filing intelligence and rate-committee defense.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
     <Tabs tabs={tabs} initial="non-admitted">
       {/* Non-admitted */}
       <div class="tesora-tab-panel" data-tab="non-admitted">
-        <div class="grid md:grid-cols-12 gap-10">
+        <div class="grid md:grid-cols-12 gap-10 mb-14">
           <div class="md:col-span-5">
             <p class="eyebrow mb-3">Specialty · E&amp;S</p>
             <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
@@ -61,11 +90,29 @@ const specialtyLines = [
             ))}
           </div>
         </div>
+
+        <div class="border-t border-[var(--rule)] pt-10">
+          <p class="eyebrow mb-3">What the chief actuary uses</p>
+          <h3 class="font-semibold text-[1.5rem] leading-[1.15] tracking-[-0.008em] max-w-[640px]">
+            Capabilities a specialty actuary leans on daily.
+          </h3>
+          <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-6">
+            {specialtyCapabilities.map((c) => (
+              <div class="flex gap-3 py-2">
+                <span class="mt-2 inline-block h-1.5 w-1.5 rounded-full flex-shrink-0 bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
+                <div>
+                  <p class="font-semibold text-[1rem]">{c.label}</p>
+                  <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{c.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Admitted */}
       <div class="tesora-tab-panel" data-tab="admitted" hidden>
-        <div class="grid md:grid-cols-12 gap-10">
+        <div class="grid md:grid-cols-12 gap-10 mb-14">
           <div class="md:col-span-5">
             <p class="eyebrow mb-3">Admitted · Market intelligence</p>
             <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
@@ -90,43 +137,64 @@ const specialtyLines = [
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Students */}
-      <div class="tesora-tab-panel" data-tab="students" hidden>
-        <div class="grid md:grid-cols-12 gap-10">
-          <div class="md:col-span-6">
-            <p class="eyebrow mb-3">Actuarial Research Access</p>
-            <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
-              For the next generation of pricing actuaries.
-            </h2>
-            <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-              Tesora opens a research surface for actuarial students working on capstone projects, exam papers, or independent research in pricing. Free access to a sandboxed substrate, public SERFF corpora, and one of our team as an informal advisor.
-            </p>
-            <p class="mt-5 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">
-              Tell us where you study and when you graduate. We respond within a week.
-            </p>
-          </div>
-          <div class="md:col-span-6">
-            <div class="border border-[var(--rule)] rounded-md p-8 bg-[var(--bg-panel)]">
-              <p class="font-semibold">Apply for research access</p>
-              <p class="mt-2 text-sm text-[var(--fg-muted)]">A short form. Two minutes. We read every submission.</p>
-              <a
-                href="https://forms.gle/your-form-id-here"
-                target="_blank"
-                rel="noopener"
-                class="btn mt-6"
-              >
-                Open the form
-              </a>
-              <p class="mt-4 text-xs text-[var(--fg-muted)]">
-                Or email <a href="mailto:founders@tesora.ai" class="link">founders@tesora.ai</a> with: school, expected graduation, area of interest, advisor (if any).
-              </p>
-            </div>
+        <div class="border-t border-[var(--rule)] pt-10">
+          <p class="eyebrow mb-3">What the rate manager uses</p>
+          <h3 class="font-semibold text-[1.5rem] leading-[1.15] tracking-[-0.008em] max-w-[640px]">
+            Capabilities an admitted-line team leans on weekly.
+          </h3>
+          <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-6">
+            {admittedCapabilities.map((c) => (
+              <div class="flex gap-3 py-2">
+                <span class="mt-2 inline-block h-1.5 w-1.5 rounded-full flex-shrink-0 bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
+                <div>
+                  <p class="font-semibold text-[1rem]">{c.label}</p>
+                  <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{c.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </Tabs>
+  </section>
+
+  <VideoBand
+    videoSrc={u("/video/security-loop.mp4")}
+    eyebrow="One substrate"
+    headline="Filings, raters, loss runs, and the actuary's reasoning. One place, one lineage."
+    body="Every number cites the originating page of the SERFF filing or the cell of the loss run. Reviewers and regulators see the chain."
+  />
+
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24 border-t border-[var(--rule)]">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <p class="eyebrow mb-3">Students and researchers</p>
+        <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
+          The next generation of pricing actuaries.
+        </h2>
+      </div>
+      <div class="md:col-span-7">
+        <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+          Tesora opens a research surface for actuarial students working on capstone projects, exam papers, or independent research. Free access to a sandboxed substrate, public SERFF corpora, and a Tesora actuary as an informal advisor.
+        </p>
+        <p class="mt-5">
+          <a href={u("/students")} class="link text-sm">Submit for research access →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24 text-center border-t border-[var(--rule)]">
+    <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[640px] mx-auto">
+      Send us one filing or one loss run.
+    </h2>
+    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
+      We'll show you Tesora applied to your data, not a canned demo. Business-day response.
+    </p>
+    <div class="mt-8">
+      <a href="mailto:founders@tesora.ai" class="btn">founders@tesora.ai</a>
+    </div>
   </section>
 
   <Footer />

@@ -1,0 +1,53 @@
+---
+export interface Props {
+  videoSrc: string;
+  eyebrow?: string;
+  headline: string;
+  body?: string;
+  align?: "left" | "center";
+  height?: "tall" | "short";
+}
+
+const {
+  videoSrc,
+  eyebrow,
+  headline,
+  body,
+  align = "left",
+  height = "short",
+} = Astro.props;
+
+const minH = height === "tall" ? "min-h-[78vh]" : "min-h-[56vh]";
+const alignCls = align === "center" ? "items-center text-center" : "items-start text-left";
+const maxWHead = align === "center" ? "max-w-[820px] mx-auto" : "max-w-[720px]";
+const maxWBody = align === "center" ? "max-w-[620px] mx-auto" : "max-w-[600px]";
+---
+
+<section class={`relative isolate w-full overflow-hidden bg-[var(--color-ink)] ${minH}`}>
+  <video
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80"
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-hidden="true"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 -z-10 bg-[var(--color-ink)]/55"></div>
+
+  <div class={`relative mx-auto max-w-[1180px] px-6 md:px-10 py-24 md:py-32 flex flex-col justify-center ${alignCls} ${minH}`}>
+    {eyebrow && (
+      <p class="eyebrow mb-5 text-[var(--color-bone)]/75">{eyebrow}</p>
+    )}
+    <h2 class={`font-semibold text-[2rem] md:text-[2.5rem] leading-[1.1] tracking-[-0.015em] text-[var(--color-bone)] ${maxWHead}`}>
+      {headline}
+    </h2>
+    {body && (
+      <p class={`mt-5 text-[1.0625rem] md:text-[1.125rem] leading-[1.55] text-[var(--color-bone)]/85 ${maxWBody}`}>
+        {body}
+      </p>
+    )}
+    <slot />
+  </div>
+</section>

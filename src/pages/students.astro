@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const submissionFields = [
+  { label: "Name", help: "Full name as it appears on your transcript." },
+  { label: "School and program", help: "University, degree, expected graduation, advisor if any." },
+  { label: "Exam progress", help: "SOA / CAS exams completed and in progress." },
+  { label: "Area of interest", help: "Pricing, reserving, ERM, reinsurance, or open. One paragraph." },
+  { label: "What you'd build", help: "If we gave you a sandbox with public SERFF data and a Copilot, what would you do first?" },
+];
+
+const mailtoBody = encodeURIComponent(`Name:
+
+School and program:
+
+Exam progress (SOA / CAS):
+
+Area of interest:
+
+What I would build:
+
+Optional: link to a writing sample, repo, or class project.
+`);
+---
+
+<Layout
+  title="Students · Tesora"
+  description="Tesora opens a research surface for actuarial students. Free access to a sandboxed substrate, public SERFF corpora, and a Tesora actuary as an informal advisor."
+  canonical="/students"
+  schemaType="WebPage"
+>
+  <Header variant="light" />
+
+  <section class="mx-auto max-w-[760px] px-6 md:px-10 pt-24 pb-16">
+    <p class="eyebrow mb-5">For actuarial students</p>
+    <h1 class="font-semibold text-[2.75rem] md:text-[3.25rem] leading-[1.05] tracking-[-0.02em]">
+      Submit for research access.
+    </h1>
+    <p class="mt-7 text-[1.125rem] leading-[1.55] text-[var(--fg-muted)]">
+      Tesora opens a research surface for actuarial students working on capstone projects, exam papers, or independent pricing research. Free access to a sandboxed substrate, public SERFF corpora, and a Tesora actuary as an informal advisor.
+    </p>
+    <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+      No form to fill out. Send a short email with the items below. Philo (Head of Actuarial) reads every submission within a week.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-[760px] px-6 md:px-10 pb-16">
+    <div class="border-t border-[var(--rule)] pt-10">
+      <p class="eyebrow mb-6">What to include</p>
+      <ol class="space-y-7 list-none">
+        {submissionFields.map((f, i) => (
+          <li class="flex gap-5">
+            <span class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase pt-1 flex-shrink-0">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <p class="font-semibold text-[1.0625rem]">{f.label}</p>
+              <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{f.help}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[760px] px-6 md:px-10 pb-32">
+    <div class="border-t border-[var(--rule)] pt-10 flex flex-col items-start gap-5">
+      <a
+        href={`mailto:founders@tesora.ai?subject=${encodeURIComponent("Student research access")}&body=${mailtoBody}`}
+        class="btn"
+      >
+        Open prefilled email
+      </a>
+      <p class="text-sm text-[var(--fg-muted)]">
+        Or write directly to <a href="mailto:founders@tesora.ai" class="link">founders@tesora.ai</a>.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
