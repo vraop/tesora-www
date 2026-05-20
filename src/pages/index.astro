@@ -4,7 +4,6 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
 import BackgroundsStrip from "../components/BackgroundsStrip.astro";
-import NewsItem from "../components/NewsItem.astro";
 import VideoBand from "../components/VideoBand.astro";
 import { u } from "../lib/url";
 
@@ -38,25 +37,6 @@ const copilotPatterns = [
   { label: "Ask why.", body: "Methodology and source citations are one question away.", example: "Why chain ladder here and not BF?" },
 ];
 
-const news = [
-  {
-    date: "2026 · MAY",
-    headline: "Philo Bishay joins Tesora as Head of Actuarial.",
-    body: "Philo, a former chief actuary with fifteen years inside the rating function, joins to lead actuarial product and customer engagement.",
-  },
-  {
-    date: "2025 · OCT",
-    headline: "Top startup finalist at DPW Amsterdam 2025.",
-    body: "DPW Amsterdam selected Tesora as a top startup finalist in its 2025 procurement-and-insurance innovation showcase.",
-    logo: { slug: "dpw", alt: "DPW Amsterdam" },
-  },
-  {
-    date: "2025 · SEP",
-    headline: "Tesora completes Y Combinator S25.",
-    body: "Tesora completed the Y Combinator Summer 2025 cohort focused on AI-native applications for regulated industries.",
-    logo: { slug: "y-combinator", alt: "Y Combinator S25" },
-  },
-];
 ---
 
 <Layout
@@ -170,39 +150,6 @@ const news = [
     headline="Three SERFF filings in. One $442.80 quote out."
     body="ISO Ohio Commercial Auto, reconstructed end to end. Six of six regression tests passing. A dec-page-faithful GUI. The premium ties back to the loss cost and ILF on the original filing page."
   />
-
-  {/* News strip */}
-  <section class="bg-[var(--bg)] border-b border-[var(--rule)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-      <div class="flex items-end justify-between mb-10">
-        <div>
-          <p class="eyebrow mb-3">Recent</p>
-          <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
-            What's happened recently.
-          </h2>
-        </div>
-        <a href={u("/news")} class="link hidden md:inline-block text-sm">Full timeline →</a>
-      </div>
-      <div>
-        {news.map((n) => (
-          <NewsItem date={n.date} headline={n.headline} body={n.body} logo={n.logo} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* CTA */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center">
-    <h2 class="font-semibold text-[2.25rem] leading-[1.15] tracking-[-0.012em] max-w-[680px] mx-auto">
-      Send us one filing or one loss run.
-    </h2>
-    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
-      We'll show you the Workbench applied to your data, not a canned demo. Business-day response.
-    </p>
-    <div class="mt-8">
-      <a href="mailto:founders@tesora.ai" class="btn">founders@tesora.ai</a>
-    </div>
-  </section>
 
   <Footer />
 </Layout>

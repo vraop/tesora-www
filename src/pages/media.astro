@@ -3,10 +3,53 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import VideoBand from "../components/VideoBand.astro";
+import NewsItem from "../components/NewsItem.astro";
 import { u } from "../lib/url";
 
-// Tesora team writing. Byline is the team; each piece cites the specific author(s).
+const team = [
+  {
+    name: "Vivek Rao",
+    role: "Co-founder & CEO",
+    body: "Vivek leads AI and product. Before Tesora, a consultant at McKinsey and a private-equity investor focused on insurance. Sets the wedge and runs the customer motion. Built the first version of the rater himself.",
+    affiliations: [{ slug: "mckinsey", alt: "McKinsey & Company" }],
+  },
+  {
+    name: "Federico Reyes Gomez",
+    role: "Co-founder & CTO",
+    body: "Federico leads engineering and the substrate. Previously led ML research on graph neural networks for relational and tabular data at Kumo Labs (Stanford). Owns the typed ontology underneath every Tesora agent.",
+    affiliations: [
+      { slug: "kumo", alt: "Kumo Labs" },
+      { slug: "stanford", alt: "Stanford" },
+    ],
+  },
+  {
+    name: "Philo Bishay",
+    role: "Head of Actuarial",
+    body: "Philo is a former chief actuary with fifteen years in the rating function across specialty P&C carriers and MGAs. Steers actuarial product direction and sits in every first call with a chief actuary. Holds FCAS.",
+    affiliations: [],
+  },
+];
+
+const news = [
+  {
+    date: "2026 · MAY",
+    headline: "Philo Bishay joins Tesora as Head of Actuarial.",
+    body: "Philo, a former chief actuary with fifteen years inside the rating function, joins to lead actuarial product and customer engagement.",
+  },
+  {
+    date: "2025 · OCT",
+    headline: "Top startup award finalist at DPW Amsterdam 2025.",
+    body: "Tesora was a top startup award finalist at DPW Amsterdam 2025.",
+    logo: { slug: "dpw", alt: "DPW Amsterdam" },
+  },
+  {
+    date: "2025 · SEP",
+    headline: "Tesora completes Y Combinator S25.",
+    body: "Tesora completed the Y Combinator Summer 2025 cohort focused on AI-native applications for regulated industries.",
+    logo: { slug: "y-combinator", alt: "Y Combinator S25" },
+  },
+];
+
 const teamWriting = [
   {
     title: "The substrate thesis: why insurance is next.",
@@ -44,8 +87,6 @@ const teamWriting = [
   },
 ];
 
-// Federico's prior published research. Kept distinct because the work predates Tesora
-// and lives in academic venues under his name.
 const federicoWork = [
   {
     title: "Relational deep learning for enterprise data.",
@@ -68,7 +109,7 @@ const federicoWork = [
 
 <Layout
   title="Media · Tesora"
-  description="Writing and research from the Tesora team on rating, pricing, and the AI substrate underneath specialty P&C."
+  description="Tesora pairs relational-AI research on the engineering side, former chief-actuary depth on the practice side, and McKinsey and private-equity insurance experience on the customer side. Backed by Foundation Capital and Y Combinator."
   canonical="/media"
   schemaType="WebPage"
 >
@@ -76,17 +117,85 @@ const federicoWork = [
 
   <CinematicHero
     videoSrc={u("/video/research-loop.mp4")}
-    headline="Working notes from the team."
-    deck="We post the rating-and-pricing thinking that doesn't fit on a sales page. The Tesora Team writes; each piece cites the actuary or engineer who led it."
+    headline="The team, the writing, the record."
+    deck="Tesora pairs three load-bearing credentials. Relational-AI research from Stanford and Kumo Labs on the engineering side. Former chief-actuary depth at specialty P&C carriers on the practice side. McKinsey and private-equity insurance experience on the customer side."
     primaryCta={{ label: "Read on Substack", href: "https://tesoraai.substack.com/" }}
-    secondaryCta={{ label: "Email the authors", href: "mailto:founders@tesora.ai" }}
+    secondaryCta={{ label: "Email the team", href: "mailto:founders@tesora.ai" }}
   />
 
+  {/* Team */}
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24" id="team">
+    <p class="eyebrow mb-8">Team</p>
+    {team.map((m) => (
+      <article class="grid md:grid-cols-12 gap-6 md:gap-10 py-10 border-t border-[var(--rule)] first:border-t-0">
+        <div class="md:col-span-4">
+          <h3 class="font-semibold text-[1.5rem] leading-[1.2] tracking-[-0.008em]">{m.name}</h3>
+          <p class="mt-2 text-sm text-[var(--fg-muted)]">{m.role}</p>
+          {m.affiliations.length > 0 && (
+            <div class="mt-4 flex items-center gap-4">
+              {m.affiliations.map((a) => (
+                <img
+                  src={u(`/logos/${a.slug}.svg`)}
+                  alt={a.alt}
+                  class="h-4 w-auto opacity-60"
+                  style="filter: grayscale(1) brightness(0.5);"
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-[1.0625rem] leading-[1.65] text-[var(--fg)]">{m.body}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  {/* Investors */}
+  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]" id="investors">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <p class="eyebrow mb-3">Investors</p>
+          <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
+            Foundation Capital. Y Combinator S25.
+          </h2>
+        </div>
+        <div class="md:col-span-7">
+          <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+            Foundation Capital led our seed in early 2026. Y Combinator backed us in the S25 cohort focused on AI-native applications for regulated industries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Recent / News */}
+  <section class="bg-[var(--bg)] border-b border-[var(--rule)]" id="recent">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="eyebrow mb-3">Recent</p>
+          <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[520px]">
+            What's happened recently.
+          </h2>
+        </div>
+        <a href={u("/news")} class="link hidden md:inline-block text-sm">Full timeline →</a>
+      </div>
+      <div>
+        {news.map((n) => (
+          <NewsItem date={n.date} headline={n.headline} body={n.body} logo={n.logo} />
+        ))}
+      </div>
+    </div>
+  </section>
+
   {/* Tesora Team writing */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24" id="writing">
     <div class="grid md:grid-cols-12 gap-10 mb-12">
       <div class="md:col-span-4">
-        <p class="eyebrow mb-3">The Tesora Team</p>
+        <p class="eyebrow mb-3">Writing</p>
         <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
           Working notes, not white papers.
         </h2>
@@ -118,15 +227,8 @@ const federicoWork = [
     </div>
   </section>
 
-  <VideoBand
-    videoSrc={u("/video/workbench-loop.mp4")}
-    eyebrow="Why we write"
-    headline="The thinking that doesn't fit on a sales page."
-    body="Most rating research lives in slide decks no one reads twice. We post short, opinionated notes on what we're seeing and what we're building."
-  />
-
   {/* Federico's prior research — kept distinct */}
-  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
+  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]" id="prior-research">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
       <div class="grid md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-4">
@@ -137,7 +239,7 @@ const federicoWork = [
           <p class="text-sm text-[var(--fg-muted)] mt-2">Co-founder &amp; CTO</p>
         </div>
         <p class="md:col-span-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-          Federico's prior published work on graph neural networks for relational and tabular data is the technical foundation underneath Tesora's substrate. Kept distinct on this page because the research predates the company and lives in academic venues under his name.
+          Federico's prior published work on graph neural networks for relational and tabular data is the technical foundation underneath Tesora's substrate. Kept distinct because the research predates the company and lives in academic venues under his name.
         </p>
       </div>
       <div>
@@ -169,19 +271,6 @@ const federicoWork = [
           </article>
         ))}
       </div>
-    </div>
-  </section>
-
-  {/* Substack CTA */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24 text-center border-t border-[var(--rule)]">
-    <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em] max-w-[640px] mx-auto">
-      Subscribe at tesoraai.substack.com.
-    </h2>
-    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-5 max-w-[560px] mx-auto">
-      One or two pieces a month. No marketing. No drip. The actuaries and engineers writing in their own voice.
-    </p>
-    <div class="mt-8 flex justify-center gap-4">
-      <a href="https://tesoraai.substack.com/" class="btn" target="_blank" rel="noopener">Subscribe on Substack</a>
     </div>
   </section>
 

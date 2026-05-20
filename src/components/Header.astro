@@ -6,17 +6,21 @@ export interface Props {
 }
 const { variant = "light" } = Astro.props;
 
-const primaryNav = [
-  { label: "Agents", href: u("/agents") },
-  { label: "Customers", href: u("/customers") },
+const agentsHref = u("/agents");
+
+const customersMenu = [
+  { label: "Specialty / E&S", href: `${u("/customers")}#non-admitted` },
+  { label: "Admitted carriers", href: `${u("/customers")}#admitted` },
+  { label: "Students", href: u("/students") },
 ];
 
-const companyNav = [
+const companyMenu = [
   { label: "Careers", href: u("/careers") },
   { label: "Security", href: u("/security") },
   { label: "Media", href: u("/media") },
-  { label: "About", href: u("/about") },
 ];
+
+const demoHref = "mailto:founders@tesora.ai?subject=Tesora%20demo";
 
 const positionClass =
   variant === "transparent"
@@ -30,7 +34,7 @@ const textClass =
   variant === "transparent" ? "text-[var(--color-bone)]" : "text-[var(--fg)]";
 const ctaClass =
   variant === "transparent"
-    ? "border border-[var(--color-bone)]/40 text-[var(--color-bone)] hover:bg-[var(--color-bone)] hover:text-[var(--color-ink)] px-4 py-2 text-sm transition-colors"
+    ? "bg-[var(--color-bone)] text-[var(--color-ink)] hover:bg-[var(--color-oxblood)] hover:text-[var(--color-bone)] px-4 py-2 text-sm font-medium tracking-tight transition-colors"
     : "btn !py-2 !px-4";
 const toggleClass =
   variant === "transparent"
@@ -49,18 +53,43 @@ const panelTextClass =
     <a href={u("/")} class="font-semibold text-base tracking-tight">Tesora</a>
 
     <nav class="hidden md:flex items-center gap-8">
-      {primaryNav.map((item) => (
-        <a href={item.href} class="hover:text-[var(--color-oxblood)] transition-colors">
-          {item.label}
-        </a>
-      ))}
-      <div class="relative" data-company-menu>
+      <a href={agentsHref} class="hover:text-[var(--color-oxblood)] transition-colors">Agents</a>
+
+      <div class="relative" data-menu>
         <button
           type="button"
           class="inline-flex items-center gap-1 hover:text-[var(--color-oxblood)] transition-colors"
           aria-haspopup="true"
           aria-expanded="false"
-          data-company-toggle
+          data-menu-toggle
+        >
+          Customers
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <polyline points="2,4 5,7 8,4" />
+          </svg>
+        </button>
+        <div
+          class={`absolute right-0 top-full mt-3 min-w-[200px] py-2 ${panelBgClass} ${panelTextClass} shadow-lg hidden`}
+          data-menu-panel
+        >
+          {customersMenu.map((item) => (
+            <a
+              href={item.href}
+              class="block px-4 py-2 text-sm hover:text-[var(--color-oxblood)] transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="relative" data-menu>
+        <button
+          type="button"
+          class="inline-flex items-center gap-1 hover:text-[var(--color-oxblood)] transition-colors"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-menu-toggle
         >
           Company
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -69,9 +98,9 @@ const panelTextClass =
         </button>
         <div
           class={`absolute right-0 top-full mt-3 min-w-[180px] py-2 ${panelBgClass} ${panelTextClass} shadow-lg hidden`}
-          data-company-panel
+          data-menu-panel
         >
-          {companyNav.map((item) => (
+          {companyMenu.map((item) => (
             <a
               href={item.href}
               class="block px-4 py-2 text-sm hover:text-[var(--color-oxblood)] transition-colors"
@@ -84,8 +113,8 @@ const panelTextClass =
     </nav>
 
     <div class="flex items-center gap-3">
-      <a href="mailto:founders@tesora.ai?subject=Tesora%20intro" class={`hidden sm:inline-flex ${ctaClass}`}>
-        Talk to Tesora
+      <a href={demoHref} class={`hidden sm:inline-flex ${ctaClass}`}>
+        Demo →
       </a>
       <button
         type="button"
@@ -109,7 +138,9 @@ const panelTextClass =
     class="md:hidden hidden border-t border-[var(--rule)] bg-[var(--bg)]"
   >
     <nav class="mx-auto max-w-[1180px] px-6 py-4 flex flex-col gap-1 text-base">
-      {primaryNav.map((item) => (
+      <a href={agentsHref} class="block py-2 text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors">Agents</a>
+      <p class="mt-3 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)]">Customers</p>
+      {customersMenu.map((item) => (
         <a
           href={item.href}
           class="block py-2 text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors"
@@ -118,7 +149,7 @@ const panelTextClass =
         </a>
       ))}
       <p class="mt-3 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)]">Company</p>
-      {companyNav.map((item) => (
+      {companyMenu.map((item) => (
         <a
           href={item.href}
           class="block py-2 text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors"
@@ -127,10 +158,10 @@ const panelTextClass =
         </a>
       ))}
       <a
-        href="mailto:founders@tesora.ai?subject=Tesora%20intro"
+        href={demoHref}
         class="block py-2 mt-3 text-[var(--color-oxblood)] font-medium"
       >
-        Talk to Tesora →
+        Demo →
       </a>
     </nav>
   </div>
@@ -147,13 +178,19 @@ const panelTextClass =
     });
   }
 
-  const companyMenus = document.querySelectorAll<HTMLElement>("[data-company-menu]");
-  companyMenus.forEach((menu) => {
-    const toggle = menu.querySelector<HTMLButtonElement>("[data-company-toggle]");
-    const dropdown = menu.querySelector<HTMLElement>("[data-company-panel]");
+  const menus = document.querySelectorAll<HTMLElement>("[data-menu]");
+  menus.forEach((menu) => {
+    const toggle = menu.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+    const dropdown = menu.querySelector<HTMLElement>("[data-menu-panel]");
     if (!toggle || !dropdown) return;
 
     const open = () => {
+      menus.forEach((other) => {
+        if (other !== menu) {
+          other.querySelector<HTMLElement>("[data-menu-panel]")?.classList.add("hidden");
+          other.querySelector<HTMLButtonElement>("[data-menu-toggle]")?.setAttribute("aria-expanded", "false");
+        }
+      });
       dropdown.classList.remove("hidden");
       toggle.setAttribute("aria-expanded", "true");
     };
