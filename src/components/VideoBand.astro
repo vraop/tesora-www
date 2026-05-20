@@ -22,15 +22,10 @@ const alignCls = align === "center" ? "items-center text-center" : "items-start 
 const maxWHead = align === "center" ? "max-w-[820px] mx-auto" : "max-w-[720px]";
 const maxWBody = align === "center" ? "max-w-[620px] mx-auto" : "max-w-[600px]";
 
-// Real product clips (demo-*) stay sharp. Atmospheric Veo loops get a defensive
-// blur so any artifacted on-frame text reads as texture, not legible copy.
-const isProductClip = /\/demo-/.test(videoSrc);
-const videoStyle = isProductClip
-  ? ""
-  : "filter: blur(2.5px) saturate(108%); transform: scale(1.04);";
-const overlayClass = isProductClip
-  ? "bg-[var(--color-ink)]/55"
-  : "bg-[var(--color-ink)]/65";
+// All bands are atmospheric Veo loops. Defensive blur ensures any artifacted
+// on-frame text reads as texture, not legible copy.
+const videoStyle = "filter: blur(2.5px) saturate(108%); transform: scale(1.04);";
+const overlayClass = "bg-[var(--color-ink)]/65";
 ---
 
 <section class={`relative isolate w-full overflow-hidden bg-[var(--color-ink)] ${minH}`}>
