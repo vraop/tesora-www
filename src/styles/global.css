@@ -143,6 +143,29 @@ body {
   border-color: var(--color-oxblood);
 }
 
+/* Capsule (pill-nav demo CTA). Matches .btn visually but rounded-full + tighter. */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  padding: 0.4rem 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  border: 1px solid var(--fg);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 200ms, border-color 200ms, color 200ms;
+}
+.btn-pill:hover {
+  background: var(--color-oxblood);
+  border-color: var(--color-oxblood);
+  color: var(--color-bone);
+}
+
 /* Ghost / link CTA */
 .btn-ghost {
   font-family: var(--font-sans);
