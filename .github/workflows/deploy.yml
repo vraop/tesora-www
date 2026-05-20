@@ -28,8 +28,8 @@ jobs:
       - run: bun install --frozen-lockfile || bun install
       - name: Build
         env:
-          PUBLIC_BASE: /tesora-www-preview
-          PUBLIC_SITE: https://vraop.github.io
+          PUBLIC_BASE: /${{ github.event.repository.name }}
+          PUBLIC_SITE: https://${{ github.repository_owner }}.github.io
         run: bunx astro build
       - uses: actions/upload-pages-artifact@v3
         with:
