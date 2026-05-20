@@ -43,6 +43,41 @@ const esStack = {
 
 const esTags = ["Schedule rating", "Exposure base", "Class factors", "Audit lineage", "SOX trail"];
 
+const admittedStack = {
+  eyebrow: "Tesora agent stack",
+  title: "Filing → rate-committee brief",
+  agentChip: "Workbench + Audit",
+  steps: [
+    {
+      num: "01",
+      title: "Watch",
+      body: "Every competitor SERFF filing parsed, classified, and diffed against the prior version. No more manual triage.",
+    },
+    {
+      num: "02",
+      title: "Diff",
+      body: "Factor moves, schedule rating bands, base rates, surcharges. Surfaced against your in-force book in one view.",
+    },
+    {
+      num: "03",
+      title: "Brief",
+      body: "Class-level trend signals rolled up into a defensible narrative for rate committee or DOI prep.",
+    },
+    {
+      num: "04",
+      title: "Audit",
+      body: "Specialist agent verifies methodology and source citations before the rate committee sees the deck.",
+    },
+  ],
+  outputs: [
+    { label: "Filing diff" },
+    { label: "Rate-committee brief" },
+    { label: "DOI prep packet" },
+  ],
+};
+
+const admittedTags = ["Filing diff", "Class trends", "Loss-cost bench", "Committee prep", "DOI defense"];
+
 const tabs = [
   { id: "non-admitted", label: "Non-admitted (E&S)" },
   { id: "admitted", label: "Admitted carriers" },
@@ -108,8 +143,8 @@ const admittedCapabilities = [
       {/* Non-admitted */}
       <div class="tesora-tab-panel" data-tab="non-admitted">
 
-        {/* Vulcan-style: dark video band + overlaid agent-stack panel */}
-        <section class="relative -mx-6 md:-mx-10 mb-16 overflow-hidden rounded-lg">
+        {/* Vulcan-style full-bleed dark band + overlaid agent-stack panel */}
+        <section class="vulcan-band mb-16">
           <video
             class="absolute inset-0 h-full w-full object-cover"
             src={u("/video/customers-loop.mp4")}
@@ -120,13 +155,13 @@ const admittedCapabilities = [
             preload="metadata"
             aria-hidden="true"
           ></video>
-          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/85 via-[var(--color-ink,#0e0e0c)]/70 to-[var(--color-ink,#0e0e0c)]/60"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_color-mix(in_oklab,_var(--color-oxblood)_25%,_transparent)_0%,_transparent_55%)]"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/88 via-[var(--color-ink,#0e0e0c)]/74 to-[var(--color-ink,#0e0e0c)]/62"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_color-mix(in_oklab,_var(--color-oxblood)_28%,_transparent)_0%,_transparent_58%)]"></div>
 
-          <div class="relative grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-12 py-16 md:py-24">
+          <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-28">
             <div class="md:col-span-6 self-center text-[var(--color-bone)]">
               <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-4">Specialty · E&amp;S</p>
-              <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em]">
+              <h2 class="font-semibold text-[2.5rem] md:text-[3rem] leading-[1.05] tracking-[-0.018em]">
                 Quote at E&amp;S speed.<br/>Hold up under E&amp;S audit.
               </h2>
               <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--color-bone)]/80 max-w-[520px]">
@@ -194,6 +229,52 @@ const admittedCapabilities = [
 
       {/* Admitted */}
       <div class="tesora-tab-panel" data-tab="admitted" hidden>
+
+        {/* Vulcan-style full-bleed dark band + overlaid agent-stack panel */}
+        <section class="vulcan-band mb-16">
+          <video
+            class="absolute inset-0 h-full w-full object-cover"
+            src={u("/video/research-loop.mp4")}
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-hidden="true"
+          ></video>
+          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/88 via-[var(--color-ink,#0e0e0c)]/74 to-[var(--color-ink,#0e0e0c)]/62"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_color-mix(in_oklab,_var(--color-oxblood)_28%,_transparent)_0%,_transparent_58%)]"></div>
+
+          <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-28">
+            <div class="md:col-span-6 self-center text-[var(--color-bone)]">
+              <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-4">Admitted · Market intelligence</p>
+              <h2 class="font-semibold text-[2.5rem] md:text-[3rem] leading-[1.05] tracking-[-0.018em]">
+                Watch every filing.<br/>Defend every move.
+              </h2>
+              <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--color-bone)]/80 max-w-[520px]">
+                Admitted carriers in Commercial Auto, BOP, and Homeowners use Tesora to monitor what competitors actually file. Every change parsed, diffed against your in-force book, and tied back to the originating SERFF artifact.
+              </p>
+              <div class="mt-7 flex flex-wrap gap-2">
+                {admittedTags.map((t) => (
+                  <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--color-bone)]/20 text-[var(--color-bone)]/85">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="md:col-span-6">
+              <AgentStack
+                eyebrow={admittedStack.eyebrow}
+                title={admittedStack.title}
+                agentChip={admittedStack.agentChip}
+                steps={admittedStack.steps}
+                outputs={admittedStack.outputs}
+              />
+            </div>
+          </div>
+        </section>
+
         <div class="grid md:grid-cols-12 gap-10 mb-14">
           <div class="md:col-span-5">
             <p class="eyebrow mb-3">Admitted · Market intelligence</p>

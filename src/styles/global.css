@@ -166,6 +166,18 @@ body {
   color: var(--color-bone);
 }
 
+/* Vulcan-style full-bleed dark video band.
+   Breaks out of any constrained parent (max-w container, tabs) to
+   reach viewport edges, even inside nested wrappers. */
+.vulcan-band {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  isolation: isolate;
+}
+
 /* Ghost / link CTA */
 .btn-ghost {
   font-family: var(--font-sans);
