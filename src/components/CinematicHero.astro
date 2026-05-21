@@ -9,6 +9,7 @@ export interface Props {
   deck: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  fullHeight?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   deck,
   primaryCta = { label: "Talk to Tesora", href: "mailto:founders@tesora.ai" },
   secondaryCta,
+  fullHeight = false,
 } = Astro.props;
 
 // Render the video layer only when an actual asset is provided. Otherwise the
@@ -26,7 +28,7 @@ const {
 const hasVideo = Boolean(videoSrc);
 ---
 
-<section class="hero-section relative isolate w-full overflow-hidden bg-[var(--color-ink)]">
+<section class:list={["hero-section relative isolate w-full overflow-hidden bg-[var(--color-ink)]", fullHeight && "is-full"]}>
   {hasVideo && (
     <video
       class="absolute inset-0 -z-10 h-full w-full object-cover opacity-90"
@@ -101,6 +103,12 @@ const hasVideo = Boolean(videoSrc);
     min-height: 88vh;
     padding-top: 12rem;
     padding-bottom: 8rem;
+  }
+  .hero-section.is-full {
+    min-height: 100vh;
+  }
+  .hero-section.is-full .hero-stack {
+    min-height: 100vh;
   }
 
   /* Animated gradient mesh fallback when no video is supplied.
