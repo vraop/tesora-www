@@ -3,25 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import AgentStack from "../components/AgentStack.astro";
+import TesoraStack from "../components/TesoraStack.astro";
 import { u } from "../lib/url";
 
-const admittedStack = {
-  eyebrow: "Tesora agent stack",
-  title: "Filing → rate-committee brief",
-  agentChip: "Workbench + Audit",
-  steps: [
-    { num: "01", title: "Watch", body: "Every competitor SERFF filing parsed, classified, and diffed against the prior version. No manual triage." },
-    { num: "02", title: "Diff", body: "Factor moves, schedule rating bands, base rates, surcharges. Surfaced against your in-force book in one view." },
-    { num: "03", title: "Brief", body: "Class-level trend signals rolled up into a defensible narrative for rate committee or DOI prep." },
-    { num: "04", title: "Audit", body: "Specialist agent verifies methodology and source citations before the rate committee sees the deck." },
-  ],
-  outputs: [
-    { label: "Filing diff" },
-    { label: "Rate-committee brief" },
-    { label: "DOI prep packet" },
-  ],
-};
+// Layers that carry the most weight for an admitted motion: filings
+// ingestion (SERFF watch), substrate (in-force book), rating engine (the
+// actual rater you ship), and audit (rate-committee and DOI defense).
+const admittedHighlightNums = ["03", "04", "05", "07"];
 
 const admittedTags = ["Filing diff", "Class trends", "Loss-cost bench", "Committee prep", "DOI defense"];
 
@@ -69,12 +57,10 @@ const admittedCapabilities = [
       </div>
 
       <div class="md:col-span-6">
-        <AgentStack
-          eyebrow={admittedStack.eyebrow}
-          title={admittedStack.title}
-          agentChip={admittedStack.agentChip}
-          steps={admittedStack.steps}
-          outputs={admittedStack.outputs}
+        <TesoraStack
+          title="The stack behind every filing-driven rater."
+          caption="Every filed rate runs the same seven layers. The four that carry the admitted motion are highlighted; the rest are present whether you're filing in Texas or quoting in Florida."
+          highlightNums={admittedHighlightNums}
         />
       </div>
     </div>

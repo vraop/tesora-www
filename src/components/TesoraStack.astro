@@ -1,0 +1,213 @@
+---
+// Tesora product stack visualization — legora-aOS-style layered card.
+// Replaces the workflow-shaped AgentStack with an actual "what's in the box"
+// diagram: the layers that make up the Tesora workbench, bottom-up.
+
+type Layer = {
+  num: string;      // "01"
+  title: string;    // "Frontier LLMs"
+  body: string;     // single-line description
+  chip?: string;    // optional one-word badge on the right
+};
+
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  caption?: string;
+  layers?: Layer[];          // override defaults if needed
+  highlightNums?: string[];  // optional: tint these layers brighter
+}
+
+const defaultLayers: Layer[] = [
+  { num: "07", title: "Audit & governance",        body: "SOC 2 Type II, ASOP-aware, SOX-ready. Every artifact carries a citation.", chip: "Always-on" },
+  { num: "06", title: "Workbench & interfaces",    body: "Pricing console, submissions queue, portfolio view. One model, every surface." },
+  { num: "05", title: "Pricing & rating engine",   body: "Versioned raters, dev to test to prod. Trauma studies before deploy." },
+  { num: "04", title: "Actuarial substrate",       body: "Typed graph of filings, raters, exposures, claims, quotes. One spine." },
+  { num: "03", title: "Filings & data ingestion",  body: "SERFF, loss runs, broker decks, schedules. Any format, normalized." },
+  { num: "02", title: "Agentic harness",           body: "Workbench agent does the work. Audit agent regrades it.", chip: "Tesora" },
+  { num: "01", title: "Frontier LLMs",             body: "Best-in-class model selection per task. No model lock-in." },
+];
+
+const {
+  eyebrow = "Tesora stack",
+  title = "The workbench, layer by layer.",
+  caption = "Filings to quote to reserves, on one substrate. Each layer is auditable and replaceable; the layers compound into a system the chief actuary can sign against.",
+  layers = defaultLayers,
+  highlightNums = [],
+} = Astro.props;
+
+const isHighlighted = (n: string) => highlightNums.includes(n);
+---
+
+<div class="tesora-stack">
+  <div class="tesora-stack__head">
+    <div>
+      <p class="tesora-stack__eyebrow">{eyebrow}</p>
+      <p class="tesora-stack__title">{title}</p>
+    </div>
+    <span class="tesora-stack__chip" aria-hidden="true">aOS</span>
+  </div>
+
+  <p class="tesora-stack__caption">{caption}</p>
+
+  <ol class="tesora-stack__layers" aria-label="Tesora stack">
+    {layers.map((l) => (
+      <li class:list={["tesora-stack__layer", isHighlighted(l.num) && "is-highlight"]}>
+        <span class="tesora-stack__num">{l.num}</span>
+        <div class="tesora-stack__body">
+          <p class="tesora-stack__layer-title">{l.title}</p>
+          <p class="tesora-stack__layer-body">{l.body}</p>
+        </div>
+        {l.chip && <span class="tesora-stack__layer-chip">{l.chip}</span>}
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style>
+  .tesora-stack {
+    --ts-accent: #4338CA;
+    --ts-bg: var(--bg, #FAF7F0);
+    --ts-fg: var(--fg, #0E0E0C);
+    --ts-muted: var(--fg-muted, #6B6760);
+    --ts-rule: var(--rule, rgba(14, 14, 12, 0.10));
+    background: var(--ts-bg);
+    border: 1px solid var(--ts-rule);
+    border-radius: 16px;
+    padding: 1.25rem;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 18px 50px -28px color-mix(in oklab, var(--ts-accent) 30%, rgba(14, 14, 12, 0.18));
+    font-family: var(--font-sans);
+    color: var(--ts-fg);
+  }
+
+  .tesora-stack__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid var(--ts-rule);
+  }
+  .tesora-stack__eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--ts-accent) 70%, var(--ts-muted));
+  }
+  .tesora-stack__title {
+    margin-top: 0.375rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .tesora-stack__chip {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--ts-accent) 12%, transparent);
+    color: var(--ts-accent);
+    border: 1px solid color-mix(in oklab, var(--ts-accent) 30%, transparent);
+  }
+
+  .tesora-stack__caption {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--ts-muted);
+  }
+
+  .tesora-stack__layers {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tesora-stack__layer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--ts-rule);
+    border-radius: 10px;
+    background: color-mix(in oklab, var(--ts-accent) 3%, var(--ts-bg));
+    transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+  .tesora-stack__layer:hover {
+    background: color-mix(in oklab, var(--ts-accent) 7%, var(--ts-bg));
+    border-color: color-mix(in oklab, var(--ts-accent) 28%, var(--ts-rule));
+    transform: translateX(2px);
+  }
+  .tesora-stack__layer.is-highlight {
+    background: color-mix(in oklab, var(--ts-accent) 9%, var(--ts-bg));
+    border-color: color-mix(in oklab, var(--ts-accent) 36%, var(--ts-rule));
+  }
+  .tesora-stack__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    border-radius: 7px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    background: color-mix(in oklab, var(--ts-accent) 14%, transparent);
+    color: var(--ts-accent);
+    border: 1px solid color-mix(in oklab, var(--ts-accent) 24%, transparent);
+  }
+  .tesora-stack__body { min-width: 0; }
+  .tesora-stack__layer-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .tesora-stack__layer-body {
+    margin-top: 2px;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--ts-muted);
+  }
+  .tesora-stack__layer-chip {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--ts-accent) 10%, transparent);
+    color: color-mix(in oklab, var(--ts-accent) 70%, var(--ts-fg));
+    border: 1px solid color-mix(in oklab, var(--ts-accent) 22%, transparent);
+  }
+
+  [data-theme="dark"] .tesora-stack {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 18px 50px -28px rgba(0, 0, 0, 0.6);
+  }
+  [data-theme="dark"] .tesora-stack__layer {
+    background: color-mix(in oklab, var(--ts-accent) 6%, var(--ts-bg));
+  }
+  [data-theme="dark"] .tesora-stack__layer:hover {
+    background: color-mix(in oklab, var(--ts-accent) 11%, var(--ts-bg));
+  }
+
+  @media (max-width: 480px) {
+    .tesora-stack__layer { grid-template-columns: 30px 1fr; }
+    .tesora-stack__layer-chip { display: none; }
+  }
+</style>

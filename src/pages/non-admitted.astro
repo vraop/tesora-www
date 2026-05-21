@@ -3,25 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import AgentStack from "../components/AgentStack.astro";
+import TesoraStack from "../components/TesoraStack.astro";
 import { u } from "../lib/url";
 
-const esStack = {
-  eyebrow: "Tesora agent stack",
-  title: "Submission → bind-ready quote",
-  agentChip: "Workbench + Audit",
-  steps: [
-    { num: "01", title: "Ingest", body: "Loss runs, SOVs, broker decks, schedules. Any format. Normalized and source-cited before the actuary sees the file." },
-    { num: "02", title: "Price", body: "Class factors, exposure base, schedule mods, ILFs. The Workbench walks the build-up; the actuary controls the calls." },
-    { num: "03", title: "Defend", body: "Every credit traces back to the carrier's own loss data and the originating filing artifact." },
-    { num: "04", title: "Audit", body: "Specialist agent regrades the file against actuarial best practice before the rate committee sees it." },
-  ],
-  outputs: [
-    { label: "Bound quote" },
-    { label: "Schedule-rating brief" },
-    { label: "Audit trail" },
-  ],
-};
+// Layers that carry the most weight for an E&S motion: ingestion (broker
+// submissions are messy), substrate (one spine), workbench (the underwriter
+// surface), and audit (every quote has a defensible trail).
+const esHighlightNums = ["03", "04", "06", "07"];
 
 const esTags = ["Schedule rating", "Exposure base", "Class factors", "Audit lineage", "SOX trail"];
 
@@ -69,12 +57,10 @@ const specialtyLines = [
       </div>
 
       <div class="md:col-span-6">
-        <AgentStack
-          eyebrow={esStack.eyebrow}
-          title={esStack.title}
-          agentChip={esStack.agentChip}
-          steps={esStack.steps}
-          outputs={esStack.outputs}
+        <TesoraStack
+          title="The stack behind the bind-ready quote."
+          caption="Every quote rides the same seven layers. The four that carry the E&S motion are highlighted; the rest are present whether the file is admitted or non-admitted."
+          highlightNums={esHighlightNums}
         />
       </div>
     </div>

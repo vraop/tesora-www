@@ -1,10 +1,13 @@
 ---
+import { u } from "../lib/url";
+
 type Followup = { title: string; body: string };
 type Stage = {
   id: string;
   label: string;
   title: string;
   body: string;
+  image: string;
   followups: Followup[];
 };
 
@@ -14,6 +17,7 @@ const stages: Stage[] = [
     label: "Market Research",
     title: "Turn public filings into structured intelligence in hours.",
     body: "Pull SERFF filings, public rate manuals, and reference materials into a vault. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
+    image: "/images/lifecycle/market-research.png",
     followups: [
       { title: "Summarize the ILF curve", body: "Pull the increased-limit factor table from the filing and produce a concise curve summary." },
       { title: "Jurisdiction comparison", body: "Compare base rates and territory loadings across the jurisdictions named in the filing." },
@@ -27,6 +31,7 @@ const stages: Stage[] = [
     label: "Loss Modeling",
     title: "Fit factors against your book without a Python team.",
     body: "Bring your loss triangles and exposure data into the workbench. Use the assistant to fit GLM/credibility-weighted factors, profile experience by segment, and produce a defensible memo of every assumption.",
+    image: "/images/lifecycle/loss-modeling.png",
     followups: [
       { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
       { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses; show how the fit shifts." },
@@ -40,6 +45,7 @@ const stages: Stage[] = [
     label: "Rating Deployment",
     title: "From Excel rater to live API, with a full audit trail.",
     body: "Shipping a rating model safely takes more work than building one. The Workbench versions every model, gates promotions through dev to test to prod, runs trauma studies before deploys, and keeps every historical version live for on-leveling.",
+    image: "/images/lifecycle/rating-deployment.png",
     followups: [
       { title: "Add experience modifier", body: "Add an experience modifier input and a schedule credit/debit input, with the matching premium adjustment." },
       { title: "Show territory factor table", body: "Surface the territory factor lookup table that this rater is reading from, in-place." },
@@ -53,6 +59,7 @@ const stages: Stage[] = [
     label: "Underwriting",
     title: "Submissions and portfolio analytics on the same rating engine.",
     body: "A submissions queue and a real-time portfolio view that share the rating models you already deployed, so a single quote and a portfolio-wide on-leveling use the exact same code path.",
+    image: "/images/lifecycle/underwriting.png",
     followups: [
       { title: "Add portfolio context", body: "Show how this submission would change concentration across territory and class code." },
       { title: "List referral reasons", body: "Enumerate the underwriting referral reasons triggered by this submission." },
@@ -66,6 +73,7 @@ const stages: Stage[] = [
     label: "Reserving",
     title: "Close the loop. Reserves and BI on the same data spine.",
     body: "Once policies, claims, and exposures live in one place, reserving and BI become a thin presentation layer. Start with chain-ladder and Bornhuetter-Ferguson dashboards driven by the same canonical data the rater uses.",
+    image: "/images/lifecycle/reserving.png",
     followups: [
       { title: "Switch to Bornhuetter-Ferguson", body: "Re-run reserves under Bornhuetter-Ferguson with an a-priori loss ratio." },
       { title: "Add tail factor analysis", body: "Fit a tail factor beyond the latest observed development period." },
@@ -78,6 +86,7 @@ const stages: Stage[] = [
     label: "Capital + Re + Captives",
     title: "Capital modeling, reinsurance program design, and captive analytics on the same spine.",
     body: "The same exposures and loss data that drive pricing and reserving also drive capital, reinsurance program design, and captive structuring. Run portfolio-level analytics without a separate data pipeline.",
+    image: "/images/lifecycle/misc.png",
     followups: [
       { title: "Run a 1-in-200 cat stress", body: "Apply the catastrophe stress scenario from the scenario library and re-score capital and reinsurance." },
       { title: "Compare an alternative structure", body: "Score an alternative reinsurance structure side-by-side against the current program." },
@@ -129,7 +138,7 @@ const stages: Stage[] = [
           data-stage-panel={s.id}
           class:list={["lifecycle-panel", i !== 0 && "is-hidden"]}
         >
-          <div class="grid md:grid-cols-12 gap-8 md:gap-10">
+          <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-start">
             <div class="md:col-span-5">
               <h3 class="font-semibold text-[1.5rem] md:text-[1.625rem] leading-[1.2] tracking-[-0.008em]">
                 {s.title}
@@ -137,9 +146,7 @@ const stages: Stage[] = [
               <p class="mt-4 text-[1rem] leading-[1.6] text-[var(--fg-muted)]">
                 {s.body}
               </p>
-            </div>
-            <div class="md:col-span-7">
-              <p class="lifecycle-followup__eyebrow">Ask a follow-up</p>
+              <p class="lifecycle-followup__eyebrow mt-8">Ask a follow-up</p>
               <ul class="lifecycle-followup__list">
                 {s.followups.map((f) => (
                   <li class="lifecycle-followup">
@@ -148,6 +155,11 @@ const stages: Stage[] = [
                   </li>
                 ))}
               </ul>
+            </div>
+            <div class="md:col-span-7">
+              <figure class="lifecycle-mockup">
+                <img src={u(s.image)} alt={`${s.label} workbench surface`} loading="lazy" decoding="async" />
+              </figure>
             </div>
           </div>
         </div>
@@ -218,10 +230,26 @@ const stages: Stage[] = [
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  @media (min-width: 768px) {
-    .lifecycle-followup__list {
-      grid-template-columns: 1fr 1fr;
-    }
+
+  .lifecycle-mockup {
+    --lc-accent: #4338CA;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid color-mix(in oklab, var(--lc-accent) 18%, rgba(14, 14, 12, 0.08));
+    box-shadow:
+      0 1px 0 rgba(14, 14, 12, 0.04),
+      0 24px 60px -34px color-mix(in oklab, var(--lc-accent) 40%, rgba(14, 14, 12, 0.18));
+  }
+  .lifecycle-mockup img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  [data-theme="dark"] .lifecycle-mockup {
+    background: var(--color-bone, #faf7f0);
+    border-color: color-mix(in oklab, var(--lc-accent) 30%, rgba(250, 247, 240, 0.18));
   }
   .lifecycle-followup {
     --lc-accent: #4338CA;
@@ -265,18 +293,30 @@ const stages: Stage[] = [
     const tabs = document.querySelectorAll(".lifecycle-tab");
     const panels = document.querySelectorAll("[data-stage-panel]");
     if (!tabs.length) return;
-    tabs.forEach(function (t) {
-      t.addEventListener("click", function () {
-        const stage = t.getAttribute("data-stage");
-        tabs.forEach(function (x) {
-          const active = x.getAttribute("data-stage") === stage;
-          x.classList.toggle("is-active", active);
-          x.setAttribute("aria-selected", active ? "true" : "false");
-        });
-        panels.forEach(function (p) {
-          p.classList.toggle("is-hidden", p.getAttribute("data-stage-panel") !== stage);
-        });
+    const validStages = new Set(Array.from(tabs).map(function (t) { return t.getAttribute("data-stage"); }));
+    function selectStage(stage) {
+      if (!validStages.has(stage)) return false;
+      tabs.forEach(function (x) {
+        const active = x.getAttribute("data-stage") === stage;
+        x.classList.toggle("is-active", active);
+        x.setAttribute("aria-selected", active ? "true" : "false");
       });
+      panels.forEach(function (p) {
+        p.classList.toggle("is-hidden", p.getAttribute("data-stage-panel") !== stage);
+      });
+      return true;
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () { selectStage(t.getAttribute("data-stage")); });
     });
+    function syncFromHash() {
+      const hash = (window.location.hash || "").replace(/^#/, "");
+      if (selectStage(hash)) {
+        const section = document.getElementById("lifecycle");
+        if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
   })();
 </script>

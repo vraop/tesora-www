@@ -6,8 +6,8 @@ import { u } from "../lib/url";
 ---
 
 <Layout
-  title="Tesora · The actuarial workbench for specialty P&C"
-  description="The actuarial workbench for specialty P&C. Built for chief actuaries at specialty P&C carriers and MGAs. Ingest filings, build and deploy raters, run standard pricing analyses, audit the work."
+  title="Tesora · Frontier AI for Actuaries"
+  description="The Tesora Workbench helps actuaries work faster, with a reproducible audit trail. Platform-agnostic, it supplements the way your team already works."
   canonical="/"
   schemaType="WebPage"
 >
@@ -15,23 +15,26 @@ import { u } from "../lib/url";
 
   <CinematicHero
     videoSrc={u("/video/hero-loop.mp4")}
-    headline="The actuarial workbench for specialty P&C."
+    headline="Frontier AI for Actuaries."
+    deck="The Tesora Workbench helps actuaries work faster, with a reproducible audit trail. Platform-agnostic, it supplements the way your team already works."
     fullHeight
   >
     <div class="agent-pills mt-12 w-full max-w-[920px] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 px-2">
-      <a href={u("/non-admitted")} class="agent-pill group" aria-label="Non-Admitted agent — E&S motion">
+      <a href={u("/agents#analysis")} class="agent-pill group" aria-label="Analysis agent — pricing, trends, loss modeling">
         <span class="agent-pill__icon" aria-hidden="true">
-          {/* lightning bolt = E&S speed */}
+          {/* trending line = analysis / pricing */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-            <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+            <path d="M3 3v18h18" />
+            <path d="m6 15 4-4 4 3 6-7" />
+            <path d="M14 7h6v6" />
           </svg>
         </span>
         <span class="agent-pill__body">
           <span class="agent-pill__title-row">
-            <span class="agent-pill__title">Non-Admitted</span>
+            <span class="agent-pill__title">Analysis</span>
             <span class="agent-pill__tag">AGENT</span>
           </span>
-          <span class="agent-pill__sub">Quote in under 6 weeks, not six months.</span>
+          <span class="agent-pill__sub">Loss modeling, trends, on-leveling, market research.</span>
         </span>
         <span class="agent-pill__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
@@ -41,25 +44,21 @@ import { u } from "../lib/url";
         </span>
       </a>
 
-      <a href={u("/admitted")} class="agent-pill group" aria-label="Admitted agent — filing motion">
+      <a href={u("/agents#reserving")} class="agent-pill group" aria-label="Reserving agent — triangles, IBNR, BI">
         <span class="agent-pill__icon" aria-hidden="true">
-          {/* columned building = admitted / regulated */}
+          {/* stacked layers = development triangle / reserving */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-            <path d="M3 21h18" />
-            <path d="M3 10h18" />
-            <path d="m12 3 9 5H3l9-5Z" />
-            <path d="M6 10v8" />
-            <path d="M10 10v8" />
-            <path d="M14 10v8" />
-            <path d="M18 10v8" />
+            <path d="M12 3 2 8l10 5 10-5-10-5Z" />
+            <path d="m2 13 10 5 10-5" />
+            <path d="m2 18 10 5 10-5" />
           </svg>
         </span>
         <span class="agent-pill__body">
           <span class="agent-pill__title-row">
-            <span class="agent-pill__title">Admitted</span>
+            <span class="agent-pill__title">Reserving</span>
             <span class="agent-pill__tag">AGENT</span>
           </span>
-          <span class="agent-pill__sub">Filing-driven raters with SOX-grade audit.</span>
+          <span class="agent-pill__sub">Triangles, IBNR, BI dashboards on one spine.</span>
         </span>
         <span class="agent-pill__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">

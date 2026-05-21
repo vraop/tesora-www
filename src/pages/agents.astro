@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import VideoBand from "../components/VideoBand.astro";
 import Lifecycle from "../components/Lifecycle.astro";
 import { u } from "../lib/url";
 
@@ -241,17 +240,8 @@ const workbenchPatterns = [
     ))}
   </section>
 
-  <VideoBand
-    videoSrc={u("/video/research-loop.mp4")}
-    eyebrow="The substrate"
-    headline="One typed graph holds the work."
-    body="Filings, raters, loss runs, and submissions live in one substrate. The agents reason over it. The actuary signs against it."
-    height="short"
-    align="center"
-  />
-
   {/* Workflows 03 + 04 */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-12">
+  <section id="analysis" class="mx-auto max-w-[1180px] px-6 md:px-10 py-12 scroll-mt-24">
     {workflows.slice(2, 4).map((w) => (
       <article class="grid md:grid-cols-12 gap-8 md:gap-12 py-10 border-t border-[var(--rule)] first:border-t-0 reveal">
         <div class="md:col-span-5">
@@ -270,15 +260,6 @@ const workbenchPatterns = [
       </article>
     ))}
   </section>
-
-  <VideoBand
-    videoSrc={u("/video/customers-loop.mp4")}
-    eyebrow="Lineage by default"
-    headline="Every value carries its citation."
-    body="A factor, a base rate, a credit, a quote. Each one traces back to the page and cell it came from."
-    height="short"
-    align="center"
-  />
 
   <Lifecycle />
 

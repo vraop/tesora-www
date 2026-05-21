@@ -166,6 +166,38 @@ body {
   color: var(--color-bone);
 }
 
+/* Filled-purple pill CTA (legora-style "Book a demo" treatment).
+   Used for the always-on Demo CTA in the floating header nav. */
+.btn-pill-purple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  padding: 0.4rem 1rem;
+  background: var(--color-oxblood);
+  color: var(--color-bone);
+  border: 1px solid var(--color-oxblood);
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 6px 18px -8px color-mix(in oklab, var(--color-oxblood) 60%, transparent),
+    0 0 0 4px color-mix(in oklab, var(--color-oxblood) 16%, transparent);
+  transition: background 200ms, border-color 200ms, box-shadow 200ms, transform 180ms;
+}
+.btn-pill-purple:hover {
+  background: color-mix(in oklab, var(--color-oxblood) 88%, white 12%);
+  border-color: color-mix(in oklab, var(--color-oxblood) 88%, white 12%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.16) inset,
+    0 10px 24px -10px color-mix(in oklab, var(--color-oxblood) 70%, transparent),
+    0 0 0 6px color-mix(in oklab, var(--color-oxblood) 22%, transparent);
+  transform: translateY(-1px);
+}
+
 /* Vulcan-style full-bleed dark video band.
    Breaks out of any constrained parent (max-w container, tabs) to
    reach viewport edges, even inside nested wrappers. */
