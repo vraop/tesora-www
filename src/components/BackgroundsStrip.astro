@@ -1,15 +1,15 @@
 ---
 import { u } from "../lib/url";
 
-// Heights tuned per-logo so each wordmark sits visually balanced
-// (some marks have ascenders/descenders or thinner strokes).
+// Single rendered height for every wordmark so the strip reads as one row.
 // Only places the founding team actually came from. Carrier logos belong to
 // the carriers; they are not sponsors and do not want to be cited here.
+const LOGO_H = 22;
 const backgrounds = [
-  { slug: "stanford", label: "Stanford", ext: "svg", h: 26 },
-  { slug: "mckinsey", label: "McKinsey & Company", ext: "svg", h: 22 },
-  { slug: "kumo", label: "Kumo Labs", ext: "svg", h: 22 },
-  { slug: "sycamore", label: "Sycamore Partners", ext: "svg", h: 22 },
+  { slug: "stanford", label: "Stanford", ext: "svg", h: LOGO_H },
+  { slug: "mckinsey", label: "McKinsey & Company", ext: "svg", h: LOGO_H },
+  { slug: "kumo", label: "Kumo Labs", ext: "svg", h: LOGO_H },
+  { slug: "sycamore", label: "Sycamore Partners", ext: "svg", h: LOGO_H },
 ];
 
 const doubled = [...backgrounds, ...backgrounds];
