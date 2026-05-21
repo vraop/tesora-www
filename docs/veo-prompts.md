@@ -1,32 +1,42 @@
-# Veo 3.1 prompt set for Tesora site (warm + actuarial-form professional, US)
+# Veo 3.1 prompt set for Tesora site (Harvey/Legora x actuarial)
 
-Used for the scroll-driven cinematic bands modeled after vulcan.ai but
-tilted toward actuarial-form professionalism: the holographic substrate
-is built out of *real* actuarial artifacts (loss triangles, ILF curves,
-distribution fits, schedule-rating matrices, layered exposure stacks),
-not generic mission-control flourish.
+Used for the scroll-driven cinematic bands. The mood is calm modern
+legal-AI photography (Harvey, Legora) applied to the actuarial
+profession — a senior actuary at work in a modern NYC office at golden
+hour, with a clean restrained Workbench product visible on a real
+monitor. Not cinematic mission-control. Not graphite-notebook
+nostalgia. Not holographics. Clean professional photography of modern
+work, lit by warm window light.
 
-**Aesthetic anchor (2026 actuarial-form refresh):**
-- Vulcan.ai mission-control feel: holographic data layers hovering above
-  a geographic substrate, cinematic depth, anamorphic flares, atmospheric
-  haze, mission-room interiors at dusk. Restrained — not Hollywood.
-- Actuarial-form substrate: every holographic layer is a recognizable
-  pricing artifact rendered as glowing electric indigo wireframe — loss
-  triangles, ILF curves, layered exposure stacks, frequency-severity
-  distribution fits, schedule-rating credit/debit matrices, on-leveling
-  ladders, OEP/AEP exceedance curves. Geometry only, no rendered numbers
-  or letters. Never slide rules, leather binders, brass embossers,
-  Rolodexes, oak, fountain pens.
-- Professional restraint: dignified pacing, controlled motion, no kinetic
-  flicker. The shot should read like a chief-actuary mission room, not a
-  sci-fi trailer. Single human silhouettes (if any) stand calmly, no
-  faces, no gesture. Tasteful, not theatrical.
-- US, not generic. Continental outlines and dusk skylines should read as
-  North America (no rendered place names, only terrain shape).
-- Palette: warm dusk amber (sunset orange to deep indigo sky), electric
-  indigo (#4338CA) for all data wireframes, warm cream (#FAF7F0) for
-  surfaces, amber tungsten (#E89A4A) for accent lighting. Avoid cold
-  cyan, avoid pure white, avoid brown/leather.
+**Aesthetic anchor (2026 Harvey/Legora refresh):**
+- Modern professional photography: shot like a Harvey landing-page
+  still — warm minimal NYC office, floor-to-ceiling windows at golden
+  hour, soft natural light wrapping a clean modern desk. Real-feeling
+  spaces with real-feeling people (mostly out of frame or in soft
+  silhouette from behind), not cinematic dystopia.
+- Real product on a real screen: any UI visible in frame appears on an
+  actual modern monitor or laptop on the desk — a clean Workbench
+  interface rendered like a Linear / Legora / Figma mockup with calm
+  white-cream cards, subtle dividers, soft shadows, and a single
+  restrained accent color. The UI is geometry only (no rendered text,
+  no rendered numbers, no readable labels) but recognizably shaped
+  like real dashboards — cards in a grid, a sidebar nav, a faint
+  horizontal chart, a metric strip. Never holographic, never floating
+  in air, never wireframe.
+- Single subject calm: one monitor, one notebook closed beside it,
+  maybe one out-of-focus figure from behind. The shot earns its
+  restraint. No busy desks, no piles of clutter, no kinetic motion.
+- NYC at golden hour: when a skyline is present, frame it as soft-focus
+  midtown silhouette through floor-to-ceiling windows, warm amber
+  daylight, not dusk indigo and not night.
+- Professional restraint: clean photography, shallow depth of field,
+  no flicker, no pulses, no kinetic strobing, no anamorphic flares, no
+  haze. Reads like Harvey or Legora marketing photography for actuaries.
+- Palette: warm cream surfaces (#FAF7F0), warm golden-hour amber from
+  the window, soft neutral grey for the monitor frame, one subtle
+  forest-green or muted indigo accent inside the UI only. Avoid neon
+  indigo, avoid cinematic dusk, avoid holographic glow, avoid graphite
+  paper, avoid leather/oak/brass, avoid mission-control darkness.
 
 All horizontal clips: 8 seconds, silent, 1280x720, slow drift, no
 on-frame text. Defensive CSS blur (2.5px) is applied on every non-demo
@@ -41,179 +51,246 @@ captures and stay sharp (no prompt entry here).
 
 ## hero-loop.mp4
 
-Slow cinematic aerial pullback over a US continental terrain seen from
-high altitude at dusk. The land below glows with translucent topographic
-data — county-line outlines pulse faintly in electric indigo (#4338CA),
-amber heat zones flicker softly across wind, hail, and wildfire-prone
-regions (no rendered state names, no city labels, only abstract terrain
-shape). Above the terrain, a translucent 3D loss-development triangle
-floats mid-frame as a glowing electric indigo wireframe — the staircase
-of accident years and development periods clearly readable as geometry,
-no rendered numbers. Beside it, a layered exposure stack hangs as
-parallel translucent indigo planes. Thin amber data streams flow upward
-from the surface into the triangle. Horizon graded sunset amber into
-deep indigo. Restrained anamorphic flares, atmospheric haze, drifting
-particles. Cinematic, filmic, professional mission-control feel. No
-legible text, no place names, no logos. Subject matter only.
+Clean professional landing-page photography. Locked-off wide shot
+inside a calm modern NYC office at golden hour, in the visual register
+of Harvey or Legora marketing stills. Foreground: a slim modern
+monitor sits on a matte cream desk, angled three-quarter toward the
+camera. On the monitor, a clean Workbench-style product UI is visible
+— a calm white-cream dashboard with a left sidebar nav, a centered
+content area showing a grid of three rounded-corner cards stacked
+vertically, each card with subtle dividers and a faint horizontal bar
+inside, and a small metric strip across the top. The UI is rendered
+exactly like a Linear or Legora mockup — flat soft shadow, subtle
+forest-green accent on a single nav item, otherwise neutral. Pure
+geometric placeholders inside every card (no letters, no numbers, no
+readable labels, no glyphs that resemble words). Beside the monitor, a
+closed slim notebook rests, and a single neutral ceramic cup. Beyond
+the desk, floor-to-ceiling windows reveal a soft-focus blue-grey NYC
+midtown skyline bathed in warm golden-hour amber daylight — restrained
+urban geometry, no signage, no recognizable landmarks. Warm natural
+sunlight wraps the scene. Soft, calm, contemporary. Shallow depth of
+field on the skyline. Dignified pacing, very slow forward drift, no
+flicker, no kinetic motion, no pulses, no anamorphic flares, no
+holographic glow. The mood is a senior actuary's office at the
+end of a Tuesday — clean, modern, restrained, professional. ABSOLUTELY
+NO RENDERED TEXT ANYWHERE on the monitor or any surface — no letters,
+no numbers, no labels, no readable characters of any kind. Pure
+geometric UI placeholders only. No place names, no logos. Subject
+matter only.
 
 ## agents-loop.mp4
 
-Slow camera orbit inside a warm-lit modern operations room at dusk. A
-large translucent holographic wall display shows four pricing artifacts
-arranged left to right and connected by glowing electric indigo lines:
-a loss triangle staircase, a frequency-severity distribution fit (a
-glowing indigo curve), a schedule-rating credit/debit matrix as a
-geometric grid, and a closed circular seal. Each artifact pulses in
-slow sequence as data streams in amber travel along the connecting
-lines. Warm tungsten light spills from low fixtures along the floor
-edge. A single human silhouette in the foreground stands calmly with
-arms folded, out of focus, no gesture. Floor-to-ceiling glass behind
-reveals a US dusk continental terrain in soft focus. Restrained
-anamorphic flares, shallow depth of field. Cinematic, filmic,
-professional mission-control feel. No readable text, no logos.
+Clean modern landing-page photography. Slow lateral camera drift past
+a wide modern workspace at golden hour, like a Harvey product still.
+On a matte cream desk, two slim modern monitors sit side by side. Each
+screen shows a clean Workbench product UI — calm white-cream cards,
+flat soft shadow, left sidebar nav with subtle forest-green accent on
+one item, a centered content area with a small grid of cards and a
+faint horizontal chart inside. Pure geometric placeholders inside the
+UI, no rendered letters, no rendered numbers. A single out-of-focus
+silhouette of a person sits behind the desk, viewed from behind, no
+face, no gesture. Floor-to-ceiling windows beyond reveal a soft-focus
+warm-amber NYC midtown skyline at golden hour. Warm natural sunlight
+wraps the scene. Shallow depth of field on the skyline, very slight
+forward drift. No flicker, no holographic glow, no anamorphic flares.
+Clean restrained modern photography. No legible text, no place names,
+no logos. Subject matter only.
 
 ## customers-loop.mp4
 
-Slow cinematic push into a darkened modern operations room at dusk. A
-wall-sized translucent holographic display shows a US continental map
-with glowing financial flow lines threading between abstract geographic
-blocks — submission corridors, bind events, schedule-rating decisions.
-Electric indigo pulses along the lines; amber heat zones flicker over
-wind, hail, and quake regions of the continent (no rendered state names,
-no city labels). Warm tungsten light accents the room edges. A figure
-stands silhouetted in the foreground. Anamorphic flares, particles,
-atmospheric depth. Cinematic mission-control feel. No legible text, no
-place names, no logos.
+Clean modern landing-page photography. Slow forward push into a calm
+modern NYC office at golden hour. On a matte cream desk, a single slim
+modern monitor shows a clean Workbench dashboard — a calm white-cream
+panel containing a faint geometric continental outline of North America
+(no rendered borders as text, no place names, only the silhouette of
+the landmass), with a few small geometric tick marks scattered across
+it suggesting regions. The map is flat product UI, never holographic,
+never glowing, just calm soft shapes on a white-cream surface. A side
+panel beside the map shows three small geometric placeholder cards.
+Beyond the monitor, floor-to-ceiling windows reveal a soft-focus warm
+NYC midtown skyline at golden hour. Warm natural sunlight, shallow
+depth of field on the skyline. Clean professional photography, no
+flicker, no holographic effects, no flares. No legible text, no place
+names, no logos. Subject matter only.
 
 ## research-loop.mp4
 
-High aerial view over a holographic data surface at dusk. A 3D
-typed-graph wireframe spans the frame — nodes shaped as small pricing
-artifacts (a tiny triangle staircase, a stacked exposure layer, a
-distribution curve), edges shimmering amber as pulses of data travel
-between them. Beneath the graph, a translucent US continental outline
-glows faintly in electric indigo. Warm dusk light catches the wireframe
-from one side. Camera slowly rotates with controlled, professional
-pacing. Shallow depth of field, restrained anamorphic flares,
-atmospheric particles. Cinematic, filmic, professional mission-control
-feel. No legible text, no place names, no logos.
+Clean modern landing-page photography. Slow camera drift over a wide
+matte cream desk at golden hour, viewed from a slight overhead angle.
+A modern laptop sits open on the desk. On the screen, a clean
+Workbench product UI shows a calm geometric network of small connected
+nodes laid out on a white-cream canvas — pure soft shapes connected
+by thin lines, all flat product UI, no rendered text, no rendered
+numbers, no labels. The network reads as a graph diagram in a Linear
+or Legora mockup, not as a glowing wireframe. Warm golden-hour
+sunlight wraps the laptop from one side, softly catching the keyboard
+edges. Floor-to-ceiling windows beyond reveal a soft-focus warm NYC
+midtown skyline. Shallow depth of field. Clean professional restrained
+photography. No flicker, no holographic glow. No legible text, no
+place names, no logos. Subject matter only.
 
 ## security-loop.mp4
 
-Slow tracking shot down a warm-lit data corridor at dusk. Amber
-under-lighting glows along the floor edge. Rows of dark matte cabinets
-line both sides, each marked only with a single pulsing electric indigo
-status LED, blinking in slow synchronized sequence. The far end of the
-corridor opens onto floor-to-ceiling glass revealing a US dusk skyline
-in soft focus. Anamorphic lens flares, atmospheric haze. Cinematic,
-modern, mission-control feel. No people in frame, no readable text, no
-logos.
+Clean modern landing-page photography. Slow tracking shot down a long
+calm corridor inside a modern NYC office building at golden hour.
+Matte cream walls on both sides, soft warm sunlight pouring in through
+intermittent vertical windows on the right. The corridor is clean,
+restrained, contemporary — no people in frame. The far end of the
+corridor opens onto floor-to-ceiling windows revealing a soft-focus
+warm NYC midtown skyline. Shallow depth of field on the far skyline,
+very slight forward drift. No flicker, no holographic accents, no
+anamorphic flares. The mood is calm professional architectural
+photography for a modern legal-or-financial AI company. No legible
+text, no place names, no logos. Subject matter only.
 
 ## careers-loop.mp4
 
-Slow cinematic rise from a low angle over a US dusk skyline (abstract
-city silhouette, no recognizable landmarks). A glowing translucent
-architecture diagram hangs in mid-air between camera and skyline — thin
-electric indigo nodes and amber connecting lines, pulsing in slow
-rhythm. Horizon graded sunset amber into deep indigo. Anamorphic flares,
-atmospheric haze, drifting particles. Filmic, cinematic. No people in
-frame, no readable text, no logos.
+Clean modern landing-page photography. Slow camera rise from a low
+angle inside a modern NYC office at golden hour. Foreground: a corner
+of a matte cream desk with a slim modern laptop open, showing a calm
+Workbench product UI on the screen — clean white-cream cards in a
+grid, subtle forest-green accent, geometric placeholders inside, no
+rendered text. Beyond the desk, floor-to-ceiling windows reveal a
+soft-focus warm NYC midtown skyline graded into deep golden-hour
+amber. The horizon line and the laptop edge align gently as the
+camera rises. Warm natural sunlight, shallow depth of field. No
+people in frame. Clean professional photography, no flicker, no
+holographic effects, no flares. No legible text, no place names, no
+logos. Subject matter only.
 
 ## about-loop.mp4
 
-Slow drift across a warm-lit modern table at dusk. A single translucent
-holographic panel floats above the surface displaying abstract pulsing
-geometry — layered rings and arcs in electric indigo suggesting risk
-zones and exposure layers, no rendered numbers or labels. Amber tungsten
-light casts a long warm shadow. Floor-to-ceiling glass behind reveals a
-US dusk skyline in soft focus. Anamorphic flares, shallow depth of
-field. Cinematic, filmic. No readable text, no logos.
+Clean modern landing-page photography. Slow lateral drift across a
+calm matte cream desk inside a modern NYC office at golden hour. A
+slim modern monitor shows a single restrained Workbench product panel
+— a calm white-cream surface with soft layered geometric circles and
+arcs arranged in a clean diagrammatic composition, all flat product
+UI, no readable text, no numbers, no labels. Warm golden-hour sunlight
+from a side window casts a long soft shadow across the desk. Beyond
+the desk, floor-to-ceiling windows reveal a soft-focus warm NYC
+midtown skyline. Shallow depth of field. No flicker, no holographic
+effects. Clean professional photography. No legible text, no place
+names, no logos. Subject matter only.
 
 ## workbench-loop.mp4
 
-Slow cinematic camera push across a warm-lit modern desk surface at
-dusk. Three translucent holographic panels float above the desk in a
-staggered row, each rendered as a glowing electric indigo wireframe —
-first a loss-run grid (rows and columns as pure geometry, no numbers),
-second a pricing-flow wireframe (rate-manual nodes connected by ILF
-edges and territory factors), third an on-leveling ladder rising in
-stepped indigo bars. Amber tungsten light from below wraps the panels.
-A US continental terrain glows faintly in soft focus through
-floor-to-ceiling glass beyond. Restrained anamorphic flares, atmospheric
-particles. Cinematic, filmic, professional mission-control feel. No
-readable text, no place names, no logos.
+Clean modern landing-page photography. Slow forward camera push across
+a wide modern desk in a calm NYC office at golden hour. Two slim
+modern monitors sit on the matte cream desk, angled gently inward.
+The left monitor shows a clean Workbench dashboard — a grid of three
+geometric placeholder cards on a white-cream canvas, with a small
+metric strip across the top and a left sidebar nav with a single
+forest-green accent. The right monitor shows a second Workbench view
+— a calm soft horizontal chart and a small table of geometric
+placeholders, all flat product UI, no readable text or numbers.
+Beyond the desk, floor-to-ceiling windows reveal a soft-focus warm
+NYC midtown skyline at golden hour. Warm natural sunlight wraps the
+scene. Shallow depth of field, dignified pacing, no flicker, no
+holographic effects, no flares. Clean Harvey/Legora-style product
+photography. No legible text, no place names, no logos. Subject
+matter only.
 
 ## writing-loop.mp4
 
-Macro shot of a glowing electric indigo neural-network glyph drawing
-itself line by line across a warm cream surface at dusk. The glyph
-forms a series of pulsing connected nodes suggesting a small typed
-graph. Amber tungsten light from above catches dust motes drifting
-through the beam. Shallow depth of field, cinematic, filmic. No
-letters, no numbers, no logos.
+Clean modern landing-page photography. Slow macro shot across a slim
+modern monitor on a matte cream desk at golden hour. On the screen,
+a clean Workbench product panel slowly drafts a calm composition —
+a soft network of small geometric placeholder nodes connecting in a
+diagrammatic layout, all flat product UI on a white-cream canvas,
+no rendered text, no numbers, no labels. Warm natural sunlight from a
+side window softly catches the edge of the monitor. Shallow depth of
+field, dignified pacing, no flicker, no holographic glow. Clean
+professional restrained photography. No legible text, no place names,
+no logos. Subject matter only.
 
 ## numbers-loop.mp4
 
-Slow macro pan across a translucent floating column of pulsing electric
-indigo dots and dashes at dusk — abstract numerical rhythm, no rendered
-digits. Amber backlighting from below. Behind the column, a faint US
-continental outline glows in soft focus. Cinematic, filmic, atmospheric.
-No legible text, no place names, no logos.
+Clean modern landing-page photography. Slow macro pan across a slim
+modern monitor on a matte cream desk at golden hour. On the screen,
+a clean Workbench product panel shows a calm vertical column of small
+geometric tick marks and short horizontal bars arranged in a tidy
+list — flat product UI, no rendered digits, no readable text, no
+labels. A subtle forest-green accent indicator sits beside one row.
+Warm natural sunlight from a side window catches the monitor edge.
+Shallow depth of field, dignified pacing, no flicker, no holographic
+effects. Clean professional restrained photography. No legible text,
+no place names, no logos. Subject matter only.
 
 ---
 
 ## Vertical walkthrough variants (9:16, 1080x1920)
 
-Same aesthetic anchor: warm dusk, electric indigo holographics, US
-continental substrate, mission-control feel. Reframed for portrait.
+Same aesthetic anchor: Harvey/Legora-style modern professional
+photography, calm NYC office at golden hour, slim modern monitors
+showing clean Workbench product UI with geometric placeholders, soft
+natural sunlight, soft-focus midtown skyline through windows. No
+graphite notebooks, no holographics, no flares. Reframed for portrait.
 Generate at 1080x1920, 8 seconds, silent.
 
 ## walkthrough-ingest-vertical.mp4
 
-Vertical reframe. Slow tilt-down through a tall stack of translucent
-floating holographic panels at dusk: top panel shows an abstract loss-run
-grid in electric indigo, middle panel shows an SOV silhouette as a
-layered geometric block, bottom panel shows pulsing ruled column rhythm
-in amber. Warm tungsten light wraps the stack from one side. A US
-continental terrain glows faintly through soft-focus glass behind.
-Anamorphic flares, shallow depth of field. Cinematic, filmic. No
-readable text, no place names, no logos.
+Vertical reframe. Clean modern product photography. Slow tilt-down a
+slim modern monitor positioned vertically on a matte cream desk at
+golden hour. On the screen, a tall Workbench dashboard shows three
+clean white-cream cards stacked vertically — each card with subtle
+dividers and small geometric placeholder shapes inside, no rendered
+text, no numbers, no labels. A subtle forest-green accent indicator
+sits in one corner. Warm natural sunlight from a side window catches
+the monitor edge. Soft-focus NYC midtown skyline glows through
+floor-to-ceiling windows behind. Shallow depth of field, dignified
+pacing, no flicker, no holographic effects. No legible text, no place
+names, no logos. Subject matter only.
 
 ## walkthrough-rater-vertical.mp4
 
-Vertical reframe. Slow camera dolly upward past three stacked
-holographic panels suspended in warm dusk air. Each panel is a
-translucent electric indigo wireframe of pricing-flow geometry —
-nodes and edges, pulsing in slow rhythm with amber data streams.
-Amber tungsten light from a low source casts a long warm shadow upward.
-A US dusk skyline glows soft behind. Anamorphic flares, atmospheric
-depth. Cinematic, filmic. No readable text, no logos.
+Vertical reframe. Clean modern product photography. Slow camera dolly
+upward past a slim modern monitor on a matte cream desk at golden
+hour. On the screen, a tall Workbench dashboard shows a calm vertical
+flow of small geometric placeholder cards connected by thin lines —
+flat product UI on a white-cream canvas, soft drop shadows, single
+forest-green accent on one card, no rendered text, no rendered numbers.
+Warm golden-hour sunlight wraps the monitor from below. Soft-focus NYC
+midtown skyline glows through floor-to-ceiling windows behind. Shallow
+depth of field. No flicker, no holographic effects. No legible text,
+no place names, no logos. Subject matter only.
 
 ## walkthrough-analyze-vertical.mp4
 
-Vertical reframe. Top-to-bottom tilt across a tall translucent column
-of holographic chart silhouettes — bar shapes, line shapes, distribution
-curves, all in glowing electric indigo with amber data pulses traveling
-through. A US continental terrain glows faintly through soft-focus glass
-behind. Warm dusk backlight. Shallow depth of field, anamorphic flares.
-Cinematic, filmic. No rendered letters, no rendered numbers, no place
-names, no logos.
+Vertical reframe. Clean modern product photography. Slow top-to-bottom
+tilt across a tall modern monitor on a matte cream desk at golden
+hour. On the screen, a Workbench dashboard shows a calm stack of
+geometric placeholder elements — short horizontal bars, small soft
+curves, and tidy tick marks arranged in a vertical column, all flat
+product UI, no rendered digits, no readable text. Warm natural
+sunlight from a side window catches the monitor edge. Soft-focus NYC
+midtown skyline glows through floor-to-ceiling windows behind. Shallow
+depth of field. No flicker, no holographic effects. No legible text,
+no place names, no logos. Subject matter only.
 
 ## walkthrough-audit-vertical.mp4
 
-Vertical reframe. Close vertical shot of a glowing electric indigo seal
-forming mid-air above a matte cream surface, drawn line by line, then
-sealing closed with a soft pulse of amber light. The seal is purely
-geometric — concentric rings and abstract glyphs, no readable text.
-Warm amber backlight from below. Shallow depth of field, cinematic,
-filmic. No readable text, no logos.
+Vertical reframe. Clean modern product photography. Close vertical
+shot of a slim modern monitor on a matte cream desk at golden hour.
+On the screen, a Workbench audit panel slowly composes itself — a
+calm circular geometric emblem with concentric soft rings on a clean
+white-cream surface, flat product UI, soft drop shadow, no readable
+text, no rendered glyphs. A subtle forest-green checkmark appears
+beside it. Warm natural sunlight from a side window catches the
+monitor edge. Shallow depth of field, dignified pacing, no flicker,
+no holographic effects. No legible text, no place names, no logos.
+Subject matter only.
 
 ## walkthrough-writing-vertical.mp4
 
-Vertical reframe. Close shot framed top-to-bottom of a glowing electric
-indigo neural-network glyph drawing itself across a warm cream surface
-from top to bottom. Amber tungsten light from one side, dust motes in
-the beam. Filmic, slow, cinematic. No letters, no numbers, no logos.
+Vertical reframe. Clean modern product photography. Close shot
+top-to-bottom of a slim modern monitor on a matte cream desk at
+golden hour. On the screen, a Workbench composition panel slowly
+drafts itself — soft connected geometric placeholder shapes flowing
+top to bottom on a white-cream surface, flat product UI, no letters,
+no numbers, no labels. Warm natural sunlight from a side window
+softly catches the monitor edge. Shallow depth of field, slow,
+dignified pacing, no flicker, no holographic effects. No legible
+text, no place names, no logos. Subject matter only.
 
 ---
 
@@ -221,27 +298,32 @@ the beam. Filmic, slow, cinematic. No letters, no numbers, no logos.
 
 - Always end the prompt with: "No legible text, no place names, no
   logos. Subject matter only."
-- Color grade: dusk amber (#E89A4A vibe) + electric indigo (#4338CA) +
-  warm cream surface (#FAF7F0). Avoid cold cyan, avoid pure white, avoid
-  brown/leather/oak.
-- Subject grammar: warm holographic AI substrate floating *above* the
-  US actuarial domain. Substrate built from recognizable pricing
-  artifacts as geometry only: loss-development triangles, ILF curves,
-  layered exposure stacks, frequency-severity distribution fits,
-  schedule-rating credit/debit matrices, on-leveling ladders, OEP/AEP
-  exceedance curves, territory-factor wireframes. Never slide rules,
-  leather binders, brass embossers, fountain pens, Rolodexes, oak.
-- Professional restraint: dignified pacing, controlled motion, no
-  kinetic flicker. Reads like a chief-actuary mission room, not a sci-fi
-  trailer. Single human silhouettes (if any) stand calmly, no faces,
-  no gesture.
-- Skyline cue: when the prompt includes a skyline, frame it as soft-focus
-  dusk through floor-to-ceiling glass. Continental US silhouette but no
-  recognizable landmarks, no rendered place names.
-- Mission-control feel: anamorphic lens flares, particles, atmospheric
-  haze, low amber accent lighting at floor and ceiling edges, single
-  human silhouettes only (no faces), warm tungsten light from low
-  sources.
+- Color grade: warm cream surfaces (#FAF7F0), golden-hour amber sunlight,
+  soft neutral grey for monitor frames, single subtle forest-green or
+  muted indigo accent inside the UI only. Avoid neon indigo wireframes,
+  avoid cinematic dusk, avoid pure white, avoid leather/oak/brass.
+- Subject grammar: Harvey/Legora-style landing-page photography for
+  actuaries — calm modern NYC office at golden hour, slim modern
+  monitors on a matte cream desk showing clean Workbench product UI,
+  soft natural sunlight, soft-focus midtown skyline through floor-to-
+  ceiling windows. The product lives ON a real monitor, not as a
+  hologram. NO holographic panels, NO floating UI, NO glowing
+  wireframes, NO mission-control HUDs, NO graphite notebooks, NO
+  anamorphic flares, NO atmospheric haze.
+- Product UI inside the monitor is rendered like a Linear / Legora /
+  Figma mockup — calm white-cream cards, subtle dividers, soft drop
+  shadows, single restrained accent. Pure geometric placeholders inside
+  every card (no rendered letters, no rendered numbers, no readable
+  labels). Recognizably shaped like real dashboards — grids of cards, a
+  sidebar nav, a faint horizontal chart, a metric strip.
+- Professional restraint: clean photography, shallow depth of field,
+  dignified pacing, no flicker, no pulses, no kinetic strobing, no
+  anamorphic flares. Single human silhouettes (if any) viewed from
+  behind, no faces, no gesture.
+- Skyline cue: when the prompt includes a skyline, frame it as
+  soft-focus warm NYC midtown silhouette through floor-to-ceiling
+  windows, bathed in golden-hour amber daylight (not dusk indigo, not
+  night). Restrained urban geometry, no recognizable landmarks.
 - Defensive CSS blur of 2.5px is applied to every non-demo clip via
   `src/components/CinematicHero.astro` and `src/components/VideoBand.astro`
   so any artifacted glyphs still read as atmosphere, not copy.

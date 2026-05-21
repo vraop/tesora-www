@@ -1,0 +1,148 @@
+---
+// Legora-style stacked architecture diagram. Each layer fades + slides in
+// from top as the section enters the viewport. Restrained, professional.
+//
+// Order is top-to-bottom as listed — the Workbench surface sits high,
+// the compliance + data foundations sit below.
+
+const layers = [
+  {
+    label: "Frontier Models",
+    sub: "Claude, Gemini, GPT — selected per task, never trusted blind.",
+  },
+  {
+    label: "Agentic Harness",
+    sub: "Plan, retrieve, write, audit. Multi-agent orchestration with provenance.",
+  },
+  {
+    label: "Loss Runs, Raters & Source Systems",
+    sub: "Loss runs, SOVs, exposure files, rate manuals — auto-classified and normalized.",
+  },
+  {
+    label: "Filings, Memos & Prior Work",
+    sub: "SERFF filings, actuarial memos, prior reviews — ingested with full lineage.",
+  },
+  {
+    label: "Actuarial Capabilities",
+    sub: "Trend, on-leveling, credibility, distribution fitting, schedule rating, XOL.",
+  },
+  {
+    label: "Actuary Workbench",
+    sub: "The conversational surface chief actuaries actually use.",
+  },
+  {
+    label: "SOX, ASOP & Audit Trail",
+    sub: "Every step source-cited. Every reviewer reproducible. Every output defendable.",
+  },
+];
+---
+
+<section class="border-y border-[var(--rule)] bg-[var(--bg)]">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+    <div class="grid md:grid-cols-12 gap-10 mb-12">
+      <div class="md:col-span-5">
+        <p class="eyebrow mb-3">The stack</p>
+        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
+          One stack, built for the actuarial function.
+        </h2>
+      </div>
+      <p class="md:col-span-7 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
+        Frontier models on top, agentic harness underneath, the actuarial domain in between, and the compliance trail underneath all of it. Each layer earns its place.
+      </p>
+    </div>
+
+    <div class="stack-builder mx-auto max-w-[760px]" data-stack>
+      {layers.map((l, i) => (
+        <div
+          class="stack-row group"
+          data-stack-row
+          style={`--delay: ${i * 90}ms;`}
+        >
+          <div class="stack-card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <p class="font-semibold text-[1.0625rem] leading-tight tracking-[-0.005em] text-[var(--fg)]">
+                  {l.label}
+                </p>
+                <p class="mt-1.5 text-[0.875rem] leading-[1.5] text-[var(--fg-muted)]">
+                  {l.sub}
+                </p>
+              </div>
+              <span class="font-mono text-[0.6875rem] tracking-[0.18em] text-[var(--fg-muted)] uppercase whitespace-nowrap mt-1">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stack-row {
+    opacity: 1;
+    transform: none;
+  }
+
+  .stack-builder:not(.is-ready) .stack-row {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  .stack-builder.is-ready .stack-row {
+    transition: opacity 520ms ease, transform 520ms ease;
+    transition-delay: var(--delay, 0ms);
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stack-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 22px;
+    box-shadow: 0 1px 0 rgba(14, 14, 12, 0.02), 0 8px 24px -16px rgba(14, 14, 12, 0.08);
+    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  }
+
+  .stack-row:hover .stack-card {
+    border-color: var(--fg);
+    box-shadow: 0 1px 0 rgba(14, 14, 12, 0.04), 0 14px 32px -16px rgba(14, 14, 12, 0.18);
+    transform: translateY(-1px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stack-row {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const stacks = document.querySelectorAll<HTMLElement>("[data-stack]");
+  if (stacks.length > 0 && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-ready");
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15 },
+    );
+    stacks.forEach((s) => io.observe(s));
+  } else {
+    stacks.forEach((s) => s.classList.add("is-ready"));
+  }
+</script>
