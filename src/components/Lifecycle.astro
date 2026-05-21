@@ -1,0 +1,282 @@
+---
+type Followup = { title: string; body: string };
+type Stage = {
+  id: string;
+  label: string;
+  title: string;
+  body: string;
+  followups: Followup[];
+};
+
+const stages: Stage[] = [
+  {
+    id: "market-research",
+    label: "Market Research",
+    title: "Turn public filings into structured intelligence in hours.",
+    body: "Pull SERFF filings, public rate manuals, and reference materials into a vault. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
+    followups: [
+      { title: "Summarize the ILF curve", body: "Pull the increased-limit factor table from the filing and produce a concise curve summary." },
+      { title: "Jurisdiction comparison", body: "Compare base rates and territory loadings across the jurisdictions named in the filing." },
+      { title: "Diff vs. prior version", body: "Compute a diff against the prior version of the filing and call out the largest factor changes." },
+      { title: "Extract filing rationale", body: "Lift the actuarial memo prose and key assumptions out of the filing into a readable summary." },
+      { title: "Schedule a re-run on cron", body: "Propose a routine that re-runs this scan when the carrier files an update on SERFF." },
+    ],
+  },
+  {
+    id: "loss-modeling",
+    label: "Loss Modeling",
+    title: "Fit factors against your book without a Python team.",
+    body: "Bring your loss triangles and exposure data into the workbench. Use the assistant to fit GLM/credibility-weighted factors, profile experience by segment, and produce a defensible memo of every assumption.",
+    followups: [
+      { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
+      { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses; show how the fit shifts." },
+      { title: "Add actuarial memo prose", body: "Generate the actuarial-memo prose section that documents the fit selection and assumptions." },
+      { title: "Slice by segment", body: "Slice the fit by the three largest class-code segments and surface differences." },
+      { title: "Show fitted-constant provenance", body: "Annotate every fitted constant with the analysis run, dataset cut, and reviewer that produced it." },
+    ],
+  },
+  {
+    id: "rating-deployment",
+    label: "Rating Deployment",
+    title: "From Excel rater to live API, with a full audit trail.",
+    body: "Shipping a rating model safely takes more work than building one. The Workbench versions every model, gates promotions through dev to test to prod, runs trauma studies before deploys, and keeps every historical version live for on-leveling.",
+    followups: [
+      { title: "Add experience modifier", body: "Add an experience modifier input and a schedule credit/debit input, with the matching premium adjustment." },
+      { title: "Show territory factor table", body: "Surface the territory factor lookup table that this rater is reading from, in-place." },
+      { title: "Show multiplier breakdown", body: "Add a panel that walks through every multiplier and shows the rolling premium step by step." },
+      { title: "Add audit provenance panel", body: "Show the provenance citations for every constant in this rater (rate manual page, reviewer, hash)." },
+      { title: "Run a trauma study", body: "Re-rate the in-force book at the proposed version and show the distribution of premium changes." },
+    ],
+  },
+  {
+    id: "underwriting",
+    label: "Underwriting",
+    title: "Submissions and portfolio analytics on the same rating engine.",
+    body: "A submissions queue and a real-time portfolio view that share the rating models you already deployed, so a single quote and a portfolio-wide on-leveling use the exact same code path.",
+    followups: [
+      { title: "Add portfolio context", body: "Show how this submission would change concentration across territory and class code." },
+      { title: "List referral reasons", body: "Enumerate the underwriting referral reasons triggered by this submission." },
+      { title: "Show comparable bound policies", body: "Find the closest in-force policies and compare their premium and loss experience." },
+      { title: "Show bind-time governance", body: "Show the rating-engine guardrails that fire at bind time so an underwriter cannot use a retired version." },
+      { title: "Show integration touchpoints", body: "List the policy administration and underwriting platforms this rating engine is wired into." },
+    ],
+  },
+  {
+    id: "reserving",
+    label: "Reserving",
+    title: "Close the loop. Reserves and BI on the same data spine.",
+    body: "Once policies, claims, and exposures live in one place, reserving and BI become a thin presentation layer. Start with chain-ladder and Bornhuetter-Ferguson dashboards driven by the same canonical data the rater uses.",
+    followups: [
+      { title: "Switch to Bornhuetter-Ferguson", body: "Re-run reserves under Bornhuetter-Ferguson with an a-priori loss ratio." },
+      { title: "Add tail factor analysis", body: "Fit a tail factor beyond the latest observed development period." },
+      { title: "Slice by segment", body: "Slice reserves by hazard group and surface differences." },
+      { title: "Add BI dashboards", body: "Add the standard BI roll-ups (loss ratio by segment, retention, growth) on the same data spine." },
+    ],
+  },
+  {
+    id: "misc",
+    label: "Capital + Re + Captives",
+    title: "Capital modeling, reinsurance program design, and captive analytics on the same spine.",
+    body: "The same exposures and loss data that drive pricing and reserving also drive capital, reinsurance program design, and captive structuring. Run portfolio-level analytics without a separate data pipeline.",
+    followups: [
+      { title: "Run a 1-in-200 cat stress", body: "Apply the catastrophe stress scenario from the scenario library and re-score capital and reinsurance." },
+      { title: "Compare an alternative structure", body: "Score an alternative reinsurance structure side-by-side against the current program." },
+      { title: "Captive funding study", body: "Produce a funding study for the GL captive cell at three confidence levels." },
+    ],
+  },
+];
+---
+
+<section id="lifecycle" class="border-y border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
+    <div class="grid md:grid-cols-12 gap-8 mb-10">
+      <div class="md:col-span-5 reveal">
+        <p class="eyebrow mb-3">The lifecycle</p>
+        <h2 class="font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">
+          The carrier product lifecycle, on one workbench.
+        </h2>
+      </div>
+      <p class="md:col-span-7 reveal text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2" data-reveal-delay="120">
+        From filings intake to bound policy to reserved triangle, the work shares one data spine and one audit trail. The handoffs between actuarial, pricing, and underwriting stay lossless.
+      </p>
+    </div>
+
+    {/* Tab strip */}
+    <div class="lifecycle-tabs reveal" role="tablist" aria-label="Carrier product lifecycle">
+      {stages.map((s, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`lc-tab-${s.id}`}
+          aria-controls={`lc-panel-${s.id}`}
+          aria-selected={i === 0 ? "true" : "false"}
+          data-stage={s.id}
+          class:list={["lifecycle-tab", i === 0 && "is-active"]}
+        >
+          <span class="lifecycle-tab__num">{String(i + 1).padStart(2, "0")}</span>
+          <span class="lifecycle-tab__label">{s.label}</span>
+        </button>
+      ))}
+    </div>
+
+    {/* Panels */}
+    <div class="mt-8 reveal" data-reveal-delay="120">
+      {stages.map((s, i) => (
+        <div
+          role="tabpanel"
+          id={`lc-panel-${s.id}`}
+          aria-labelledby={`lc-tab-${s.id}`}
+          data-stage-panel={s.id}
+          class:list={["lifecycle-panel", i !== 0 && "is-hidden"]}
+        >
+          <div class="grid md:grid-cols-12 gap-8 md:gap-10">
+            <div class="md:col-span-5">
+              <h3 class="font-semibold text-[1.5rem] md:text-[1.625rem] leading-[1.2] tracking-[-0.008em]">
+                {s.title}
+              </h3>
+              <p class="mt-4 text-[1rem] leading-[1.6] text-[var(--fg-muted)]">
+                {s.body}
+              </p>
+            </div>
+            <div class="md:col-span-7">
+              <p class="lifecycle-followup__eyebrow">Ask a follow-up</p>
+              <ul class="lifecycle-followup__list">
+                {s.followups.map((f) => (
+                  <li class="lifecycle-followup">
+                    <p class="lifecycle-followup__title">{f.title}</p>
+                    <p class="lifecycle-followup__body">{f.body}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .lifecycle-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 12px;
+  }
+  .lifecycle-tab {
+    --lc-accent: #4338CA;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--fg);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+  .lifecycle-tab:hover {
+    border-color: color-mix(in oklab, var(--lc-accent) 50%, transparent);
+    color: var(--lc-accent);
+  }
+  .lifecycle-tab.is-active {
+    background: color-mix(in oklab, var(--lc-accent) 8%, transparent);
+    border-color: color-mix(in oklab, var(--lc-accent) 55%, transparent);
+    color: var(--lc-accent);
+  }
+  .lifecycle-tab__num {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: color-mix(in oklab, var(--lc-accent) 80%, var(--fg-muted));
+    font-weight: 600;
+  }
+  .lifecycle-tab.is-active .lifecycle-tab__num {
+    color: var(--lc-accent);
+  }
+
+  .lifecycle-panel.is-hidden {
+    display: none;
+  }
+
+  .lifecycle-followup__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, #4338CA 70%, var(--fg-muted));
+    margin-bottom: 12px;
+  }
+  .lifecycle-followup__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 768px) {
+    .lifecycle-followup__list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .lifecycle-followup {
+    --lc-accent: #4338CA;
+    border: 1px solid color-mix(in oklab, var(--lc-accent) 14%, rgba(14, 14, 12, 0.08));
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--color-ink, #0e0e0c);
+    box-shadow:
+      0 1px 0 rgba(14, 14, 12, 0.02),
+      0 10px 28px -24px color-mix(in oklab, var(--lc-accent) 36%, rgba(14, 14, 12, 0.18));
+  }
+  [data-theme="dark"] .lifecycle-followup {
+    background: rgba(250, 247, 240, 0.03);
+    border-color: color-mix(in oklab, var(--lc-accent) 24%, rgba(250, 247, 240, 0.12));
+    color: var(--color-bone);
+  }
+  .lifecycle-followup__title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--color-ink, #0e0e0c);
+  }
+  [data-theme="dark"] .lifecycle-followup__title {
+    color: var(--color-bone);
+  }
+  .lifecycle-followup__body {
+    margin-top: 4px;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-smoke, #6b6760);
+  }
+  [data-theme="dark"] .lifecycle-followup__body {
+    color: rgba(250, 247, 240, 0.72);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const tabs = document.querySelectorAll(".lifecycle-tab");
+    const panels = document.querySelectorAll("[data-stage-panel]");
+    if (!tabs.length) return;
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        const stage = t.getAttribute("data-stage");
+        tabs.forEach(function (x) {
+          const active = x.getAttribute("data-stage") === stage;
+          x.classList.toggle("is-active", active);
+          x.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        panels.forEach(function (p) {
+          p.classList.toggle("is-hidden", p.getAttribute("data-stage-panel") !== stage);
+        });
+      });
+    });
+  })();
+</script>

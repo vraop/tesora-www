@@ -4,7 +4,36 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
 import VideoBand from "../components/VideoBand.astro";
+import Lifecycle from "../components/Lifecycle.astro";
 import { u } from "../lib/url";
+
+type Faq = { q: string; a: string };
+const faqs: Faq[] = [
+  {
+    q: "Why organize the product around the carrier lifecycle instead of by feature?",
+    a: "It mirrors how the work flows. Market research feeds loss modeling, which feeds the rater, which feeds underwriting, which feeds reserving. When the stages share one workbench and one data spine, the handoffs stay lossless and the audit trail stays intact end-to-end.",
+  },
+  {
+    q: "Can we import our existing rating models?",
+    a: "Yes. Upload your Excel raters directly. The system parses formulas, identifies factor tables, and creates a versioned model. Existing logic is preserved exactly.",
+  },
+  {
+    q: "What integrations do you support?",
+    a: "REST API for any system. Connectors for common policy administration and underwriting platforms. Microsoft 365 (SharePoint and Teams) for document ingestion and notifications.",
+  },
+  {
+    q: "How does role separation work for SOX?",
+    a: "Three environments: dev (actuaries build), test (QA validates), prod (underwriters use). Different roles have different access. Actuaries cannot push directly to prod. Full audit trail of who promoted what and when.",
+  },
+  {
+    q: "Do you train on our data?",
+    a: "No. Zero data retention policies are in place with our model providers. Your data is not used for model training, ours or anyone else's.",
+  },
+  {
+    q: "Is confidential data protected?",
+    a: "Yes. Each customer is deployed as a single-tenant, bespoke environment your IT team controls. Your data does not share infrastructure with any other customer.",
+  },
+];
 
 type Workflow = { num: string; title: string; body: string; outcomes: string[] };
 
@@ -251,6 +280,8 @@ const workbenchPatterns = [
     align="center"
   />
 
+  <Lifecycle />
+
   {/* How to work with the Workbench */}
   <section id="workbench" class="bg-[var(--bg-panel)] border-y border-[var(--rule)] scroll-mt-24">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-14">
@@ -267,6 +298,46 @@ const workbenchPatterns = [
               "{p.example}"
             </p>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Frequently asked questions */}
+  <section id="faq" class="border-t border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10 mb-8">
+        <div class="md:col-span-5 reveal">
+          <p class="eyebrow mb-3">FAQ</p>
+          <h2 class="font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">
+            Frequently asked questions.
+          </h2>
+        </div>
+        <p class="md:col-span-7 reveal text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2" data-reveal-delay="120">
+          Common questions from chief actuaries, pricing teams, and the IT and risk officers who review us alongside them.
+        </p>
+      </div>
+
+      <div class="border-t border-[var(--rule)]">
+        {faqs.map((f, i) => (
+          <details class="group border-b border-[var(--rule)] reveal" data-reveal-delay={String(i * 80)}>
+            <summary class="flex items-start gap-4 py-5 cursor-pointer list-none">
+              <span class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase mt-1 w-8 flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+              <span class="flex-1 font-semibold text-[1.0625rem] leading-[1.4] tracking-[-0.005em] text-[var(--fg)]">{f.q}</span>
+              <span
+                aria-hidden="true"
+                class="ml-3 mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[var(--rule)] text-[var(--fg-muted)] transition-transform group-open:rotate-45 flex-shrink-0"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3">
+                  <path d="M12 5v14" />
+                  <path d="M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <p class="pl-12 pr-10 pb-6 text-[0.9375rem] leading-[1.65] text-[var(--fg-muted)]">
+              {f.a}
+            </p>
+          </details>
         ))}
       </div>
     </div>
