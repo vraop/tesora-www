@@ -1,23 +1,36 @@
 ---
+export interface ChartBlock {
+  kind: "chart";
+  title: string;
+  caption?: string;
+  bars: { label: string; value: number; display?: string }[];
+}
+export interface TableBlock {
+  kind: "table";
+  title?: string;
+  columns: string[];
+  rows: string[][];
+}
+export interface CalloutBlock {
+  kind: "callout";
+  tone?: "info" | "finding" | "warn";
+  title: string;
+  body: string;
+}
+export interface ProseBlock {
+  kind: "prose";
+  title?: string;
+  body: string;
+}
+export type ReportBlock = ChartBlock | TableBlock | CalloutBlock | ProseBlock;
+
 export interface ReportData {
   heading: string;
   intro: string;
   metrics: { label: string; value: string }[];
-  proseTitle?: string;
-  prose?: string;
-  chart: {
-    title: string;
-    caption: string;
-    bars: { label: string; value: number; display?: string }[];
-  };
-  table?: {
-    title: string;
-    columns: string[];
-    rows: string[][];
-  };
+  blocks: ReportBlock[];
 }
 const { report } = Astro.props as { report: ReportData };
-const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
 ---
 
 <article class="lc-report">
@@ -35,47 +48,68 @@ const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
     ))}
   </div>
 
-  {report.proseTitle && (
-    <section class="lc-report__section">
-      <h5 class="lc-report__sub">{report.proseTitle}</h5>
-      <p class="lc-report__prose">{report.prose}</p>
-    </section>
-  )}
-
-  <figure class="lc-chart">
-    <figcaption class="lc-chart__title">{report.chart.title}</figcaption>
-    <div class="lc-chart__bars" role="img" aria-label={report.chart.title}>
-      {report.chart.bars.map((b) => {
-        const w = Math.max(2, Math.round((Math.abs(b.value) / maxBar) * 100));
+  <div class="lc-report__body">
+    {report.blocks.map((block) => {
+      if (block.kind === "prose") {
         return (
-          <div class="lc-bar">
-            <span class="lc-bar__label">{b.label}</span>
-            <div class="lc-bar__track">
-              <div class="lc-bar__fill" style={`width: ${w}%`}></div>
+          <section class="lc-report__section">
+            {block.title && <h5 class="lc-report__sub">{block.title}</h5>}
+            <p class="lc-report__prose">{block.body}</p>
+          </section>
+        );
+      }
+      if (block.kind === "chart") {
+        const maxBar = Math.max(...block.bars.map((b) => Math.abs(b.value)), 1);
+        return (
+          <figure class="lc-chart">
+            <figcaption class="lc-chart__title">{block.title}</figcaption>
+            <div class="lc-chart__bars" role="img" aria-label={block.title}>
+              {block.bars.map((b) => {
+                const w = Math.max(2, Math.round((Math.abs(b.value) / maxBar) * 100));
+                return (
+                  <div class="lc-bar">
+                    <span class="lc-bar__label">{b.label}</span>
+                    <div class="lc-bar__track">
+                      <div class="lc-bar__fill" style={`width: ${w}%`}></div>
+                    </div>
+                    <span class="lc-bar__value">{b.display ?? b.value}</span>
+                  </div>
+                );
+              })}
             </div>
-            <span class="lc-bar__value">{b.display ?? b.value}</span>
+            {block.caption && <p class="lc-chart__caption">{block.caption}</p>}
+          </figure>
+        );
+      }
+      if (block.kind === "callout") {
+        const tone = block.tone ?? "info";
+        return (
+          <aside class={`lc-callout lc-callout--${tone}`}>
+            <p class="lc-callout__title">{block.title}</p>
+            <p class="lc-callout__body">{block.body}</p>
+          </aside>
+        );
+      }
+      if (block.kind === "table") {
+        return (
+          <div class="lc-table-wrap">
+            {block.title && <p class="lc-table__caption">{block.title}</p>}
+            <table class="lc-table">
+              <thead>
+                <tr>{block.columns.map((c) => <th>{c}</th>)}</tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row) => (
+                  <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         );
-      })}
-    </div>
-    <p class="lc-chart__caption">{report.chart.caption}</p>
-  </figure>
-
-  {report.table && (
-    <div class="lc-table-wrap">
-      <p class="lc-table__caption">{report.table.title}</p>
-      <table class="lc-table">
-        <thead>
-          <tr>{report.table.columns.map((c) => <th>{c}</th>)}</tr>
-        </thead>
-        <tbody>
-          {report.table.rows.map((row) => (
-            <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )}
+      }
+      return null;
+    })}
+  </div>
 </article>
 
 <style>
@@ -85,6 +119,8 @@ const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
     background: #ffffff;
     max-height: 640px;
     overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
   }
   .lc-report__head {
     padding: 22px 24px 16px;
@@ -97,6 +133,7 @@ const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
     margin: 0;
     color: #0e0e0c;
     letter-spacing: -0.01em;
+    overflow-wrap: anywhere;
   }
   .lc-report__intro {
     margin: 6px 0 0;
@@ -167,13 +204,15 @@ const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
   }
   .lc-bar {
     display: grid;
-    grid-template-columns: 130px 1fr 70px;
+    grid-template-columns: minmax(0, 110px) minmax(0, 1fr) minmax(0, 64px);
     gap: 12px;
     align-items: center;
   }
   .lc-bar__label {
     font-size: 12px;
     color: #4b5563;
+    overflow-wrap: anywhere;
+    line-height: 1.3;
   }
   .lc-bar__track {
     height: 11px;
@@ -216,6 +255,7 @@ const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
     width: 100%;
     border-collapse: collapse;
     font-size: 12.5px;
+    table-layout: fixed;
   }
   .lc-table th {
     text-align: left;
@@ -224,13 +264,49 @@ const maxBar = Math.max(...report.chart.bars.map((b) => Math.abs(b.value)), 1);
     color: #0e0e0c;
     font-weight: 600;
     border-bottom: 1px solid color-mix(in oklab, #4338CA 10%, rgba(17, 24, 39, 0.08));
+    overflow-wrap: anywhere;
   }
   .lc-table td {
     padding: 8px 10px;
     border-bottom: 1px solid rgba(17, 24, 39, 0.06);
     color: #1f2937;
+    overflow-wrap: anywhere;
   }
   .lc-table tr:last-child td {
     border-bottom: none;
+  }
+
+  .lc-callout {
+    margin: 8px 24px 14px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    border-left: 3px solid #4338CA;
+    background: color-mix(in oklab, #4338CA 6%, #ffffff);
+  }
+  .lc-callout--finding {
+    border-left-color: #4338CA;
+    background: color-mix(in oklab, #4338CA 8%, #ffffff);
+  }
+  .lc-callout--warn {
+    border-left-color: #b45309;
+    background: color-mix(in oklab, #b45309 7%, #ffffff);
+  }
+  .lc-callout__title {
+    font-family: var(--font-mono, ui-monospace);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, #4338CA 70%, #6b7280);
+    margin: 0 0 4px;
+    font-weight: 700;
+  }
+  .lc-callout--warn .lc-callout__title {
+    color: color-mix(in oklab, #b45309 70%, #6b7280);
+  }
+  .lc-callout__body {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #1f2937;
+    margin: 0;
   }
 </style>
