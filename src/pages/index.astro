@@ -19,7 +19,7 @@ import { u } from "../lib/url";
     deck="Built for chief actuaries at specialty P&C carriers and MGAs. The Workbench ingests filings, builds raters, runs the standard analyses, and audits the work."
   >
     <div class="agent-pills mt-12 w-full max-w-[920px] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 px-2">
-      <a href={`${u("/customers")}#non-admitted`} class="agent-pill group" aria-label="Non-Admitted agent — E&S motion">
+      <a href={u("/non-admitted")} class="agent-pill group" aria-label="Non-Admitted agent — E&S motion">
         <span class="agent-pill__icon" aria-hidden="true">
           {/* lightning bolt = E&S speed */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
@@ -41,7 +41,7 @@ import { u } from "../lib/url";
         </span>
       </a>
 
-      <a href={`${u("/customers")}#admitted`} class="agent-pill group" aria-label="Admitted agent — filing motion">
+      <a href={u("/admitted")} class="agent-pill group" aria-label="Admitted agent — filing motion">
         <span class="agent-pill__icon" aria-hidden="true">
           {/* columned building = admitted / regulated */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">

@@ -2,114 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Tabs from "../components/Tabs.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import VideoBand from "../components/VideoBand.astro";
-import AgentStack from "../components/AgentStack.astro";
 import { u } from "../lib/url";
-
-const esStack = {
-  eyebrow: "Tesora agent stack",
-  title: "Submission → bind-ready quote",
-  agentChip: "Workbench + Audit",
-  steps: [
-    {
-      num: "01",
-      title: "Ingest",
-      body: "Loss runs, SOVs, broker decks, schedules. Any format. Normalized and source-cited before the actuary sees the file.",
-    },
-    {
-      num: "02",
-      title: "Price",
-      body: "Class factors, exposure base, schedule mods, ILFs. The Workbench walks the build-up; the actuary controls the calls.",
-    },
-    {
-      num: "03",
-      title: "Defend",
-      body: "Every credit traces back to the carrier's own loss data and the originating filing artifact. Reviewer-ready by default.",
-    },
-    {
-      num: "04",
-      title: "Audit",
-      body: "Specialist agent regrades the file against actuarial best practice before it hits the rate committee or the regulator.",
-    },
-  ],
-  outputs: [
-    { label: "Bound quote" },
-    { label: "Schedule-rating brief" },
-    { label: "Audit trail" },
-  ],
-};
-
-const esTags = ["Schedule rating", "Exposure base", "Class factors", "Audit lineage", "SOX trail"];
-
-const admittedStack = {
-  eyebrow: "Tesora agent stack",
-  title: "Filing → rate-committee brief",
-  agentChip: "Workbench + Audit",
-  steps: [
-    {
-      num: "01",
-      title: "Watch",
-      body: "Every competitor SERFF filing parsed, classified, and diffed against the prior version. No more manual triage.",
-    },
-    {
-      num: "02",
-      title: "Diff",
-      body: "Factor moves, schedule rating bands, base rates, surcharges. Surfaced against your in-force book in one view.",
-    },
-    {
-      num: "03",
-      title: "Brief",
-      body: "Class-level trend signals rolled up into a defensible narrative for rate committee or DOI prep.",
-    },
-    {
-      num: "04",
-      title: "Audit",
-      body: "Specialist agent verifies methodology and source citations before the rate committee sees the deck.",
-    },
-  ],
-  outputs: [
-    { label: "Filing diff" },
-    { label: "Rate-committee brief" },
-    { label: "DOI prep packet" },
-  ],
-};
-
-const admittedTags = ["Filing diff", "Class trends", "Loss-cost bench", "Committee prep", "DOI defense"];
-
-const tabs = [
-  { id: "non-admitted", label: "Non-admitted (E&S)" },
-  { id: "admitted", label: "Admitted carriers" },
-];
-
-const specialtyLines = [
-  { name: "Contractor's general liability", note: "Schedule rating without the vibes. Audit-true payroll exposure across the book." },
-  { name: "Excess casualty", note: "Layered tower pricing with cedant-specific loss data, not industry averages." },
-  { name: "Professional lines (E&O / D&O)", note: "Class-by-class severity curves, judicial-jurisdiction-aware, regulator-defensible coefficients." },
-  { name: "Medical professional liability", note: "Specialty mix and venue effects modeled on the carrier's own closed-claim file." },
-  { name: "Cyber", note: "Risk classification informed by the insured's actual security posture, not a self-reported questionnaire." },
-  { name: "Transactional E&S (program business)", note: "Multi-class program raters reconstructed from filings and stood up in days, not quarters." },
-  { name: "Inland marine and specialty property", note: "Construction-class accumulation, exposure-base reconciliation, valuation discipline." },
-];
-
-const specialtyCapabilities = [
-  { label: "Loss-cost and pricing", body: "Trending, on-leveling, credibility weighting, expense build-up. Plain-English asks. Citations to the underlying loss run cells." },
-  { label: "Distribution fitting", body: "Lognormal, Pareto, Poisson, Weibull, Negative Binomial. AIC-driven selection. Charts and parameter tables in the report." },
-  { label: "Risk metrics", body: "VaR, TVaR, aggregate loss simulation, large-loss frequency, return-period curves." },
-  { label: "Reinsurance structuring", body: "XOL layers, aggregate stop-loss, attachment sensitivity, cession analysis." },
-  { label: "Reserving (in development)", body: "Loss triangles, age-to-age factors, chain-ladder, Bornhuetter-Ferguson, IBNR. Frequency-severity for low-credibility lines." },
-  { label: "Audit agent", body: "Specialist agent re-runs every analysis against actuarial best practice and flags critical issues before hand-off." },
-];
-
-const admittedCapabilities = [
-  { label: "Filing diff", body: "Every competitor filing diffed against the prior version. Factor moves, schedule rating bands, base rates, surcharges. One view." },
-  { label: "Class trends", body: "Roll up filing moves to class-level trend signals. Contractor classes, telematics credits, replacement cost, ordinance and law." },
-  { label: "Loss-cost benchmarks", body: "Tesora ingests public bureau loss costs and competitor filings; you compare against your own book in plain English." },
-  { label: "Defensible briefs", body: "Briefings for rate committee and state DOI prep, with each claim cited back to the originating filing artifact." },
-  { label: "Rater reconstruction", body: "Stand up a working rater from a competitor's manual or your own legacy plan. Quote test risks side by side." },
-  { label: "Audit agent", body: "Specialist agent verifies methodology and surfaces issues before the rate committee sees the deck." },
-];
 ---
 
 <Layout
@@ -123,228 +17,34 @@ const admittedCapabilities = [
   <CinematicHero
     videoSrc={u("/video/customers-loop.mp4")}
     headline="Built for chief actuaries."
-    deck="Specialty and excess carriers price the lines where every risk is bespoke. Admitted carriers watch what their competitors actually file. Tesora is one substrate, two motions, one Workbench."
+    deck="One substrate, two motions. Pick the one that fits."
     primaryCta={{ label: "Talk to Tesora", href: "mailto:founders@tesora.ai" }}
     secondaryCta={{ label: "For actuarial students →", href: u("/students") }}
   />
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pt-20 pb-12">
-    <p class="eyebrow mb-3">Two buyers</p>
-    <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[720px]">
-      Use the tabs to figure out which one fits.
-    </h2>
-    <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] max-w-[680px]">
-      The agents and the workflows are the same. The center of gravity changes. Specialty carriers lead with loss-cost and structuring. Admitted carriers lead with filing intelligence and rate-committee defense.
-    </p>
-  </section>
-
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24">
-    <Tabs tabs={tabs} initial="non-admitted">
-      {/* Non-admitted */}
-      <div class="tesora-tab-panel" data-tab="non-admitted">
-
-        {/* Vulcan-style full-bleed dark band + overlaid agent-stack panel */}
-        <section class="vulcan-band mb-16">
-          <video
-            class="absolute inset-0 h-full w-full object-cover"
-            src={u("/video/customers-loop.mp4")}
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            aria-hidden="true"
-          ></video>
-          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/88 via-[var(--color-ink,#0e0e0c)]/74 to-[var(--color-ink,#0e0e0c)]/62"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_color-mix(in_oklab,_var(--color-oxblood)_28%,_transparent)_0%,_transparent_58%)]"></div>
-
-          <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-28">
-            <div class="md:col-span-6 self-center text-[var(--color-bone)]">
-              <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-4">Specialty · E&amp;S</p>
-              <h2 class="font-semibold text-[2.5rem] md:text-[3rem] leading-[1.05] tracking-[-0.018em]">
-                Quote at E&amp;S speed.<br/>Hold up under E&amp;S audit.
-              </h2>
-              <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--color-bone)]/80 max-w-[520px]">
-                Specialty and excess and surplus carriers price the lines where every risk is bespoke and the broker is on the phone. Tesora ingests the submission, prices the risk, and leaves an audit trail the chief actuary can sign against.
-              </p>
-              <div class="mt-7 flex flex-wrap gap-2">
-                {esTags.map((t) => (
-                  <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--color-bone)]/20 text-[var(--color-bone)]/85">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div class="md:col-span-6">
-              <AgentStack
-                eyebrow={esStack.eyebrow}
-                title={esStack.title}
-                agentChip={esStack.agentChip}
-                steps={esStack.steps}
-                outputs={esStack.outputs}
-              />
-            </div>
-          </div>
-        </section>
-
-        <div class="grid md:grid-cols-12 gap-10 mb-14">
-          <div class="md:col-span-5">
-            <p class="eyebrow mb-3">Specialty · E&amp;S</p>
-            <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
-              The lines that don't fit a textbook.
-            </h2>
-            <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-              Specialty and excess and surplus carriers price the lines where every risk is bespoke and ISO loss costs are a starting point, not the answer. Tesora is built for that buyer: hard-to-rate exposures, multi-class programs, and chief actuaries who own the rate plan end to end.
-            </p>
-          </div>
-          <div class="md:col-span-7">
-            {specialtyLines.map((line) => (
-              <div class="border-t border-[var(--rule)] first:border-t-0 py-5">
-                <p class="font-semibold text-[1.0625rem]">{line.name}</p>
-                <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{line.note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div class="border-t border-[var(--rule)] pt-10">
-          <p class="eyebrow mb-3">What the chief actuary uses</p>
-          <h3 class="font-semibold text-[1.5rem] leading-[1.15] tracking-[-0.008em] max-w-[640px]">
-            Capabilities a specialty actuary leans on daily.
-          </h3>
-          <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-6">
-            {specialtyCapabilities.map((c) => (
-              <div class="flex gap-3 py-2">
-                <span class="mt-2 inline-block h-1.5 w-1.5 rounded-full flex-shrink-0 bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
-                <div>
-                  <p class="font-semibold text-[1rem]">{c.label}</p>
-                  <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{c.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Admitted */}
-      <div class="tesora-tab-panel" data-tab="admitted" hidden>
-
-        {/* Vulcan-style full-bleed dark band + overlaid agent-stack panel */}
-        <section class="vulcan-band mb-16">
-          <video
-            class="absolute inset-0 h-full w-full object-cover"
-            src={u("/video/research-loop.mp4")}
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            aria-hidden="true"
-          ></video>
-          <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/88 via-[var(--color-ink,#0e0e0c)]/74 to-[var(--color-ink,#0e0e0c)]/62"></div>
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_color-mix(in_oklab,_var(--color-oxblood)_28%,_transparent)_0%,_transparent_58%)]"></div>
-
-          <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-28">
-            <div class="md:col-span-6 self-center text-[var(--color-bone)]">
-              <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-4">Admitted · Market intelligence</p>
-              <h2 class="font-semibold text-[2.5rem] md:text-[3rem] leading-[1.05] tracking-[-0.018em]">
-                Watch every filing.<br/>Defend every move.
-              </h2>
-              <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--color-bone)]/80 max-w-[520px]">
-                Admitted carriers in Commercial Auto, BOP, and Homeowners use Tesora to monitor what competitors actually file. Every change parsed, diffed against your in-force book, and tied back to the originating SERFF artifact.
-              </p>
-              <div class="mt-7 flex flex-wrap gap-2">
-                {admittedTags.map((t) => (
-                  <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--color-bone)]/20 text-[var(--color-bone)]/85">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div class="md:col-span-6">
-              <AgentStack
-                eyebrow={admittedStack.eyebrow}
-                title={admittedStack.title}
-                agentChip={admittedStack.agentChip}
-                steps={admittedStack.steps}
-                outputs={admittedStack.outputs}
-              />
-            </div>
-          </div>
-        </section>
-
-        <div class="grid md:grid-cols-12 gap-10 mb-14">
-          <div class="md:col-span-5">
-            <p class="eyebrow mb-3">Admitted · Market intelligence</p>
-            <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
-              Watch the market without watching every filing.
-            </h2>
-            <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-              Admitted carriers in Commercial Auto, BOP, and Homeowners use Tesora to monitor what competitors actually file. Every change parsed, classified, and surfaced against your in-force book. No more SERFF triage by hand.
-            </p>
-          </div>
-          <div class="md:col-span-7 space-y-6">
-            <div class="border border-[var(--rule)] rounded-md p-6">
-              <p class="font-semibold">Filing diff</p>
-              <p class="mt-2 text-sm text-[var(--fg-muted)]">Every competitor filing diffed against the prior version. Factor moves, schedule rating bands, base rates, surcharges, all surfaced in one view.</p>
-            </div>
-            <div class="border border-[var(--rule)] rounded-md p-6">
-              <p class="font-semibold">Class trends</p>
-              <p class="mt-2 text-sm text-[var(--fg-muted)]">Roll up filing moves to class-level trend signals. Where is the market going on contractor classes, telematics credits, replacement cost, ordinance and law?</p>
-            </div>
-            <div class="border border-[var(--rule)] rounded-md p-6">
-              <p class="font-semibold">Defensible briefs</p>
-              <p class="mt-2 text-sm text-[var(--fg-muted)]">Briefings for rate committee and state DOI prep, with each claim cited back to the originating filing artifact.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-t border-[var(--rule)] pt-10">
-          <p class="eyebrow mb-3">What the rate manager uses</p>
-          <h3 class="font-semibold text-[1.5rem] leading-[1.15] tracking-[-0.008em] max-w-[640px]">
-            Capabilities an admitted-line team leans on weekly.
-          </h3>
-          <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-6">
-            {admittedCapabilities.map((c) => (
-              <div class="flex gap-3 py-2">
-                <span class="mt-2 inline-block h-1.5 w-1.5 rounded-full flex-shrink-0 bg-[var(--color-oxblood,#6b1a1a)]" aria-hidden="true"></span>
-                <div>
-                  <p class="font-semibold text-[1rem]">{c.label}</p>
-                  <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{c.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Tabs>
-  </section>
-
-  <VideoBand
-    videoSrc={u("/video/security-loop.mp4")}
-    eyebrow="One substrate"
-    headline="Filings, raters, loss runs, and the actuary's reasoning. One place, one lineage."
-    body="Every number cites the originating page of the SERFF filing or the cell of the loss run. Reviewers and regulators see the chain."
-  />
-
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24 border-t border-[var(--rule)]">
-    <div class="grid md:grid-cols-12 gap-10">
-      <div class="md:col-span-5">
-        <p class="eyebrow mb-3">Students and researchers</p>
-        <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
-          The next generation of pricing actuaries.
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href={u("/non-admitted")} class="group block border border-[var(--rule)] rounded-sm p-10 hover:border-[var(--fg)]/40 transition-colors">
+        <p class="eyebrow mb-3">Specialty · E&amp;S</p>
+        <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em] group-hover:text-[var(--color-oxblood)] transition-colors">
+          Non-Admitted
         </h2>
-      </div>
-      <div class="md:col-span-7">
-        <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          Tesora opens a research surface for actuarial students working on capstone projects, exam papers, or independent research. Free access to a sandboxed substrate, public SERFF corpora, and a Tesora actuary as an informal advisor.
+        <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">
+          Bind-ready pricing under E&amp;S speed. Submission triage, manuscript flex, deviation accounting. Quote in under 6 weeks, not six months.
         </p>
-        <p class="mt-5">
-          <a href={u("/students")} class="link text-sm">Submit for research access →</a>
+        <p class="mt-6 text-sm font-medium text-[var(--fg)] group-hover:text-[var(--color-oxblood)] transition-colors">See the E&amp;S motion →</p>
+      </a>
+
+      <a href={u("/admitted")} class="group block border border-[var(--rule)] rounded-sm p-10 hover:border-[var(--fg)]/40 transition-colors">
+        <p class="eyebrow mb-3">Admitted · Market intelligence</p>
+        <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em] group-hover:text-[var(--color-oxblood)] transition-colors">
+          Admitted
+        </h2>
+        <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">
+          Filing-driven raters with SOX-grade audit. SERFF ingest, rate-committee briefs, DOI prep packets, regression tests against the filed manual.
         </p>
-      </div>
+        <p class="mt-6 text-sm font-medium text-[var(--fg)] group-hover:text-[var(--color-oxblood)] transition-colors">See the admitted motion →</p>
+      </a>
     </div>
   </section>
 
