@@ -5,77 +5,6 @@ import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
 import { u } from "../lib/url";
 
-// Single blog feed — announcements + posts, newest first.
-const blog = [
-  {
-    date: "2026 · MAY",
-    kind: "post",
-    title: "How AIG is turning one underwriter into five with AI.",
-    authors: "Vivek Rao",
-    body: "A read of AIG's agentic underwriting stack (RAG plus human-in-the-loop, full citation back to source) and what it means for actuarial work next to it. Every extracted value links to its page and cell. That is the bar.",
-    href: "https://everysubmission.com/blog/aig-ai-underwriting",
-  },
-  {
-    date: "2026 · OCT (FORTHCOMING)",
-    kind: "post",
-    title: "The chief actuary's case for AI agents.",
-    authors: "Philo Bishay, Vivek Rao",
-    body: "What changes when a credentialed actuary works alongside a credentialed agent. Working draft for the CAS Annual Meeting panel.",
-  },
-  {
-    date: "2026 · MAY",
-    kind: "news",
-    title: "Philo Bishay joins Tesora as Chief Product Officer.",
-    body: "Philo, a former chief actuary with fifteen years inside the rating function, joins to lead product.",
-  },
-  {
-    date: "2026 · APR",
-    kind: "post",
-    title: "The substrate thesis: why insurance is next.",
-    authors: "Vivek Rao",
-    body: "Software had a substrate. Law is getting one. Insurance is next. The case for a typed, lineage-bearing graph underneath rating, and why context is the thing that compounds.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    date: "2026 · APR",
-    kind: "post",
-    title: "Schedule rating without the vibes.",
-    authors: "Philo Bishay, Vivek Rao",
-    body: "Schedule rating is where pricing discipline goes to die. A transparent credit framework grounded in the carrier's own loss data, with every adjustment auditable.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    date: "2026 · MAR",
-    kind: "post",
-    title: "Exposure-base leakage in contractor's GL.",
-    authors: "Philo Bishay",
-    body: "Three to five points of loss-ratio leakage in contractor's GL isn't social inflation. It's exposure bases captured wrong on day one.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    date: "2026 · MAR",
-    kind: "post",
-    title: "Reconstructing a state filing in ten minutes.",
-    authors: "Vivek Rao",
-    body: "Walkthrough of how the Workbench reads three SERFF filings and yields a working rater with side-by-side regression tests against the original filings.",
-    href: "https://tesoraai.substack.com/",
-  },
-  {
-    date: "2025 · OCT",
-    kind: "news",
-    title: "Top startup award finalist at DPW Amsterdam 2025.",
-    body: "Tesora was a top startup award finalist at DPW Amsterdam 2025.",
-    logo: { slug: "dpw", alt: "DPW Amsterdam" },
-  },
-  {
-    date: "2025 · SEP",
-    kind: "news",
-    title: "Tesora completes Y Combinator S25.",
-    body: "Tesora completed the Y Combinator Summer 2025 cohort focused on AI-native applications for regulated industries.",
-    logo: { slug: "y-combinator", alt: "Y Combinator S25" },
-  },
-];
-
 const priorResearch = [
   {
     title: "Relational deep learning for enterprise data.",
@@ -149,52 +78,6 @@ const priorResearch = [
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  {/* Blog — news + writing in one feed */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-24" id="blog">
-    <div class="grid md:grid-cols-12 gap-10 mb-12">
-      <div class="md:col-span-4">
-        <p class="eyebrow mb-3">Blog</p>
-        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
-          Notes and announcements.
-        </h2>
-      </div>
-      <p class="md:col-span-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-        Short pieces from the people building Tesora, mixed in with company news. Newest first.
-      </p>
-    </div>
-
-    <div>
-      {blog.map((p) => (
-        <article class="grid md:grid-cols-12 gap-6 md:gap-10 py-8 border-t border-[var(--rule)] first:border-t-0">
-          <div class="md:col-span-3">
-            <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{p.date}</p>
-            <p class="mt-2 text-[0.8125rem] text-[var(--fg-muted)]">
-              {p.kind === "news" ? "Tesora" : p.authors}
-            </p>
-            {p.logo && (
-              <img
-                src={u(`/logos/${p.logo.slug}.svg`)}
-                alt={p.logo.alt}
-                class="mt-3 h-4 w-auto opacity-60"
-                style="filter: var(--logo-filter);"
-                loading="lazy"
-              />
-            )}
-          </div>
-          <div class="md:col-span-9">
-            <h3 class="font-semibold text-[1.25rem] leading-[1.25] tracking-[-0.005em]">{p.title}</h3>
-            <p class="mt-2 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{p.body}</p>
-            {p.href && (
-              <p class="mt-3">
-                <a href={p.href} class="link text-sm" target="_blank" rel="noopener">Read on Substack →</a>
-              </p>
-            )}
-          </div>
-        </article>
-      ))}
     </div>
   </section>
 
