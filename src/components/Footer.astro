@@ -2,7 +2,7 @@
 import { u } from "../lib/url";
 
 const investors = [
-  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg"), tag: "Lead investor" },
+  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg"), tag: "" },
   { name: "Y Combinator", logo: u("/logos/y-combinator.svg"), tag: "Batch S25" },
 ];
 
@@ -45,7 +45,7 @@ const footerNav = [
               />
               <div class="flex flex-col leading-tight">
                 <span class="text-sm font-semibold text-[var(--fg)]">{inv.name}</span>
-                <span class="text-xs text-[var(--fg-muted)]">{inv.tag}</span>
+                {inv.tag && <span class="text-xs text-[var(--fg-muted)]">{inv.tag}</span>}
               </div>
             </li>
           ))}
