@@ -49,32 +49,19 @@ const specialtyLines = [
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
   />
 
-  <section class="vulcan-band">
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      src={u("/video/numbers-loop.mp4")}
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      aria-hidden="true"
-    ></video>
-    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/88 via-[var(--color-ink,#0e0e0c)]/74 to-[var(--color-ink,#0e0e0c)]/62"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_color-mix(in_oklab,_var(--color-oxblood)_28%,_transparent)_0%,_transparent_58%)]"></div>
-
-    <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-24">
-      <div class="md:col-span-6 self-center text-[var(--color-bone)]">
-        <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-4">Specialty · E&amp;S</p>
-        <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em]">
+  <section class="bg-[var(--bg)]">
+    <div class="mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-24">
+      <div class="md:col-span-6 self-center">
+        <p class="eyebrow mb-4">Specialty · E&amp;S</p>
+        <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em] text-[var(--fg)]">
           Quote in under 6 weeks,<br/>not six months.
         </h2>
-        <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--color-bone)]/80 max-w-[520px]">
+        <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--fg-muted)] max-w-[520px]">
           Tesora ingests the submission, prices the risk, and leaves an audit trail the chief actuary can sign against. Every credit traces back to your own loss data.
         </p>
         <div class="mt-7 flex flex-wrap gap-2">
           {esTags.map((t) => (
-            <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--color-bone)]/20 text-[var(--color-bone)]/85">
+            <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--rule)] text-[var(--fg-muted)]">
               {t}
             </span>
           ))}
@@ -93,34 +80,22 @@ const specialtyLines = [
     </div>
   </section>
 
-  <section class="vulcan-band">
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      src={u("/video/about-loop.mp4")}
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      aria-hidden="true"
-    ></video>
-    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-ink,#0e0e0c)]/92 via-[var(--color-ink,#0e0e0c)]/82 to-[var(--color-ink,#0e0e0c)]/72"></div>
-
-    <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 px-6 md:px-10 py-24 text-[var(--color-bone)]">
+  <section class="bg-[var(--bg-panel)] border-t border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 px-6 md:px-10 py-20 md:py-24">
       <div class="md:col-span-4">
-        <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-3">Lines we serve</p>
+        <p class="eyebrow mb-3">Lines we serve</p>
         <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
           The lines that don't fit a textbook.
         </h2>
-        <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--color-bone)]/75 max-w-[420px]">
+        <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)] max-w-[420px]">
           Hard-to-rate exposures, multi-class programs, and chief actuaries who own the rate plan end to end.
         </p>
       </div>
       <div class="md:col-span-8">
         {specialtyLines.map((line) => (
-          <div class="border-t border-[var(--color-bone)]/12 first:border-t-0 py-5">
-            <p class="font-semibold text-[1.0625rem] text-[var(--color-bone)]">{line.name}</p>
-            <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--color-bone)]/70">{line.note}</p>
+          <div class="border-t border-[var(--rule)] first:border-t-0 py-5">
+            <p class="font-semibold text-[1.0625rem]">{line.name}</p>
+            <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{line.note}</p>
           </div>
         ))}
       </div>

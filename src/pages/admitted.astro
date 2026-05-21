@@ -49,32 +49,19 @@ const admittedCapabilities = [
     secondaryCta={{ label: "Non-admitted (E&S)", href: u("/non-admitted") }}
   />
 
-  <section class="vulcan-band">
-    <video
-      class="absolute inset-0 h-full w-full object-cover"
-      src={u("/video/research-loop.mp4")}
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      aria-hidden="true"
-    ></video>
-    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-ink,#0e0e0c)]/88 via-[var(--color-ink,#0e0e0c)]/74 to-[var(--color-ink,#0e0e0c)]/62"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_color-mix(in_oklab,_var(--color-oxblood)_28%,_transparent)_0%,_transparent_58%)]"></div>
-
-    <div class="relative mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-24">
-      <div class="md:col-span-6 self-center text-[var(--color-bone)]">
-        <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-[var(--color-bone)]/65 mb-4">Admitted · Market intelligence</p>
-        <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em]">
+  <section class="bg-[var(--bg)]">
+    <div class="mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-24">
+      <div class="md:col-span-6 self-center">
+        <p class="eyebrow mb-4">Admitted · Market intelligence</p>
+        <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em] text-[var(--fg)]">
           Filing-driven raters.<br/>SOX-grade audit.
         </h2>
-        <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--color-bone)]/80 max-w-[520px]">
+        <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--fg-muted)] max-w-[520px]">
           Admitted carriers in Commercial Auto, BOP, and Homeowners use Tesora to monitor what competitors actually file. Every change parsed, diffed against your in-force book, and tied back to the originating SERFF artifact.
         </p>
         <div class="mt-7 flex flex-wrap gap-2">
           {admittedTags.map((t) => (
-            <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--color-bone)]/20 text-[var(--color-bone)]/85">
+            <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--rule)] text-[var(--fg-muted)]">
               {t}
             </span>
           ))}
@@ -93,8 +80,8 @@ const admittedCapabilities = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
-    <div class="grid md:grid-cols-12 gap-10">
+  <section class="bg-[var(--bg-panel)] border-t border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10">
       <div class="md:col-span-4">
         <p class="eyebrow mb-3">What the rate manager uses</p>
         <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
