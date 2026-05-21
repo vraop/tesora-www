@@ -88,9 +88,12 @@ const hasVideo = Boolean(videoSrc);
 
     <div class="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-5 px-6">
       <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--color-bone)]/55">Backed by</p>
-      <img src={u("/logos/foundation-capital.svg")} alt="Foundation Capital" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
+      <img src={u("/logos/foundation-capital.svg")} alt="Foundation Capital" class="h-4 w-auto opacity-75" style="filter: brightness(0) invert(1);" />
       <span class="text-[var(--color-bone)]/35 text-xs">·</span>
-      <img src={u("/logos/y-combinator.svg")} alt="Y Combinator S25" class="h-4 w-auto opacity-65" style="filter: brightness(0) invert(1);" />
+      <span class="inline-flex items-center gap-2">
+        <img src={u("/logos/y-combinator.svg")} alt="Y Combinator" class="h-4 w-4" />
+        <span class="text-[11px] tracking-[0.04em] text-[var(--color-bone)]/85 font-medium">Y Combinator <span class="text-[var(--color-bone)]/55">S25</span></span>
+      </span>
     </div>
   </div>
 </section>
