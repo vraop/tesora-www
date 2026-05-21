@@ -11,42 +11,42 @@ type Workflow = { num: string; title: string; body: string; outcomes: string[] }
 const workflows: Workflow[] = [
   {
     num: "01",
-    title: "Ingest the messy stuff.",
-    body: "Load loss runs, SOVs, filings, and rate manuals in any format. Tesora reads them back as data you can analyze.",
+    title: "Ingest the mess.",
+    body: "Loss runs, SOVs, rate manuals, filings. Any format in. Analyzable data out.",
     outcomes: [
       "PDF, Excel, CSV, Word.",
-      "Auto-classified, normalized, anomaly-checked.",
-      "Every value cites the page and cell it came from.",
+      "Auto-classified and anomaly-checked.",
+      "Every value cites its source cell.",
     ],
   },
   {
     num: "02",
-    title: "Build, test, and deploy raters.",
-    body: "From a filing or rate manual to a callable pricing API. SOX-grade controls, regression tests, no engineering ticket.",
+    title: "Build raters that ship.",
+    body: "Filing or rate manual to callable pricing API. SOX-grade controls. No engineering ticket.",
     outcomes: [
-      "Base rates, territory and class factors, ILFs, schedule mods.",
-      "Author / reviewer / approver separation. Immutable history.",
-      "Side-by-side quotes against current plan or a competitor's.",
+      "Base rates, factors, ILFs, schedule mods.",
+      "Author, reviewer, approver as separate identities.",
+      "Side-by-side quotes against any plan or competitor.",
     ],
   },
   {
     num: "03",
-    title: "Run the standard analyses.",
-    body: "Ask in plain English. Get a report with charts, methodology, and citations.",
+    title: "Run the analyses.",
+    body: "Ask in plain English. Get charts, methodology, and citations.",
     outcomes: [
-      "Loss trend, on-leveling, distribution fitting, VaR / TVaR.",
-      "XOL structuring, aggregate stop-loss, cession analysis.",
-      "Reserving — chain-ladder, BF, IBNR. In development.",
+      "Trend, on-leveling, distribution fitting, VaR/TVaR.",
+      "XOL structuring, aggregate stop-loss, cession.",
+      "Reserving (chain-ladder, BF, IBNR). In development.",
     ],
   },
   {
     num: "04",
-    title: "Compare, audit, and share.",
-    body: "Iterate on the work, not just deliver it. A specialist audit agent catches issues before hand-off.",
+    title: "Audit and ship.",
+    body: "A specialist audit agent grades the work. Every artifact survives the rate committee.",
     outcomes: [
-      "Reports extend — new chart, new year, new segmentation.",
-      "Audit agent grades every analysis against actuarial best practice.",
-      "Every workflow lands as a tab a reviewer can open.",
+      "Extend reports — new chart, year, or segment.",
+      "Graded against CAS best practice.",
+      "Every workflow lands as a reviewable tab.",
     ],
   },
 ];
@@ -160,51 +160,51 @@ const workbenchPatterns = [
 
   {/* Time back, per workflow */}
   <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
-      <p class="eyebrow mb-8">Time back, per workflow</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        <div>
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-10">
+      <p class="eyebrow mb-5">Time back, per workflow</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6">
+        <div class="reveal">
           <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
             3 weeks <span class="text-[var(--color-oxblood)]">→</span> 10 min
           </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Rater from a competitor's filing.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Tesora reads the SERFF filing, reconstructs the rate plan, and stands up a callable quoting API.</p>
+          <p class="mt-3 text-sm font-semibold text-[var(--fg)]">Rater from a competitor's filing.</p>
+          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Read the SERFF filing, reconstruct the rate plan, stand up a callable quoting API.</p>
         </div>
-        <div class="md:border-l md:border-[var(--rule)] md:pl-6">
+        <div class="md:border-l md:border-[var(--rule)] md:pl-6 reveal" data-reveal-delay="120">
           <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
             2 days <span class="text-[var(--color-oxblood)]">→</span> 5 min
           </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Loss-run normalization across carriers.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Five carriers, five formats, one normalized table you can run the standard analyses on.</p>
+          <p class="mt-3 text-sm font-semibold text-[var(--fg)]">Loss-run normalization across carriers.</p>
+          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Five carriers, five formats, one normalized table.</p>
         </div>
-        <div class="md:border-l md:border-[var(--rule)] md:pl-6">
+        <div class="md:border-l md:border-[var(--rule)] md:pl-6 reveal" data-reveal-delay="240">
           <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
             1 week <span class="text-[var(--color-oxblood)]">→</span> 1 hr
           </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Rate-committee brief.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Filing diffs, class-level trends, and a defensible narrative, with every claim cited back to the filing.</p>
+          <p class="mt-3 text-sm font-semibold text-[var(--fg)]">Rate-committee brief.</p>
+          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Filing diffs, class-level trends, every claim cited.</p>
         </div>
       </div>
-      <p class="mt-10 text-xs text-[var(--fg-muted)] leading-relaxed max-w-[860px]">
-        Benchmarks from pilot work with specialty P&amp;C teams. Your own baseline, graded on Day 0, is the only number we promise to beat.
+      <p class="mt-6 text-xs text-[var(--fg-muted)] leading-relaxed max-w-[860px]">
+        Pilot benchmarks from specialty P&amp;C teams. Your Day-0 baseline is the only number we promise to beat.
       </p>
     </div>
   </section>
 
   {/* Workflows 01 + 02 */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32">
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-12">
     {workflows.slice(0, 2).map((w) => (
-      <article class="grid md:grid-cols-12 gap-10 md:gap-16 py-20 border-t border-[var(--rule)] first:border-t-0">
+      <article class="grid md:grid-cols-12 gap-8 md:gap-12 py-10 border-t border-[var(--rule)] first:border-t-0 reveal">
         <div class="md:col-span-5">
           <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
-          <h2 class="mt-3 font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
-          <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
+          <h2 class="mt-2 font-semibold text-[1.625rem] md:text-[1.875rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
+          <p class="mt-3 text-[1rem] leading-[1.55] text-[var(--fg-muted)]">{w.body}</p>
         </div>
-        <ul class="md:col-span-7 flex flex-col gap-5 self-center">
+        <ul class="md:col-span-7 flex flex-col gap-3 self-center">
           {w.outcomes.map((line) => (
-            <li class="flex gap-4 items-start">
-              <span class="mt-[0.65rem] inline-block h-px w-6 bg-[var(--color-oxblood,#6b1a1a)]/70 flex-shrink-0" aria-hidden="true"></span>
-              <p class="text-[1.0625rem] leading-[1.5] text-[var(--fg)]">{line}</p>
+            <li class="flex gap-3 items-start">
+              <span class="mt-[0.6rem] inline-block h-px w-5 bg-[var(--color-oxblood,#4338CA)]/70 flex-shrink-0" aria-hidden="true"></span>
+              <p class="text-[1rem] leading-[1.45] text-[var(--fg)]">{line}</p>
             </li>
           ))}
         </ul>
@@ -217,24 +217,24 @@ const workbenchPatterns = [
     eyebrow="The substrate"
     headline="One typed graph holds the work."
     body="Filings, raters, loss runs, and submissions live in one substrate. The agents reason over it. The actuary signs against it."
-    height="tall"
+    height="short"
     align="center"
   />
 
   {/* Workflows 03 + 04 */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32">
+  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-12">
     {workflows.slice(2, 4).map((w) => (
-      <article class="grid md:grid-cols-12 gap-10 md:gap-16 py-20 border-t border-[var(--rule)] first:border-t-0">
+      <article class="grid md:grid-cols-12 gap-8 md:gap-12 py-10 border-t border-[var(--rule)] first:border-t-0 reveal">
         <div class="md:col-span-5">
           <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
-          <h2 class="mt-3 font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
-          <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
+          <h2 class="mt-2 font-semibold text-[1.625rem] md:text-[1.875rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
+          <p class="mt-3 text-[1rem] leading-[1.55] text-[var(--fg-muted)]">{w.body}</p>
         </div>
-        <ul class="md:col-span-7 flex flex-col gap-5 self-center">
+        <ul class="md:col-span-7 flex flex-col gap-3 self-center">
           {w.outcomes.map((line) => (
-            <li class="flex gap-4 items-start">
-              <span class="mt-[0.65rem] inline-block h-px w-6 bg-[var(--color-oxblood,#6b1a1a)]/70 flex-shrink-0" aria-hidden="true"></span>
-              <p class="text-[1.0625rem] leading-[1.5] text-[var(--fg)]">{line}</p>
+            <li class="flex gap-3 items-start">
+              <span class="mt-[0.6rem] inline-block h-px w-5 bg-[var(--color-oxblood,#4338CA)]/70 flex-shrink-0" aria-hidden="true"></span>
+              <p class="text-[1rem] leading-[1.45] text-[var(--fg)]">{line}</p>
             </li>
           ))}
         </ul>
@@ -247,14 +247,14 @@ const workbenchPatterns = [
     eyebrow="Lineage by default"
     headline="Every value carries its citation."
     body="A factor, a base rate, a credit, a quote. Each one traces back to the page and cell it came from."
-    height="tall"
+    height="short"
     align="center"
   />
 
   {/* How to work with the Workbench */}
   <section id="workbench" class="bg-[var(--bg-panel)] border-y border-[var(--rule)] scroll-mt-24">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-      <div class="flex items-center gap-3 mb-10">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-14">
+      <div class="flex items-center gap-3 mb-6">
         <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#4338CA)]" aria-hidden="true"></span>
         <p class="eyebrow">How to work with the Workbench</p>
       </div>
