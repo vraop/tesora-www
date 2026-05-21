@@ -2,7 +2,7 @@
 import { u } from "../lib/url";
 
 const investors = [
-  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg"), tag: "Seed (2026)" },
+  { name: "Foundation Capital", logo: u("/logos/foundation-capital.svg"), tag: "Lead investor" },
   { name: "Y Combinator", logo: u("/logos/y-combinator.svg"), tag: "Batch S25" },
 ];
 
@@ -67,7 +67,18 @@ const footerNav = [
     </div>
 
     <div class="mt-12 pt-6 border-t border-[var(--rule)] flex flex-col md:flex-row justify-between gap-3 text-xs text-[var(--fg-muted)]">
-      <p>© {new Date().getFullYear()} Tesora AI · Made in USA · HQ: NY &amp; SF · YC Batch S25</p>
+      <p class="inline-flex flex-wrap items-center gap-x-2">
+        <span>© {new Date().getFullYear()} Tesora AI ·</span>
+        <span class="inline-flex items-center gap-1.5">
+          Made in USA
+          <svg viewBox="0 0 7410 3900" xmlns="http://www.w3.org/2000/svg" class="h-[0.85em] w-auto rounded-[1px] shadow-[0_0_0_0.5px_var(--rule)]" aria-hidden="true">
+            <rect width="7410" height="3900" fill="#b22234"/>
+            <path d="M0,450H7410M0,1050H7410M0,1650H7410M0,2250H7410M0,2850H7410M0,3450H7410" stroke="#fff" stroke-width="300"/>
+            <rect width="2964" height="2100" fill="#3c3b6e"/>
+          </svg>
+        </span>
+        <span>· HQ: NY &amp; SF · YC Batch S25</span>
+      </p>
       <p>
         <a href={u("/llms.txt")} class="hover:text-[var(--fg)]">llms.txt</a>
       </p>
