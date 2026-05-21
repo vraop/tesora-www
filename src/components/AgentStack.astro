@@ -59,7 +59,10 @@ const { eyebrow = "Tesora agent stack", title, agentChip, steps, outputs = [] } 
 
 <style>
   .agent-stack {
-    --oxblood: var(--color-oxblood, #6b1a1a);
+    /* Accent tint for the agent panel. Slight purple, distinct from the
+       brand oxblood so the stack reads as the "compute layer". */
+    --accent: #7c6cff;
+    --oxblood: var(--accent);
     --bone: var(--color-bone, #faf7f0);
     --panel-bg: rgba(14, 14, 12, 0.88);
     --panel-border: rgba(250, 247, 240, 0.10);
