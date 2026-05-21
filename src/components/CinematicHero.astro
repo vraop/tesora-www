@@ -6,7 +6,7 @@ export interface Props {
   posterSrc?: string;
   eyebrow?: string;
   headline: string;
-  deck: string;
+  deck?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   fullHeight?: boolean;
@@ -61,9 +61,11 @@ const hasVideo = Boolean(videoSrc);
       {headline}
     </h1>
 
-    <p class="mt-7 text-[1.25rem] leading-[1.45] text-[var(--color-bone)]/85 max-w-[680px]">
-      {deck}
-    </p>
+    {deck && (
+      <p class="mt-7 text-[1.25rem] leading-[1.45] text-[var(--color-bone)]/85 max-w-[680px]">
+        {deck}
+      </p>
+    )}
 
     {Astro.slots.has("default") ? (
       <slot />
