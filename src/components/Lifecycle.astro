@@ -1,5 +1,5 @@
 ---
-import { u } from "../lib/url";
+import LifecycleReport, { type ReportData } from "./LifecycleReport.astro";
 
 type Followup = { title: string; body: string };
 type Stage = {
@@ -7,7 +7,7 @@ type Stage = {
   label: string;
   title: string;
   body: string;
-  image: string;
+  report: ReportData;
   followups: Followup[];
 };
 
@@ -17,7 +17,40 @@ const stages: Stage[] = [
     label: "Market Research",
     title: "Turn public filings into structured intelligence in hours.",
     body: "Pull SERFF filings, public rate manuals, and reference materials into a vault. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
-    image: "/images/lifecycle/market-research.png",
+    report: {
+      heading: "SERFF Filing Diff — Travelers CGL CA",
+      intro: "Filed change vs the prior version. Indexed against your in-force book.",
+      metrics: [
+        { label: "Factors changed", value: "14" },
+        { label: "Rate level", value: "+3.8%" },
+        { label: "Territory moves", value: "6" },
+        { label: "Filed pages", value: "87" },
+      ],
+      proseTitle: "Material changes",
+      prose: "Base rate +3.8%. Six territory factors widened, with LA Basin up 6.2 points. A construction class adjustment (CCM 1.10 for ≥3-story Class B) was added.",
+      chart: {
+        title: "Territory factor moves (Δ vs prior version)",
+        caption: "Data source: SERFF filing TRVA-26-0411",
+        bars: [
+          { label: "LA Basin", value: 6.2, display: "+6.2%" },
+          { label: "Bay Area", value: 4.1, display: "+4.1%" },
+          { label: "Inland Empire", value: 3.8, display: "+3.8%" },
+          { label: "Sacramento", value: 2.1, display: "+2.1%" },
+          { label: "San Diego", value: 1.4, display: "+1.4%" },
+          { label: "Central Valley", value: 0.9, display: "+0.9%" },
+        ],
+      },
+      table: {
+        title: "Top changed factors",
+        columns: ["Factor", "Prior", "Filed", "Δ"],
+        rows: [
+          ["Base rate", "$1,194", "$1,240", "+3.8%"],
+          ["LA Basin territory", "1.31", "1.39", "+6.2%"],
+          ["≥3-story CCM", "—", "1.10", "new"],
+          ["Med pay limit", "$5,000", "$7,500", "+50%"],
+        ],
+      },
+    },
     followups: [
       { title: "Summarize the ILF curve", body: "Pull the increased-limit factor table from the filing and produce a concise curve summary." },
       { title: "Jurisdiction comparison", body: "Compare base rates and territory loadings across the jurisdictions named in the filing." },
@@ -31,7 +64,39 @@ const stages: Stage[] = [
     label: "Loss Modeling",
     title: "Fit factors against your book without a Python team.",
     body: "Bring your loss triangles and exposure data into the workbench. Use the assistant to fit GLM/credibility-weighted factors, profile experience by segment, and produce a defensible memo of every assumption.",
-    image: "/images/lifecycle/loss-modeling.png",
+    report: {
+      heading: "Severity Fit — CGL, AY 2018–2024",
+      intro: "Lognormal severity fit, 12,840 claims, credibility-weighted to ISO industry prior.",
+      metrics: [
+        { label: "Claims used", value: "12,840" },
+        { label: "E[severity]", value: "$48,217" },
+        { label: "CV", value: "2.31" },
+        { label: "Cred. weight", value: "0.62" },
+      ],
+      proseTitle: "Fit quality",
+      prose: "Anderson-Darling p = 0.31, no tail divergence. Trimming the top three losses moves the mean by 4.2%. The ISO prior pulled credibility weight to 0.62 for the smaller class segments.",
+      chart: {
+        title: "Expected severity by class ($K)",
+        caption: "Data source: book_losses.cgl_2018_2024",
+        bars: [
+          { label: "Premises Ops", value: 31, display: "$31K" },
+          { label: "Products", value: 58, display: "$58K" },
+          { label: "Tools/Equip", value: 42, display: "$42K" },
+          { label: "Hired Auto", value: 71, display: "$71K" },
+          { label: "Property Damage", value: 26, display: "$26K" },
+        ],
+      },
+      table: {
+        title: "Segment fit",
+        columns: ["Segment", "N", "E[X]", "99th pct"],
+        rows: [
+          ["Premises Ops", "5,210", "$31,408", "$612K"],
+          ["Products", "2,184", "$58,012", "$1.4M"],
+          ["Tools/Equip", "1,890", "$42,331", "$880K"],
+          ["Hired Auto", "1,672", "$71,229", "$2.1M"],
+        ],
+      },
+    },
     followups: [
       { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
       { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses; show how the fit shifts." },
@@ -45,7 +110,39 @@ const stages: Stage[] = [
     label: "Rating Deployment",
     title: "From Excel rater to live API, with a full audit trail.",
     body: "Shipping a rating model safely takes more work than building one. The Workbench versions every model, gates promotions through dev to test to prod, runs trauma studies before deploys, and keeps every historical version live for on-leveling.",
-    image: "/images/lifecycle/rating-deployment.png",
+    report: {
+      heading: "Rater Promotion — CGL v2.4 → v2.5",
+      intro: "Promoting v2.5 to production. SOX-grade controls. Author, reviewer, approver separated.",
+      metrics: [
+        { label: "Test cases", value: "38/38" },
+        { label: "Avg Δ premium", value: "+2.8%" },
+        { label: "In-force re-rated", value: "14,221" },
+        { label: "Outliers >10%", value: "89" },
+      ],
+      proseTitle: "Trauma study",
+      prose: "Re-rated the in-force book at v2.5. 92% of policies move within ±5%. 89 outliers traced to two new schedule debits. The round-trip test suite passes against the filed rate manual.",
+      chart: {
+        title: "Premium delta distribution (% of book)",
+        caption: "Data source: in_force.policy as of 2026-05-01",
+        bars: [
+          { label: "< -10%", value: 0.6, display: "0.6%" },
+          { label: "-5%", value: 12.4, display: "12.4%" },
+          { label: "0%", value: 51.2, display: "51.2%" },
+          { label: "+5%", value: 28.8, display: "28.8%" },
+          { label: "+10%", value: 6.3, display: "6.3%" },
+          { label: "> +10%", value: 0.7, display: "0.7%" },
+        ],
+      },
+      table: {
+        title: "Promotion record",
+        columns: ["Step", "Identity", "Timestamp"],
+        rows: [
+          ["Author", "P. Yang", "May 16, 09:12"],
+          ["Reviewer", "M. Reyes", "May 17, 14:33"],
+          ["Approver", "F. Marotti", "May 18, 11:07"],
+        ],
+      },
+    },
     followups: [
       { title: "Add experience modifier", body: "Add an experience modifier input and a schedule credit/debit input, with the matching premium adjustment." },
       { title: "Show territory factor table", body: "Surface the territory factor lookup table that this rater is reading from, in-place." },
@@ -59,7 +156,38 @@ const stages: Stage[] = [
     label: "Underwriting",
     title: "Submissions and portfolio analytics on the same rating engine.",
     body: "A submissions queue and a real-time portfolio view that share the rating models you already deployed, so a single quote and a portfolio-wide on-leveling use the exact same code path.",
-    image: "/images/lifecycle/underwriting.png",
+    report: {
+      heading: "Submission #20446 — Bind-Ready",
+      intro: "Roofing contractor, $4.2M payroll, CGL + Commercial Auto. Auto-priced at CGL v2.5.",
+      metrics: [
+        { label: "Gross premium", value: "$48,200" },
+        { label: "Quote time", value: "4 min" },
+        { label: "Referral flags", value: "2" },
+        { label: "Comparables", value: "87" },
+      ],
+      proseTitle: "Referral reasons",
+      prose: "Two flags fired: class 91585 carries a schedule debit greater than 3, requiring an authorized signer; the named insured shares loss history with a prior bound policy.",
+      chart: {
+        title: "Bind ratio — last 30 days, by class (%)",
+        caption: "Data source: submissions.queue rolling 30d",
+        bars: [
+          { label: "Roofing", value: 38, display: "38%" },
+          { label: "Painting", value: 52, display: "52%" },
+          { label: "Carpentry", value: 47, display: "47%" },
+          { label: "HVAC", value: 61, display: "61%" },
+          { label: "Plumbing", value: 44, display: "44%" },
+        ],
+      },
+      table: {
+        title: "Comparable bound policies",
+        columns: ["Insured", "Class", "Premium", "LR"],
+        rows: [
+          ["Acme Roofing", "91585", "$51,200", "0.42"],
+          ["Pinnacle Const.", "91550", "$44,800", "0.61"],
+          ["Summit Coverall", "91585", "$49,950", "0.38"],
+        ],
+      },
+    },
     followups: [
       { title: "Add portfolio context", body: "Show how this submission would change concentration across territory and class code." },
       { title: "List referral reasons", body: "Enumerate the underwriting referral reasons triggered by this submission." },
@@ -73,7 +201,42 @@ const stages: Stage[] = [
     label: "Reserving",
     title: "Close the loop. Reserves and BI on the same data spine.",
     body: "Once policies, claims, and exposures live in one place, reserving and BI become a thin presentation layer. Start with chain-ladder and Bornhuetter-Ferguson dashboards driven by the same canonical data the rater uses.",
-    image: "/images/lifecycle/reserving.png",
+    report: {
+      heading: "Chain-Ladder Triangle — CGL Q3 2026",
+      intro: "Paid loss development, 8 accident years. Bornhuetter-Ferguson cross-check applied at AY7–AY8.",
+      metrics: [
+        { label: "AY booked", value: "8" },
+        { label: "Ult. loss", value: "$128.4M" },
+        { label: "IBNR", value: "$14.7M" },
+        { label: "Tail factor", value: "1.022" },
+      ],
+      proseTitle: "Development pattern",
+      prose: "Selected age-to-age factors stable through AY6. Sherman exponential decay applied for the tail beyond AY8. BF cross-check at AY7–AY8 within ±2.1% of chain-ladder.",
+      chart: {
+        title: "Cumulative paid by AY ($M)",
+        caption: "Data source: claims.paid_cumulative as of 2026-09-30",
+        bars: [
+          { label: "AY 2019", value: 18.2, display: "$18.2M" },
+          { label: "AY 2020", value: 17.5, display: "$17.5M" },
+          { label: "AY 2021", value: 16.8, display: "$16.8M" },
+          { label: "AY 2022", value: 14.9, display: "$14.9M" },
+          { label: "AY 2023", value: 12.1, display: "$12.1M" },
+          { label: "AY 2024", value: 8.4, display: "$8.4M" },
+          { label: "AY 2025", value: 4.7, display: "$4.7M" },
+          { label: "AY 2026", value: 1.2, display: "$1.2M" },
+        ],
+      },
+      table: {
+        title: "Development factors",
+        columns: ["Age (mo)", "ATA", "Selected"],
+        rows: [
+          ["12–24", "1.418", "1.420"],
+          ["24–36", "1.182", "1.180"],
+          ["36–48", "1.091", "1.090"],
+          ["48–60", "1.048", "1.050"],
+        ],
+      },
+    },
     followups: [
       { title: "Switch to Bornhuetter-Ferguson", body: "Re-run reserves under Bornhuetter-Ferguson with an a-priori loss ratio." },
       { title: "Add tail factor analysis", body: "Fit a tail factor beyond the latest observed development period." },
@@ -86,7 +249,37 @@ const stages: Stage[] = [
     label: "Capital + Re + Captives",
     title: "Capital modeling, reinsurance program design, and captive analytics on the same spine.",
     body: "The same exposures and loss data that drive pricing and reserving also drive capital, reinsurance program design, and captive structuring. Run portfolio-level analytics without a separate data pipeline.",
-    image: "/images/lifecycle/misc.png",
+    report: {
+      heading: "1-in-200 Capital Stress — CGL",
+      intro: "Catastrophe scenario applied. Current program: 80% quota share + $5M xs $5M XOL.",
+      metrics: [
+        { label: "Gross loss", value: "$42.1M" },
+        { label: "Net loss", value: "$9.4M" },
+        { label: "Capital used", value: "38%" },
+        { label: "RAROC", value: "11.2%" },
+      ],
+      proseTitle: "Net loss profile",
+      prose: "Gross 1-in-200 loss of $42.1M reduces to $9.4M net of the current program. Reinsurance recoveries $32.7M. RAROC stays above the 10% target.",
+      chart: {
+        title: "Net loss by alternative structure ($M)",
+        caption: "Data source: cap_model.scenarios.cat_200",
+        bars: [
+          { label: "Current", value: 9.4, display: "$9.4M" },
+          { label: "70% QS only", value: 12.6, display: "$12.6M" },
+          { label: "+ $5M xs $10M", value: 7.8, display: "$7.8M" },
+          { label: "Stop-Loss 75%", value: 8.9, display: "$8.9M" },
+        ],
+      },
+      table: {
+        title: "Structure compare",
+        columns: ["Structure", "Net Loss", "RAROC"],
+        rows: [
+          ["Current (80% QS + $5M xs $5M)", "$9.4M", "11.2%"],
+          ["70% QS only", "$12.6M", "9.8%"],
+          ["+ $5M xs $10M layer", "$7.8M", "11.9%"],
+        ],
+      },
+    },
     followups: [
       { title: "Run a 1-in-200 cat stress", body: "Apply the catastrophe stress scenario from the scenario library and re-score capital and reinsurance." },
       { title: "Compare an alternative structure", body: "Score an alternative reinsurance structure side-by-side against the current program." },
@@ -158,7 +351,7 @@ const stages: Stage[] = [
             </div>
             <div class="md:col-span-7">
               <figure class="lifecycle-mockup">
-                <img src={u(s.image)} alt={`${s.label} workbench surface`} loading="lazy" decoding="async" />
+                <LifecycleReport report={s.report} />
               </figure>
             </div>
           </div>
@@ -241,15 +434,6 @@ const stages: Stage[] = [
     box-shadow:
       0 1px 0 rgba(14, 14, 12, 0.04),
       0 24px 60px -34px color-mix(in oklab, var(--lc-accent) 40%, rgba(14, 14, 12, 0.18));
-  }
-  .lifecycle-mockup img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  [data-theme="dark"] .lifecycle-mockup {
-    background: var(--color-bone, #faf7f0);
-    border-color: color-mix(in oklab, var(--lc-accent) 30%, rgba(250, 247, 240, 0.18));
   }
   .lifecycle-followup {
     --lc-accent: #4338CA;
