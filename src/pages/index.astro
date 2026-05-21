@@ -3,41 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import BackgroundsStrip from "../components/BackgroundsStrip.astro";
-import VideoBand from "../components/VideoBand.astro";
-import StackBuilder from "../components/StackBuilder.astro";
 import { u } from "../lib/url";
-
-const workflows = [
-  {
-    num: "01",
-    title: "Ingest the messy stuff.",
-    body: "Loss runs, SOVs, exposure files, rate manuals, filings, objection letters. PDF, Excel, CSV, Word. Auto-classified, normalized, and source-cited back to the original page and cell.",
-  },
-  {
-    num: "02",
-    title: "Build, test, and deploy raters.",
-    body: "Turn a rate manual or filing into a working pricing model. Base rates, territory factors, ILFs, schedule mods. Every rater ships with a callable API, a quoting UI, regression tests, and a SOX-compliant audit trail.",
-  },
-  {
-    num: "03",
-    title: "Run the standard analyses.",
-    body: "Ask in plain English. Loss trend, on-leveling, credibility weighting, distribution fitting, VaR and TVaR, XOL structuring, portfolio cuts. The Workbench writes the report with charts, citations, and commentary.",
-  },
-  {
-    num: "04",
-    title: "Compare, audit, and share.",
-    body: "Reports are living documents — extend a chart, add a year, swap a method, re-segment. A specialist audit agent catches issues before hand-off. Every workflow becomes a tab your reviewer or underwriter can open directly.",
-  },
-];
-
-const workbenchPatterns = [
-  { label: "Be conversational.", body: "Type what you'd say to a junior analyst.", example: "Trend these losses to 2026 at 4%." },
-  { label: "Point at data.", body: "Tell it which vault or file to use.", example: "Use the loss run in the Q1 vault." },
-  { label: "Iterate freely.", body: "Each follow-up extends the existing report.", example: "Add a state-level breakdown. Also fit a Pareto." },
-  { label: "Ask why.", body: "Methodology and source citations are one question away.", example: "Why chain ladder here and not BF?" },
-];
-
 ---
 
 <Layout
@@ -51,180 +17,139 @@ const workbenchPatterns = [
   <CinematicHero
     videoSrc={u("/video/hero-loop.mp4")}
     headline="Frontier AI for Actuaries."
-    deck="Built for chief actuaries at specialty P&C carriers and MGAs. The Workbench ingests filings, builds raters, runs the standard analyses, and audits the work. You stay in the driver's seat."
-    primaryCta={{ label: "Request a walkthrough", href: "mailto:founders@tesora.ai?subject=Workbench%20walkthrough" }}
-    secondaryCta={{ label: "Meet the agents", href: u("/agents") }}
-  />
+    deck="Built for chief actuaries at specialty P&C carriers and MGAs. The Workbench ingests filings, builds raters, runs the standard analyses, and audits the work."
+  >
+    <div class="agent-pills mt-12 w-full max-w-[920px] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 px-2">
+      <a href={`${u("/customers")}#non-admitted`} class="agent-pill group" aria-label="Non-Admitted agent — E&S motion">
+        <span class="agent-pill__icon" aria-hidden="true">
+          {/* lightning bolt = E&S speed */}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+          </svg>
+        </span>
+        <span class="agent-pill__body">
+          <span class="agent-pill__title-row">
+            <span class="agent-pill__title">Non-Admitted</span>
+            <span class="agent-pill__tag">AGENT</span>
+          </span>
+          <span class="agent-pill__sub">Quote in under 6 weeks, not six months.</span>
+        </span>
+        <span class="agent-pill__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </span>
+      </a>
 
-  <BackgroundsStrip />
-
-  {/* Economic shape — sized in actuarial terms */}
-  <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
-      <div class="grid md:grid-cols-12 gap-10 mb-12">
-        <div class="md:col-span-5">
-          <p class="eyebrow mb-3">The economics</p>
-          <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.012em]">
-            Loss-ratio points compound.
-          </h2>
-        </div>
-        <p class="md:col-span-7 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-          Specialty pricing is graded in basis points of loss ratio. The Workbench is sized for the line items where those points come from — and where they leak.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
-        <div>
-          <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            1 pt LR <span class="text-[var(--color-oxblood)]">=</span> $1M / yr
-          </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">On a $100M specialty book.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">The audit agent catches schedule-rating drift, exposure-base errors, and class-code mismatches before they compound over a cycle.</p>
-        </div>
-        <div class="md:border-l md:border-[var(--rule)] md:pl-6">
-          <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            3-5 pts <span class="text-[var(--color-oxblood)]">·</span> contractor's GL
-          </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Exposure-base leakage.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Most of it captured wrong on day one. The substrate normalizes exposure across submissions before they reach the rater.</p>
-        </div>
-        <div class="md:border-l md:border-[var(--rule)] md:pl-6">
-          <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            6 wk <span class="text-[var(--color-oxblood)]">→</span> 1 wk
-          </p>
-          <p class="mt-4 text-sm font-semibold text-[var(--fg)]">Time-to-rate.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">A six-week filing cycle prices six weeks of new business against stale assumptions. Faster cycles tighten the feedback loop.</p>
-        </div>
-      </div>
-
-      <p class="mt-10 text-xs text-[var(--fg-muted)] leading-relaxed max-w-[860px]">
-        Sizing reflects observed specialty P&amp;C dynamics, not a savings promise. Your own baseline, graded on Day 0, is the only number we promise to beat.
-      </p>
-    </div>
-  </section>
-
-  {/* Thesis */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-32 text-center">
-    <p class="eyebrow mb-6">The thesis</p>
-    <h2 class="font-semibold text-[2.5rem] leading-[1.1] tracking-[-0.015em] max-w-[820px] mx-auto">
-      Pricing was a relay race across spreadsheets, vendor models, and one actuary's memory. The Workbench compresses it.
-    </h2>
-    <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-7 max-w-[680px] mx-auto">
-      Loss runs, SOVs, filings, raters, and the actuary's reasoning live in five different places today. The Workbench holds them in one substrate, with lineage from the originating page of the SERFF filing all the way to the quoted premium. Every number has a citation.
-    </p>
-  </section>
-
-  <StackBuilder />
-
-  {/* Workbench preview — four numbered workflows */}
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 pb-24 pt-8">
-    <div class="flex items-end justify-between mb-10">
-      <div>
-        <p class="eyebrow mb-3">The Workbench</p>
-        <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em] max-w-[640px]">
-          Four workflows. One Workbench. Built for chief actuaries at specialty P&C carriers and MGAs.
-        </h2>
-      </div>
-      <a href={u("/agents")} class="link hidden md:inline-block text-sm">Full spec →</a>
+      <a href={`${u("/customers")}#admitted`} class="agent-pill group" aria-label="Admitted agent — filing motion">
+        <span class="agent-pill__icon" aria-hidden="true">
+          {/* columned building = admitted / regulated */}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <path d="M3 21h18" />
+            <path d="M3 10h18" />
+            <path d="m12 3 9 5H3l9-5Z" />
+            <path d="M6 10v8" />
+            <path d="M10 10v8" />
+            <path d="M14 10v8" />
+            <path d="M18 10v8" />
+          </svg>
+        </span>
+        <span class="agent-pill__body">
+          <span class="agent-pill__title-row">
+            <span class="agent-pill__title">Admitted</span>
+            <span class="agent-pill__tag">AGENT</span>
+          </span>
+          <span class="agent-pill__sub">Filing-driven raters with SOX-grade audit.</span>
+        </span>
+        <span class="agent-pill__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </span>
+      </a>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
-      {workflows.map((w) => (
-        <article class="border-t border-[var(--rule)] pt-6">
-          <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
-          <h3 class="mt-2 font-semibold text-[1.25rem] leading-[1.25] tracking-[-0.005em]">{w.title}</h3>
-          <p class="mt-3 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">{w.body}</p>
-        </article>
-      ))}
-    </div>
-
-    <p class="mt-10 md:hidden">
-      <a href={u("/agents")} class="link text-sm">Full spec →</a>
-    </p>
-  </section>
-
-  {/* How to work with the Workbench */}
-  <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-      <div class="flex items-center gap-3 mb-10">
-        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#4338CA)]" aria-hidden="true"></span>
-        <p class="eyebrow">How to work with the Workbench</p>
-      </div>
-      <div class="grid md:grid-cols-4 gap-8">
-        {workbenchPatterns.map((p) => (
-          <div>
-            <p class="font-semibold text-[1rem]">{p.label}</p>
-            <p class="mt-2 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{p.body}</p>
-            <p class="mt-4 text-[0.9375rem] italic leading-[1.5] text-[var(--fg)] border-l-2 border-[var(--color-oxblood,#6b1a1a)] pl-3">
-              "{p.example}"
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <VideoBand
-    videoSrc={u("/video/research-loop.mp4")}
-    eyebrow="The substrate"
-    headline="A typed graph from filing to premium."
-    body="Loss runs, SOVs, filings, raters, and the actuary's reasoning live in one substrate, with lineage from the originating page all the way to the quote. Every number has a citation."
-  />
-
-  {/* Two agents — Non-Admitted and Admitted */}
-  <section class="border-t border-[var(--rule)] bg-[var(--bg)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
-      <div class="grid md:grid-cols-12 gap-10 mb-12">
-        <div class="md:col-span-5">
-          <p class="eyebrow mb-3">Two agents</p>
-          <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
-            One Workbench. Two market shapes.
-          </h2>
-        </div>
-        <p class="md:col-span-7 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-          Specialty pricing splits into non-admitted speed and admitted discipline. Each agent is tuned to the constraints of its market.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <a href={`${u("/customers")}#non-admitted`} class="group block border border-[var(--rule)] rounded-sm p-8 hover:border-[var(--fg)]/40 transition-colors">
-          <img
-            src={u("/logos/non-admitted.svg")}
-            alt="Non-Admitted agent"
-            class="h-9 w-auto"
-            style="filter: var(--logo-filter);"
-            loading="lazy"
-          />
-          <h3 class="mt-6 font-semibold text-[1.5rem] leading-[1.2] tracking-[-0.008em] group-hover:text-[var(--color-oxblood)] transition-colors">
-            Non-Admitted
-          </h3>
-          <p class="mt-1 text-sm text-[var(--fg-muted)]">For E&amp;S carriers and MGAs.</p>
-          <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">
-            Bind-ready pricing under E&amp;S speed. Submission triage, manuscript flex, deviation accounting, win/loss feedback. Quotes that land before the broker calls back.
-          </p>
-          <p class="mt-6 text-sm font-medium text-[var(--fg)] group-hover:text-[var(--color-oxblood)] transition-colors">See the E&amp;S motion →</p>
-        </a>
-
-        <a href={`${u("/customers")}#admitted`} class="group block border border-[var(--rule)] rounded-sm p-8 hover:border-[var(--fg)]/40 transition-colors">
-          <img
-            src={u("/logos/admitted.svg")}
-            alt="Admitted agent"
-            class="h-9 w-auto"
-            style="filter: var(--logo-filter);"
-            loading="lazy"
-          />
-          <h3 class="mt-6 font-semibold text-[1.5rem] leading-[1.2] tracking-[-0.008em] group-hover:text-[var(--color-oxblood)] transition-colors">
-            Admitted
-          </h3>
-          <p class="mt-1 text-sm text-[var(--fg-muted)]">For admitted carriers.</p>
-          <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)]">
-            Filing-driven raters with SOX-grade audit. SERFF ingest, rate-committee briefs, DOI prep packets, regression tests against the filed manual. Defendable every page.
-          </p>
-          <p class="mt-6 text-sm font-medium text-[var(--fg)] group-hover:text-[var(--color-oxblood)] transition-colors">See the admitted motion →</p>
-        </a>
-      </div>
-    </div>
-  </section>
+    <style>
+      .agent-pill {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        border-radius: 999px;
+        background: rgba(20, 20, 22, 0.55);
+        backdrop-filter: blur(14px) saturate(120%);
+        -webkit-backdrop-filter: blur(14px) saturate(120%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--color-bone, #efe9d9);
+        text-align: left;
+        transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+        text-decoration: none;
+      }
+      .agent-pill:hover {
+        background: rgba(30, 30, 34, 0.7);
+        border-color: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+      }
+      .agent-pill__icon {
+        flex: 0 0 auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--color-bone, #efe9d9);
+      }
+      .agent-pill__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .agent-pill__title-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .agent-pill__title {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+        line-height: 1.15;
+      }
+      .agent-pill__tag {
+        font-size: 0.6875rem;
+        letter-spacing: 0.16em;
+        font-weight: 500;
+        color: rgba(239, 233, 217, 0.65);
+      }
+      .agent-pill__sub {
+        margin-top: 2px;
+        font-size: 0.8125rem;
+        color: rgba(239, 233, 217, 0.78);
+        line-height: 1.35;
+      }
+      .agent-pill__arrow {
+        flex: 0 0 auto;
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(239, 233, 217, 0.9);
+        transition: background 200ms ease, transform 200ms ease;
+      }
+      .agent-pill:hover .agent-pill__arrow {
+        background: rgba(255, 255, 255, 0.14);
+        transform: translateX(2px);
+      }
+    </style>
+  </CinematicHero>
 
   <Footer />
 </Layout>

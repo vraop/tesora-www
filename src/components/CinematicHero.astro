@@ -63,22 +63,26 @@ const hasVideo = Boolean(videoSrc);
       {deck}
     </p>
 
-    <div class="mt-10 flex flex-wrap gap-5 justify-center items-center">
-      <a
-        href={primaryCta.href}
-        class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-tight bg-[var(--color-bone)] text-[var(--color-ink)] hover:bg-[var(--color-oxblood)] hover:text-[var(--color-bone)] transition-colors"
-      >
-        {primaryCta.label}
-      </a>
-      {secondaryCta && (
+    {Astro.slots.has("default") ? (
+      <slot />
+    ) : (
+      <div class="mt-10 flex flex-wrap gap-5 justify-center items-center">
         <a
-          href={secondaryCta.href}
-          class="inline-flex items-center text-sm font-medium tracking-tight text-[var(--color-bone)]/90 hover:text-[var(--color-bone)] transition-colors"
+          href={primaryCta.href}
+          class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-tight bg-[var(--color-bone)] text-[var(--color-ink)] hover:bg-[var(--color-oxblood)] hover:text-[var(--color-bone)] transition-colors"
         >
-          {secondaryCta.label} →
+          {primaryCta.label}
         </a>
-      )}
-    </div>
+        {secondaryCta && (
+          <a
+            href={secondaryCta.href}
+            class="inline-flex items-center text-sm font-medium tracking-tight text-[var(--color-bone)]/90 hover:text-[var(--color-bone)] transition-colors"
+          >
+            {secondaryCta.label} →
+          </a>
+        )}
+      </div>
+    )}
 
     <div class="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-5 px-6">
       <p class="text-[11px] uppercase tracking-[0.18em] text-[var(--color-bone)]/55">Backed by</p>
