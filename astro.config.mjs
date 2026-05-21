@@ -26,6 +26,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
+  devToolbar: { enabled: false },
+
   integrations: [
     sitemap({
       // Surface only what we want crawled. Drafts, unfinished pages, and the
