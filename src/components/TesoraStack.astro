@@ -8,6 +8,7 @@ type Layer = {
   title: string;    // "Frontier LLMs"
   body: string;     // single-line description
   chip?: string;    // optional one-word badge on the right
+  children?: Layer[]; // optional: render as a wrapper containing nested layers
 };
 
 export interface Props {
@@ -19,13 +20,20 @@ export interface Props {
 }
 
 const defaultLayers: Layer[] = [
-  { num: "07", title: "Audit & governance",        body: "SOC 2 Type II, ASOP-aware, SOX-ready. Every artifact carries a citation.", chip: "Always-on" },
-  { num: "06", title: "Workbench & interfaces",    body: "Pricing console, submissions queue, portfolio view. One model, every surface." },
-  { num: "05", title: "Pricing & rating engine",   body: "Versioned raters, dev to test to prod. Trauma studies before deploy." },
-  { num: "04", title: "Actuarial substrate",       body: "Typed graph of filings, raters, exposures, claims, quotes. One spine." },
-  { num: "03", title: "Filings & data ingestion",  body: "SERFF, loss runs, broker decks, schedules. Any format, normalized." },
-  { num: "02", title: "Agentic harness",           body: "Workbench agent does the work. Audit agent regrades it.", chip: "Tesora" },
-  { num: "01", title: "Frontier LLMs",             body: "Best-in-class model selection per task. No model lock-in." },
+  {
+    num: "02",
+    title: "Agentic harness",
+    body: "The substrate that holds the agents. Workbench agents do the work; an audit agent regrades it. Every layer above runs inside it.",
+    chip: "Tesora",
+    children: [
+      { num: "07", title: "Audit & governance",        body: "SOC 2 Type II, ASOP-aware, SOX-ready. Every artifact carries a citation.", chip: "Always-on" },
+      { num: "06", title: "Workbench & interfaces",    body: "Pricing console, submissions queue, portfolio view. One model, every surface." },
+      { num: "05", title: "Pricing & rating engine",   body: "Versioned raters, dev to test to prod. Trauma studies before deploy." },
+      { num: "04", title: "Actuarial substrate",       body: "Typed graph of filings, raters, exposures, claims, quotes. One spine." },
+      { num: "03", title: "Filings & data ingestion",  body: "SERFF, loss runs, broker decks, schedules. Any format, normalized." },
+    ],
+  },
+  { num: "01", title: "Frontier LLMs", body: "Best-in-class model selection per task. No model lock-in." },
 ];
 
 const {
@@ -45,13 +53,36 @@ const isHighlighted = (n: string) => highlightNums.includes(n);
       <p class="tesora-stack__eyebrow">{eyebrow}</p>
       <p class="tesora-stack__title">{title}</p>
     </div>
-    <span class="tesora-stack__chip" aria-hidden="true">aOS</span>
+    <span class="tesora-stack__chip" aria-hidden="true">Agentic OS</span>
   </div>
 
   <p class="tesora-stack__caption">{caption}</p>
 
   <ol class="tesora-stack__layers" aria-label="Tesora stack">
-    {layers.map((l) => (
+    {layers.map((l) => l.children && l.children.length > 0 ? (
+      <li class:list={["tesora-stack__wrapper", isHighlighted(l.num) && "is-highlight"]}>
+        <header class="tesora-stack__wrapper-head">
+          <span class="tesora-stack__num tesora-stack__num--wrapper">{l.num}</span>
+          <div class="tesora-stack__body">
+            <p class="tesora-stack__layer-title">{l.title}</p>
+            <p class="tesora-stack__layer-body">{l.body}</p>
+          </div>
+          {l.chip && <span class="tesora-stack__layer-chip">{l.chip}</span>}
+        </header>
+        <ol class="tesora-stack__nested" aria-label={`Layers inside ${l.title}`}>
+          {l.children.map((c) => (
+            <li class:list={["tesora-stack__layer", "is-nested", isHighlighted(c.num) && "is-highlight"]}>
+              <span class="tesora-stack__num">{c.num}</span>
+              <div class="tesora-stack__body">
+                <p class="tesora-stack__layer-title">{c.title}</p>
+                <p class="tesora-stack__layer-body">{c.body}</p>
+              </div>
+              {c.chip && <span class="tesora-stack__layer-chip">{c.chip}</span>}
+            </li>
+          ))}
+        </ol>
+      </li>
+    ) : (
       <li class:list={["tesora-stack__layer", isHighlighted(l.num) && "is-highlight"]}>
         <span class="tesora-stack__num">{l.num}</span>
         <div class="tesora-stack__body">
@@ -206,8 +237,48 @@ const isHighlighted = (n: string) => highlightNums.includes(n);
     background: color-mix(in oklab, var(--ts-accent) 11%, var(--ts-bg));
   }
 
+  /* Wrapper layer (e.g. Agentic harness wrapping 03-07) */
+  .tesora-stack__wrapper {
+    list-style: none;
+    position: relative;
+    border: 1.5px solid color-mix(in oklab, var(--ts-accent) 38%, var(--ts-rule));
+    border-radius: 12px;
+    background: color-mix(in oklab, var(--ts-accent) 6%, var(--ts-bg));
+    padding: 0.625rem 0.625rem 0.625rem;
+    box-shadow: 0 2px 0 color-mix(in oklab, var(--ts-accent) 8%, transparent);
+  }
+  .tesora-stack__wrapper-head {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.25rem 0.25rem 0.625rem;
+    border-bottom: 1px dashed color-mix(in oklab, var(--ts-accent) 30%, var(--ts-rule));
+    margin-bottom: 0.5rem;
+  }
+  .tesora-stack__num--wrapper {
+    background: color-mix(in oklab, var(--ts-accent) 22%, transparent);
+    border-color: color-mix(in oklab, var(--ts-accent) 38%, transparent);
+  }
+  .tesora-stack__nested {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tesora-stack__layer.is-nested {
+    background: var(--ts-bg);
+    border-color: color-mix(in oklab, var(--ts-accent) 14%, var(--ts-rule));
+  }
+  .tesora-stack__layer.is-nested:hover {
+    background: color-mix(in oklab, var(--ts-accent) 4%, var(--ts-bg));
+  }
+
   @media (max-width: 480px) {
     .tesora-stack__layer { grid-template-columns: 30px 1fr; }
+    .tesora-stack__wrapper-head { grid-template-columns: 30px 1fr; }
     .tesora-stack__layer-chip { display: none; }
   }
 </style>
