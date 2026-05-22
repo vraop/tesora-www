@@ -98,6 +98,8 @@ const workflows: Workflow[] = [
     secondaryCta={{ label: "Why this is different", href: "#sniff-test" }}
   />
 
+  <Lifecycle />
+
   {/* Workbench / Harness positioning */}
   <section id="harness" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
@@ -110,10 +112,10 @@ const workflows: Workflow[] = [
         </div>
         <div class="md:col-span-7">
           <p class="text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)]">
-            The Workbench is what an actuary sees. Chat, tabs, side-by-side quotes, the place you sign off. The Harness is what runs underneath. A set of specialist agents, each with its own scope, guardrails, and audit trail.
+            The Workbench is what an actuary sees. Excel as the spine, a chat window next to it, sign-off at the end. The Harness is what runs underneath. Agents trained on the Actuarial Standards of Practice, every output traced back to its source, every gap flagged for review.
           </p>
           <p class="mt-4 text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)]">
-            Most AI products give you a chat. We built the harness first, then put a workbench on it. The harness is the part that took two years to get right; the workbench is how you talk to it.
+            Most AI products give you a chat. We built the harness first, then put a workbench on it. Agents on the harness score one another's work, the way a senior reviews a junior. Nothing ships without the audit agent's pass.
           </p>
         </div>
       </div>
@@ -121,8 +123,6 @@ const workflows: Workflow[] = [
       <HarnessDiagram />
     </div>
   </section>
-
-  <Lifecycle />
 
   {/* Built for the syllabus */}
   <section id="sniff-test" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
