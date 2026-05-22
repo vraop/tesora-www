@@ -187,7 +187,7 @@ const formEndpoint = import.meta.env.PUBLIC_STUDENT_FORM_ENDPOINT ?? "";
       const build = (data.get("what_youd_build") as string) || "";
       const body = `Name: ${name}\n\nSchool email: ${email}\n\nSchool, program, exam progress: ${school}\n\nWhat I'd build:\n${build}\n`;
       return `mailto:sales@tesora.ai?subject=${encodeURIComponent(
-        `Student research access — ${name}`
+        `Student research access: ${name}`
       )}&body=${encodeURIComponent(body)}`;
     };
 

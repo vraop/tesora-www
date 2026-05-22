@@ -18,7 +18,7 @@ const stages: Stage[] = [
     title: "Turn public filings into structured intelligence in hours.",
     body: "Pull SERFF filings, public rate manuals, and reference materials into a vault. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
     report: {
-      heading: "SERFF Filing Diff — Travelers CGL CA",
+      heading: "SERFF Filing Diff: Travelers CGL CA",
       intro: "Filed change vs the prior version. Indexed against your in-force book.",
       metrics: [
         { label: "Factors changed", value: "14" },
@@ -58,7 +58,7 @@ const stages: Stage[] = [
           rows: [
             ["Base rate", "$1,194", "$1,240", "+3.8%"],
             ["LA Basin territory", "1.31", "1.39", "+6.2%"],
-            ["≥3-story CCM", "—", "1.10", "new"],
+            ["≥3-story CCM", "n/a", "1.10", "new"],
             ["Med pay limit", "$5,000", "$7,500", "+50%"],
           ],
         },
@@ -78,7 +78,7 @@ const stages: Stage[] = [
     title: "Fit factors against your book without a Python team.",
     body: "Bring your loss triangles and exposure data into the workbench. Use the assistant to fit GLM/credibility-weighted factors, profile experience by segment, and produce a defensible memo of every assumption.",
     report: {
-      heading: "Severity Fit — CGL, AY 2018–2024",
+      heading: "Severity Fit: CGL, AY 2018–2024",
       intro: "Lognormal severity fit, 12,840 claims, credibility-weighted to ISO industry prior.",
       metrics: [
         { label: "Claims used", value: "12,840" },
@@ -108,7 +108,7 @@ const stages: Stage[] = [
           kind: "callout",
           tone: "finding",
           title: "Selected fit",
-          body: "Lognormal beats gamma by 72 AIC points. Hired Auto severity is 2.3× book mean — segment it out of the base class before reserving.",
+          body: "Lognormal beats gamma by 72 AIC points. Hired Auto severity is 2.3× book mean. Segment it out of the base class before reserving.",
         },
         {
           kind: "table",
@@ -137,7 +137,7 @@ const stages: Stage[] = [
     title: "From Excel rater to live API, with a full audit trail.",
     body: "Shipping a rating model safely takes more work than building one. The Workbench versions every model, gates promotions through dev to test to prod, runs trauma studies before deploys, and keeps every historical version live for on-leveling.",
     report: {
-      heading: "Rater Promotion — CGL v2.4 → v2.5",
+      heading: "Rater Promotion: CGL v2.4 → v2.5",
       intro: "Promoting v2.5 to production. SOX-grade controls. Author, reviewer, approver separated.",
       metrics: [
         { label: "Test cases", value: "38/38" },
@@ -196,7 +196,7 @@ const stages: Stage[] = [
     title: "Submissions and portfolio analytics on the same rating engine.",
     body: "A submissions queue and a real-time portfolio view that share the rating models you already deployed, so a single quote and a portfolio-wide on-leveling use the exact same code path.",
     report: {
-      heading: "Submission #20446 — Bind-Ready",
+      heading: "Submission #20446: Bind-Ready",
       intro: "Roofing contractor, $4.2M payroll, CGL + Commercial Auto. Auto-priced at CGL v2.5.",
       metrics: [
         { label: "Gross premium", value: "$48,200" },
@@ -212,7 +212,7 @@ const stages: Stage[] = [
         },
         {
           kind: "chart",
-          title: "Bind ratio — last 30 days, by class (%)",
+          title: "Bind ratio, last 30 days, by class (%)",
           caption: "Data source: submissions.queue rolling 30d",
           bars: [
             { label: "Roofing", value: 38, display: "38%" },
@@ -254,7 +254,7 @@ const stages: Stage[] = [
     title: "Close the loop. Reserves and BI on the same data spine.",
     body: "Once policies, claims, and exposures live in one place, reserving and BI become a thin presentation layer. Start with chain-ladder and Bornhuetter-Ferguson dashboards driven by the same canonical data the rater uses.",
     report: {
-      heading: "Chain-Ladder Triangle — CGL Q3 2026",
+      heading: "Chain-Ladder Triangle: CGL Q3 2026",
       intro: "Paid loss development, 8 accident years. Bornhuetter-Ferguson cross-check applied at AY7–AY8.",
       metrics: [
         { label: "AY booked", value: "8" },
@@ -315,7 +315,7 @@ const stages: Stage[] = [
     title: "Capital modeling, reinsurance program design, and captive analytics on the same spine.",
     body: "The same exposures and loss data that drive pricing and reserving also drive capital, reinsurance program design, and captive structuring. Run portfolio-level analytics without a separate data pipeline.",
     report: {
-      heading: "1-in-200 Capital Stress — CGL",
+      heading: "1-in-200 Capital Stress: CGL",
       intro: "Catastrophe scenario applied. Current program: 80% quota share + $5M xs $5M XOL.",
       metrics: [
         { label: "Gross loss", value: "$42.1M" },
