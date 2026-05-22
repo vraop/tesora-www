@@ -1,0 +1,303 @@
+---
+type Agent = {
+  name: string;
+  scope: string;
+  controls: { label: string; value: string }[];
+};
+
+const agents: Agent[] = [
+  {
+    name: "Insight",
+    scope: "Trend, loss modeling, market research.",
+    controls: [
+      { label: "ASOP", value: "56, 41, 12" },
+      { label: "Guardrails", value: "Strict" },
+      { label: "Data", value: "Tenant-scoped" },
+    ],
+  },
+  {
+    name: "Rating",
+    scope: "Raters, factor tables, callable API.",
+    controls: [
+      { label: "ASOP", value: "56, 12" },
+      { label: "Reviewer", value: "Required" },
+      { label: "Env", value: "Dev → Prod" },
+    ],
+  },
+  {
+    name: "Audit",
+    scope: "Regrades analyses against CAS principles.",
+    controls: [
+      { label: "Mode", value: "Pre-committee" },
+      { label: "Standard", value: "CAS SOP" },
+      { label: "Block", value: "On fail" },
+    ],
+  },
+  {
+    name: "Reserving",
+    scope: "Chain-ladder, BF, IBNR. In development.",
+    controls: [
+      { label: "ASOP", value: "43" },
+      { label: "Method", value: "Selectable" },
+      { label: "Sign-off", value: "FCAS only" },
+    ],
+  },
+];
+---
+
+<figure class="hd" aria-label="Diagram of the Tesora Workbench and Harness">
+  <div class="hd-workbench" aria-label="Workbench surface">
+    <span class="hd-tag">Workbench</span>
+    <ul class="hd-surface">
+      <li><span class="hd-dot" aria-hidden="true"></span>Chat</li>
+      <li><span class="hd-dot" aria-hidden="true"></span>Tabs</li>
+      <li><span class="hd-dot" aria-hidden="true"></span>Quotes</li>
+      <li><span class="hd-dot" aria-hidden="true"></span>Sign-off</li>
+    </ul>
+  </div>
+
+  <div class="hd-bridge" aria-hidden="true">
+    <span class="hd-bridge-line"></span>
+    <span class="hd-bridge-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+        <path d="M12 5v14" />
+        <path d="m6 13 6 6 6-6" />
+      </svg>
+    </span>
+  </div>
+
+  <div class="hd-harness">
+    <span class="hd-tag hd-tag--harness">Harness</span>
+    <div class="hd-rail" aria-hidden="true"></div>
+    <div class="hd-agents">
+      {agents.map((a) => (
+        <article class="hd-agent">
+          <span class="hd-strap" aria-hidden="true"></span>
+          <header class="hd-agent-head">
+            <span class="hd-agent-name">{a.name}</span>
+            <span class="hd-agent-kind">agent</span>
+          </header>
+          <p class="hd-agent-scope">{a.scope}</p>
+          <ul class="hd-controls">
+            {a.controls.map((c) => (
+              <li>
+                <span class="hd-ctrl-key">{c.label}</span>
+                <span class="hd-ctrl-val">{c.value}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <figcaption class="hd-caption">
+    The Workbench is the surface. The Harness is the substrate. Each agent has its own scope, controls, and audit trail.
+  </figcaption>
+</figure>
+
+<style>
+  .hd {
+    margin: 0;
+    padding: 28px;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    background: var(--bg-panel, #fbfaf6);
+  }
+
+  .hd-tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-oxblood, #4338CA);
+    padding: 3px 8px;
+    border: 1px solid color-mix(in oklab, #4338CA 25%, transparent);
+    border-radius: 4px;
+    background: color-mix(in oklab, #4338CA 6%, transparent);
+  }
+  .hd-tag--harness {
+    color: var(--fg, #1a1a1a);
+    border-color: var(--rule);
+    background: transparent;
+  }
+
+  /* Workbench */
+  .hd-workbench {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px 18px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hd-surface {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    flex: 1 1 auto;
+    color: var(--fg, #1a1a1a);
+    font-size: 0.875rem;
+  }
+  .hd-surface li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hd-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-oxblood, #4338CA);
+    display: inline-block;
+  }
+
+  /* Bridge between Workbench and Harness */
+  .hd-bridge {
+    height: 36px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--fg-muted, #555);
+  }
+  .hd-bridge-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+  .hd-bridge-arrow {
+    position: relative;
+    background: var(--bg-panel, #fbfaf6);
+    padding: 2px 4px;
+    line-height: 0;
+  }
+
+  /* Harness */
+  .hd-harness {
+    position: relative;
+    padding-top: 12px;
+  }
+  .hd-rail {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 56px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent 0,
+      color-mix(in oklab, #4338CA 35%, transparent) 8%,
+      color-mix(in oklab, #4338CA 35%, transparent) 92%,
+      transparent 100%
+    );
+  }
+  .hd-agents {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    position: relative;
+  }
+  .hd-agent {
+    position: relative;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px;
+    background: #ffffff;
+  }
+  .hd-strap {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    width: 2px;
+    height: 22px;
+    background: color-mix(in oklab, #4338CA 35%, transparent);
+    transform: translateX(-50%);
+  }
+  .hd-agent-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .hd-agent-name {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .hd-agent-kind {
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-muted, #666);
+  }
+  .hd-agent-scope {
+    margin: 0 0 12px;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--fg-muted, #555);
+  }
+  .hd-controls {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px dashed var(--rule);
+    padding-top: 10px;
+    display: grid;
+    gap: 4px;
+  }
+  .hd-controls li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.75rem;
+    gap: 8px;
+    overflow-wrap: anywhere;
+  }
+  .hd-ctrl-key {
+    color: var(--fg-muted, #666);
+    letter-spacing: 0.02em;
+  }
+  .hd-ctrl-val {
+    font-variant-numeric: tabular-nums;
+    color: var(--fg, #1a1a1a);
+    font-weight: 500;
+  }
+
+  .hd-caption {
+    margin-top: 22px;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--fg-muted, #666);
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .hd-agents {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .hd-rail {
+      display: none;
+    }
+    .hd-strap {
+      display: none;
+    }
+  }
+  @media (max-width: 520px) {
+    .hd {
+      padding: 18px;
+    }
+    .hd-agents {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
