@@ -80,28 +80,6 @@ const workflows: Workflow[] = [
   },
 ];
 
-const workbenchPatterns = [
-  {
-    label: "Be conversational.",
-    body: "Type what you would say to a junior analyst.",
-    example: "Trend these losses to 2026 at 4%.",
-  },
-  {
-    label: "Point at data.",
-    body: "Tell it which vault or file to use.",
-    example: "Use the loss run in the Q1 vault.",
-  },
-  {
-    label: "Iterate freely.",
-    body: "Each follow-up extends the existing report.",
-    example: "Add a state-level breakdown. Also fit a Pareto. Audit this.",
-  },
-  {
-    label: "Ask why.",
-    body: "Methodology and source citations are always one question away.",
-    example: "Why chain ladder here and not BF?",
-  },
-];
 ---
 
 <Layout
@@ -269,27 +247,6 @@ const workbenchPatterns = [
   </section>
 
   <Lifecycle />
-
-  {/* How to work with the Workbench */}
-  <section id="workbench" class="bg-[var(--bg-panel)] border-y border-[var(--rule)] scroll-mt-24">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-14">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-oxblood,#4338CA)]" aria-hidden="true"></span>
-        <p class="eyebrow">How to work with the Workbench</p>
-      </div>
-      <div class="grid md:grid-cols-4 gap-8 items-stretch">
-        {workbenchPatterns.map((p) => (
-          <div class="flex flex-col h-full">
-            <p class="font-semibold text-[1rem]">{p.label}</p>
-            <p class="mt-2 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{p.body}</p>
-            <p class="mt-auto pt-4 text-[0.9375rem] italic leading-[1.5] text-[var(--fg)] border-l-2 border-[var(--color-oxblood,#6b1a1a)] pl-3">
-              "{p.example}"
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Frequently asked questions */}
   <section id="faq" class="border-t border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
