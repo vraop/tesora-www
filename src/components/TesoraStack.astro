@@ -26,6 +26,7 @@ const defaultLayers: Layer[] = [
     body: "The substrate that holds the agents. Workbench agents do the work; an audit agent regrades it. Every layer above runs inside it.",
     chip: "Tesora",
     children: [
+      { num: "01", title: "Frontier LLMs",             body: "Best-in-class model selection per task. No model lock-in." },
       { num: "07", title: "Audit & governance",        body: "SOC 2 Type II, ASOP-aware, SOX-ready. Every artifact carries a citation.", chip: "Always-on" },
       { num: "06", title: "Workbench & interfaces",    body: "Pricing console, submissions queue, portfolio view. One model, every surface." },
       { num: "05", title: "Pricing & rating engine",   body: "Versioned raters, dev to test to prod. Trauma studies before deploy." },
@@ -33,7 +34,6 @@ const defaultLayers: Layer[] = [
       { num: "03", title: "Filings & data ingestion",  body: "SERFF, loss runs, broker decks, schedules. Any format, normalized." },
     ],
   },
-  { num: "01", title: "Frontier LLMs", body: "Best-in-class model selection per task. No model lock-in." },
 ];
 
 const {
