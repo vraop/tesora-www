@@ -11,8 +11,6 @@ import { u } from "../lib/url";
 // actual rater you ship), and audit (rate-committee and DOI defense).
 const admittedHighlightNums = ["03", "04", "05", "07"];
 
-const admittedTags = ["Filing diff", "Class trends", "Loss-cost bench", "Committee prep", "DOI defense"];
-
 const admittedCapabilities = [
   { label: "Filing diff", body: "Every competitor filing diffed against the prior version. Factor moves, schedule rating bands, base rates, surcharges. One view." },
   { label: "Class trends", body: "Roll up filing moves to class-level trend signals. Contractor classes, telematics credits, replacement cost, ordinance and law." },
@@ -47,13 +45,6 @@ const admittedCapabilities = [
         <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--fg-muted)] max-w-[520px]">
           Admitted carriers in Commercial Auto, BOP, and Homeowners use Tesora to monitor what competitors actually file. Every change parsed, diffed against your in-force book, and tied back to the originating SERFF artifact.
         </p>
-        <div class="mt-7 flex flex-wrap gap-2">
-          {admittedTags.map((t) => (
-            <span class="px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.04em] uppercase border border-[var(--rule)] text-[var(--fg-muted)]">
-              {t}
-            </span>
-          ))}
-        </div>
       </div>
 
       <div class="md:col-span-6">
@@ -62,6 +53,25 @@ const admittedCapabilities = [
           caption="Every filed rate runs the same seven layers. The four that carry the admitted motion are highlighted; the rest are present whether you're filing in Texas or quoting in Florida."
           highlightNums={admittedHighlightNums}
         />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--bg)] border-t border-[var(--rule)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-5">
+        <p class="eyebrow mb-3">The reality on admitted desks</p>
+        <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
+          The work isn't the math. It's the legacy.
+        </h2>
+      </div>
+      <div class="md:col-span-7">
+        <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+          The carriers who file the most often live in the deepest legacy. Pricing models built a decade ago that nobody wants to rerun. Data fields merged across five acquisitions and three CIOs. The rate manager isn't bottlenecked on Python; they're bottlenecked on the organizational gymnastics of getting clean data to it.
+        </p>
+        <p class="mt-4 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
+          Tesora sits beside that legacy without asking IT to throw any of it out. Read the filings, write the diffs, hand the rate manager a defensible memo. The mainframe keeps running. The work stops piling up.
+        </p>
       </div>
     </div>
   </section>
