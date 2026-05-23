@@ -15,11 +15,11 @@ const stages: Stage[] = [
   {
     id: "market-research",
     label: "Market Research",
-    title: "Turn public filings into structured intelligence in hours.",
-    body: "Pull SERFF filings, public rate manuals, and reference materials into a vault. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
+    title: "Bring any competitor analysis or Excel tools into structured intelligence in hours",
+    body: "Pull anything into a vault. SERFF filings, public rate manuals, internal Excel documents. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
     report: {
-      heading: "SERFF Filing Diff: Travelers CGL CA",
-      intro: "Filed change vs the prior version. Indexed against your in-force book.",
+      heading: "Rate filing diff: Carrier A",
+      intro: "Effective change vs filed prior version. Indexed against your in-force book.",
       metrics: [
         { label: "Factors changed", value: "14" },
         { label: "Rate level", value: "+3.8%" },
@@ -35,7 +35,7 @@ const stages: Stage[] = [
         {
           kind: "chart",
           title: "Territory factor moves (Δ vs prior version)",
-          caption: "Data source: SERFF filing TRVA-26-0411",
+          caption: "Data source: rate filing, Carrier A",
           bars: [
             { label: "LA Basin", value: 6.2, display: "+6.2%" },
             { label: "Bay Area", value: 4.1, display: "+4.1%" },
@@ -75,8 +75,8 @@ const stages: Stage[] = [
   {
     id: "loss-modeling",
     label: "Loss Modeling",
-    title: "Fit factors against your book without a Python team.",
-    body: "Bring your loss triangles and exposure data into the workbench. Use the assistant to fit GLM/credibility-weighted factors, profile experience by segment, and produce a defensible memo of every assumption.",
+    title: "Help existing teams fit factors",
+    body: "Use our analysis engine to fit factors to any data you bring into the platform. GLMs, credibility-weighted factors, segmentation studies, the whole curve-fitting toolbox.",
     report: {
       heading: "Severity Fit: CGL, AY 2018–2024",
       intro: "Lognormal severity fit, 12,840 claims, credibility-weighted to ISO industry prior.",
@@ -125,17 +125,17 @@ const stages: Stage[] = [
     },
     followups: [
       { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
-      { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses; show how the fit shifts." },
-      { title: "Add actuarial memo prose", body: "Generate the actuarial-memo prose section that documents the fit selection and assumptions." },
-      { title: "Slice by segment", body: "Slice the fit by the three largest class-code segments and surface differences." },
-      { title: "Show fitted-constant provenance", body: "Annotate every fitted constant with the analysis run, dataset cut, and reviewer that produced it." },
+      { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses, show how the fit shifts." },
+      { title: "Advanced ML and statistics built in", body: "Whether building GLMs or doing a simple box plot, agents are trained and eager to help." },
+      { title: "Visualize my segments", body: "Slice the fit by the largest class-code segments and visualize the differences." },
+      { title: "Fully transparent and reproducible", body: "All your data sources and analysis are retained for future review." },
     ],
   },
   {
     id: "rating-deployment",
     label: "Rating Deployment",
-    title: "From Excel rater to live API, with a full audit trail.",
-    body: "Shipping a rating model safely takes more work than building one. The Workbench versions every model, gates promotions through dev to test to prod, runs trauma studies before deploys, and keeps every historical version live for on-leveling.",
+    title: "From Excel rater to live API, with a full audit trail",
+    body: "Source raters from internal Excel files or even external SERFF filings. The system will create your raters and deploy them however you want. Online GUI, API, or even another Excel file. Fully reproducible and traceable. SOX-compliant by design.",
     report: {
       heading: "Rater Promotion: CGL v2.4 → v2.5",
       intro: "Promoting v2.5 to production. SOX-grade controls. Author, reviewer, approver separated.",
@@ -175,9 +175,9 @@ const stages: Stage[] = [
           title: "Promotion record",
           columns: ["Step", "Identity", "Timestamp"],
           rows: [
-            ["Author", "P. Yang", "May 16, 09:12"],
-            ["Reviewer", "M. Reyes", "May 17, 14:33"],
-            ["Approver", "F. Marotti", "May 18, 11:07"],
+            ["Author", "Author A", "May 16, 09:12"],
+            ["Reviewer", "Reviewer B", "May 17, 14:33"],
+            ["Approver", "Chief Actuary", "May 18, 11:07"],
           ],
         },
       ],
@@ -191,114 +191,40 @@ const stages: Stage[] = [
     ],
   },
   {
-    id: "underwriting",
-    label: "Underwriting",
-    title: "Submissions and portfolio analytics on the same rating engine.",
-    body: "A submissions queue and a real-time portfolio view that share the rating models you already deployed, so a single quote and a portfolio-wide on-leveling use the exact same code path.",
-    report: {
-      heading: "Submission #20446: Bind-Ready",
-      intro: "Roofing contractor, $4.2M payroll, CGL + Commercial Auto. Auto-priced at CGL v2.5.",
-      metrics: [
-        { label: "Gross premium", value: "$48,200" },
-        { label: "Quote time", value: "4 min" },
-        { label: "Referral flags", value: "2" },
-        { label: "Comparables", value: "87" },
-      ],
-      blocks: [
-        {
-          kind: "prose",
-          title: "Referral reasons",
-          body: "Two flags fired: class 91585 carries a schedule debit greater than 3, requiring an authorized signer; the named insured shares loss history with a prior bound policy.",
-        },
-        {
-          kind: "chart",
-          title: "Bind ratio, last 30 days, by class (%)",
-          caption: "Data source: submissions.queue rolling 30d",
-          bars: [
-            { label: "Roofing", value: 38, display: "38%" },
-            { label: "Painting", value: 52, display: "52%" },
-            { label: "Carpentry", value: 47, display: "47%" },
-            { label: "HVAC", value: 61, display: "61%" },
-            { label: "Plumbing", value: 44, display: "44%" },
-          ],
-        },
-        {
-          kind: "callout",
-          tone: "info",
-          title: "Portfolio impact",
-          body: "Binding this submission moves the Roofing concentration in LA Basin from 4.1% to 4.4%. Within the 5% segment cap set in the underwriting guideline.",
-        },
-        {
-          kind: "table",
-          title: "Comparable bound policies",
-          columns: ["Insured", "Class", "Premium", "LR"],
-          rows: [
-            ["Acme Roofing", "91585", "$51,200", "0.42"],
-            ["Pinnacle Const.", "91550", "$44,800", "0.61"],
-            ["Summit Coverall", "91585", "$49,950", "0.38"],
-          ],
-        },
-      ],
-    },
-    followups: [
-      { title: "Add portfolio context", body: "Show how this submission would change concentration across territory and class code." },
-      { title: "List referral reasons", body: "Enumerate the underwriting referral reasons triggered by this submission." },
-      { title: "Show comparable bound policies", body: "Find the closest in-force policies and compare their premium and loss experience." },
-      { title: "Show bind-time governance", body: "Show the rating-engine guardrails that fire at bind time so an underwriter cannot use a retired version." },
-      { title: "Show integration touchpoints", body: "List the policy administration and underwriting platforms this rating engine is wired into." },
-    ],
-  },
-  {
     id: "reserving",
     label: "Reserving",
-    title: "Close the loop. Reserves and BI on the same data spine.",
-    body: "Once policies, claims, and exposures live in one place, reserving and BI become a thin presentation layer. Start with chain-ladder and Bornhuetter-Ferguson dashboards driven by the same canonical data the rater uses.",
+    title: "Reserving and analytics on the same data schema",
+    body: "Still in development. We are implementing a comprehensive list of reserving methods and data structures to support reserving actuaries.",
     report: {
-      heading: "Chain-Ladder Triangle: CGL Q3 2026",
-      intro: "Paid loss development, 8 accident years. Bornhuetter-Ferguson cross-check applied at AY7–AY8.",
+      heading: "Indications: three method comparison",
+      intro: "Your assistant has completed the following indications. Would you like to dig deeper or make a selection?",
       metrics: [
-        { label: "AY booked", value: "8" },
-        { label: "Ult. loss", value: "$128.4M" },
-        { label: "IBNR", value: "$14.7M" },
-        { label: "Tail factor", value: "1.022" },
+        { label: "Chain ladder", value: "$128.4M" },
+        { label: "Bornhuetter-Ferguson", value: "$129.6M" },
+        { label: "Cape Cod", value: "$127.1M" },
+        { label: "Spread", value: "1.9%" },
       ],
       blocks: [
         {
           kind: "prose",
-          title: "Development pattern",
-          body: "Selected age-to-age factors stable through AY6. Sherman exponential decay applied for the tail beyond AY8. BF cross-check at AY7–AY8 within ±2.1% of chain-ladder.",
+          title: "Method comparison",
+          body: "Three methods run on the same triangle. Chain ladder and Bornhuetter-Ferguson within 0.9%. Cape Cod sits 1.0% below chain ladder. All three within a tight band, no method clearly preferred without further actuarial review.",
         },
         {
           kind: "chart",
-          title: "Cumulative paid by AY ($M)",
-          caption: "Data source: claims.paid_cumulative as of 2026-09-30",
+          title: "Ultimate loss by method ($M)",
+          caption: "Data source: claims.paid_cumulative",
           bars: [
-            { label: "AY 2019", value: 18.2, display: "$18.2M" },
-            { label: "AY 2020", value: 17.5, display: "$17.5M" },
-            { label: "AY 2021", value: 16.8, display: "$16.8M" },
-            { label: "AY 2022", value: 14.9, display: "$14.9M" },
-            { label: "AY 2023", value: 12.1, display: "$12.1M" },
-            { label: "AY 2024", value: 8.4, display: "$8.4M" },
-            { label: "AY 2025", value: 4.7, display: "$4.7M" },
-            { label: "AY 2026", value: 1.2, display: "$1.2M" },
+            { label: "Chain ladder", value: 128.4, display: "$128.4M" },
+            { label: "BF", value: 129.6, display: "$129.6M" },
+            { label: "Cape Cod", value: 127.1, display: "$127.1M" },
           ],
         },
         {
           kind: "callout",
           tone: "finding",
-          title: "Cross-check",
-          body: "BF reserve estimate $129.6M vs chain-ladder $128.4M, gap 0.9%. Recommend chain-ladder selected; BF as documented sensitivity.",
-        },
-        {
-          kind: "table",
-          title: "Development factors",
-          columns: ["Age (mo)", "ATA", "Selected"],
-          rows: [
-            ["12–24", "1.418", "1.420"],
-            ["24–36", "1.182", "1.180"],
-            ["36–48", "1.091", "1.090"],
-            ["48–60", "1.048", "1.050"],
-          ],
+          title: "Reminder",
+          body: "The ultimate power is in the user's hands. The assistant has surfaced three indications; the reserving actuary owns the selection.",
         },
       ],
     },
@@ -306,62 +232,62 @@ const stages: Stage[] = [
       { title: "Switch to Bornhuetter-Ferguson", body: "Re-run reserves under Bornhuetter-Ferguson with an a-priori loss ratio." },
       { title: "Add tail factor analysis", body: "Fit a tail factor beyond the latest observed development period." },
       { title: "Slice by segment", body: "Slice reserves by hazard group and surface differences." },
-      { title: "Add BI dashboards", body: "Add the standard BI roll-ups (loss ratio by segment, retention, growth) on the same data spine." },
+      { title: "Compare additional methods", body: "Add Berquist-Sherman or another method to the indication comparison." },
     ],
   },
   {
     id: "misc",
-    label: "Capital + Re + Captives",
-    title: "Capital modeling, reinsurance program design, and captive analytics on the same spine.",
-    body: "The same exposures and loss data that drive pricing and reserving also drive capital, reinsurance program design, and captive structuring. Run portfolio-level analytics without a separate data pipeline.",
+    label: "Capital + Reinsurance",
+    title: "Capital modeling and reinsurance program design",
+    body: "The same exposures and loss data that drive pricing and reserving also drive capital and reinsurance program design. PMLs, aggregate distributions, and reinsurance structure trade-offs on one data schema.",
     report: {
-      heading: "1-in-200 Capital Stress: CGL",
-      intro: "Catastrophe scenario applied. Current program: 80% quota share + $5M xs $5M XOL.",
+      heading: "Aggregate loss distribution and reinsurance structure",
+      intro: "Aggregate gross loss distribution simulated from your book. Current program: 80% quota share + $5M xs $5M XOL.",
       metrics: [
-        { label: "Gross loss", value: "$42.1M" },
-        { label: "Net loss", value: "$9.4M" },
-        { label: "Capital used", value: "38%" },
-        { label: "RAROC", value: "11.2%" },
+        { label: "PML 1-in-100", value: "$28.6M" },
+        { label: "PML 1-in-200", value: "$36.4M" },
+        { label: "Net 1-in-200", value: "$8.1M" },
+        { label: "Ceded premium", value: "$11.2M" },
       ],
       blocks: [
         {
           kind: "prose",
           title: "Net loss profile",
-          body: "Gross 1-in-200 loss of $42.1M reduces to $9.4M net of the current program. Reinsurance recoveries $32.7M. RAROC stays above the 10% target.",
+          body: "Gross 1-in-200 aggregate loss of $36.4M reduces to $8.1M net of the current program. Reinsurance recoveries $28.3M. The aggregate distribution is simulated from the fitted severity and frequency models, not from a third-party cat vendor.",
         },
         {
           kind: "chart",
-          title: "Net loss by alternative structure ($M)",
-          caption: "Data source: cap_model.scenarios.cat_200",
+          title: "Net loss by alternative reinsurance structure ($M)",
+          caption: "Data source: aggregate loss simulation",
           bars: [
-            { label: "Current", value: 9.4, display: "$9.4M" },
-            { label: "70% QS only", value: 12.6, display: "$12.6M" },
-            { label: "+ $5M xs $10M", value: 7.8, display: "$7.8M" },
-            { label: "Stop-Loss 75%", value: 8.9, display: "$8.9M" },
+            { label: "Current", value: 8.1, display: "$8.1M" },
+            { label: "70% QS only", value: 11.2, display: "$11.2M" },
+            { label: "+ $5M xs $10M", value: 6.4, display: "$6.4M" },
+            { label: "Stop-Loss 75%", value: 7.8, display: "$7.8M" },
           ],
         },
         {
           kind: "callout",
           tone: "finding",
-          title: "Recommendation",
-          body: "Adding a $5M xs $10M XOL layer cuts net loss to $7.8M and lifts RAROC to 11.9%. Cession cost estimated at $1.8M annually.",
+          title: "Trade-off",
+          body: "Adding a $5M xs $10M XOL layer cuts net 1-in-200 loss to $6.4M. Indicative cession cost runs roughly $1.8M annually. Final structure selection sits with the chief actuary and treaty negotiation.",
         },
         {
           kind: "table",
           title: "Structure compare",
-          columns: ["Structure", "Net Loss", "RAROC"],
+          columns: ["Structure", "Net 1-in-200", "Ceded Premium"],
           rows: [
-            ["Current (80% QS + $5M xs $5M)", "$9.4M", "11.2%"],
-            ["70% QS only", "$12.6M", "9.8%"],
-            ["+ $5M xs $10M layer", "$7.8M", "11.9%"],
+            ["Current (80% QS + $5M xs $5M)", "$8.1M", "$11.2M"],
+            ["70% QS only", "$11.2M", "$8.4M"],
+            ["+ $5M xs $10M layer", "$6.4M", "$12.7M"],
           ],
         },
       ],
     },
     followups: [
-      { title: "Run a 1-in-200 cat stress", body: "Apply the catastrophe stress scenario from the scenario library and re-score capital and reinsurance." },
+      { title: "Build the aggregate distribution", body: "Simulate the aggregate annual loss distribution from your fitted severity and frequency models." },
       { title: "Compare an alternative structure", body: "Score an alternative reinsurance structure side-by-side against the current program." },
-      { title: "Captive funding study", body: "Produce a funding study for the GL captive cell at three confidence levels." },
+      { title: "Show PMLs at multiple return periods", body: "Surface PMLs at the 1-in-100, 1-in-200, and 1-in-500 return periods." },
     ],
   },
 ];
@@ -372,10 +298,10 @@ const stages: Stage[] = [
     <div class="max-w-[760px] mx-auto text-center mb-10">
       <p class="eyebrow mb-3 reveal">The lifecycle</p>
       <h2 class="font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em] reveal">
-        The carrier product lifecycle, on one workbench.
+        A diverse toolset for everything actuaries do
       </h2>
       <p class="reveal text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] mt-4" data-reveal-delay="120">
-        From filings intake to bound policy to reserved triangle, the work shares one data spine and one audit trail. The handoffs between actuarial, pricing, and underwriting stay lossless.
+        Actuaries do many different things. Here is a common language to bring reproducibility and traceability across all of them.
       </p>
     </div>
 
@@ -446,7 +372,7 @@ const stages: Stage[] = [
     padding-bottom: 12px;
   }
   .lifecycle-tab {
-    --lc-accent: #4338CA;
+    --lc-accent: #B400FE;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -491,7 +417,7 @@ const stages: Stage[] = [
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: color-mix(in oklab, #4338CA 70%, var(--fg-muted));
+    color: color-mix(in oklab, #B400FE 70%, var(--fg-muted));
     margin-bottom: 12px;
   }
   .lifecycle-followup__list {
@@ -501,7 +427,7 @@ const stages: Stage[] = [
   }
 
   .lifecycle-mockup {
-    --lc-accent: #4338CA;
+    --lc-accent: #B400FE;
     margin: 0;
     border-radius: 14px;
     overflow: hidden;
@@ -512,7 +438,7 @@ const stages: Stage[] = [
       0 24px 60px -34px color-mix(in oklab, var(--lc-accent) 40%, rgba(14, 14, 12, 0.18));
   }
   .lifecycle-followup {
-    --lc-accent: #4338CA;
+    --lc-accent: #B400FE;
     border: 1px solid color-mix(in oklab, var(--lc-accent) 14%, rgba(14, 14, 12, 0.08));
     background: #ffffff;
     border-radius: 10px;

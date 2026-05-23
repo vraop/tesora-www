@@ -10,12 +10,8 @@ import { u } from "../lib/url";
 type Faq = { q: string; a: string };
 const faqs: Faq[] = [
   {
-    q: "Why organize the product around the carrier lifecycle instead of by feature?",
-    a: "It mirrors how the work flows. Market research feeds loss modeling, which feeds the rater, which feeds underwriting, which feeds reserving. When the stages share one workbench and one data spine, the handoffs stay lossless and the audit trail stays intact end-to-end.",
-  },
-  {
     q: "Can we import our existing rating models?",
-    a: "Yes. Upload your Excel raters directly. The system parses formulas, identifies factor tables, and creates a versioned model. Existing logic is preserved exactly.",
+    a: "Yes. Upload your Excel raters directly and the system will rebuild, test, and deploy them for you. Formulas parsed, factor tables identified, a versioned model created. Existing logic is preserved exactly.",
   },
   {
     q: "What integrations do you support?",
@@ -40,42 +36,42 @@ type Workflow = { num: string; title: string; body: string; outcomes: string[] }
 const workflows: Workflow[] = [
   {
     num: "01",
-    title: "Ingest the mess.",
-    body: "Loss runs come in five formats from five carriers, and reformatting them is the kind of work senior actuaries do at 11 PM. AI is finally good enough at that mechanical work that you should never do it again. The Workbench reads any format and hands back one normalized table with every value cited to the cell it came from.",
+    title: "Don't fear messy data",
+    body: "Loss runs, SOVs, exposure files, and rate manuals come in five formats from five carriers. Tesora reads any of them and hands back one normalized table with every value cited to the cell it came from.",
     outcomes: [
-      "PDF, Excel, CSV, Word.",
-      "Auto-classified and anomaly-checked.",
-      "Every value cites its source cell.",
+      "PDF, Excel, CSV, Word, email attachments",
+      "Auto-classified and anomaly-checked",
+      "Every value cites its source",
     ],
   },
   {
     num: "02",
-    title: "Build raters that ship.",
-    body: "Most rate plans live as a 60-page filing and a spreadsheet only one person on the team can run. The Workbench turns that into a versioned, callable pricing API in days, not quarters. Author, reviewer, and approver are three separate identities. No engineering ticket, no IT roadmap.",
+    title: "Deploy raters quickly and securely",
+    body: "Actuaries no longer wait on IT to deploy SOX-compliant rating tools. Source a rater from a SERFF filing or an internal Excel file, version every change, and ship to a callable pricing API. Author, reviewer, and approver are recorded as separate identities.",
     outcomes: [
-      "Base rates, factors, ILFs, schedule mods.",
-      "Author, reviewer, approver as separate identities.",
-      "Side-by-side quotes against any plan or competitor.",
+      "Base rates, factors, ILFs, schedule mods",
+      "Author, reviewer, approver as separate identities",
+      "Deploy to GUI, API, or another Excel file",
     ],
   },
   {
     num: "03",
-    title: "Run the analyses.",
-    body: "Trending, on-leveling, distribution fitting, BF reserving. The math has been settled for decades. What slows the work is the assembly: finding the data, picking the right method, writing the memo. The Workbench compresses the assembly without touching your judgment.",
+    title: "Run the analyses",
+    body: "Trending, on-leveling, distribution fitting, GLMs, reserving. The math has been settled for decades. What slows the work is the assembly: finding the data, picking the right method, writing the memo. Tesora handles the assembly, and your work is now reproducible for years while you stay in charge of every decision.",
     outcomes: [
-      "Trend, on-leveling, distribution fitting, VaR/TVaR.",
-      "XOL structuring, aggregate stop-loss, cession.",
-      "Reserving (chain-ladder, BF, IBNR). In development.",
+      "Trend, on-leveling, distribution fitting, GLMs",
+      "XOL structuring, aggregate stop-loss, cession",
+      "Reserving (chain-ladder, BF, Cape Cod) in development",
     ],
   },
   {
     num: "04",
-    title: "Audit and ship.",
-    body: "Most rate-committee surprises come from a spreadsheet nobody re-checked. A specialist audit agent regrades the analysis against CAS Statements of Principles before your committee sees it. The first time you catch a mistake at the audit step instead of in the meeting, the value is obvious.",
+    title: "Audit and ship",
+    body: "A specialist audit agent regrades every analysis against a host of proprietary actuarial tests before it reaches the user. Author, reviewer, and approver are recorded as separate identities. The audit trail follows the analysis through every promotion, so the work that lands on the pricing actuarial team's desk is reviewable from end to end.",
     outcomes: [
-      "Extend reports with a new chart, year, or segment.",
-      "Graded against CAS best practice.",
-      "Every workflow lands as a reviewable tab.",
+      "Author, reviewer, approver as separate identities",
+      "Audit trail preserved across every promotion",
+      "Every workflow lands as a reviewable artifact",
     ],
   },
 ];
@@ -92,10 +88,10 @@ const workflows: Workflow[] = [
 
   <CinematicHero
     videoSrc={u("/video/agents-loop.mp4")}
-    headline="Agents designed for actuaries."
-    deck="Claude and Codex never read the CAS syllabus. The Workbench did. Built around Werner and Modlin's Basic Ratemaking, the CAS papers, and the audit standards a chief actuary signs against. CAS-credentialed P&C teams today; SOA and IFoA come next."
+    headline="Agents designed for actuaries"
+    deck="Trained on CAS syllabus materials and the Actuarial Standards of Practice. Built to be additive to the AI tools and engineering workflows your team already uses."
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
-    secondaryCta={{ label: "Why this is different", href: "#sniff-test" }}
+    secondaryCta={{ label: "Why a workbench", href: "#different" }}
   />
 
   <Lifecycle />
@@ -105,17 +101,14 @@ const workflows: Workflow[] = [
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
       <div class="grid md:grid-cols-12 gap-10 md:gap-14 items-start mb-12">
         <div class="md:col-span-5">
-          <p class="eyebrow mb-3">What we built</p>
+          <p class="eyebrow mb-3">How it works</p>
           <h2 class="font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">
-            A workbench on top of a harness.
+            The Workbench, with a harness underneath
           </h2>
         </div>
         <div class="md:col-span-7">
           <p class="text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)]">
-            The Workbench is what an actuary sees. Excel as the spine, a chat window next to it, sign-off at the end. The Harness is what runs underneath. Agents trained on the Actuarial Standards of Practice, every output traced back to its source, every gap flagged for review.
-          </p>
-          <p class="mt-4 text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)]">
-            Most AI products give you a chat. We built the harness first, then put a workbench on it. Agents on the harness score one another's work, the way a senior reviews a junior. Nothing ships without the audit agent's pass.
+            The actuary uses the Workbench. The interface is a chat window next to Excel, where the actuary can manipulate analyses, rating models, and Excel workbooks. Numerous agents help, inside a framework called the harness. Agents are trained in actuarial science, the Actuarial Standards of Practice, and the qualification standards. In the end, every decision is up to the actuary.
           </p>
         </div>
       </div>
@@ -124,26 +117,26 @@ const workflows: Workflow[] = [
     </div>
   </section>
 
-  {/* Built for the syllabus */}
-  <section id="sniff-test" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
+  {/* Why a workbench, not just chat */}
+  <section id="different" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
       <div class="grid md:grid-cols-12 gap-8">
         <div class="md:col-span-5 reveal">
-          <p class="eyebrow mb-3">What you'd otherwise do</p>
+          <p class="eyebrow mb-3">Built for actuaries</p>
           <h2 class="font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">
-            The status quo.
+            Additive to the AI tools your team already uses
           </h2>
           <p class="mt-4 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-            There are three ways to do this work today. Push the team harder, credentialed people who already have better things to do at midnight than reformat loss runs. Build internal Excel macros and Python notebooks, which stop the pain but will not survive a regulator's question. Or reach for a general model like Claude, which knows the words but not the standards. The Workbench is built to be a better answer than any of them.
+            Cloud AI is great for a single prompt. The Workbench is built for the multi-week pricing workflow an actuary actually runs, with the syllabus, the standards, and the audit trail in place from the first message to the deployed rater.
           </p>
         </div>
         <div class="md:col-span-7 grid md:grid-cols-2 gap-3 self-center">
           <div class="lesson-tile reveal" data-reveal-delay="0">
             <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
             <p class="lesson-tile-eyebrow">Syllabus</p>
-            <p class="lesson-tile-title">Trained on the syllabus</p>
+            <p class="lesson-tile-title">Trained on CAS syllabus materials</p>
             <p class="lesson-tile-body">
-              Werner and Modlin's Basic Ratemaking, Friedland on reserving, the full CAS exam reading list, and a corpus of SERFF filings. The model knows the terminology and the conventions before it touches your book.
+              The model knows the terminology and the conventions before it touches your book. CAS-credentialed P&amp;C teams today; SOA and IFoA next.
             </p>
           </div>
           <div class="lesson-tile reveal" data-reveal-delay="120">
@@ -151,76 +144,27 @@ const workflows: Workflow[] = [
             <p class="lesson-tile-eyebrow">Citations</p>
             <p class="lesson-tile-title">Citations or it didn't happen</p>
             <p class="lesson-tile-body">
-              Every base rate, factor, credit, and trend number traces back to the page and cell it came from. If the agent can't cite it, it can't ship it.
+              Every base rate, factor, credit, and trend traces back to the page and cell it came from. If the agent cannot cite it, it does not ship.
             </p>
           </div>
           <div class="lesson-tile reveal" data-reveal-delay="240">
             <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
             <p class="lesson-tile-eyebrow">Audit</p>
-            <p class="lesson-tile-title">Audited before the rate committee sees it</p>
+            <p class="lesson-tile-title">Audited before the user sees it</p>
             <p class="lesson-tile-body">
-              A specialist audit agent regrades every analysis against CAS Statements of Principles before the committee sees it. Author, reviewer, and approver are separate identities. Every promotion is recorded.
+              Audit agents tested against a host of proprietary tests to ensure fidelity before the analysis reaches the user. Author, reviewer, and approver are separate identities. Every promotion is recorded.
             </p>
           </div>
           <div class="lesson-tile reveal" data-reveal-delay="360">
             <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
-            <p class="lesson-tile-eyebrow">Continuity</p>
-            <p class="lesson-tile-title">Your team already took the exams</p>
-            <p class="lesson-tile-body">
-              Credentialed actuaries spend a decade leading, not re-reading the syllabus. The audit agent stays current on CAS papers, Statements of Principles, and new exam material every day. Your team ships work that holds up to a fresh-from-exam reviewer, under their own name.
-            </p>
-          </div>
-          <div class="lesson-tile reveal" data-reveal-delay="480">
-            <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
             <p class="lesson-tile-eyebrow">Context</p>
-            <p class="lesson-tile-title">General agents lose the thread halfway through</p>
+            <p class="lesson-tile-title">Built for the long-running engagement</p>
             <p class="lesson-tile-body">
-              Claude, Codex, and GPT were not trained on Werner and Modlin, Friedland, or the CAS Statements of Principles. They sound right for one prompt and then drift. The Workbench was trained on the frameworks an actuary signs against, and holds them across the full engagement.
-            </p>
-          </div>
-          <div class="lesson-tile reveal" data-reveal-delay="600">
-            <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
-            <p class="lesson-tile-eyebrow">Toolchain</p>
-            <p class="lesson-tile-title">VBA and Python only duct-tape the pain</p>
-            <p class="lesson-tile-body">
-              Internal Excel macros and Python notebooks stop the sharp pain. They don't survive a regulator's question, a model-risk review, or a year of staff turnover. The Workbench is the long-term substrate: typed, versioned, auditable, and not stranded with one analyst.
+              The Workbench holds context across the full pricing cycle: data ingest, factor fits, deployment, audit. Cloud AI is great for a single prompt; the Workbench is built for the multi-week workflow an actuary actually runs.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  {/* Time back, per workflow */}
-  <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-10">
-      <p class="eyebrow mb-5">Time back, per workflow</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6">
-        <div class="reveal">
-          <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            3 weeks <span class="text-[var(--color-oxblood)]">→</span> 10 min
-          </p>
-          <p class="mt-3 text-sm font-semibold text-[var(--fg)]">Rater from a competitor's filing.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Read the SERFF filing, reconstruct the rate plan, stand up a callable quoting API.</p>
-        </div>
-        <div class="md:border-l md:border-[var(--rule)] md:pl-6 reveal" data-reveal-delay="120">
-          <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            2 days <span class="text-[var(--color-oxblood)]">→</span> 5 min
-          </p>
-          <p class="mt-3 text-sm font-semibold text-[var(--fg)]">Loss-run normalization across carriers.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Five carriers, five formats, one normalized table.</p>
-        </div>
-        <div class="md:border-l md:border-[var(--rule)] md:pl-6 reveal" data-reveal-delay="240">
-          <p class="font-mono text-[1.5rem] leading-none tabular-nums text-[var(--fg)] tracking-tight">
-            1 week <span class="text-[var(--color-oxblood)]">→</span> 1 hr
-          </p>
-          <p class="mt-3 text-sm font-semibold text-[var(--fg)]">Rate-committee brief.</p>
-          <p class="mt-1 text-sm text-[var(--fg-muted)] leading-snug">Filing diffs, class-level trends, every claim cited.</p>
-        </div>
-      </div>
-      <p class="mt-6 text-xs text-[var(--fg-muted)] leading-relaxed max-w-[860px]">
-        Pilot benchmarks from specialty P&amp;C teams. Your Day-0 baseline is the only number we promise to beat.
-      </p>
     </div>
   </section>
 
@@ -239,7 +183,7 @@ const workflows: Workflow[] = [
         <ul class="md:col-span-7 flex flex-col gap-3 self-center">
           {w.outcomes.map((line) => (
             <li class="flex gap-3 items-start">
-              <span class="mt-[0.6rem] inline-block h-px w-5 bg-[var(--color-oxblood,#4338CA)]/70 flex-shrink-0" aria-hidden="true"></span>
+              <span class="mt-[0.6rem] inline-block h-px w-5 bg-[var(--color-oxblood,#B400FE)]/70 flex-shrink-0" aria-hidden="true"></span>
               <p class="text-[1rem] leading-[1.45] text-[var(--fg)]">{line}</p>
             </li>
           ))}
@@ -255,7 +199,7 @@ const workflows: Workflow[] = [
         <div class="md:col-span-5 reveal">
           <p class="eyebrow mb-3">FAQ</p>
           <h2 class="font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">
-            Frequently asked questions.
+            Frequently asked questions
           </h2>
         </div>
         <div class="md:col-span-7 reveal" data-reveal-delay="120">
