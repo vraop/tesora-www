@@ -12,10 +12,10 @@ import { u } from "../lib/url";
 const admittedHighlightNums = ["03", "04", "05", "07"];
 
 const admittedCapabilities = [
-  { label: "Filing diff", body: "Every competitor filing diffed against the prior version. Factor moves, schedule rating bands, base rates, surcharges. One view." },
-  { label: "Class trends", body: "Roll up filing moves to class-level trend signals. Contractor classes, telematics credits, replacement cost, ordinance and law." },
-  { label: "Loss-cost benchmarks", body: "Tesora ingests public bureau loss costs and competitor filings; you compare against your own book in plain English." },
-  { label: "Defensible briefs", body: "Briefings for rate committee and state DOI prep, with each claim cited back to the originating filing artifact." },
+  { label: "Reproducible competitive analysis", body: "Reconstruct competitor rate plans from public filings and run your book through them, apples to apples. Every step recorded, every input preserved." },
+  { label: "GLM development support", body: "Develop GLMs from your own data, or reverse-engineer a competitor GLM. Agents help with curve fitting, segmentation, and the defensibility memo." },
+  { label: "Rate filing assistance", body: "Help with the filing itself and with responses to objection letters. The full analysis trail is preserved for the regulator review." },
+  { label: "Multi-competitor comparison", body: "Run your book of exposures through multiple competitor rate plans in one pass, where the time used to be spent hunting filings and rebuilding them one by one." },
 ];
 ---
 
@@ -29,8 +29,8 @@ const admittedCapabilities = [
 
   <CinematicHero
     videoSrc={u("/video/research-loop.mp4")}
-    headline="Watch every filing. Defend every move."
-    deck="Filing-driven raters with SOX-grade audit. Every competitor SERFF filing parsed, classified, and diffed against your in-force book."
+    headline="Competitive analysis once thought unthinkable"
+    deck="Now done in minutes. Reconstruct competitor rate plans, run your book through them, and keep every input and output preserved for review."
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
     secondaryCta={{ label: "Non-admitted (E&S)", href: u("/non-admitted") }}
   />
@@ -38,12 +38,12 @@ const admittedCapabilities = [
   <section class="bg-[var(--bg)]">
     <div class="mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-24">
       <div class="md:col-span-6 self-center">
-        <p class="eyebrow mb-4">Admitted · Market intelligence</p>
+        <p class="eyebrow mb-4">Admitted carriers</p>
         <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em] text-[var(--fg)]">
-          Filing-driven raters.<br/>SOX-grade audit.
+          Transparency<br/>and reproducibility
         </h2>
         <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--fg-muted)] max-w-[520px]">
-          Admitted carriers in Commercial Auto, BOP, and Homeowners use Tesora to monitor what competitors actually file. Every change parsed, diffed against your in-force book, and tied back to the originating SERFF artifact.
+          Multi-competitor rate analysis used to mean days or weeks of hunting filings, reconstructing them, and running your book through each. Tesora runs it soup to nuts in one pass, with every input, analysis step, and output preserved.
         </p>
       </div>
 
@@ -60,17 +60,17 @@ const admittedCapabilities = [
   <section class="bg-[var(--bg)] border-t border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-5">
-        <p class="eyebrow mb-3">The reality on admitted desks</p>
+        <p class="eyebrow mb-3">Where the time goes</p>
         <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
-          The work isn't the math. It's the legacy.
+          Rate filings, GLMs, and competitive analysis
         </h2>
       </div>
       <div class="md:col-span-7">
         <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          The carriers who file the most often live in the deepest legacy. Pricing models built a decade ago that nobody wants to rerun. Data fields merged across five acquisitions and three CIOs. The rate manager isn't bottlenecked on Python; they're bottlenecked on the organizational gymnastics of getting clean data to it.
+          Admitted pricing teams spend their week on three things: drafting rate filings and answering objection letters, building or reverse-engineering GLMs from their own data, and the ad-hoc competitive analysis that follows every new public filing.
         </p>
         <p class="mt-4 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          Tesora sits beside that legacy without asking IT to throw any of it out. Read the filings, write the diffs, hand the rate manager a defensible memo. The mainframe keeps running. The work stops piling up.
+          Doing this work with a general-purpose AI is possible but slow, and the analysis is not reproducible weeks later. Tesora is an agentic harness for the same work, with every input, every analysis step, and every output preserved so the chief actuary can sign against it.
         </p>
       </div>
     </div>
@@ -79,9 +79,9 @@ const admittedCapabilities = [
   <section class="bg-[var(--bg-panel)] border-t border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10">
       <div class="md:col-span-4">
-        <p class="eyebrow mb-3">What the rate manager uses</p>
+        <p class="eyebrow mb-3">What the pricing team uses</p>
         <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
-          Capabilities an admitted-line team leans on weekly.
+          Capabilities the admitted pricing team leans on
         </h2>
       </div>
       <div class="md:col-span-8 grid md:grid-cols-2 gap-x-10 gap-y-6">

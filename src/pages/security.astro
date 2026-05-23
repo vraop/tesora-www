@@ -7,28 +7,16 @@ import { u } from "../lib/url";
 
 const compliance = [
   {
-    label: "SOC 2 Type II",
-    body: "Audited annually. Trust services criteria for security, availability, processing integrity, confidentiality. Report available under NDA.",
+    label: "SOC 2",
+    body: "Audited annually. Trust services criteria for security, availability, processing integrity, and confidentiality. Report available under NDA.",
   },
   {
     label: "SOX-aligned audit trail",
-    body: "Every change to a rate plan recorded with reviewer, timestamp, model version, and originating filing. Designed to survive a SOX walkthrough for carriers with public-company parents.",
+    body: "Every change to a rate plan is recorded with reviewer, timestamp, model version, and source. Designed to survive a SOX walkthrough for carriers with public-company parents.",
   },
   {
-    label: "ASOP 56 (Modeling)",
-    body: "Model governance, intended use, reliance, and limitations documented for every Tesora-touched model. Output suitable for inclusion in an actuarial work product.",
-  },
-  {
-    label: "ASOP 41 (Actuarial Communications)",
-    body: "Every quote, brief, and refit proposal carries an actuarial communication artifact, with assumptions and reliance disclosed.",
-  },
-  {
-    label: "ASOP 12 (Risk Classification)",
-    body: "Risk-classification systems reviewed against the homogeneity, credibility, and practicality tests laid out in ASOP 12.",
-  },
-  {
-    label: "NAIC Model Bulletin 2023-25",
-    body: "AI system governance, third-party AI documentation, and consumer-impact review aligned with the NAIC AI bulletin adopted across the state regulators.",
+    label: "Aligned with the actuarial standards",
+    body: "Built to support actuaries operating under the Actuarial Standards of Practice, the AAA/CAS/SOA Code of Professional Conduct, the US Qualification Standards, and the CAS Statements of Principles.",
   },
 ];
 
@@ -54,15 +42,15 @@ const dataPosture = [
     body: "Okta, Azure AD, Google Workspace integrations. Granular role-based access. Customer-controlled user provisioning.",
   },
   {
-    label: "SERFF lineage",
-    body: "Every value Tesora populates traces back to a specific page of a specific filing, preserved as a stable artifact reference.",
+    label: "Data source tracing",
+    body: "Every value Tesora populates traces back to the cell or page it came from. The provenance is preserved as a stable reference.",
   },
 ];
 ---
 
 <Layout
   title="Security · Tesora"
-  description="Tesora is SOC 2 Type II, SOX-aligned, ASOP 56/41/12 compliant, and built for the regulatory posture chief actuaries answer to."
+  description="Tesora is SOC 2 audited, SOX-aligned, and built to support actuaries operating under the Actuarial Standards of Practice and the broader compliance framework."
   canonical="/security"
   schemaType="WebPage"
 >
@@ -70,36 +58,17 @@ const dataPosture = [
 
   <CinematicHero
     videoSrc={u("/video/security-loop.mp4")}
-    headline="Built for the regulatory posture chief actuaries answer to."
-    deck="Specialty P&C is a regulated industry. Tesora is engineered for the standard of practice a chief actuary signs against, not the standard a SaaS vendor checks a box for."
+    headline="Built for one of the most heavily regulated industries"
+    deck="Tesora was built by actuaries who understand the regulatory frameworks, and serves people who operate under those frameworks every day."
     primaryCta={{ label: "Request a demo", href: "https://cal.com/team/tesora/quick-chat" }}
   />
-
-  <section class="bg-[var(--bg)] border-b border-[var(--rule)]">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16 grid md:grid-cols-12 gap-10 items-start">
-      <div class="md:col-span-5">
-        <p class="eyebrow mb-3">Why this page exists</p>
-        <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
-          Three audiences read the same audit trail.
-        </h2>
-      </div>
-      <div class="md:col-span-7">
-        <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          You're not the SOC 2 buyer. The rate committee that hears your brief is. The board your CFO answers to is. The state DOI reviewer who reads your filing is. Three different audiences, three different standards, one artifact that has to survive all of them.
-        </p>
-        <p class="mt-4 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          The posture below is the floor, not the pitch. SOC 2 for IT. ASOP 56 for the actuary. NAIC Model Bulletin for the regulator. The point isn't that any single audience cares about every line; it's that the same trail holds under all three.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
     <div class="grid md:grid-cols-12 gap-10 items-start mb-12">
       <div class="md:col-span-3 flex md:justify-start">
         <img
           src={u("/logos/soc2-badge.svg")}
-          alt="AICPA SOC 2 Type II"
+          alt="AICPA SOC 2"
           class="h-28 w-28 md:h-32 md:w-32"
           loading="lazy"
           decoding="async"
@@ -108,10 +77,10 @@ const dataPosture = [
       <div class="md:col-span-9">
         <p class="eyebrow mb-3">Compliance</p>
         <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em] max-w-[640px]">
-          SOC 2 Type II audited. SOX-ready. ASOP-aware.
+          SOC 2 audited, SOX-aligned, actuarial standards-aware
         </h2>
         <p class="mt-4 text-[1rem] leading-[1.6] text-[var(--fg-muted)] max-w-[640px]">
-          Tesora is audited annually against the AICPA SOC 2 Type II trust services criteria for security, availability, processing integrity, and confidentiality. Report available under mutual NDA.
+          Tesora is audited annually against the AICPA SOC 2 trust services criteria for security, availability, processing integrity, and confidentiality. Report available under mutual NDA.
         </p>
       </div>
     </div>
@@ -137,31 +106,15 @@ const dataPosture = [
     </dl>
   </section>
 
-  <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
-    <div class="grid md:grid-cols-12 gap-10 items-start">
-      <div class="md:col-span-5">
-        <p class="eyebrow mb-3">For IT and security teams</p>
-        <h2 class="font-semibold text-[1.875rem] leading-[1.15] tracking-[-0.01em]">
-          Effortless review, without lowering the bar.
-        </h2>
-      </div>
-      <div class="md:col-span-7">
-        <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          We have sat through enough vendor reviews to know where they stall. So we pre-package the answers. SIG Lite and CAIQ questionnaires filled out in advance. SOC 2 Type II report, pen-test summary, and architecture and data-flow diagrams ready under NDA. A named security contact on every account. The compliance posture above does not move. What moves is how fast your IT and security teams can sign off, so the actuaries can get back to pricing.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <section class="bg-[var(--bg-panel)] border-y border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-24">
       <div class="max-w-[760px]">
-        <p class="eyebrow mb-5">Deployment options</p>
+        <p class="eyebrow mb-5">Deployment</p>
         <h2 class="font-semibold text-[2rem] leading-[1.15] tracking-[-0.012em]">
-          Cloud-hosted by default. On-prem for carriers that require it.
+          On-prem or hosted in an isolated environment
         </h2>
         <p class="mt-5 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          Most carriers deploy Tesora in our hosted environment with full encryption and per-tenant isolation. For carriers with internal-only model policies, Tesora supports on-prem deployment with model inference in the carrier's own VPC. Same audit trail, same control plane, same agents.
+          Most carriers deploy Tesora in a hosted environment with full encryption and per-tenant isolation. For carriers with internal-only model policies, Tesora supports on-prem deployment with model inference in the carrier's own VPC. Same audit trail, same control plane, same agents.
         </p>
       </div>
     </div>

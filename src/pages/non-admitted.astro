@@ -11,13 +11,6 @@ import { u } from "../lib/url";
 // surface), and audit (every quote has a defensible trail).
 const esHighlightNums = ["03", "04", "06", "07"];
 
-const specialtyLines = [
-  { name: "Contractor's general liability", note: "Schedule rating without the vibes. Audit-true payroll exposure across the book." },
-  { name: "Excess casualty", note: "Layered tower pricing with cedant-specific loss data, not industry averages." },
-  { name: "Professional lines (E&O / D&O)", note: "Class-by-class severity curves, judicial-jurisdiction-aware, regulator-defensible coefficients." },
-  { name: "Cyber", note: "Risk classification informed by the insured's actual security posture, not a self-reported questionnaire." },
-  { name: "Transactional E&S (program business)", note: "Multi-class program raters reconstructed from filings and stood up in days, not quarters." },
-];
 ---
 
 <Layout
@@ -30,8 +23,8 @@ const specialtyLines = [
 
   <CinematicHero
     videoSrc={u("/video/customers-loop.mp4")}
-    headline="Quote E&S with conviction."
-    deck="Bind-ready pricing for specialty and E&S carriers. Submission triage, manuscript flex, deviation accounting. Quotes that land before the broker calls back."
+    headline="Quote E&S with conviction"
+    deck="From data to deployed rater, Tesora can help every step. Anomaly detection, curve fitting, SOX compliance, API deployment."
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
   />
 
@@ -40,10 +33,10 @@ const specialtyLines = [
       <div class="md:col-span-6 self-center">
         <p class="eyebrow mb-4">Specialty · E&amp;S</p>
         <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em] text-[var(--fg)]">
-          Quote in under 6 weeks,<br/>not six months.
+          New product to quote<br/>in 1 week, not 3 months
         </h2>
         <p class="mt-6 text-[1.0625rem] leading-[1.55] text-[var(--fg-muted)] max-w-[520px]">
-          Tesora ingests the submission, prices the risk, and leaves an audit trail the chief actuary can sign against. Every credit traces back to your own loss data.
+          Tesora puts the power back in the actuary's hands to manage their models, by handling the workflow and IT compliance burden that normally slows a new product launch to a crawl.
         </p>
       </div>
 
@@ -60,40 +53,18 @@ const specialtyLines = [
   <section class="bg-[var(--bg)] border-t border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-5">
-        <p class="eyebrow mb-3">The reality on the E&amp;S desk</p>
+        <p class="eyebrow mb-3">The E&amp;S actuary's day</p>
         <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
-          The submission shows up the way it always has.
+          The model is the bottleneck, not the math
         </h2>
       </div>
       <div class="md:col-span-7">
         <p class="text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          An email, an Excel, a schema nobody agreed to in advance, and a broker who needs the quote before lunch. The MGA on the other side has one credentialed actuary on staff, maybe two, and a stack of files that don't fit any textbook. About 5% of intake comes over an API. The rest is what the broker actually sent.
+          The credentialed actuary on an E&amp;S team owns the rate plan end to end. Standing up a new product, fitting curves to thin data, deploying a SOX-compliant rater, refitting when the loss experience shifts. The math is the easy part. The bottleneck is the workflow around it.
         </p>
         <p class="mt-4 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-          Tesora reads what the broker actually sent. Not a normalized version, not a version someone else cleaned. And it prices to the audit standard a chief actuary signs against. The portal can come later. The quote ships today.
+          Tesora is built so the actuary keeps owning the rate plan, with the workflow and IT compliance handled in the background. New products quote in a week, refits ship as a versioned model, and every input and output stays preserved for review.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-[var(--bg-panel)] border-t border-[var(--rule)]">
-    <div class="mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 px-6 md:px-10 py-20 md:py-24">
-      <div class="md:col-span-4">
-        <p class="eyebrow mb-3">Lines we serve</p>
-        <h2 class="font-semibold text-[1.75rem] leading-[1.15] tracking-[-0.01em]">
-          The lines that don't fit a textbook.
-        </h2>
-        <p class="mt-4 text-[0.9375rem] leading-[1.6] text-[var(--fg-muted)] max-w-[420px]">
-          Hard-to-rate exposures, multi-class programs, and chief actuaries who own the rate plan end to end.
-        </p>
-      </div>
-      <div class="md:col-span-8">
-        {specialtyLines.map((line) => (
-          <div class="border-t border-[var(--rule)] first:border-t-0 py-5">
-            <p class="font-semibold text-[1.0625rem]">{line.name}</p>
-            <p class="mt-1 text-[0.9375rem] leading-[1.55] text-[var(--fg-muted)]">{line.note}</p>
-          </div>
-        ))}
       </div>
     </div>
   </section>
