@@ -54,12 +54,12 @@ export const lifecycleStages: LifecycleStage[] = [
     id: "market-research",
     label: "Market Research",
     agent: "Insight",
-    title: "Bring any competitor analysis or Excel tools into structured intelligence in hours",
-    body: "Pull anything into a vault. SERFF filings, public rate manuals, internal Excel documents. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
+    title: "Read a competitor's filing in hours, not weeks",
+    body: "Pull SERFF filings, public rate manuals, and internal Excel files into one vault. The Insight Agent extracts factor tables, base rates, and rating algorithms into a queryable table so your team can diff filed material against your in-force book.",
     seo: {
       title: "SERFF Competitor Rate Filing Analysis · Tesora",
       h1: "Competitor rate filing analysis, in hours",
-      description: "Parse SERFF filings, diff them against your in-force book, and surface material rate changes. Tesora's ingestion agent turns competitor filings into structured intelligence for chief actuaries.",
+      description: "Parse SERFF filings, diff them against your in-force book, and surface material rate changes. The Insight Agent turns competitor filings into a queryable table for chief actuaries.",
     },
     report: {
       heading: "Rate filing diff: Carrier A",
@@ -120,12 +120,12 @@ export const lifecycleStages: LifecycleStage[] = [
     id: "loss-modeling",
     label: "Loss Modeling",
     agent: "Insight",
-    title: "Help existing teams fit factors",
-    body: "Use our analysis engine to fit factors to any data you bring into the platform. GLMs, credibility-weighted factors, segmentation studies, the whole curve-fitting toolbox.",
+    title: "Fit factors to your data, not someone else's",
+    body: "GLMs, credibility-weighted factors, segmentation studies, severity fits. The Insight Agent runs the assembly on the data you bring. You stay in charge of every decision.",
     seo: {
       title: "GLM Loss Modeling and Curve Fitting for Actuaries · Tesora",
       h1: "Loss modeling and curve fitting, audited end to end",
-      description: "GLMs, credibility weighting, severity fits, and segmentation studies on your data. Tesora's insight agent runs the assembly so actuaries stay in charge of every decision.",
+      description: "GLMs, credibility weighting, severity fits, and segmentation studies on your data. The Insight Agent runs the assembly so actuaries stay in charge of every decision.",
     },
     report: {
       heading: "Severity Fit: CGL, AY 2018–2024",
@@ -176,25 +176,25 @@ export const lifecycleStages: LifecycleStage[] = [
     followups: [
       { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
       { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses, show how the fit shifts." },
-      { title: "Advanced ML and statistics built in", body: "GLMs, box plots, and the rest of the toolkit are first-class. The agents do the math, you stay in charge." },
+      { title: "The full curve-fitting toolkit", body: "GLMs, box plots, severity fits, and the rest are first-class. The agents do the math. You stay in charge." },
       { title: "Visualize my segments", body: "Slice the fit by the largest class-code segments and visualize the differences." },
-      { title: "Fully transparent and reproducible", body: "All your data sources and analysis are retained for future review." },
+      { title: "Reproducible a year from now", body: "Every source file, factor selection, and review step is retained. Re-run the analysis a year later and get the same numbers." },
     ],
   },
   {
     id: "rating-deployment",
     label: "Rating Deployment",
     agent: "Rating",
-    title: "From Excel rater to live API, with a full audit trail",
-    body: "Source raters from internal Excel files or even external SERFF filings. The system will create your raters and deploy them however you want. Online GUI, API, or even another Excel file. Fully reproducible and traceable. SOX-compliant by design.",
+    title: "From Excel rater to live API, with a full audit log",
+    body: "Source raters from internal Excel files or external SERFF filings. The Rating Agent rebuilds the model and deploys it however you want: a callable pricing API, a GUI for underwriters, or a versioned Excel file. Author, reviewer, and approver are separate people. Every promotion is recorded.",
     seo: {
-      title: "SOX-Compliant Rating Engine and Rater Deployment · Tesora",
-      h1: "Deploy a SOX-compliant rater without waiting on IT",
-      description: "Source raters from SERFF filings or Excel. Deploy to a callable pricing API with versioning, regression tests, and separated author/reviewer/approver identities. SOX-compliant by design.",
+      title: "Rating Engine Deployment and Versioning · Tesora",
+      h1: "Deploy a rater without waiting on IT",
+      description: "Source raters from SERFF filings or Excel. Deploy to a callable pricing API with versioning, regression tests, and separate author, reviewer, and approver identities.",
     },
     report: {
       heading: "Rater Promotion: CGL v2.4 → v2.5",
-      intro: "Promoting v2.5 to production. SOX-grade controls. Author, reviewer, approver separated.",
+      intro: "Promoting v2.5 to production. Author, reviewer, and approver are separate people.",
       metrics: [
         { label: "Test cases", value: "38/38" },
         { label: "Avg Δ premium", value: "+2.8%" },
@@ -250,8 +250,8 @@ export const lifecycleStages: LifecycleStage[] = [
     id: "reserving",
     label: "Reserving",
     agent: "Insight",
-    title: "Reserving and analytics on the same data schema",
-    body: "Still in development. We are implementing a comprehensive list of reserving methods and data structures to support reserving actuaries.",
+    title: "Reserving on the same data schema as pricing",
+    body: "In development. Chain ladder, Bornhuetter-Ferguson, and Cape Cod methods, run side by side on the same triangle. The reserving actuary owns the selection. Shipping with our next release.",
     seo: {
       title: "Actuarial Reserving: Chain Ladder, Bornhuetter-Ferguson, Cape Cod · Tesora",
       h1: "Reserving on the same data schema as pricing",
@@ -259,7 +259,7 @@ export const lifecycleStages: LifecycleStage[] = [
     },
     report: {
       heading: "Indications: three method comparison",
-      intro: "Your assistant has completed the following indications. Would you like to dig deeper or make a selection?",
+      intro: "Three reserving methods run on the same triangle. Selection sits with the reserving actuary.",
       metrics: [
         { label: "Chain ladder", value: "$128.4M" },
         { label: "Bornhuetter-Ferguson", value: "$129.6M" },
@@ -285,8 +285,8 @@ export const lifecycleStages: LifecycleStage[] = [
         {
           kind: "callout",
           tone: "finding",
-          title: "Reminder",
-          body: "The ultimate power is in the user's hands. The assistant has surfaced three indications; the reserving actuary owns the selection.",
+          title: "Selection note",
+          body: "Three indications, tight 1.9% band. The Insight Agent surfaces the methods; the reserving actuary owns the selection.",
         },
       ],
     },
@@ -301,8 +301,8 @@ export const lifecycleStages: LifecycleStage[] = [
     id: "capital-reinsurance",
     label: "Capital + Reinsurance",
     agent: "Insight",
-    title: "Capital modeling and reinsurance program design",
-    body: "The same exposures and loss data that drive pricing and reserving also drive capital and reinsurance program design. PMLs, aggregate distributions, and reinsurance structure trade-offs on one data schema.",
+    title: "Capital and reinsurance on the same data schema",
+    body: "The exposures and loss data that drive pricing and reserving also drive capital and reinsurance program design. PMLs, aggregate loss distributions, and structure trade-offs simulated from your fitted severity and frequency models, not from a third-party cat vendor.",
     seo: {
       title: "Capital Modeling and Reinsurance Program Design · Tesora",
       h1: "Capital modeling and reinsurance program design",

@@ -31,9 +31,10 @@ const workflows: Workflow[] = [
   {
     num: "02",
     title: "Run the analyses",
-    body: "Trending, on-leveling, distribution fitting, GLMs, reserving. The math has been settled for decades. What slows the work is the assembly: finding the data, picking the right method, writing the memo. The Insight Agent handles the assembly so your work is reproducible for years while you stay in charge of every decision.",
+    body: "Trending, on-leveling, severity fits, GLMs. The math was settled decades ago. What slows the work is the assembly: finding the data, choosing the method, writing the memo. The Insight Agent handles the assembly. You stay in charge of every decision.",
     outcomes: [
-      "Trend, on-leveling, distribution fitting, GLMs",
+      "Trending, on-leveling, GLMs",
+      "Severity fits (lognormal, gamma, Weibull)",
       "XOL structuring, aggregate stop-loss, cession",
       "Reserving (chain-ladder, BF, Cape Cod) in development",
     ],
@@ -41,11 +42,11 @@ const workflows: Workflow[] = [
   {
     num: "03",
     title: "Audit and ship",
-    body: "A specialist audit agent regrades every analysis against a host of proprietary actuarial tests before it reaches you. Author, reviewer, and approver are recorded as separate identities. The audit trail follows the analysis through every promotion.",
+    body: "An audit agent regrades every analysis against a battery of actuarial tests before it reaches you. Author, reviewer, and approver are separate people. The audit log records every promotion.",
     outcomes: [
-      "Author, reviewer, approver as separate identities",
-      "Audit trail preserved across every promotion",
-      "Every workflow lands as a reviewable artifact",
+      "Author, reviewer, approver are separate people",
+      "Every promotion recorded with who, when, and what",
+      "Every memo is reviewable end to end",
     ],
   },
 ];
@@ -53,7 +54,7 @@ const workflows: Workflow[] = [
 
 <Layout
   title="Insight Agent · Tesora"
-  description="The Insight Agent ingests messy actuarial data, runs trending, on-leveling, distribution fitting, GLMs, and reserving, and ships analyses with a full audit trail. For chief actuaries at specialty P&C carriers and MGAs."
+  description="The Insight Agent ingests loss runs, SOVs, and SERFF filings, runs trending, on-leveling, severity fits, and GLMs, and ships every analysis with a recorded author, reviewer, and approver. For chief actuaries at specialty P&C carriers and MGAs."
   canonical="/agents/insight"
   schemaType="WebPage"
 >
@@ -62,7 +63,7 @@ const workflows: Workflow[] = [
   <CinematicHero
     videoSrc={u("/video/agents-loop.mp4")}
     headline="Analysis your reviewer can sign off on"
-    deck="The Insight Agent handles trending, on-leveling, distribution fitting, GLMs, and reserving. Every figure cites its source. Every promotion is recorded."
+    deck="The Insight Agent runs trending, on-leveling, severity fits, and GLMs. Every figure cites the cell it came from. Every promotion is recorded."
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
     secondaryCta={{ label: "How it works", href: "#workflow" }}
   />
@@ -80,7 +81,7 @@ const workflows: Workflow[] = [
           </h2>
         </div>
         <p class="md:col-span-7 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-          Most actuarial work below the deployed rater is some flavor of analysis. The Insight Agent covers the lifecycle from market research through capital and reinsurance, with the same audit trail across all of it.
+          Most actuarial work below the deployed rater is analysis. The Insight Agent covers market research, loss modeling, reserving, and capital and reinsurance. Same audit log across all four.
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-4">
@@ -115,7 +116,7 @@ const workflows: Workflow[] = [
         </div>
         <div class="md:col-span-7">
           <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
-            The actuary uses the Workbench. The interface is a chat window next to Excel, where the actuary can manipulate analyses, rating models, and Excel workbooks. The Insight Agent helps inside a framework called the harness. It is trained in actuarial science, the Actuarial Standards of Practice, and the qualification standards. In the end, every decision is up to the actuary.
+            The actuary uses the Workbench: a chat window next to Excel, where the actuary edits analyses, rating models, and workbooks directly. The Insight Agent works inside the harness, a framework that enforces citations, audit logs, and separation of duties. The agent is trained on actuarial science, the Actuarial Standards of Practice, and the qualification standards. Every decision is the actuary's.
           </p>
         </div>
       </div>
@@ -133,7 +134,7 @@ const workflows: Workflow[] = [
             Built for the multi-week pricing engagement
           </h2>
           <p class="mt-4 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
-            Claude, GPT, and Copilot are great for a single prompt. The Insight Agent is built for the multi-week analysis an actuary actually runs, with the syllabus, the standards, and the audit trail in place from the first message to the signed memo.
+            Claude, GPT, and Copilot are great for a single prompt. The Insight Agent is built for the multi-week analysis an actuary actually runs. Syllabus, standards, and audit log in place from the first message to the signed memo.
           </p>
         </div>
         <div class="md:col-span-7 grid md:grid-cols-2 gap-3 self-center">
@@ -148,9 +149,9 @@ const workflows: Workflow[] = [
           <div class="lesson-tile reveal" data-reveal-delay="120">
             <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
             <p class="lesson-tile-eyebrow">Citations</p>
-            <p class="lesson-tile-title">Citations or it didn't happen</p>
+            <p class="lesson-tile-title">Citations or it didn't ship</p>
             <p class="lesson-tile-body">
-              Every base rate, factor, credit, and trend traces back to the page and cell it came from. If the agent cannot cite it, it does not ship.
+              Every base rate, factor, credit, and trend traces to the page and cell it came from. If the agent cannot cite the value, the analysis does not ship.
             </p>
           </div>
           <div class="lesson-tile reveal" data-reveal-delay="240">
@@ -199,10 +200,10 @@ const workflows: Workflow[] = [
   <section class="border-t border-[var(--rule)] bg-[var(--bg-panel)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16 text-center">
       <h2 class="font-semibold text-[2rem] md:text-[2.5rem] leading-[1.1] tracking-[-0.015em] max-w-[680px] mx-auto">
-        Walk us through one of your reviews
+        Bring us any analysis
       </h2>
       <p class="mt-4 text-[1.125rem] leading-[1.6] text-[var(--fg-muted)] max-w-[560px] mx-auto">
-        Bring an in-flight pricing question. We will set up the Insight Agent on the relevant book and walk through one full analysis cycle with you.
+        An in-flight pricing question, a stale memo, a triangle you haven't gotten to. We set up the Insight Agent on the book and walk through one full cycle with you.
       </p>
       <div class="mt-8 flex flex-wrap gap-3 justify-center">
         <a href="https://cal.com/team/tesora/quick-chat" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium tracking-tight bg-[var(--color-oxblood)] text-white hover:opacity-90 transition-opacity rounded-full">
