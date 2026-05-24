@@ -172,7 +172,7 @@ const workflows: Workflow[] = [
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-12">
     {workflows.map((w, i) => (
       <article
-        id={w.num === "02" ? "rating" : w.num === "03" ? "insight" : undefined}
+        id={w.num === "02" ? "rating" : w.num === "03" ? "insight" : w.num === "04" ? "audit" : undefined}
         class="grid md:grid-cols-12 gap-8 md:gap-12 py-10 border-t border-[var(--rule)] first:border-t-0 scroll-mt-24 reveal"
       >
         <div class="md:col-span-5">

@@ -2,6 +2,7 @@
 type Agent = {
   name: string;
   scope: string;
+  href: string;
   controls: { label: string; value: string }[];
 };
 
@@ -9,6 +10,7 @@ const agents: Agent[] = [
   {
     name: "Insight",
     scope: "Trend, loss modeling, market research.",
+    href: "#insight",
     controls: [
       { label: "Standards", value: "Aligned" },
       { label: "Guardrails", value: "Strict" },
@@ -18,6 +20,7 @@ const agents: Agent[] = [
   {
     name: "Rating",
     scope: "Raters, factor tables, callable API.",
+    href: "#rating",
     controls: [
       { label: "Standards", value: "Aligned" },
       { label: "Reviewer", value: "Required" },
@@ -27,6 +30,7 @@ const agents: Agent[] = [
   {
     name: "Audit",
     scope: "Regrades analyses before they reach the actuary.",
+    href: "#audit",
     controls: [
       { label: "Mode", value: "Pre-review" },
       { label: "Tests", value: "Proprietary" },
@@ -36,6 +40,7 @@ const agents: Agent[] = [
   {
     name: "Reserving",
     scope: "Chain-ladder, BF, IBNR. In development.",
+    href: "#insight",
     controls: [
       { label: "Methods", value: "Selectable" },
       { label: "Standards", value: "Aligned" },
@@ -70,7 +75,7 @@ const agents: Agent[] = [
     <div class="hd-rail" aria-hidden="true"></div>
     <div class="hd-agents">
       {agents.map((a) => (
-        <article class="hd-agent">
+        <a class="hd-agent" href={a.href} aria-label={`${a.name} agent details`}>
           <span class="hd-strap" aria-hidden="true"></span>
           <header class="hd-agent-head">
             <span class="hd-agent-name">{a.name}</span>
@@ -85,7 +90,13 @@ const agents: Agent[] = [
               </li>
             ))}
           </ul>
-        </article>
+          <span class="hd-agent-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </span>
+        </a>
       ))}
     </div>
   </div>
@@ -208,10 +219,31 @@ const agents: Agent[] = [
   }
   .hd-agent {
     position: relative;
+    display: block;
     border: 1px solid var(--rule);
     border-radius: 10px;
     padding: 14px;
     background: var(--bg, #ffffff);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+  .hd-agent:hover {
+    border-color: color-mix(in oklab, #B400FE 35%, var(--rule));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px -10px color-mix(in oklab, #B400FE 35%, transparent);
+  }
+  .hd-agent:hover .hd-agent-arrow {
+    color: var(--color-oxblood, #B400FE);
+    transform: translateX(2px);
+  }
+  .hd-agent-arrow {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    color: var(--fg-muted, #888);
+    transition: color 200ms ease, transform 200ms ease;
+    line-height: 0;
   }
   .hd-strap {
     position: absolute;
