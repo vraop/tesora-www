@@ -20,7 +20,7 @@ import { u } from "../lib/url";
     fullHeight
   >
     <div class="agent-pills mt-12 w-full max-w-[920px] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 px-2">
-      <a href={u("/agents#loss-modeling")} class="agent-pill group" aria-label="Insight agent: loss modeling, trends, on-leveling">
+      <a href={u("/agents#insight")} class="agent-pill group" aria-label="Insight agent: loss modeling, trends, on-leveling">
         <span class="agent-pill__icon" aria-hidden="true">
           {/* trending line = insight / pricing */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
@@ -44,7 +44,7 @@ import { u } from "../lib/url";
         </span>
       </a>
 
-      <a href={u("/agents#rating-deployment")} class="agent-pill group" aria-label="Rating agent: raters, factor tables, callable pricing API">
+      <a href={u("/agents#rating")} class="agent-pill group" aria-label="Rating agent: raters, factor tables, callable pricing API">
         <span class="agent-pill__icon" aria-hidden="true">
           {/* stacked layers = factor tables / rating */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
@@ -113,7 +113,7 @@ import { u } from "../lib/url";
         gap: 10px;
       }
       .agent-pill__title {
-        font-size: 1.0625rem;
+        font-size: 1.1875rem;
         font-weight: 600;
         letter-spacing: -0.005em;
         line-height: 1.15;
@@ -126,9 +126,9 @@ import { u } from "../lib/url";
       }
       .agent-pill__sub {
         margin-top: 2px;
-        font-size: 0.8125rem;
-        color: rgba(239, 233, 217, 0.78);
-        line-height: 1.35;
+        font-size: 0.9375rem;
+        color: rgba(239, 233, 217, 0.82);
+        line-height: 1.4;
       }
       .agent-pill__arrow {
         flex: 0 0 auto;

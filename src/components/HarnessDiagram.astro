@@ -10,7 +10,7 @@ const agents: Agent[] = [
     name: "Insight",
     scope: "Trend, loss modeling, market research.",
     controls: [
-      { label: "ASOP", value: "56, 41, 12" },
+      { label: "Standards", value: "Aligned" },
       { label: "Guardrails", value: "Strict" },
       { label: "Data", value: "Tenant-scoped" },
     ],
@@ -19,17 +19,17 @@ const agents: Agent[] = [
     name: "Rating",
     scope: "Raters, factor tables, callable API.",
     controls: [
-      { label: "ASOP", value: "56, 12" },
+      { label: "Standards", value: "Aligned" },
       { label: "Reviewer", value: "Required" },
       { label: "Env", value: "Dev → Prod" },
     ],
   },
   {
     name: "Audit",
-    scope: "Regrades analyses against CAS principles.",
+    scope: "Regrades analyses before they reach the actuary.",
     controls: [
-      { label: "Mode", value: "Pre-committee" },
-      { label: "Standard", value: "CAS SOP" },
+      { label: "Mode", value: "Pre-review" },
+      { label: "Tests", value: "Proprietary" },
       { label: "Block", value: "On fail" },
     ],
   },
@@ -37,9 +37,9 @@ const agents: Agent[] = [
     name: "Reserving",
     scope: "Chain-ladder, BF, IBNR. In development.",
     controls: [
-      { label: "ASOP", value: "43" },
-      { label: "Method", value: "Selectable" },
-      { label: "Sign-off", value: "FCAS only" },
+      { label: "Methods", value: "Selectable" },
+      { label: "Standards", value: "Aligned" },
+      { label: "Sign-off", value: "Actuary" },
     ],
   },
 ];
@@ -91,7 +91,7 @@ const agents: Agent[] = [
   </div>
 
   <figcaption class="hd-caption">
-    The Workbench is the surface. The Harness is the substrate. Each agent has its own scope, controls, and audit trail.
+    The Workbench is what the actuary sees. The Harness holds the agents that work underneath. Each agent has its own scope, controls, and audit trail.
   </figcaption>
 </figure>
 
@@ -127,7 +127,7 @@ const agents: Agent[] = [
     border: 1px solid var(--rule);
     border-radius: 10px;
     padding: 14px 18px;
-    background: #ffffff;
+    background: var(--bg, #ffffff);
     display: flex;
     align-items: center;
     gap: 16px;
@@ -211,7 +211,7 @@ const agents: Agent[] = [
     border: 1px solid var(--rule);
     border-radius: 10px;
     padding: 14px;
-    background: #ffffff;
+    background: var(--bg, #ffffff);
   }
   .hd-strap {
     position: absolute;

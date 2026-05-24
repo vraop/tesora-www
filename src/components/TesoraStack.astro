@@ -21,16 +21,20 @@ export interface Props {
 
 const defaultLayers: Layer[] = [
   {
+    num: "01",
+    title: "Frontier LLMs",
+    body: "Best-in-class model selection per task. No model lock-in.",
+  },
+  {
     num: "02",
     title: "Agentic harness",
-    body: "The substrate that holds the agents. Workbench agents do the work; an audit agent regrades it. Every layer above runs inside it.",
+    body: "The framework that holds the agents. Workbench agents do the work; an audit agent regrades it. Every layer below runs inside it.",
     chip: "Tesora",
     children: [
-      { num: "01", title: "Frontier LLMs",             body: "Best-in-class model selection per task. No model lock-in." },
-      { num: "07", title: "Audit & governance",        body: "SOC 2 Type II, ASOP-aware, SOX-ready. Every artifact carries a citation.", chip: "Always-on" },
+      { num: "07", title: "Audit & governance",        body: "SOC 2 audited, SOX-aligned, actuarial standards-aware. Every artifact carries a citation.", chip: "Always-on" },
       { num: "06", title: "Workbench & interfaces",    body: "Pricing console, submissions queue, portfolio view. One model, every surface." },
-      { num: "05", title: "Pricing & rating engine",   body: "Versioned raters, dev to test to prod. Trauma studies before deploy." },
-      { num: "04", title: "Actuarial substrate",       body: "Typed graph of filings, raters, exposures, claims, quotes. One spine." },
+      { num: "05", title: "Pricing & rating engine",   body: "Versioned raters, dev to test to prod. Regression tests before deploy." },
+      { num: "04", title: "Data graph",                body: "Typed graph of filings, raters, exposures, claims, quotes." },
       { num: "03", title: "Filings & data ingestion",  body: "SERFF, loss runs, broker decks, schedules. Any format, normalized." },
     ],
   },
@@ -38,8 +42,8 @@ const defaultLayers: Layer[] = [
 
 const {
   eyebrow = "Tesora stack",
-  title = "The workbench, layer by layer.",
-  caption = "Filings to quote to reserves, on one substrate. Each layer is auditable and replaceable; the layers compound into a system the chief actuary can sign against.",
+  title = "The workbench, layer by layer",
+  caption = "Filings to quote to reserves, on one schema. Each layer is auditable and replaceable; the layers compound into a system a chief actuary can sign against.",
   layers = defaultLayers,
   highlightNums = [],
 } = Astro.props;
@@ -122,27 +126,27 @@ const isHighlighted = (n: string) => highlightNums.includes(n);
     border-bottom: 1px solid var(--ts-rule);
   }
   .tesora-stack__eyebrow {
-    font-size: 10px;
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: color-mix(in oklab, var(--ts-accent) 70%, var(--ts-muted));
   }
   .tesora-stack__title {
-    margin-top: 0.375rem;
-    font-size: 1.0625rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.25;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.008em;
   }
   .tesora-stack__chip {
     flex-shrink: 0;
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    padding: 0.25rem 0.5rem;
+    padding: 0.3rem 0.625rem;
     border-radius: 999px;
     background: color-mix(in oklab, var(--ts-accent) 12%, transparent);
     color: var(--ts-accent);
@@ -150,29 +154,29 @@ const isHighlighted = (n: string) => highlightNums.includes(n);
   }
 
   .tesora-stack__caption {
-    margin-top: 0.75rem;
-    font-size: 0.8125rem;
+    margin-top: 0.875rem;
+    font-size: 1rem;
     line-height: 1.55;
     color: var(--ts-muted);
   }
 
   .tesora-stack__layers {
     list-style: none;
-    margin: 1rem 0 0;
+    margin: 1.25rem 0 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
   }
   .tesora-stack__layer {
     position: relative;
     display: grid;
-    grid-template-columns: 34px 1fr auto;
+    grid-template-columns: 48px 1fr auto;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.625rem 0.75rem;
+    gap: 1rem;
+    padding: 1rem 1.125rem;
     border: 1px solid var(--ts-rule);
-    border-radius: 10px;
+    border-radius: 12px;
     background: color-mix(in oklab, var(--ts-accent) 3%, var(--ts-bg));
     transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
   }
@@ -189,36 +193,38 @@ const isHighlighted = (n: string) => highlightNums.includes(n);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 26px;
-    border-radius: 7px;
+    min-width: 48px;
+    height: 36px;
+    padding: 0 0.5rem;
+    border-radius: 8px;
     font-family: var(--font-mono);
-    font-size: 10.5px;
+    font-size: 0.9375rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     background: color-mix(in oklab, var(--ts-accent) 14%, transparent);
     color: var(--ts-accent);
     border: 1px solid color-mix(in oklab, var(--ts-accent) 24%, transparent);
   }
   .tesora-stack__body { min-width: 0; }
   .tesora-stack__layer-title {
-    font-size: 0.9375rem;
+    font-size: 1.125rem;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.005em;
   }
   .tesora-stack__layer-body {
-    margin-top: 2px;
-    font-size: 0.8125rem;
-    line-height: 1.45;
+    margin-top: 4px;
+    font-size: 1rem;
+    line-height: 1.5;
     color: var(--ts-muted);
   }
   .tesora-stack__layer-chip {
     flex-shrink: 0;
-    font-size: 10px;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.625rem;
     border-radius: 999px;
     background: color-mix(in oklab, var(--ts-accent) 10%, transparent);
     color: color-mix(in oklab, var(--ts-accent) 70%, var(--ts-fg));
