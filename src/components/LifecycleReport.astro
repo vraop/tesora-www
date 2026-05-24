@@ -1,35 +1,6 @@
 ---
-export interface ChartBlock {
-  kind: "chart";
-  title: string;
-  caption?: string;
-  bars: { label: string; value: number; display?: string }[];
-}
-export interface TableBlock {
-  kind: "table";
-  title?: string;
-  columns: string[];
-  rows: string[][];
-}
-export interface CalloutBlock {
-  kind: "callout";
-  tone?: "info" | "finding" | "warn";
-  title: string;
-  body: string;
-}
-export interface ProseBlock {
-  kind: "prose";
-  title?: string;
-  body: string;
-}
-export type ReportBlock = ChartBlock | TableBlock | CalloutBlock | ProseBlock;
-
-export interface ReportData {
-  heading: string;
-  intro: string;
-  metrics: { label: string; value: string }[];
-  blocks: ReportBlock[];
-}
+import type { ReportData } from "../data/lifecycle-stages";
+export type { ReportData } from "../data/lifecycle-stages";
 const { report } = Astro.props as { report: ReportData };
 ---
 

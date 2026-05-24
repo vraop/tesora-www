@@ -36,6 +36,7 @@ type Workflow = { num: string; agent?: string; title: string; body: string; outc
 const workflows: Workflow[] = [
   {
     num: "01",
+    agent: "Ingestion agent",
     title: "Don't fear messy data",
     body: "Loss runs, SOVs, exposure files, and rate manuals come in five formats from five carriers. Tesora reads any of them and hands back one normalized table with every value cited to the cell it came from.",
     outcomes: [
