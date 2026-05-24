@@ -91,20 +91,25 @@ const priorResearch = [
         </div>
       </div>
       <div class="grid grid-cols-2 gap-10 md:gap-16 items-center max-w-[640px] mx-auto">
-        {[
-          { slug: "y-combinator", alt: "Y Combinator S25", h: 36 },
-          { slug: "foundation-capital", alt: "Foundation Capital", h: 36 },
-        ].map((inv) => (
-          <div class="flex items-center justify-center py-2">
-            <img
-              src={u(`/logos/${inv.slug}.svg`)}
-              alt={inv.alt}
-              style={`height: ${inv.h}px; filter: var(--logo-filter);`}
-              class="w-auto opacity-80 hover:opacity-100 transition-opacity"
-              loading="lazy"
-            />
-          </div>
-        ))}
+        <div class="flex items-center justify-center gap-3 py-2">
+          <img
+            src={u(`/logos/y-combinator.svg`)}
+            alt="Y Combinator S25"
+            style="height: 36px; filter: var(--logo-filter);"
+            class="w-auto opacity-80 hover:opacity-100 transition-opacity"
+            loading="lazy"
+          />
+          <span class="text-[1.0625rem] font-semibold tracking-tight text-[var(--fg)] opacity-85">Y Combinator <span class="text-[var(--fg-muted)] font-normal">S25</span></span>
+        </div>
+        <div class="flex items-center justify-center py-2">
+          <img
+            src={u(`/logos/foundation-capital.svg`)}
+            alt="Foundation Capital"
+            style="height: 32px; filter: var(--logo-filter);"
+            class="w-auto opacity-80 hover:opacity-100 transition-opacity"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
