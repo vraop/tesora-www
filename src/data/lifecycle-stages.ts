@@ -176,7 +176,7 @@ export const lifecycleStages: LifecycleStage[] = [
     followups: [
       { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
       { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses, show how the fit shifts." },
-      { title: "Advanced ML and statistics built in", body: "Whether building GLMs or doing a simple box plot, agents are trained and eager to help." },
+      { title: "Advanced ML and statistics built in", body: "GLMs, box plots, and the rest of the toolkit are first-class. The agents do the math, you stay in charge." },
       { title: "Visualize my segments", body: "Slice the fit by the largest class-code segments and visualize the differences." },
       { title: "Fully transparent and reproducible", body: "All your data sources and analysis are retained for future review." },
     ],

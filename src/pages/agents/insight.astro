@@ -1,0 +1,210 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CinematicHero from "../../components/CinematicHero.astro";
+import HarnessDiagram from "../../components/HarnessDiagram.astro";
+import { lifecycleStages } from "../../data/lifecycle-stages";
+import { u } from "../../lib/url";
+
+const stages = lifecycleStages.filter((s) => s.agent === "Insight");
+
+type Workflow = { num: string; title: string; body: string; outcomes: string[] };
+const workflows: Workflow[] = [
+  {
+    num: "01",
+    title: "Read the data, all of it",
+    body: "Loss runs, SOVs, exposure files, prior memos, and SERFF filings come in five formats from five carriers. The Insight Agent reads them and hands back one normalized table with every value cited to the cell it came from.",
+    outcomes: [
+      "PDF, Excel, CSV, Word, email attachments",
+      "Auto-classified and anomaly-checked",
+      "Every value cites its source",
+    ],
+  },
+  {
+    num: "02",
+    title: "Run the analyses",
+    body: "Trending, on-leveling, distribution fitting, GLMs, reserving. The math has been settled for decades. What slows the work is the assembly: finding the data, picking the right method, writing the memo. The Insight Agent handles the assembly so your work is reproducible for years while you stay in charge of every decision.",
+    outcomes: [
+      "Trend, on-leveling, distribution fitting, GLMs",
+      "XOL structuring, aggregate stop-loss, cession",
+      "Reserving (chain-ladder, BF, Cape Cod) in development",
+    ],
+  },
+  {
+    num: "03",
+    title: "Audit and ship",
+    body: "A specialist audit agent regrades every analysis against a host of proprietary actuarial tests before it reaches you. Author, reviewer, and approver are recorded as separate identities. The audit trail follows the analysis through every promotion.",
+    outcomes: [
+      "Author, reviewer, approver as separate identities",
+      "Audit trail preserved across every promotion",
+      "Every workflow lands as a reviewable artifact",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Insight Agent · Tesora"
+  description="The Insight Agent ingests messy actuarial data, runs trending, on-leveling, distribution fitting, GLMs, and reserving, and ships analyses with a full audit trail. For chief actuaries at specialty P&C carriers and MGAs."
+  canonical="/agents/insight"
+  schemaType="WebPage"
+>
+  <Header variant="transparent" />
+
+  <CinematicHero
+    videoSrc={u("/video/agents-loop.mp4")}
+    headline="Analysis your reviewer can sign off on"
+    deck="The Insight Agent handles trending, on-leveling, distribution fitting, GLMs, and reserving. Every figure cites its source. Every promotion is recorded."
+    primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
+    secondaryCta={{ label: "How it works", href: "#workflow" }}
+  />
+
+  {/* Stages this agent covers */}
+  <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-10 mb-10">
+        <div class="md:col-span-5">
+          <p class="eyebrow mb-3">Stages it covers</p>
+          <h2 class="font-semibold text-[2.25rem] md:text-[2.5rem] leading-[1.1] tracking-[-0.015em]">
+            Four stages of the pricing cycle, one agent
+          </h2>
+        </div>
+        <p class="md:col-span-7 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
+          Most actuarial work below the deployed rater is some flavor of analysis. The Insight Agent covers the lifecycle from market research through capital and reinsurance, with the same audit trail across all of it.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        {stages.map((s) => (
+          <a
+            href={u(`/agents/${s.id}`)}
+            class="group block border border-[var(--rule)] rounded-lg p-6 hover:border-[var(--color-oxblood)]/50 transition-colors bg-[var(--bg-panel)]"
+          >
+            <p class="eyebrow mb-2">{s.label}</p>
+            <p class="font-semibold text-[1.125rem] leading-[1.3] tracking-[-0.005em] group-hover:text-[var(--color-oxblood)] transition-colors">
+              {s.title}
+            </p>
+            <p class="mt-2 text-[0.9375rem] leading-[1.5] text-[var(--fg-muted)] line-clamp-3">
+              {s.body}
+            </p>
+            <p class="mt-4 text-sm text-[var(--color-oxblood)] font-medium">See the stage →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Workbench / Harness */}
+  <section id="harness" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-14 items-start mb-12">
+        <div class="md:col-span-5">
+          <p class="eyebrow mb-3">How it works</p>
+          <h2 class="font-semibold text-[2.5rem] md:text-[2.875rem] leading-[1.05] tracking-[-0.018em]">
+            The Workbench, with a harness underneath
+          </h2>
+        </div>
+        <div class="md:col-span-7">
+          <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
+            The actuary uses the Workbench. The interface is a chat window next to Excel, where the actuary can manipulate analyses, rating models, and Excel workbooks. The Insight Agent helps inside a framework called the harness. It is trained in actuarial science, the Actuarial Standards of Practice, and the qualification standards. In the end, every decision is up to the actuary.
+          </p>
+        </div>
+      </div>
+      <HarnessDiagram />
+    </div>
+  </section>
+
+  {/* Why a workbench */}
+  <section id="different" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
+      <div class="grid md:grid-cols-12 gap-8">
+        <div class="md:col-span-5 reveal">
+          <p class="eyebrow mb-3">Built for actuaries</p>
+          <h2 class="font-semibold text-[2.5rem] md:text-[2.875rem] leading-[1.05] tracking-[-0.018em]">
+            Built for the multi-week pricing engagement
+          </h2>
+          <p class="mt-4 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
+            Claude, GPT, and Copilot are great for a single prompt. The Insight Agent is built for the multi-week analysis an actuary actually runs, with the syllabus, the standards, and the audit trail in place from the first message to the signed memo.
+          </p>
+        </div>
+        <div class="md:col-span-7 grid md:grid-cols-2 gap-3 self-center">
+          <div class="lesson-tile reveal" data-reveal-delay="0">
+            <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
+            <p class="lesson-tile-eyebrow">Syllabus</p>
+            <p class="lesson-tile-title">Trained on CAS syllabus materials</p>
+            <p class="lesson-tile-body">
+              The model knows the terminology and the conventions before it touches your book. CAS-credentialed P&amp;C teams today; SOA and IFoA next.
+            </p>
+          </div>
+          <div class="lesson-tile reveal" data-reveal-delay="120">
+            <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
+            <p class="lesson-tile-eyebrow">Citations</p>
+            <p class="lesson-tile-title">Citations or it didn't happen</p>
+            <p class="lesson-tile-body">
+              Every base rate, factor, credit, and trend traces back to the page and cell it came from. If the agent cannot cite it, it does not ship.
+            </p>
+          </div>
+          <div class="lesson-tile reveal" data-reveal-delay="240">
+            <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
+            <p class="lesson-tile-eyebrow">Audit</p>
+            <p class="lesson-tile-title">Audited before the user sees it</p>
+            <p class="lesson-tile-body">
+              Audit agents regrade every analysis before it reaches the actuary. Author, reviewer, and approver are separate. Every promotion is recorded.
+            </p>
+          </div>
+          <div class="lesson-tile reveal" data-reveal-delay="360">
+            <div class="lesson-tile-icon" aria-hidden="true"><span class="lesson-tile-dot"></span></div>
+            <p class="lesson-tile-eyebrow">Context</p>
+            <p class="lesson-tile-title">Holds context across the full cycle</p>
+            <p class="lesson-tile-body">
+              The Workbench remembers the data, the assumptions, and the decisions across the full pricing cycle. Built for a multi-week engagement, not a single prompt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Workflow */}
+  <section id="workflow" class="mx-auto max-w-[1180px] px-6 md:px-10 py-12 scroll-mt-24">
+    {workflows.map((w) => (
+      <article class="grid md:grid-cols-12 gap-8 md:gap-12 py-10 border-t border-[var(--rule)] first:border-t-0 scroll-mt-24 reveal">
+        <div class="md:col-span-5">
+          <p class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase">{w.num}</p>
+          <h2 class="mt-1 font-semibold text-[2rem] md:text-[2.25rem] leading-[1.1] tracking-[-0.015em]">{w.title}</h2>
+          <p class="mt-3 text-[1.125rem] leading-[1.55] text-[var(--fg-muted)]">{w.body}</p>
+        </div>
+        <ul class="md:col-span-7 flex flex-col gap-3 self-center">
+          {w.outcomes.map((line) => (
+            <li class="flex gap-3 items-start">
+              <span class="mt-[0.6rem] inline-block h-px w-5 bg-[var(--color-oxblood,#B400FE)]/70 flex-shrink-0" aria-hidden="true"></span>
+              <p class="text-[1.125rem] leading-[1.5] text-[var(--fg)]">{line}</p>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
+
+  {/* CTA */}
+  <section class="border-t border-[var(--rule)] bg-[var(--bg-panel)]">
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16 text-center">
+      <h2 class="font-semibold text-[2rem] md:text-[2.5rem] leading-[1.1] tracking-[-0.015em] max-w-[680px] mx-auto">
+        Walk us through one of your reviews
+      </h2>
+      <p class="mt-4 text-[1.125rem] leading-[1.6] text-[var(--fg-muted)] max-w-[560px] mx-auto">
+        Bring an in-flight pricing question. We will set up the Insight Agent on the relevant book and walk through one full analysis cycle with you.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <a href="https://cal.com/team/tesora/quick-chat" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium tracking-tight bg-[var(--color-oxblood)] text-white hover:opacity-90 transition-opacity rounded-full">
+          Request a walkthrough
+        </a>
+        <a href={u("/agents/rating")} class="inline-flex items-center text-sm font-medium tracking-tight text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors px-5 py-2.5">
+          See the Rating Agent →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
