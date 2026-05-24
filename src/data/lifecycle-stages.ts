@@ -251,7 +251,7 @@ export const lifecycleStages: LifecycleStage[] = [
     label: "Reserving",
     agent: "Insight",
     title: "Reserving on the same data schema as pricing",
-    body: "In development. Chain ladder, Bornhuetter-Ferguson, and Cape Cod methods, run side by side on the same triangle. The reserving actuary owns the selection. Shipping with our next release.",
+    body: "Chain ladder, Bornhuetter-Ferguson, and Cape Cod methods, run side by side on the same triangle. The reserving actuary owns the selection.",
     seo: {
       title: "Actuarial Reserving: Chain Ladder, Bornhuetter-Ferguson, Cape Cod · Tesora",
       h1: "Reserving on the same data schema as pricing",
