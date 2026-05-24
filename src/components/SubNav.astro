@@ -1,0 +1,65 @@
+---
+// Stripe-style contextual sub-nav: section label on the left, sibling links
+// on the right. Sits below the floating capsule header.
+import { u } from "../lib/url";
+
+export interface SubNavLink {
+  label: string;
+  href: string;
+  active?: boolean;
+  external?: boolean;
+}
+
+export interface Props {
+  sectionLabel: string;
+  sectionHref?: string;
+  links: SubNavLink[];
+}
+
+const { sectionLabel, sectionHref, links } = Astro.props;
+---
+
+<div class="subnav border-b border-[var(--rule)] bg-[var(--bg)]">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10 flex items-center justify-between gap-6 h-12 md:h-14">
+    {sectionHref ? (
+      <a
+        href={sectionHref}
+        class="font-semibold text-[0.9375rem] tracking-tight text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors flex-shrink-0"
+      >
+        {sectionLabel}
+      </a>
+    ) : (
+      <span class="font-semibold text-[0.9375rem] tracking-tight text-[var(--fg)] flex-shrink-0">
+        {sectionLabel}
+      </span>
+    )}
+
+    <nav class="flex items-center gap-5 md:gap-7 overflow-x-auto text-[0.875rem] font-medium tracking-tight whitespace-nowrap">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          target={l.external ? "_blank" : undefined}
+          rel={l.external ? "noopener" : undefined}
+          class:list={[
+            "transition-colors",
+            l.active
+              ? "text-[var(--color-oxblood)]"
+              : "text-[var(--fg)] hover:text-[var(--color-oxblood)]",
+          ]}
+        >
+          {l.label}
+          {l.external && (
+            <span aria-hidden="true" class="inline-block ml-0.5 -translate-y-px text-[0.75em]">↗</span>
+          )}
+        </a>
+      ))}
+    </nav>
+  </div>
+</div>
+
+<style>
+  .subnav {
+    /* Sit clear of the floating capsule header. */
+    padding-top: env(safe-area-inset-top, 0);
+  }
+</style>

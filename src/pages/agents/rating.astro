@@ -4,10 +4,17 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import CinematicHero from "../../components/CinematicHero.astro";
 import HarnessDiagram from "../../components/HarnessDiagram.astro";
+import SubNav from "../../components/SubNav.astro";
 import { lifecycleStages } from "../../data/lifecycle-stages";
 import { u } from "../../lib/url";
 
 const ratingStage = lifecycleStages.find((s) => s.id === "rating-deployment")!;
+
+const subnavLinks = [
+  { label: "Overview", href: u("/agents/rating"), active: true },
+  { label: ratingStage.label, href: u(`/agents/${ratingStage.id}`) },
+  { label: "Insight Agent", href: u("/agents/insight") },
+];
 
 type Workflow = { num: string; title: string; body: string; outcomes: string[] };
 const workflows: Workflow[] = [
@@ -59,6 +66,8 @@ const workflows: Workflow[] = [
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
     secondaryCta={{ label: "How it works", href: "#workflow" }}
   />
+
+  <SubNav sectionLabel="Rating Agent" sectionHref={u("/agents/rating")} links={subnavLinks} />
 
   {/* Stage this agent covers */}
   <section class="border-b border-[var(--rule)] bg-[var(--bg)]">
