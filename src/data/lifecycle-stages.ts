@@ -32,9 +32,12 @@ export interface ReportData {
 
 export type Followup = { title: string; body: string };
 
+export type AgentName = "Insight" | "Rating";
+
 export type LifecycleStage = {
   id: string;
   label: string;
+  agent: AgentName;
   title: string;
   body: string;
   report: ReportData;
@@ -50,6 +53,7 @@ export const lifecycleStages: LifecycleStage[] = [
   {
     id: "market-research",
     label: "Market Research",
+    agent: "Insight",
     title: "Bring any competitor analysis or Excel tools into structured intelligence in hours",
     body: "Pull anything into a vault. SERFF filings, public rate manuals, internal Excel documents. The agent extracts factor tables, base rates, and rating algorithms into structured, queryable artifacts so your team can review filed material quickly and consistently.",
     seo: {
@@ -115,6 +119,7 @@ export const lifecycleStages: LifecycleStage[] = [
   {
     id: "loss-modeling",
     label: "Loss Modeling",
+    agent: "Insight",
     title: "Help existing teams fit factors",
     body: "Use our analysis engine to fit factors to any data you bring into the platform. GLMs, credibility-weighted factors, segmentation studies, the whole curve-fitting toolbox.",
     seo: {
@@ -179,6 +184,7 @@ export const lifecycleStages: LifecycleStage[] = [
   {
     id: "rating-deployment",
     label: "Rating Deployment",
+    agent: "Rating",
     title: "From Excel rater to live API, with a full audit trail",
     body: "Source raters from internal Excel files or even external SERFF filings. The system will create your raters and deploy them however you want. Online GUI, API, or even another Excel file. Fully reproducible and traceable. SOX-compliant by design.",
     seo: {
@@ -243,6 +249,7 @@ export const lifecycleStages: LifecycleStage[] = [
   {
     id: "reserving",
     label: "Reserving",
+    agent: "Insight",
     title: "Reserving and analytics on the same data schema",
     body: "Still in development. We are implementing a comprehensive list of reserving methods and data structures to support reserving actuaries.",
     seo: {
@@ -293,6 +300,7 @@ export const lifecycleStages: LifecycleStage[] = [
   {
     id: "capital-reinsurance",
     label: "Capital + Reinsurance",
+    agent: "Insight",
     title: "Capital modeling and reinsurance program design",
     body: "The same exposures and loss data that drive pricing and reserving also drive capital and reinsurance program design. PMLs, aggregate distributions, and reinsurance structure trade-offs on one data schema.",
     seo: {

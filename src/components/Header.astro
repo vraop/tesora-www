@@ -1,5 +1,6 @@
 ---
 import { u } from "../lib/url";
+import { lifecycleStages } from "../data/lifecycle-stages";
 
 export interface Props {
   variant?: "light" | "transparent";
@@ -7,6 +8,25 @@ export interface Props {
 const { variant = "light" } = Astro.props;
 
 const agentsHref = u("/agents");
+
+const agentsMenu = [
+  {
+    label: "Insight Agent",
+    sub: "Loss modeling, trends, market research.",
+    href: u("/agents/loss-modeling"),
+  },
+  {
+    label: "Rating Agent",
+    sub: "Base rates, factors, ILFs, callable pricing API.",
+    href: u("/agents/rating-deployment"),
+  },
+];
+
+const lifecycleMenu = lifecycleStages.map((s) => ({
+  label: s.label,
+  sub: s.seo.description.split(".")[0] + ".",
+  href: u(`/agents/${s.id}`),
+}));
 
 const customersMenu = [
   {
@@ -73,7 +93,61 @@ const panelTextClass =
     <a href={u("/")} class="font-semibold text-base tracking-tight">Tesora</a>
 
     <nav class="hidden md:flex items-center gap-8">
-      <a href={agentsHref} class="hover:text-[var(--color-oxblood)] transition-colors">Agents</a>
+      <div class="relative" data-menu>
+        <button
+          type="button"
+          class="inline-flex items-center gap-1 hover:text-[var(--color-oxblood)] transition-colors"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-menu-toggle
+        >
+          Agents
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <polyline points="2,4 5,7 8,4" />
+          </svg>
+        </button>
+        <div
+          class={`absolute left-0 top-full mt-3 w-[560px] p-3 ${panelBgClass} ${panelTextClass} shadow-xl rounded-sm hidden grid grid-cols-2 gap-2`}
+          data-menu-panel
+        >
+          <div class="absolute inset-x-0 -top-3 h-3" aria-hidden="true"></div>
+          <div>
+            <p class="px-3 pt-1 pb-2 text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--fg-muted)]">By agent</p>
+            {agentsMenu.map((item) => (
+              <a
+                href={item.href}
+                class="block px-3 py-2.5 rounded-sm hover:bg-[var(--color-oxblood)]/8 group transition-colors"
+              >
+                <p class="font-semibold text-[0.9375rem] leading-tight group-hover:text-[var(--color-oxblood)] transition-colors">
+                  {item.label}
+                </p>
+                <p class="mt-0.5 text-[0.8125rem] leading-snug text-[var(--fg-muted)]">
+                  {item.sub}
+                </p>
+              </a>
+            ))}
+            <a
+              href={agentsHref}
+              class="block px-3 py-2 mt-1 rounded-sm text-[0.8125rem] text-[var(--fg-muted)] hover:text-[var(--color-oxblood)] transition-colors"
+            >
+              All agents →
+            </a>
+          </div>
+          <div>
+            <p class="px-3 pt-1 pb-2 text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--fg-muted)]">By lifecycle stage</p>
+            {lifecycleMenu.map((item) => (
+              <a
+                href={item.href}
+                class="block px-3 py-1.5 rounded-sm hover:bg-[var(--color-oxblood)]/8 group transition-colors"
+              >
+                <p class="font-semibold text-[0.875rem] leading-tight group-hover:text-[var(--color-oxblood)] transition-colors">
+                  {item.label}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <div class="relative" data-menu>
         <button
@@ -194,7 +268,16 @@ const panelTextClass =
     class="md:hidden hidden mt-2 mx-4 sm:mx-6 rounded-2xl border border-[var(--rule)] bg-[var(--bg)]/95 backdrop-blur-xl shadow-lg shadow-black/10"
   >
     <nav class="px-5 py-4 flex flex-col gap-1 text-base">
-      <a href={agentsHref} class="block py-2 text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors">Agents</a>
+      <p class="text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)]">Agents</p>
+      {agentsMenu.map((item) => (
+        <a
+          href={item.href}
+          class="block py-2 text-[var(--fg)] hover:text-[var(--color-oxblood)] transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href={agentsHref} class="block py-2 text-[var(--fg-muted)] hover:text-[var(--color-oxblood)] transition-colors text-sm">All agents →</a>
       <p class="mt-3 text-xs uppercase tracking-[0.18em] text-[var(--fg-muted)]">Customers</p>
       {customersMenu.map((item) => (
         <a
