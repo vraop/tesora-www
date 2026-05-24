@@ -60,7 +60,7 @@ const isHighlighted = (n: string) => highlightNums.includes(n);
     <span class="tesora-stack__chip" aria-hidden="true">Agentic OS</span>
   </div>
 
-  <p class="tesora-stack__caption">{caption}</p>
+  {caption && <p class="tesora-stack__caption">{caption}</p>}
 
   <ol class="tesora-stack__layers" aria-label="Tesora stack">
     {layers.map((l) => l.children && l.children.length > 0 ? (
