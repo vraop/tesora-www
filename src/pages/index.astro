@@ -19,8 +19,8 @@ import { u } from "../lib/url";
     deck="The Tesora Workbench helps actuaries work faster, with a reproducible audit trail. Platform-agnostic, it supplements the way your team already works."
     fullHeight
   >
-    <div class="agent-pills mt-12 w-full max-w-[920px] flex flex-col gap-4 md:gap-5 px-2">
-      <a href={u("/agents")} class="agent-pill agent-pill--primary group" aria-label="The Tesora Harness: how the agents work, audited end to end">
+    <div class="agent-pills mt-12 w-full max-w-[560px] mx-auto flex flex-col gap-4 md:gap-5 px-2">
+      <a href={u("/agents")} class="agent-pill group" aria-label="The Tesora Harness: how the agents work, audited end to end">
         <span class="agent-pill__icon" aria-hidden="true">
           {/* harness / framework lines */}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
@@ -43,56 +43,6 @@ import { u } from "../lib/url";
           </svg>
         </span>
       </a>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-      <a href={u("/agents/insight")} class="agent-pill group" aria-label="Insight agent: loss modeling, GLMs, curve fitting">
-        <span class="agent-pill__icon" aria-hidden="true">
-          {/* trending line = insight / pricing */}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-            <path d="M3 3v18h18" />
-            <path d="m6 15 4-4 4 3 6-7" />
-            <path d="M14 7h6v6" />
-          </svg>
-        </span>
-        <span class="agent-pill__body">
-          <span class="agent-pill__title-row">
-            <span class="agent-pill__title">Insight</span>
-            <span class="agent-pill__tag">AGENT</span>
-          </span>
-          <span class="agent-pill__sub">Loss modeling, trends, market research.</span>
-        </span>
-        <span class="agent-pill__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-            <path d="M5 12h14" />
-            <path d="m13 6 6 6-6 6" />
-          </svg>
-        </span>
-      </a>
-
-      <a href={u("/agents/rating")} class="agent-pill group" aria-label="Rating agent: raters, factor tables, callable pricing API">
-        <span class="agent-pill__icon" aria-hidden="true">
-          {/* stacked layers = factor tables / rating */}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
-            <path d="M12 3 2 8l10 5 10-5-10-5Z" />
-            <path d="m2 13 10 5 10-5" />
-            <path d="m2 18 10 5 10-5" />
-          </svg>
-        </span>
-        <span class="agent-pill__body">
-          <span class="agent-pill__title-row">
-            <span class="agent-pill__title">Rating</span>
-            <span class="agent-pill__tag">AGENT</span>
-          </span>
-          <span class="agent-pill__sub">Base rates, factors, ILFs, callable pricing API.</span>
-        </span>
-        <span class="agent-pill__arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-            <path d="M5 12h14" />
-            <path d="m13 6 6 6-6 6" />
-          </svg>
-        </span>
-      </a>
-      </div>
     </div>
 
     <style>
@@ -110,23 +60,6 @@ import { u } from "../lib/url";
         text-align: left;
         transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
         text-decoration: none;
-      }
-      .agent-pill--primary {
-        background: rgba(180, 0, 254, 0.32);
-        border-color: rgba(180, 0, 254, 0.55);
-      }
-      .agent-pill--primary:hover {
-        background: rgba(180, 0, 254, 0.45);
-        border-color: rgba(180, 0, 254, 0.85);
-      }
-      .agent-pill--primary .agent-pill__icon {
-        background: rgba(255, 255, 255, 0.16);
-      }
-      .agent-pill--primary .agent-pill__tag {
-        color: rgba(255, 255, 255, 0.85);
-      }
-      .agent-pill--primary .agent-pill__sub {
-        color: rgba(255, 255, 255, 0.92);
       }
       .agent-pill:hover {
         background: rgba(30, 30, 34, 0.7);
