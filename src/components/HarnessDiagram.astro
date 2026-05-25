@@ -3,332 +3,346 @@ type Agent = {
   name: string;
   scope: string;
   href: string;
-  controls: { label: string; value: string }[];
 };
 
 const agents: Agent[] = [
   {
     name: "Insight",
-    scope: "Trend, loss modeling, market research.",
-    href: "#insight",
-    controls: [
-      { label: "Standards", value: "Aligned" },
-      { label: "Guardrails", value: "Strict" },
-      { label: "Data", value: "Tenant-scoped" },
-    ],
+    scope: "Trending, on-leveling, GLMs, severity fits.",
+    href: "/agents/insight",
   },
   {
     name: "Rating",
     scope: "Raters, factor tables, callable API.",
-    href: "#rating",
-    controls: [
-      { label: "Standards", value: "Aligned" },
-      { label: "Reviewer", value: "Required" },
-      { label: "Env", value: "Dev → Prod" },
-    ],
+    href: "/agents/rating",
   },
   {
     name: "Audit",
-    scope: "Regrades analyses before they reach the actuary.",
+    scope: "Regrades every analysis before it ships.",
     href: "#audit",
-    controls: [
-      { label: "Mode", value: "Pre-review" },
-      { label: "Tests", value: "Proprietary" },
-      { label: "Block", value: "On fail" },
-    ],
   },
   {
     name: "Reserving",
-    scope: "Chain-ladder, BF, IBNR.",
-    href: "#insight",
-    controls: [
-      { label: "Methods", value: "Selectable" },
-      { label: "Standards", value: "Aligned" },
-      { label: "Sign-off", value: "Actuary" },
-    ],
+    scope: "Chain ladder, BF, Cape Cod on one triangle.",
+    href: "/agents/reserving",
   },
 ];
 ---
 
-<figure class="hd" aria-label="Diagram of the Tesora Workbench and Harness">
-  <div class="hd-workbench" aria-label="Workbench surface">
-    <span class="hd-tag">Workbench</span>
-    <ul class="hd-surface">
-      <li><span class="hd-dot" aria-hidden="true"></span>Excel</li>
-      <li><span class="hd-dot" aria-hidden="true"></span>Chat</li>
-      <li><span class="hd-dot" aria-hidden="true"></span>Sign-off</li>
-    </ul>
+<figure class="hd" aria-label="Diagram of the actuary orchestrating the Tesora Harness" data-hd>
+  <span class="hd-tag" aria-hidden="true">The Harness</span>
+
+  <div class="hd-actuary">
+    <span class="hd-actuary__tag">Actuary</span>
+    <p class="hd-actuary__title">You</p>
+    <p class="hd-actuary__sub">Sets the question. Signs the memo.</p>
   </div>
 
-  <div class="hd-bridge" aria-hidden="true">
-    <span class="hd-bridge-line"></span>
-    <span class="hd-bridge-arrow">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <path d="M12 5v14" />
-        <path d="m6 13 6 6 6-6" />
-      </svg>
-    </span>
-  </div>
+  <svg class="hd-wires" viewBox="0 0 600 140" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <path id="hd-path-leg-0" d="M 300 0 L 300 35 L 75 35 L 75 140" />
+      <path id="hd-path-leg-1" d="M 300 0 L 300 35 L 225 35 L 225 140" />
+      <path id="hd-path-leg-2" d="M 300 0 L 300 35 L 375 35 L 375 140" />
+      <path id="hd-path-leg-3" d="M 300 0 L 300 35 L 525 35 L 525 140" />
+    </defs>
 
-  <div class="hd-harness">
-    <span class="hd-tag hd-tag--harness">Harness</span>
-    <div class="hd-rail" aria-hidden="true"></div>
-    <div class="hd-agents">
-      {agents.map((a) => (
-        <a class="hd-agent" href={a.href} aria-label={`${a.name} agent details`}>
-          <span class="hd-strap" aria-hidden="true"></span>
-          <header class="hd-agent-head">
-            <span class="hd-agent-name">{a.name}</span>
-            <span class="hd-agent-kind">agent</span>
-          </header>
-          <p class="hd-agent-scope">{a.scope}</p>
-          <ul class="hd-controls">
-            {a.controls.map((c) => (
-              <li>
-                <span class="hd-ctrl-key">{c.label}</span>
-                <span class="hd-ctrl-val">{c.value}</span>
-              </li>
-            ))}
-          </ul>
-          <span class="hd-agent-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
-              <path d="M5 12h14" />
-              <path d="m13 6 6 6-6 6" />
-            </svg>
+    <use class="hd-wire" href="#hd-path-leg-0" />
+    <use class="hd-wire" href="#hd-path-leg-1" />
+    <use class="hd-wire" href="#hd-path-leg-2" />
+    <use class="hd-wire" href="#hd-path-leg-3" />
+
+    <circle class="hd-node hd-node--top" cx="300" cy="0" r="4" />
+    <circle class="hd-node" cx="75" cy="140" r="3.5" />
+    <circle class="hd-node" cx="225" cy="140" r="3.5" />
+    <circle class="hd-node" cx="375" cy="140" r="3.5" />
+    <circle class="hd-node" cx="525" cy="140" r="3.5" />
+
+    <g class="hd-pulses">
+      <circle class="hd-pulse" r="3.2">
+        <animateMotion dur="3.6s" begin="0s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#hd-path-leg-0" />
+        </animateMotion>
+      </circle>
+      <circle class="hd-pulse hd-pulse--return" r="2.4">
+        <animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+          <mpath href="#hd-path-leg-0" />
+        </animateMotion>
+      </circle>
+
+      <circle class="hd-pulse" r="3.2">
+        <animateMotion dur="3.6s" begin="0.9s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#hd-path-leg-1" />
+        </animateMotion>
+      </circle>
+      <circle class="hd-pulse hd-pulse--return" r="2.4">
+        <animateMotion dur="3.6s" begin="2.7s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+          <mpath href="#hd-path-leg-1" />
+        </animateMotion>
+      </circle>
+
+      <circle class="hd-pulse" r="3.2">
+        <animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#hd-path-leg-2" />
+        </animateMotion>
+      </circle>
+      <circle class="hd-pulse hd-pulse--return" r="2.4">
+        <animateMotion dur="3.6s" begin="3.6s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+          <mpath href="#hd-path-leg-2" />
+        </animateMotion>
+      </circle>
+
+      <circle class="hd-pulse" r="3.2">
+        <animateMotion dur="3.6s" begin="2.7s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#hd-path-leg-3" />
+        </animateMotion>
+      </circle>
+      <circle class="hd-pulse hd-pulse--return" r="2.4">
+        <animateMotion dur="3.6s" begin="4.5s" repeatCount="indefinite" rotate="auto" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+          <mpath href="#hd-path-leg-3" />
+        </animateMotion>
+      </circle>
+    </g>
+  </svg>
+
+  <ul class="hd-agents" role="list">
+    {agents.map((a, i) => (
+      <li class="hd-agent" style={`--i: ${i}`}>
+        <a class="hd-agent__link" href={a.href} aria-label={`${a.name} agent`}>
+          <span class="hd-agent__row">
+            <span class="hd-agent__name">{a.name}</span>
+            <span class="hd-agent__kind">Agent</span>
           </span>
+          <p class="hd-agent__scope">{a.scope}</p>
         </a>
-      ))}
-    </div>
-  </div>
+      </li>
+    ))}
+  </ul>
+
+  <p class="hd-rule">Citations. Audit log. Separation of duties. Enforced.</p>
 
   <figcaption class="hd-caption">
-    The Workbench is what the actuary sees. The Harness holds the agents that work underneath. Each agent has its own scope, controls, and audit trail.
+    You orchestrate. The Harness keeps every agent on the same standards, the same data, the same audit log.
   </figcaption>
 </figure>
 
 <style>
   .hd {
+    --hd-accent: var(--color-oxblood, #B400FE);
+    --hd-rule: var(--rule, rgba(14, 14, 12, 0.10));
+    --hd-bg: var(--bg-panel, #E8E3D7);
+    --hd-card: var(--bg, #FFFFFF);
+    --hd-fg: var(--fg, #0E0E0C);
+    --hd-muted: var(--fg-muted, #6B6760);
+    position: relative;
     margin: 0;
-    padding: 28px;
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    background: var(--bg-panel, #fbfaf6);
+    padding: 28px 22px 18px;
+    border: 1.5px solid color-mix(in oklab, var(--hd-accent) 30%, var(--hd-rule));
+    border-radius: 5px;
+    background: var(--hd-bg);
+    box-shadow: 0 12px 36px -28px color-mix(in oklab, var(--hd-accent) 50%, transparent);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   .hd-tag {
-    display: inline-block;
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-weight: 600;
-    color: var(--color-oxblood, #B400FE);
-    padding: 3px 8px;
-    border: 1px solid color-mix(in oklab, #B400FE 25%, transparent);
-    border-radius: 4px;
-    background: color-mix(in oklab, #B400FE 6%, transparent);
-  }
-  .hd-tag--harness {
-    color: var(--fg, #1a1a1a);
-    border-color: var(--rule);
-    background: transparent;
+    color: var(--hd-accent);
+    background: var(--hd-bg);
+    padding: 2px 10px;
+    border: 1px solid color-mix(in oklab, var(--hd-accent) 30%, transparent);
+    border-radius: 5px;
+    z-index: 2;
   }
 
-  /* Workbench */
-  .hd-workbench {
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 14px 18px;
-    background: var(--bg, #ffffff);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
+  .hd-actuary {
+    align-self: center;
+    width: min(280px, 70%);
+    padding: 14px 16px 12px;
+    border: 1px solid color-mix(in oklab, var(--hd-accent) 40%, var(--hd-rule));
+    border-radius: 5px;
+    background: var(--hd-card);
+    text-align: center;
+    box-shadow: 0 6px 18px -14px color-mix(in oklab, var(--hd-accent) 50%, transparent);
+    position: relative;
+    z-index: 1;
   }
-  .hd-surface {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 18px;
-    flex: 1 1 auto;
-    color: var(--fg, #1a1a1a);
-    font-size: 0.875rem;
-  }
-  .hd-surface li {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .hd-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: var(--color-oxblood, #B400FE);
+  .hd-actuary__tag {
     display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hd-accent);
+    padding: 2px 8px;
+    border: 1px solid color-mix(in oklab, var(--hd-accent) 28%, transparent);
+    border-radius: 5px;
+    background: color-mix(in oklab, var(--hd-accent) 8%, transparent);
+    margin-bottom: 8px;
   }
-
-  /* Bridge between Workbench and Harness */
-  .hd-bridge {
-    height: 36px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--fg-muted, #555);
-  }
-  .hd-bridge-line {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: var(--rule);
-  }
-  .hd-bridge-arrow {
-    position: relative;
-    background: var(--bg-panel, #fbfaf6);
-    padding: 2px 4px;
-    line-height: 0;
-  }
-
-  /* Harness */
-  .hd-harness {
-    position: relative;
-    padding-top: 12px;
-  }
-  .hd-rail {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 56px;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      transparent 0,
-      color-mix(in oklab, #B400FE 35%, transparent) 8%,
-      color-mix(in oklab, #B400FE 35%, transparent) 92%,
-      transparent 100%
-    );
-  }
-  .hd-agents {
-    margin-top: 36px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    position: relative;
-  }
-  .hd-agent {
-    position: relative;
-    display: block;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 14px;
-    background: var(--bg, #ffffff);
-    color: inherit;
-    text-decoration: none;
-    transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
-  }
-  .hd-agent:hover {
-    border-color: color-mix(in oklab, #B400FE 35%, var(--rule));
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px -10px color-mix(in oklab, #B400FE 35%, transparent);
-  }
-  .hd-agent:hover .hd-agent-arrow {
-    color: var(--color-oxblood, #B400FE);
-    transform: translateX(2px);
-  }
-  .hd-agent-arrow {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    color: var(--fg-muted, #888);
-    transition: color 200ms ease, transform 200ms ease;
-    line-height: 0;
-  }
-  .hd-strap {
-    position: absolute;
-    top: -22px;
-    left: 50%;
-    width: 2px;
-    height: 22px;
-    background: color-mix(in oklab, #B400FE 35%, transparent);
-    transform: translateX(-50%);
-  }
-  .hd-agent-head {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  .hd-agent-name {
+  .hd-actuary__title {
+    margin: 0;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.005em;
+    color: var(--hd-fg);
   }
-  .hd-agent-kind {
-    font-size: 0.625rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--fg-muted, #666);
-  }
-  .hd-agent-scope {
-    margin: 0 0 12px;
+  .hd-actuary__sub {
+    margin: 3px 0 0;
     font-size: 0.8125rem;
-    line-height: 1.45;
-    color: var(--fg-muted, #555);
-  }
-  .hd-controls {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px dashed var(--rule);
-    padding-top: 10px;
-    display: grid;
-    gap: 4px;
-  }
-  .hd-controls li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 0.75rem;
-    gap: 8px;
-    overflow-wrap: anywhere;
-  }
-  .hd-ctrl-key {
-    color: var(--fg-muted, #666);
-    letter-spacing: 0.02em;
-  }
-  .hd-ctrl-val {
-    font-variant-numeric: tabular-nums;
-    color: var(--fg, #1a1a1a);
-    font-weight: 500;
+    line-height: 1.4;
+    color: var(--hd-muted);
   }
 
-  .hd-caption {
-    margin-top: 22px;
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: var(--fg-muted, #666);
+  .hd-wires {
+    display: block;
+    width: 100%;
+    height: 96px;
+    margin: 6px 0 4px;
+  }
+  .hd-wire {
+    fill: none;
+    stroke: color-mix(in oklab, var(--hd-accent) 32%, transparent);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .hd-node {
+    fill: var(--hd-accent);
+    opacity: 0.85;
+  }
+  .hd-pulse {
+    fill: var(--hd-accent);
+    filter: drop-shadow(0 0 4px color-mix(in oklab, var(--hd-accent) 70%, transparent));
+    opacity: 0.95;
+  }
+  .hd-pulse--return {
+    fill: color-mix(in oklab, var(--hd-accent) 55%, white);
+    opacity: 0.7;
+  }
+
+  .hd-agents {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .hd-agent {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  .hd.is-ready .hd-agent {
+    animation: hd-rise 360ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: calc(160ms + var(--i, 0) * 80ms);
+  }
+  @keyframes hd-rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hd-agent__link {
+    display: block;
+    height: 100%;
+    padding: 11px 12px 12px;
+    border: 1px solid var(--hd-rule);
+    border-radius: 5px;
+    background: var(--hd-card);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+  .hd-agent__link:hover {
+    border-color: color-mix(in oklab, var(--hd-accent) 40%, var(--hd-rule));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px -14px color-mix(in oklab, var(--hd-accent) 35%, transparent);
+  }
+  .hd-agent__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .hd-agent__name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--hd-fg);
+  }
+  .hd-agent__kind {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hd-muted);
+  }
+  .hd-agent__scope {
+    margin: 4px 0 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--hd-muted);
+  }
+
+  .hd-rule {
+    margin: 16px 0 0;
+    padding-top: 12px;
+    border-top: 1px dashed var(--hd-rule);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hd-muted);
     text-align: center;
   }
 
+  .hd-caption {
+    margin-top: 14px;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--hd-muted);
+    text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hd-agent { opacity: 1; transform: none; animation: none; }
+    .hd-pulse { display: none; }
+  }
   @media (max-width: 900px) {
-    .hd-agents {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .hd-rail {
-      display: none;
-    }
-    .hd-strap {
-      display: none;
-    }
+    .hd-agents { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hd-wires { display: none; }
   }
   @media (max-width: 520px) {
-    .hd {
-      padding: 18px;
-    }
-    .hd-agents {
-      grid-template-columns: 1fr;
-    }
+    .hd { padding: 22px 16px 16px; }
+    .hd-agents { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const figures = document.querySelectorAll<HTMLElement>("[data-hd]");
+  if (figures.length > 0 && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-ready");
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.2 },
+    );
+    figures.forEach((f) => io.observe(f));
+  } else {
+    figures.forEach((f) => f.classList.add("is-ready"));
+  }
+</script>

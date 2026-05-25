@@ -3,13 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CinematicHero from "../components/CinematicHero.astro";
-import TesoraStack from "../components/TesoraStack.astro";
+import LayeredStack from "../components/LayeredStack.astro";
 import { u } from "../lib/url";
 
-// Layers that carry the most weight for an admitted motion: filings
-// ingestion (SERFF watch), substrate (in-force book), rating engine (the
-// actual rater you ship), and audit (rate-committee and DOI defense).
-const admittedHighlightNums = ["03", "04", "05", "07"];
+const admittedLayers = [
+  { num: "01", title: "Filings ingestion", body: "SERFF filings, public rate manuals, and your own actuarial memos parsed and normalized.", bullets: ["SERFF watch", "Memo extraction", "Loss runs and SOVs"] },
+  { num: "02", title: "Filing diff", body: "Diff every new filing against the prior version. Top changed factors surfaced in minutes.", bullets: ["Factor-level diff", "Territory move tracker", "Indication callouts"] },
+  { num: "03", title: "Book overlay", body: "Run your in-force book through a competitor's rate plan, apples to apples.", bullets: ["Exposure replay", "Rate-on-rate impact", "Segment cuts"] },
+  { num: "04", title: "GLM development", body: "Build or reverse-engineer GLMs from your own data with a memo your reviewer can sign.", bullets: ["Curve fits", "Segmentation", "Defensibility memo"] },
+  { num: "05", title: "Rate filing assistance", body: "Help with the filing itself and the responses to objection letters.", bullets: ["Filing draft", "Objection response", "Reviewer thread"] },
+  { num: "06", title: "Audit and sign-off", body: "Every input, analysis step, and output preserved for the rate committee and the DOI.", bullets: ["Author, reviewer, approver", "Citation per cell", "Full replay"] },
+];
 
 const admittedCapabilities = [
   { label: "Reproducible competitive analysis", body: "Reconstruct competitor rate plans from public filings and run your book through them, apples to apples. Every step recorded, every input preserved." },
@@ -36,24 +40,14 @@ const admittedCapabilities = [
   />
 
   <section class="bg-[var(--bg)]">
-    <div class="mx-auto max-w-[1180px] grid md:grid-cols-12 gap-10 md:gap-12 px-6 md:px-10 py-20 md:py-24">
-      <div class="md:col-span-6 self-center">
-        <p class="eyebrow mb-4">Admitted carriers</p>
-        <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.05] tracking-[-0.018em] text-[var(--fg)]">
-          Transparency<br/>and reproducibility
-        </h2>
-        <p class="mt-6 text-[1.1875rem] leading-[1.55] text-[var(--fg-muted)] max-w-[520px]">
-          Multi-competitor rate analysis used to mean days or weeks of hunting filings, reconstructing them, and running your book through each. Tesora runs it soup to nuts in one pass, with every input, analysis step, and output preserved.
-        </p>
-      </div>
-
-      <div class="md:col-span-6">
-        <TesoraStack
-          title="The stack behind every filing-driven rater."
-          caption="Every filed rate runs the same seven layers. The four that carry the admitted motion are highlighted; the rest are present whether you're filing in Texas or quoting in Florida."
-          highlightNums={admittedHighlightNums}
-        />
-      </div>
+    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 md:py-24">
+      <LayeredStack
+        eyebrow="The admitted stack"
+        title="From filing to rate-committee sign-off"
+        intro="Multi-competitor rate analysis used to mean days or weeks of hunting filings, reconstructing them, and running your book through each. Tesora runs it soup to nuts in one pass, with every input, analysis step, and output preserved."
+        caption="Six layers, one audit trail. Scroll to step through."
+        layers={admittedLayers}
+      />
     </div>
   </section>
 
