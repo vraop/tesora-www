@@ -65,8 +65,8 @@ const { eyebrow, title, intro, layers } = Astro.props;
     --ls-accent: var(--color-oxblood, #B400FE);
     --ls-rule: rgba(14, 14, 12, 0.10);
     --ls-card-bg: #FFFFFF;
-    --ls-fg: #0E0E0C;
-    --ls-muted: #6B6760;
+    --ls-card-fg: #0E0E0C;
+    --ls-card-muted: #6B6760;
     --ls-sticky-top: 96px;
     --ls-stagger: 72px;
     --ls-buffer: 56vh;
@@ -102,13 +102,13 @@ const { eyebrow, title, intro, layers } = Astro.props;
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.018em;
-    color: var(--ls-fg);
+    color: var(--fg);
   }
   .ls-intro {
     margin: 18px 0 0;
     font-size: 1.0625rem;
     line-height: 1.55;
-    color: var(--ls-muted);
+    color: var(--fg-muted);
     max-width: 460px;
   }
 
@@ -207,14 +207,14 @@ const { eyebrow, title, intro, layers } = Astro.props;
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.008em;
-    color: var(--ls-fg);
+    color: var(--ls-card-fg);
   }
   .ls-card__body {
     margin: 0;
     padding: 0 26px 0 80px;
     font-size: 0.9375rem;
     line-height: 1.55;
-    color: var(--ls-muted);
+    color: var(--ls-card-muted);
   }
 
   .ls-card__bullets {
@@ -231,7 +231,7 @@ const { eyebrow, title, intro, layers } = Astro.props;
     gap: 10px;
     font-size: 0.875rem;
     line-height: 1.5;
-    color: var(--ls-fg);
+    color: var(--ls-card-fg);
   }
   .ls-card__dot {
     margin-top: 7px;
