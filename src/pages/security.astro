@@ -107,7 +107,10 @@ const dataPosture = [
   </section>
 
   <section class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
-    <p class="eyebrow mb-8">Data posture</p>
+    <p class="eyebrow mb-3">Data posture</p>
+    <p class="mb-8 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)] max-w-[720px]">
+      How customer data is stored, isolated, and used. For the formal collection and disclosure language, see our <a href={u("/privacy")} class="security-link">Privacy Policy</a>.
+    </p>
     <dl class="grid md:grid-cols-2 gap-x-16 gap-y-10">
       {dataPosture.map((d) => (
         <div class="border-t border-[var(--rule)] pt-6">
@@ -155,5 +158,14 @@ const dataPosture = [
   .trust-center-quadrant:hover .trust-center-quadrant__cta {
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+  .security-link {
+    color: var(--color-oxblood);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in oklab, var(--color-oxblood) 35%, transparent);
+    transition: border-color 180ms ease;
+  }
+  .security-link:hover {
+    border-bottom-color: var(--color-oxblood);
   }
 </style>

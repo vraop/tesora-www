@@ -77,7 +77,11 @@ const footerNav = [
         </span>
         <span>· HQ: NY &amp; SF · YC Batch S25</span>
       </p>
-      <p>
+      <p class="inline-flex flex-wrap items-center gap-x-3">
+        <a href={u("/terms")} class="hover:text-[var(--fg)]">Terms</a>
+        <span aria-hidden="true">·</span>
+        <a href={u("/privacy")} class="hover:text-[var(--fg)]">Privacy</a>
+        <span aria-hidden="true">·</span>
         <a href={u("/llms.txt")} class="hover:text-[var(--fg)]">llms.txt</a>
       </p>
     </div>
