@@ -10,9 +10,8 @@ const admittedLayers = [
   { num: "01", title: "Filings ingestion", body: "SERFF filings, public rate manuals, and your own actuarial memos parsed and normalized.", bullets: ["SERFF watch", "Memo extraction", "Loss runs and schedules of values"] },
   { num: "02", title: "Filing diff", body: "Compare every new filing against the prior version. Top changed factors surfaced in minutes.", bullets: ["Factor-level diff", "Territory move tracker", "Indication callouts"] },
   { num: "03", title: "Book overlay", body: "Run your in-force book through a competitor's rate plan, apples to apples.", bullets: ["Exposure replay", "Rate-on-rate impact", "Segment cuts"] },
-  { num: "04", title: "GLM development", body: "Build or reverse-engineer GLMs from your own data with a memo your reviewer can sign.", bullets: ["Curve fits", "Segmentation", "Defensibility memo"] },
-  { num: "05", title: "Rate filing assistance", body: "Help with the filing itself and the responses to objection letters.", bullets: ["Filing draft", "Objection response", "Reviewer thread"] },
-  { num: "06", title: "Audit and sign-off", body: "Every input, analysis step, and output preserved for internal review and the DOI.", bullets: ["Author, reviewer, approver", "Citation per cell", "Full replay"] },
+  { num: "04", title: "GLM development", body: "Build or reverse-engineer GLMs from your own data, with a defensibility memo your reviewer can sign.", bullets: ["Curve fits", "Segmentation", "Defensibility memo"] },
+  { num: "05", title: "Rate filing assistance", body: "Help with the filing itself and the responses to objection letters. Every input and citation preserved for the regulator's review months later.", bullets: ["Filing draft", "Objection response", "Full replay"] },
 ];
 
 const admittedCapabilities = [
@@ -62,7 +61,7 @@ const admittedCapabilities = [
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 md:py-24">
       <LayeredStack
         eyebrow="The admitted stack"
-        title="From filing diff to internal sign-off"
+        title="From filing diff to your own rate plan"
         intro="Multi-competitor rate analysis used to mean days or weeks of hunting filings, reconstructing them, and running your book through each. Tesora runs it soup to nuts in one pass, with every input, analysis step, and output preserved."
         layers={admittedLayers}
       />
