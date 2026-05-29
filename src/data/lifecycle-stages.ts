@@ -57,9 +57,9 @@ export const lifecycleStages: LifecycleStage[] = [
     title: "Market analysis used to take at least a week",
     body: "Now you can read multiple rate filings or ingest multiple raters from any source in hours. Run your book of exposures through several raters simultaneously and compare the results. Ingest filings, public data, and proprietary data sources in almost any file format into one vault. The Insight Agent extracts factor tables, base rates, and rating algorithms into a queryable table so your team can compare competitive material against your in-force book.",
     seo: {
-      title: "SERFF Competitor Rate Filing Analysis · Tesora",
-      h1: "Competitor rate filing analysis, in hours",
-      description: "Parse SERFF filings, diff them against your in-force book, and surface material rate changes. The Insight Agent turns competitor filings into a queryable table for chief actuaries.",
+      title: "Market Research and Competitive Analysis · Tesora",
+      h1: "Ingest any competitive data and analyze it in hours",
+      description: "Ingest past filings, public data, and proprietary data sources in almost any file format. The Insight Agent extracts factor tables, base rates, and rating algorithms into a queryable table so your team can compare competitive material against your in-force book.",
     },
     report: {
       heading: "Rate filing diff: Carrier A",
