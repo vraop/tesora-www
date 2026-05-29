@@ -10,24 +10,24 @@ import { u } from "../lib/url";
 type Compare = { theirs: string; ours: string };
 const compares: Compare[] = [
   {
-    theirs: "Five tools, five exports, reconciled by hand",
-    ours: "One Workbench. One audit log. One source of truth.",
+    theirs: "Most projects take weeks, especially tedious ones",
+    ours: "Projects compress from weeks to days, tedious ones included",
   },
   {
-    theirs: "Pricing cycles take 4 to 6 weeks of memo work",
-    ours: "Cycles compress from quarters to days",
+    theirs: "Actuaries spend energy building infrastructure",
+    ours: "Actuaries spend energy on actuarial work",
   },
   {
-    theirs: "Reviewers cannot trace a factor back to source",
-    ours: "Every figure cites the cell it came from",
+    theirs: "Onus on actuaries to self-document",
+    ours: "Documentation is automatic, every figure cites its source",
   },
   {
-    theirs: "Rater changes wait on IT to deploy",
+    theirs: "Deployment often falls on IT",
     ours: "Versioned in the Workbench, callable from an API",
   },
   {
     theirs: "Generic AI hallucinates and isn't reproducible",
-    ours: "Trained on the CAS syllabus, pinned to your data",
+    ours: "Trained on actuarial science, pinned to your data, fully reproducible",
   },
 ];
 
@@ -36,45 +36,45 @@ const steps: Step[] = [
   {
     num: "01",
     agent: "Ingestion",
-    title: "Read every loss run, SOV, and filing",
-    body: "Loss runs, SOVs, exposure files, prior memos, and SERFF filings come in five formats from five carriers. Tesora reads them and hands back one normalized table with every value cited to the cell it came from.",
+    title: "Read anything smartly",
+    body: "Actuarially trained agents know to remember where data and logic came from so they can cite the source later. Read almost any file type.",
     outcomes: [
-      "PDF, Excel, CSV, Word, email attachments",
-      "Auto-classified and anomaly-checked",
-      "Every value cites its source",
+      "PDFs like SERFF filings or messy loss runs",
+      "Internal files like Excel, SQL, R, Python queries",
+      "Smartly structure unstructured data",
     ],
   },
   {
     num: "02",
     agent: "Insight",
-    title: "Run the analysis your reviewer can sign off on",
+    title: "AI that's trained to think like an actuary",
     body: "Trending, on-leveling, severity fits, GLMs, reserving. The math was settled decades ago. What slows the work is the assembly: finding the data, picking the method, writing the memo. Tesora handles the assembly. You stay in charge of every decision.",
     outcomes: [
-      "Trending, on-leveling, severity fits, GLMs",
+      "Competitive analyses, rater reviews",
       "Reserving (chain ladder, BF, Cape Cod)",
-      "Every memo cites the analyses it builds on",
+      "Fully reproducible",
     ],
   },
   {
     num: "03",
     agent: "Rating",
-    title: "Build a versioned rater your underwriters quote off of",
-    body: "Source a rater from a SERFF filing or rebuild your own from Excel. Edit factor by factor in the Workbench. Every change is versioned. Deploy to a callable pricing API, a GUI, or a versioned Excel file when the reviewer and approver sign off.",
+    title: "From build to deploy: effortless audited rater construction",
+    body: "Source raters from anywhere: SERFF filings, your own Excel files, or even Python scripts. Automatically self-test, audit, and deploy to an API or front-end in a Sarbanes-Oxley friendly way.",
     outcomes: [
-      "SERFF or Excel in. GUI, API, or Excel out.",
+      "Effortlessly build any way you want",
       "Author, reviewer, approver as separate identities",
-      "Roll back any rater to any prior approved state",
+      "Minimize IT friction while being SOX compliant",
     ],
   },
   {
     num: "04",
     agent: "Audit",
-    title: "Regrade every analysis before it ships",
-    body: "A specialist audit agent regrades every analysis against a battery of actuarial tests before it reaches the actuary. Author, reviewer, and approver are separate people. The audit log records every promotion. Pricing actuarial leadership receives a reviewable artifact, not a black box.",
+    title: "Fully traceable and reproducible",
+    body: "Whether the actuary is conducting an analysis or building a rater, AI will check the work and report back if it finds any issues. Finished products end up being high-confidence artifacts. Trust is built-in.",
     outcomes: [
-      "Author, reviewer, approver as separate identities",
-      "Audit trail preserved across every promotion",
-      "Every workflow lands as a reviewable artifact",
+      "Analyses feel like working with another actuary",
+      "Raters self-test before publishing",
+      "Provenance engines screenshot the source of every factor",
     ],
   },
 ];
@@ -110,14 +110,6 @@ const trustBand: Trust[] = [
   { title: "SOC 2 + SOX ready", body: "Three environments, separated roles, full audit trail on every promotion." },
   { title: "ASOP-aligned", body: "Trained on the CAS syllabus and ASOPs 23, 41, and 56. The standards your reviewer is held to." },
 ];
-
-type Stat = { stat: string; label: string };
-const stats: Stat[] = [
-  { stat: "Quarters → Days", label: "Pricing cycle compression" },
-  { stat: "100%", label: "Of figures cite source cell" },
-  { stat: "3", label: "Separate identities (author, reviewer, approver)" },
-  { stat: "ASOPs 23 · 41 · 56", label: "The standards in the harness" },
-];
 ---
 
 <Layout
@@ -130,8 +122,8 @@ const stats: Stat[] = [
 
   <CinematicHero
     videoSrc={u("/video/hero-loop.mp4")}
-    headline="AI agents built for actuaries."
-    deck="Quote, file, and reserve with an audit trail your rate committee can sign against. Trained on the CAS syllabus. Every figure cites the cell it came from."
+    headline="AI agents built for actuaries"
+    deck="All tasks from data gathering through analysis to deployment. Every figure and formula cited to its source, and trust built in."
     primaryCta={{ label: "Request a walkthrough", href: "https://cal.com/team/tesora/quick-chat" }}
     secondaryCta={{ label: "How it works", href: "#how-it-works" }}
   />
@@ -141,19 +133,19 @@ const stats: Stat[] = [
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
       <div class="grid md:grid-cols-12 gap-10 mb-12">
         <div class="md:col-span-5">
-          <p class="eyebrow mb-3">The status quo</p>
+          <p class="eyebrow mb-3">Why Tesora</p>
           <h2 class="font-semibold text-[2.25rem] md:text-[2.625rem] leading-[1.05] tracking-[-0.018em]" style="text-wrap: balance;">
-            Specialty pricing was never built for the cycle it now runs.
+            AI was never built for actuaries. We're here to change that
           </h2>
         </div>
         <p class="md:col-span-7 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)] mt-2" style="text-wrap: pretty;">
-          Five tools per cycle, exports reconciled by hand, raters that wait on IT, and generic AI co-pilots that lose the thread between sessions. Pricing teams ship what they can in the time they have. Tesora rebuilt the cycle around the actuary, not around the tooling they inherited.
+          Some tasks were exceptionally tedious and impractical, like comparing numerous competitor rate filings or waiting for IT to deploy a rater. Generic AI was untrustworthy, and the analyses it produced were often unreproducible. Tesora brings actuarial rigor to AI.
         </p>
       </div>
       <div class="compare">
         <div class="compare__row compare__row--head">
-          <div class="compare__col compare__col--theirs">Without Tesora</div>
-          <div class="compare__col compare__col--ours">With Tesora</div>
+          <div class="compare__col compare__col--theirs">The status quo</div>
+          <div class="compare__col compare__col--ours">Unleash your actuary</div>
         </div>
         {compares.map((c) => (
           <div class="compare__row">
@@ -182,11 +174,11 @@ const stats: Stat[] = [
         <div class="md:col-span-5">
           <p class="eyebrow mb-3">How it works</p>
           <h2 class="font-semibold text-[2.25rem] md:text-[2.625rem] leading-[1.05] tracking-[-0.018em]" style="text-wrap: balance;">
-            From loss run to rate-committee sign-off.
+            Finally AI that is trained to help actuaries
           </h2>
         </div>
         <p class="md:col-span-7 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)] mt-2" style="text-wrap: pretty;">
-          Each step has an agent: intake, analysis, rate, audit. The actuary makes every decision. The harness keeps the trail so the rate committee can sign against it.
+          Specialized agents help the actuary conduct all tasks. Everything from anomaly detection and intake to model selection and working with GLMs to SOX compliance and deployment.
         </p>
       </div>
       <ol class="steps" role="list">
@@ -215,31 +207,6 @@ const stats: Stat[] = [
   {/* Lifecycle (existing component) */}
   <Lifecycle />
 
-  {/* Stat band */}
-  <section id="numbers" class="border-b border-[var(--rule)] bg-[var(--bg-panel)] scroll-mt-24">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
-      <div class="grid md:grid-cols-12 gap-10 mb-10">
-        <div class="md:col-span-5">
-          <p class="eyebrow mb-3">By the numbers</p>
-          <h2 class="font-semibold text-[2.25rem] md:text-[2.5rem] leading-[1.05] tracking-[-0.015em]" style="text-wrap: balance;">
-            What the harness enforces, every cycle.
-          </h2>
-        </div>
-        <p class="md:col-span-7 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)] mt-2" style="text-wrap: pretty;">
-          Pricing cycles measured in quarters, every figure traced to its source cell, three separate roles before anything ships, and the standards your reviewer is held to.
-        </p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((s) => (
-          <div class="border border-[var(--rule)] rounded-[5px] p-6 bg-[var(--bg)]">
-            <p class="font-semibold text-[1.625rem] md:text-[1.75rem] leading-[1.1] tracking-[-0.01em] text-[var(--fg)]">{s.stat}</p>
-            <p class="mt-2 text-[0.9375rem] leading-[1.5] text-[var(--fg-muted)]">{s.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   {/* Workbench + Harness */}
   <section id="workbench" class="border-b border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20">
@@ -247,7 +214,7 @@ const stats: Stat[] = [
         <div class="md:col-span-5">
           <p class="eyebrow mb-3">Trustworthy AI</p>
           <h2 class="font-semibold text-[2.5rem] md:text-[2.875rem] leading-[1.05] tracking-[-0.018em]">
-            The Workbench is the surface. The Harness is the trust.
+            AI that doesn't hallucinate and thinks like an actuary
           </h2>
         </div>
         <div class="md:col-span-7 grid gap-4">
@@ -255,7 +222,7 @@ const stats: Stat[] = [
             <span class="font-semibold">The Workbench</span> is what the actuary uses. A chat window next to Excel, where you manipulate analyses, rating models, and workbooks the way you already work.
           </p>
           <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg)]">
-            <span class="font-semibold">The Harness</span> is the membrane around the agents. It enforces citations, regrades every analysis before it reaches you, and holds author, reviewer, and approver as separate identities. Every decision is yours.
+            <span class="font-semibold">The Harness</span> is what keeps it honest. It enforces citations, regrades every analysis before it reaches you, and holds author, reviewer, and approver as separate identities. Every decision is yours.
           </p>
         </div>
       </div>
@@ -268,13 +235,13 @@ const stats: Stat[] = [
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
       <div class="grid md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-5">
-          <p class="eyebrow mb-3">Built for the auditor</p>
+          <p class="eyebrow mb-3">Built for enterprise security</p>
           <h2 class="font-semibold text-[2.25rem] md:text-[2.5rem] leading-[1.05] tracking-[-0.015em]">
-            What your risk officer asks about first.
+            Built with privacy and safety first
           </h2>
         </div>
         <p class="md:col-span-7 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)] mt-2">
-          Pricing teams don't get to deploy a tool the risk officer hasn't cleared. We built Tesora for that conversation first.
+          Controls are built into the system so that AI can finally be used without keeping anyone up at night.
         </p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -329,7 +296,7 @@ const stats: Stat[] = [
   <section class="border-t border-[var(--rule)] bg-[var(--bg-panel)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16 text-center">
       <h2 class="font-semibold text-[2.25rem] md:text-[2.75rem] leading-[1.1] tracking-[-0.015em] max-w-[760px] mx-auto" style="text-wrap: balance;">
-        Bring us your hardest pricing question.
+        Bring us your hardest pricing question
       </h2>
       <p class="mt-4 text-[1.125rem] leading-[1.6] text-[var(--fg-muted)] max-w-[620px] mx-auto">
         An in-flight specialty filing, a stale memo, a rater your team can't get off Excel. Make it hard for us, and let us show you the breadth of the Workbench.

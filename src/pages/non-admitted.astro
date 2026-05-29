@@ -7,12 +7,11 @@ import LayeredStack from "../components/LayeredStack.astro";
 import { u } from "../lib/url";
 
 const esLayers = [
-  { num: "01", title: "Submission ingestion", body: "Loss runs, SOVs, exposure files, broker decks. Five formats from five brokers, normalized to one table.", bullets: ["PDF, Excel, CSV, email", "Anomaly check", "Citations per cell"] },
+  { num: "01", title: "Messy, sparse data", body: "Thin claims data, anomaly detection, and unstructured inputs normalized to one table the actuary can work from.", bullets: ["PDF, Excel, CSV, email", "Anomaly detection", "Citations per cell"] },
   { num: "02", title: "New product setup", body: "Stand up a new program with the rate plan, curves, and credibility weights the actuary chooses.", bullets: ["Curve fits", "Schedule rating", "Credibility weighting"] },
-  { num: "03", title: "Rater build", body: "Build the rater in the Workbench against a versioned data spine.", bullets: ["Excel parity", "Test cases", "Versioned drafts"] },
+  { num: "03", title: "Rater build", body: "Build a versioned rater in the Workbench and deploy it in hours.", bullets: ["Output to Excel", "Versioned drafts", "Automatically self-test"] },
   { num: "04", title: "Audit and dual-control", body: "Author, reviewer, approver are separate people. Every promotion is recorded.", bullets: ["Three roles, three people", "Audit log", "SOC 2, SOX-ready"] },
   { num: "05", title: "Callable API", body: "The same rater that signs off in dev runs in production behind your binding pipeline.", bullets: ["Dev → Prod env", "Latency SLO", "Versioned API"] },
-  { num: "06", title: "Refit on cron", body: "When loss experience shifts, refit ships as a versioned model with the prior one preserved.", bullets: ["Scheduled refits", "Rollback", "Side-by-side diff"] },
 ];
 ---
 
@@ -34,17 +33,14 @@ const esLayers = [
   <section class="bg-[var(--bg)] border-b border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-5">
-        <p class="eyebrow mb-3">The state of AI for actuaries</p>
+        <p class="eyebrow mb-3">AI is not fit for actuaries today</p>
         <h2 class="font-semibold text-[2.125rem] leading-[1.1] tracking-[-0.013em]" style="text-wrap: balance;">
-          AI today is jagged. Bind-ready pricing can't be.
+          Making AI trustworthy for E&amp;S actuaries
         </h2>
       </div>
       <div class="md:col-span-7 grid gap-4">
         <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]" style="text-wrap: pretty;">
-          Researchers call it the jagged frontier: today's models are extraordinary at one task and brittle at the next. That asymmetry is why actuarial AI adoption trails every other quant discipline. An E&S underwriter cannot quote off a rater that hallucinates a factor or drifts between sessions.
-        </p>
-        <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]" style="text-wrap: pretty;">
-          Tesora was built for that gap. The harness pins every step to a source and keeps author, reviewer, and approver as separate identities.
+          While actuaries can use mainstream AI on narrow tasks, they can't streamline the workflows with AI yet, until now. Tesora brings actuarial rigor in the form of transparency and reproducibility, all with AI that is trained in actuarial science.
         </p>
       </div>
     </div>
@@ -53,8 +49,8 @@ const esLayers = [
   <section class="bg-[var(--bg)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 md:py-24">
       <LayeredStack
-        eyebrow="The E&S stack"
-        title="From broker submission to bind-ready quote"
+        eyebrow="E&S focus"
+        title="From messy data to auditable rates"
         intro="Tesora puts the power back in the actuary's hands to manage their models, by handling the workflow and IT compliance burden that normally slows a new product launch to a crawl. New product to quote in 1 week, not 3 months."
         layers={esLayers}
       />
@@ -64,14 +60,14 @@ const esLayers = [
   <section class="bg-[var(--bg)] border-t border-[var(--rule)]">
     <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-5">
-        <p class="eyebrow mb-3">The E&amp;S actuary's day</p>
+        <p class="eyebrow mb-3">Unleash your actuary</p>
         <h2 class="font-semibold text-[2.125rem] leading-[1.1] tracking-[-0.013em]">
-          The model is the bottleneck, not the math
+          Enable your actuaries to do so much more
         </h2>
       </div>
       <div class="md:col-span-7">
         <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
-          The credentialed actuary on an E&amp;S team owns the rate plan end to end. Standing up a new product, fitting curves to thin data, deploying a SOX-compliant rater, refitting when the loss experience shifts. The math is the easy part. The bottleneck is the workflow around it.
+          The credentialed actuary on an E&amp;S team owns the rate plan end to end. Standing up a new product, fitting curves to thin data, deploying a SOX-compliant rater, refitting when the loss experience shifts.
         </p>
         <p class="mt-4 text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
           Tesora is built so the actuary keeps owning the rate plan, with the workflow and IT compliance handled in the background. New products quote in a week, refits ship as a versioned model, and every input and output stays preserved for review.

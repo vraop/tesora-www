@@ -7,30 +7,6 @@ import HarnessDiagram from "../components/HarnessDiagram.astro";
 import Lifecycle from "../components/Lifecycle.astro";
 import { u } from "../lib/url";
 
-type Faq = { q: string; a: string };
-const faqs: Faq[] = [
-  {
-    q: "Can we import our existing rating models?",
-    a: "Yes. Upload your Excel raters directly and the system will rebuild, test, and deploy them for you. Formulas parsed, factor tables identified, a versioned model created. Existing logic is preserved exactly.",
-  },
-  {
-    q: "What integrations do you support?",
-    a: "Snowflake, Databricks, AWS, Microsoft Excel and Microsoft 365, Okta, and Guidewire are supported out of the box. REST API for anything else. If you use it, we can connect to it.",
-  },
-  {
-    q: "How does role separation work for SOX?",
-    a: "Three environments: dev (actuaries build), test (QA validates), prod (underwriters use). Different roles have different access. Actuaries cannot push directly to prod. Full audit trail of who promoted what and when.",
-  },
-  {
-    q: "Do you train on our data?",
-    a: "No. Zero data retention policies are in place with our model providers. Your data is not used for model training, ours or anyone else's.",
-  },
-  {
-    q: "Is confidential data protected?",
-    a: "Yes. Each customer is deployed as a single-tenant, bespoke environment your IT team controls. Your data does not share infrastructure with any other customer.",
-  },
-];
-
 type Workflow = { num: string; agent?: string; title: string; body: string; outcomes: string[] };
 
 const workflows: Workflow[] = [
@@ -38,7 +14,7 @@ const workflows: Workflow[] = [
     num: "01",
     agent: "Ingestion Agent",
     title: "Don't fear messy data",
-    body: "Loss runs, SOVs, exposure files, and rate manuals come in five formats from five carriers. Tesora reads any of them and hands back one normalized table with every value cited to the cell it came from.",
+    body: "Loss runs, schedules of values, exposure files, and rate manuals come in five formats from five carriers. Tesora reads any of them and hands back one normalized table with every value cited to the cell it came from.",
     outcomes: [
       "PDF, Excel, CSV, Word, email attachments",
       "Auto-classified and anomaly-checked",
@@ -200,49 +176,6 @@ const workflows: Workflow[] = [
         </ul>
       </article>
     ))}
-  </section>
-
-  {/* Frequently asked questions */}
-  <section id="faq" class="border-t border-[var(--rule)] bg-[var(--bg)] scroll-mt-24">
-    <div class="mx-auto max-w-[1180px] px-6 md:px-10 py-16">
-      <div class="grid md:grid-cols-12 gap-10 mb-8">
-        <div class="md:col-span-5 reveal">
-          <p class="eyebrow mb-3">FAQ</p>
-          <h2 class="font-semibold text-[2.5rem] md:text-[2.875rem] leading-[1.05] tracking-[-0.018em]">
-            Frequently asked questions
-          </h2>
-        </div>
-        <div class="md:col-span-7 reveal" data-reveal-delay="120">
-          <p class="eyebrow mb-3 invisible select-none" aria-hidden="true">FAQ</p>
-          <p class="text-[1.1875rem] leading-[1.6] text-[var(--fg-muted)]">
-            Common questions from chief actuaries, pricing teams, and the IT and risk officers who review us alongside them.
-          </p>
-        </div>
-      </div>
-
-      <div class="border-t border-[var(--rule)]">
-        {faqs.map((f, i) => (
-          <details class="group border-b border-[var(--rule)] reveal" data-reveal-delay={String(i * 80)}>
-            <summary class="flex items-start gap-4 py-5 cursor-pointer list-none">
-              <span class="font-mono text-xs tracking-[0.18em] text-[var(--fg-muted)] uppercase mt-1 w-8 flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
-              <span class="flex-1 font-semibold text-[1.1875rem] leading-[1.4] tracking-[-0.005em] text-[var(--fg)]">{f.q}</span>
-              <span
-                aria-hidden="true"
-                class="ml-3 mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[var(--rule)] text-[var(--fg-muted)] transition-transform group-open:rotate-45 flex-shrink-0"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3">
-                  <path d="M12 5v14" />
-                  <path d="M5 12h14" />
-                </svg>
-              </span>
-            </summary>
-            <p class="pl-12 pr-10 pb-6 text-[1.0625rem] leading-[1.6] text-[var(--fg-muted)]">
-              {f.a}
-            </p>
-          </details>
-        ))}
-      </div>
-    </div>
   </section>
 
   <Footer />

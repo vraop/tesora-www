@@ -54,8 +54,8 @@ export const lifecycleStages: LifecycleStage[] = [
     id: "market-research",
     label: "Market Research",
     agent: "Insight",
-    title: "Read a competitor's filing in hours, not weeks",
-    body: "Pull SERFF filings, public rate manuals, and internal Excel files into one vault. The Insight Agent extracts factor tables, base rates, and rating algorithms into a queryable table so your team can diff filed material against your in-force book.",
+    title: "Market analysis used to take at least a week",
+    body: "Now you can read multiple rate filings or ingest multiple raters from any source in hours. Run your book of exposures through several raters simultaneously and compare the results. Ingest filings, public data, and proprietary data sources in almost any file format into one vault. The Insight Agent extracts factor tables, base rates, and rating algorithms into a queryable table so your team can compare competitive material against your in-force book.",
     seo: {
       title: "SERFF Competitor Rate Filing Analysis · Tesora",
       h1: "Competitor rate filing analysis, in hours",
@@ -109,19 +109,17 @@ export const lifecycleStages: LifecycleStage[] = [
       ],
     },
     followups: [
-      { title: "Summarize the ILF curve", body: "Pull the increased-limit factor table from the filing and produce a concise curve summary." },
-      { title: "Jurisdiction comparison", body: "Compare base rates and territory loadings across the jurisdictions named in the filing." },
-      { title: "Diff vs. prior version", body: "Compute a diff against the prior version of the filing and call out the largest factor changes." },
-      { title: "Extract filing rationale", body: "Lift the actuarial memo prose and key assumptions out of the filing into a readable summary." },
-      { title: "Schedule a re-run on cron", body: "Propose a routine that re-runs this scan when the carrier files an update on SERFF." },
+      { title: "Create a report comparing five raters", body: "Show visualizations any way you want, smartly constructed with minimal code." },
+      { title: "Which company has the lowest rate in territory XYZ", body: "Quickly do competitive analysis, slicing through any factors in the raters." },
+      { title: "Versus prior version", body: "Compare against the prior version of the rater and call out the largest factor changes." },
     ],
   },
   {
     id: "loss-modeling",
     label: "Loss Modeling",
     agent: "Insight",
-    title: "Fit factors to your data, not someone else's",
-    body: "GLMs, credibility-weighted factors, segmentation studies, severity fits. The Insight Agent runs the assembly on the data you bring. You stay in charge of every decision.",
+    title: "Trained to help you fit to any data",
+    body: "Limited average severity curves, credibility factors, on-balance factors. The entire actuarial toolkit you will need.",
     seo: {
       title: "GLM Loss Modeling and Curve Fitting for Actuaries · Tesora",
       h1: "Loss modeling and curve fitting, audited end to end",
@@ -174,11 +172,9 @@ export const lifecycleStages: LifecycleStage[] = [
       ],
     },
     followups: [
-      { title: "Credibility-weight against industry", body: "Re-fit using credibility weighting against an ISO-published industry severity prior." },
-      { title: "Sensitivity to large losses", body: "Run a sensitivity study trimming the top-N losses, show how the fit shifts." },
       { title: "The full curve-fitting toolkit", body: "GLMs, box plots, severity fits, and the rest are first-class. The agents do the math. You stay in charge." },
-      { title: "Visualize my segments", body: "Slice the fit by the largest class-code segments and visualize the differences." },
-      { title: "Reproducible a year from now", body: "Every source file, factor selection, and review step is retained. Re-run the analysis a year later and get the same numbers." },
+      { title: "Large loss and clash cover handling", body: "Trim, smooth, or segment the tail however you need it. Reproducible against the same assumptions every time." },
+      { title: "For advice", body: "AI that is trained actuarially can help you perform better analyses." },
     ],
   },
   {
@@ -250,7 +246,7 @@ export const lifecycleStages: LifecycleStage[] = [
     id: "reserving",
     label: "Reserving",
     agent: "Insight",
-    title: "Reserving on the same data schema as pricing",
+    title: "Agents that can handle reserving make smarter pricing decisions",
     body: "Chain ladder, Bornhuetter-Ferguson, and Cape Cod methods, run side by side on the same triangle. The reserving actuary owns the selection.",
     seo: {
       title: "Actuarial Reserving: Chain Ladder, Bornhuetter-Ferguson, Cape Cod · Tesora",
