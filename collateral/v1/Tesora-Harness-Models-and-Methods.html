@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Tesora Harness · Models &amp; Methods</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1116; --paper:#FFFFFF; --panel:#F5F6F8; --line:#E4E7EC; --line-2:#D3D8E0;
+  --text:#1B1F27; --muted:#565D68; --faint:#8A919C;
+  --mag:#B400FE; --mag-deep:#8A00C6; --mag-tint:#F8EDFF;
+  --grn:#1C7A50; --grn-tint:#ECF6F0; --grn-line:#CBE7D8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#5b6068;font-family:'Figtree',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased;padding:40px 0}
+.page{width:850px;margin:0 auto 30px;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* header band */
+.masthead{background:var(--ink);color:#fff;padding:40px 56px 34px;position:relative;overflow:hidden}
+.masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--mag)}
+.masthead .ghostmk{position:absolute;right:-40px;top:-40px;width:260px;height:260px;opacity:.08}
+.masthead .lock{display:flex;align-items:center;gap:11px;margin-bottom:26px}
+.masthead .lock .mk{width:30px;height:30px}
+.masthead .lock .wm{font-weight:800;font-size:24px;letter-spacing:-.02em}
+.masthead .kick{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#C79BF2;margin-bottom:10px}
+.masthead h1{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0}
+.masthead h1 b{color:var(--mag)}
+.masthead .meta{margin-top:16px;display:flex;gap:28px;font-size:12px;color:#9AA1AC;font-weight:500}
+.masthead .meta b{color:#E7EAEF;font-weight:700}
+
+.body{padding:40px 56px 30px}
+.intro{font-size:16px;line-height:1.6;color:var(--text);margin:0 0 8px}
+.intro b{font-weight:700}
+
+.sec{margin-top:34px}
+.sec > .h{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:18px}
+.sec > .h .no{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--mag-deep)}
+.sec > .h h2{font-size:20px;font-weight:800;letter-spacing:-.015em;margin:0;color:var(--ink)}
+.sec p{font-size:14px;line-height:1.6;color:var(--muted);margin:0 0 12px}
+.sec p b{color:var(--text);font-weight:700}
+
+/* agent blocks */
+.agent{border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:5px;padding:16px 20px;margin-bottom:12px}
+.agent .an{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.agent .an .nm{font-size:16px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.agent .an .role{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mag-deep)}
+.agent p{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0}
+.agent p b{color:var(--text);font-weight:700}
+
+/* two-col facts */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:14px 16px}
+.fact .k{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:5px}
+.fact p{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
+.fact p b{color:var(--text);font-weight:700}
+
+/* callout */
+.callout{background:var(--ink);color:#fff;border-radius:5px;padding:18px 22px;margin-top:14px;font-size:14px;line-height:1.55;font-weight:500}
+.callout b{color:#E3B7FB;font-weight:700}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips .c{font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:6px 12px}
+.flowdia{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 0}
+.flowdia .fn{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:5px;padding:12px 14px;position:relative}
+.flowdia .fn .a{font-size:13.5px;font-weight:800;color:var(--ink)}
+.flowdia .fn .r{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mag-deep);margin-top:4px}
+.flowdia .fn:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--line-2);font-weight:800;z-index:2}
+.flowbase{margin-top:9px;background:var(--ink);color:#fff;border-radius:5px;padding:10px 16px;text-align:center;font-size:12px;font-weight:600}
+.flowbase b{color:#E3B7FB;font-weight:700}
+.nextstep{margin-top:26px;background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:5px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.nextstep .l .k{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:4px}
+.nextstep .l .t{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.nextstep .r{font-size:14px;font-weight:700;color:var(--mag-deep);text-align:right}
+
+.foot{border-top:1px solid var(--line);margin-top:36px;padding-top:16px;display:flex;justify-content:space-between;font-size:11px;color:var(--faint);letter-spacing:.04em}
+.foot .r{text-transform:uppercase;letter-spacing:.14em}
+
+@media print{body{background:#fff;padding:0}.page{box-shadow:none;margin:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 190 190">
+    <g transform="translate(8,10) scale(0.351562)">
+      <g transform="translate(0,512) scale(0.1,-0.1)" fill="#B400FE">
+        <path d="M916 5089 c-94 -14 -204 -47 -292 -88 -282 -133 -486 -378 -572 -689 l-27 -97 -3 -1595 c-2 -1145 0 -1622 8 -1690 39 -325 243 -622 541 -787 30 -17 95 -45 144 -62 179 -64 102 -61 1845 -61 1753 0 1667 -3 1854 64 327 117 565 382 658 734 l23 87 0 1655 0 1655 -22 81 c-51 193 -127 333 -251 465 -133 141 -262 226 -437 286 -157 54 -132 53 -1835 52 -866 -1 -1602 -5 -1634 -10z m2751 -908 c193 -14 231 -44 513 -405 211 -270 222 -286 224 -335 1 -61 -24 -81 -115 -92 -41 -4 -304 -8 -586 -9 l-511 0 -5 -1142 c-4 -978 -6 -1158 -20 -1248 -23 -151 -42 -208 -87 -252 -59 -60 -105 -51 -187 33 -86 90 -700 887 -737 959 -70 133 -68 106 -73 916 l-5 732 -37 6 c-20 3 -173 6 -341 6 -487 1 -506 6 -647 182 -346 433 -384 503 -315 578 39 43 131 60 377 69 277 11 2415 12 2552 2z"/>
+      </g>
+      <g transform="translate(0,512) scale(0.1,-0.1)" fill="#fff">
+        <path d="M1115 4179 c-246 -9 -338 -26 -377 -69 -69 -75 -31 -145 315 -578 141 -176 160 -181 647 -182 168 0 321 -3 341 -6 l37 -6 5 -732 c5 -810 3 -783 73 -916 37 -72 651 -869 737 -959 82 -84 128 -93 187 -33 45 44 64 101 87 252 14 90 16 270 20 1248 l5 1142 511 0 c282 1 545 5 586 9 91 11 116 31 115 92 -2 49 -13 65 -224 335 -282 361 -320 391 -513 405 -137 10 -2275 9 -2552 -2z"/>
+      </g>
+    </g>
+  </symbol>
+</svg>
+
+<div class="page">
+  <div class="masthead">
+    <svg class="ghostmk"><use href="#mark"/></svg>
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="kick">Models &amp; Methods</div>
+    <h1>The Tesora <b>Harness</b></h1>
+    <div class="meta"><span>The framework beneath the Workbench</span><span><b>2026</b></span><span>Confidential</span></div>
+  </div>
+
+  <div class="body">
+    <p class="intro">Tesora is an AI-native actuarial workbench for specialty P&amp;C pricing and reserving. The <b>Workbench</b> is the surface an actuary works in, a chat next to Excel. The <b>Harness</b> is the framework beneath it that reads the data, runs the analysis, and makes the output something a chief actuary can sign. This note describes how the Harness is built, how it is kept honest, and how it handles your data.</p>
+
+    <div class="sec">
+      <div class="h"><span class="no">01</span><h2>One system, four narrow jobs</h2></div>
+      <p>Tesora does not train one large model to do everything. The Harness coordinates four specialized agents, each with a narrow job, over the frontier models best suited to that job. Splitting the work this way is what makes the output checkable: a reviewer can see which agent produced which number and trace it back, rather than trusting a single black box that read the whole packet and returned an answer.</p>
+      <p>Every agent runs against <b>your data, in your environment</b>. Nothing about the design assumes a shared model that has memorized other carriers' books.</p>
+      <div class="flowdia">
+        <div class="fn"><div class="a">Ingestion</div><div class="r">Reads</div></div>
+        <div class="fn"><div class="a">Insight</div><div class="r">Models</div></div>
+        <div class="fn"><div class="a">Rating</div><div class="r">Deploys</div></div>
+        <div class="fn"><div class="a">Audit</div><div class="r">Proves</div></div>
+      </div>
+      <div class="flowbase">Every step writes to <b>one append-only audit trail</b>, and the actuary signs off before anything ships.</div>
+    </div>
+
+    <div class="sec">
+      <div class="h"><span class="no">02</span><h2>No single agent gets the last word</h2></div>
+      <div class="agent"><div class="an"><span class="nm">Ingestion Agent</span><span class="role">Reads</span></div><p>Takes loss runs, statements of values, dec pages, and rate manuals in whatever format they arrive, including scans and inconsistent carrier templates, and normalizes them underneath the workflow you already run. It flags anomalies before they reach a model rather than after they reach a filing.</p></div>
+      <div class="agent"><div class="an"><span class="nm">Insight Agent</span><span class="role">Models</span></div><p>Fits frequency and severity, trends, and on-levels, and assembles loss development. It hands back a write-up the reviewer can actually check, with the selections left to the actuary. It does the assembly, not the judgment.</p></div>
+      <div class="agent"><div class="an"><span class="nm">Rating Agent</span><span class="role">Deploys</span></div><p>Turns the actuary's selections into a versioned, tested rater, exposed as an API or a GUI, and generates the state exhibits that go with a filing. Existing rating logic is preserved exactly; changes ship with test cases attached.</p></div>
+      <div class="agent"><div class="an"><span class="nm">Audit Agent</span><span class="role">Proves</span></div><p>Traces every value to a page, a row, and a cell, and writes down anything it skipped, so a capped limit or a data gap lands in the memo where a reviewer will see it. The audit log is append-only.</p></div>
+    </div>
+
+    <div class="sec">
+      <div class="h"><span class="no">03</span><h2>Honesty is enforced, not requested</h2></div>
+      <p>Three properties the Harness enforces in code, so they hold on every run whatever the prompt says.</p>
+      <div class="facts">
+        <div class="fact"><div class="k">Citations or it did not happen</div><p>Every value carries a cell-level citation to the source document. A number with no source is treated as a failure, not a result.</p></div>
+        <div class="fact"><div class="k">Self-testing before deploy</div><p>Models and raters ship with test cases and are re-run against them before anything goes live. The system reports what it could not verify.</p></div>
+        <div class="fact"><div class="k">The actuary owns the decision</div><p>Agents assemble and check. Selections, sign-off, and the filing stay with a credentialed actuary at every step.</p></div>
+        <div class="fact"><div class="k">Calibrated on real work</div><p>The Harness is trained on the CAS syllabus and the ASOPs a reviewer is held to, then tuned against live pricing, rater filings, and rebuilds reviewed by working actuaries.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="h"><span class="no">04</span><h2>Your data never leaves your boundary</h2></div>
+      <p>Tesora runs in a <b>single-tenant VPC</b> scoped to your workflow. Production data does not leave that boundary, and Tesora uses AI providers configured for zero data retention, so your submissions and loss data are never used to train a shared model. Where documents are used to tune the system for your book, they are de-identified first, preserving structure while removing anything sensitive.</p>
+      <div class="chips">
+        <span class="c">Single-tenant VPC</span><span class="c">Zero data retention providers</span><span class="c">SOC 2 ready</span><span class="c">SOX controls</span><span class="c">ASOP 23 / 41 / 56</span><span class="c">NAIC Model Bulletin 2023-25</span>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="h"><span class="no">05</span><h2>Signed the way a regulator expects</h2></div>
+      <p>Rate changes get controlled, signed, and audited the way a regulator expects. Tesora enforces <b>author, reviewer, and approver as three separate people</b>, keeps an append-only record of every change, and ties each output back to the inputs it was built on. The result is work that moves at software speed and still survives an examination.</p>
+      <div class="callout">The short version: the Harness is designed so that a fast answer and a <b>defensible answer are the same answer</b>. Speed does not come at the cost of the audit trail, because the audit trail is how the system works, not a report it writes at the end.</div>
+    </div>
+
+    <div class="nextstep">
+      <div class="l"><div class="k">Next step</div><div class="t">See it run on your own book, in a 60-day build inside your environment. Sign or refund.</div></div>
+      <div class="r">founders@tesora.ai<br>tesora.ai</div>
+    </div>
+
+    <div class="foot">
+      <span>© 2026 Tesora AI Inc. · Provided under NDA</span>
+      <span class="r">Frontier AI for Actuaries</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
