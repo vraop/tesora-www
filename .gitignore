@@ -24,8 +24,9 @@ pnpm-debug.log*
 .idea/
 .gstack/
 
-# claude local
-.claude/
+# claude local (settings, hooks, caches) — but track vendored project skills
+.claude/*
+!.claude/skills/
 
 # env (env*.txt shadows from TextEdit)
 .env*

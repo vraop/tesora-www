@@ -72,6 +72,36 @@ const GREETING_RULES: PhraseRule[] = [
   { phrase: "^\\s*Dear [A-Z][a-z]+,", reason: "[PB] greeting must be '<First>,' not 'Dear <First>,'", flags: "m" },
 ];
 
+// AI vocabulary tells — the deterministic subset of the `ai-check` skill's
+// Signal A (perplexity / canonical AI vocabulary). These are ADVISORY, not
+// blocking: a single "robust" in a privacy policy is not worth failing a build
+// over, but authors should see it and reach for a sharper word. For the
+// judgment-level signals a regex can't catch (burstiness, rhetorical
+// scaffolding, register collapse), run the /ai-check skill on the draft.
+const AI_VOCAB: PhraseRule[] = [
+  { phrase: "\\bdelve\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bleverage\\b", reason: "[ai-check] canonical AI vocabulary; try 'use'" },
+  { phrase: "\\butilize\\b", reason: "[ai-check] canonical AI vocabulary; try 'use'" },
+  { phrase: "\\brobust\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bcomprehensive\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bstreamline\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bfoster\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bfacilitate\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bpivotal\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bnuanced\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bmultifaceted\\b", reason: "[ai-check] canonical AI vocabulary" },
+  { phrase: "\\bcutting-edge\\b", reason: "[ai-check] marketing cliche" },
+  { phrase: "\\bseamless(ly)?\\b", reason: "[ai-check] marketing cliche" },
+  { phrase: "\\bempower(s|ing|ed)?\\b", reason: "[ai-check] marketing cliche" },
+  { phrase: "in the realm of", reason: "[ai-check] canonical AI phrase" },
+  { phrase: "the landscape of", reason: "[ai-check] canonical AI phrase" },
+  { phrase: "a myriad of", reason: "[ai-check] canonical AI phrase" },
+  { phrase: "a plethora of", reason: "[ai-check] canonical AI phrase" },
+  { phrase: "fast-paced world", reason: "[ai-check] canonical AI opener" },
+  { phrase: "it is worth noting", reason: "[ai-check] institutional hedge" },
+  { phrase: "it is important to note", reason: "[ai-check] institutional hedge" },
+];
+
 // Strip regions we should not lint, preserving offsets so line:col stays accurate:
 //   - HTML comments <!-- ... -->
 //   - <style>, <script> blocks
@@ -103,6 +133,7 @@ type Violation = {
   col: number;
   rule: string;
   snippet: string;
+  severity: "error" | "advisory";
 };
 
 function findLineCol(src: string, index: number): { line: number; col: number } {
@@ -129,7 +160,10 @@ function scan(file: string, src: string): Violation[] {
   const sanitized = stripIgnored(src);
   const out: Violation[] = [];
 
-  const collect = (rules: { name?: string; phrase?: string; re?: RegExp; reason: string; flags?: string }[]) => {
+  const collect = (
+    rules: { name?: string; phrase?: string; re?: RegExp; reason: string; flags?: string }[],
+    severity: "error" | "advisory",
+  ) => {
     for (const r of rules) {
       const re = r.re ?? new RegExp(r.phrase!, (r.flags ?? "gi"));
       const reGlobal = re.flags.includes("g") ? re : new RegExp(re.source, re.flags + "g");
@@ -143,16 +177,18 @@ function scan(file: string, src: string): Violation[] {
           col,
           rule: r.reason,
           snippet: snippetAt(src, m.index, m[0].length),
+          severity,
         });
         if (m.index === reGlobal.lastIndex) reGlobal.lastIndex++;
       }
     }
   };
 
-  collect(BANNED_PUNCT);
-  collect(BANNED_PHRASES);
-  collect(BANNED_CONTENT);
-  collect(GREETING_RULES);
+  collect(BANNED_PUNCT, "error");
+  collect(BANNED_PHRASES, "error");
+  collect(BANNED_CONTENT, "error");
+  collect(GREETING_RULES, "error");
+  collect(AI_VOCAB, "advisory");
 
   return out;
 }
@@ -202,27 +238,43 @@ async function main() {
     allViolations.push(...scan(f, src));
   }
 
-  if (allViolations.length === 0) {
-    console.log(`check:voice — clean. scanned ${files.length} files.`);
+  const errors = allViolations.filter((v) => v.severity === "error");
+  const advisories = allViolations.filter((v) => v.severity === "advisory");
+
+  const report = (violations: Violation[], heading: string, stream: (s: string) => void) => {
+    const grouped = new Map<string, Violation[]>();
+    for (const v of violations) {
+      const rel = path.relative(ROOT, v.file);
+      if (!grouped.has(rel)) grouped.set(rel, []);
+      grouped.get(rel)!.push(v);
+    }
+    stream(`${heading} — ${violations.length} in ${grouped.size} file(s):\n`);
+    for (const [file, vs] of grouped) {
+      stream(`  ${file}`);
+      for (const v of vs) {
+        stream(`    ${v.line}:${v.col}  ${v.rule}`);
+        stream(`      › ${v.snippet}`);
+      }
+      stream("");
+    }
+  };
+
+  // Advisories never fail the build. They surface the deterministic AI tells
+  // (ai-check Signal A) so authors can sharpen copy without blocking a ship.
+  if (advisories.length > 0) {
+    report(advisories, "check:voice — AI-vocabulary advisories", (s) => console.warn(s));
+    console.warn(`Run the /ai-check skill on new long-form copy for the signals a regex can't catch.\n`);
+  }
+
+  if (errors.length === 0) {
+    console.log(
+      `check:voice — clean. scanned ${files.length} files` +
+        (advisories.length > 0 ? ` (${advisories.length} advisory item(s) above).` : "."),
+    );
     process.exit(0);
   }
 
-  const grouped = new Map<string, Violation[]>();
-  for (const v of allViolations) {
-    const rel = path.relative(ROOT, v.file);
-    if (!grouped.has(rel)) grouped.set(rel, []);
-    grouped.get(rel)!.push(v);
-  }
-
-  console.error(`check:voice — ${allViolations.length} violation(s) in ${grouped.size} file(s):\n`);
-  for (const [file, vs] of grouped) {
-    console.error(`  ${file}`);
-    for (const v of vs) {
-      console.error(`    ${v.line}:${v.col}  ${v.rule}`);
-      console.error(`      › ${v.snippet}`);
-    }
-    console.error("");
-  }
+  report(errors, "check:voice", (s) => console.error(s));
   console.error(`See docs/review-rubric.md for the full rules.`);
   process.exit(1);
 }

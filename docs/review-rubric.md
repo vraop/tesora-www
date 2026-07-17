@@ -34,6 +34,11 @@ The following words and phrases are banned on every page. Reasons in parentheses
 - [ ] **[PB]** No hedging. No "in development", "next release", "coming soon", "SOA/IFoA later". Ship it or cut the line.
 - [ ] **[PB]** No fabricated warm threads ("your name came up", "I came across your profile") in any quote, testimonial, or pseudo-outbound copy.
 
+### AI tells (advisory)
+`check:voice` also flags canonical AI vocabulary (`delve`, `leverage`, `robust`, `streamline`, `cutting-edge`, `seamless`, `empower`, `a myriad of`, and friends). These are advisories, not build-breakers: one `robust` in a privacy policy is fine, but on marketing copy they read as generic and machine-written. Reach for the sharper word.
+- [ ] Reviewed the AI-vocabulary advisories from `bun run check:voice` and cleared or justified each on user-facing copy.
+- [ ] Ran the `/ai-check` skill on any new long-form page or article. The regex catches vocabulary; the skill catches the signals it can't see: sentence uniformity, rhetorical scaffolding, institutional hedging, register collapse. Score under 9 before shipping. The skill is vendored in `.claude/skills/` and loads automatically.
+
 ### Mandatory framing
 - [ ] **[PB]** **The actuary owns every decision.** Agents help, the actuary decides. Any copy that suggests AI is the decision-maker fails review.
 - [ ] **[PB]** **Citations or it didn't happen.** Any new "AI does X" claim must mention citations or audit trail.
