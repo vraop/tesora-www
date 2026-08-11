@@ -180,6 +180,18 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .slot .si svg{width:20px;height:20px}
 .slot .st1{font-size:14px;font-weight:800;color:var(--mag-deep);letter-spacing:-.01em}
 .slot .st2{font-size:12px;color:var(--muted);font-weight:500;max-width:420px;text-align:center;line-height:1.45}
+.tshot{flex:1;min-height:0;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;box-shadow:0 10px 28px rgba(14,17,22,.12);background:#fff}
+.tshot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* pg9 model progress */
+.rl5{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.r5{flex:1;display:grid;grid-template-columns:64px 250px 1fr;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.r5:last-child{border-bottom:none}
+.r5.win{background:var(--mag-tint)}
+.ic5{width:40px;height:40px;border-radius:10px;background:var(--mag-tint);border:1px solid var(--mag-line);display:flex;align-items:center;justify-content:center;color:var(--mag-deep)}
+.ic5 svg{width:20px;height:20px}
+.t5{font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.2}
+.d5{font-size:13.5px;line-height:1.5;color:var(--muted);font-weight:400}
+.d5 b{color:var(--text);font-weight:700}
 
 .lede1{margin-bottom:20px}
 .lede1 .setup{font-size:18px;color:var(--muted);font-weight:400;line-height:1.4}
@@ -313,36 +325,27 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Why not Claude?</h2></div>
   <div class="stage fill">
-    <div class="phead"><h1 class="pt">The same question, and only one answer you can <b>put your name on</b>.</h1><p class="pl">A frontier model can do the math. It cannot show you where the numbers came from, and it will not give you the same answer twice.</p></div>
+    <div class="lede1"><div class="setup">A frontier model can already do the math&hellip;</div><div class="payoff">&hellip;Tesora puts it in a format an actuary can <b>sign and file</b>.</div></div>
     <div class="vs">
       <div class="pcol">
-        <div class="panelhd"><span class="tag" style="color:var(--muted)">A frontier model, on its own</span><span class="who" style="color:var(--faint)">One answer, no trail</span></div>
+        <div class="panelhd"><span class="tag" style="color:var(--muted)">A frontier model, on its own</span><span class="who" style="color:var(--faint)">Confident, but guessing</span></div>
         <div class="gptchat">
           <div class="gh"><span class="av"></span><span class="lbl">Claude</span></div>
           <div class="gbody">
-            <div class="um">Select a loss trend for my GA commercial auto book and give me the indicated rate change.</div>
-            <div class="am"><span class="ava">C</span><div class="txt"><p>Based on typical industry patterns for commercial auto, a loss trend near <b>6%</b> is reasonable, which supports a <b>mid-single-digit</b> rate change.</p></div></div>
+            <div class="um">Here is my GA commercial auto paid-loss triangle, 2019 to 2025. Select development factors, fit a tail, and give me the indicated reserve and the on-leveled rate change.</div>
+            <div class="am"><span class="ava">C</span><div class="txt"><p>From a typical development pattern, age-to-age factors run around <b>1.55, 1.18, 1.08, 1.03</b>, with a tail near <b>1.02</b>, which puts ultimates a little above your latest diagonal.</p><p>Assuming loss trend near 6% and standard on-leveling, a <b>mid-single-digit</b> rate change looks reasonable.</p></div></div>
             <div class="gflags">
               <div class="gfhd">Why an actuary cannot sign this</div>
-              <div class="gf"><span class="w">!</span><span>It never saw your data. Nothing here traces to your book.</span></div>
-              <div class="gf"><span class="w">!</span><span>No record of what it did, so no one can review the steps.</span></div>
-              <div class="gf"><span class="w">!</span><span>Ask again next quarter and the answer moves.</span></div>
+              <div class="gf"><span class="w">!</span><span>It never saw your triangle. A real book is millions of rows and will not fit in context.</span></div>
+              <div class="gf"><span class="w">!</span><span>The factors and trend are generic, with no source to trace or reproduce.</span></div>
+              <div class="gf"><span class="w">!</span><span>No on-leveling to your history, no exhibits, nothing built to ASOP.</span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="pcol">
-        <div class="panelhd"><span class="tag" style="color:var(--mag-deep)">The same models, inside Tesora</span><span class="who" style="color:var(--ink)">Every step on the record</span></div>
-        <div class="trace">
-          <div class="th"><svg class="mk"><use href="#mark"/></svg><span class="lbl">Loss trend selection</span><span class="sess">session #4471</span></div>
-          <div class="tb">
-            <div class="tstep"><span class="tn">&#10003;</span><div><div class="tt">Pulled your paid and incurred history</div><div class="tc">GA_CA_losses_2019-2025.xlsx</div></div></div>
-            <div class="tstep"><span class="tn">&#10003;</span><div><div class="tt">Fit frequency and severity trends separately</div><div class="tc">exhibit 4, rows 12-31</div></div></div>
-            <div class="tstep"><span class="tn">&#10003;</span><div><div class="tt">Cross-checked against filed industry trend</div><div class="tc">SERFF GA-2025-0118</div></div></div>
-            <div class="tstep"><span class="tn">&#10003;</span><div><div class="tt">Your actuary selected and signed off</div><div class="tc">reviewed by P. Bishay</div></div></div>
-          </div>
-          <div class="tfoot"><span class="ck">&#10003;</span>Rerun it in two years and it reproduces, cell for cell.</div>
-        </div>
+        <div class="panelhd"><span class="tag" style="color:var(--mag-deep)">The same models, inside Tesora</span><span class="who" style="color:var(--ink)">Working your real filing</span></div>
+        <div class="tshot"><img src="asset-tesora-chat.png" alt="Tesora ingesting a rate filing, mapping the rating model, scanning competitors, and coordinating agents, every step traced"></div>
       </div>
     </div>
   </div>
@@ -437,11 +440,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Reserving</h2></div>
   <div class="stage fill">
     <div class="phead"><h1 class="pt">The triangle is <b>squared before you sit down</b>.</h1><p class="pl">Reserving usually burns days pulling and reconciling triangles. Tesora does that on ingest, so your time goes to selecting factors.</p></div>
-    <div class="slot">
-      <span class="si"><svg><use href="#ic-image"/></svg></span>
-      <span class="st1">Reserving study screenshot</span>
-      <span class="st2">Selected IBNR by accident year, chain-ladder ultimates reported against paid, every value traced to the source triangle.</span>
-    </div>
+    <div class="citehero"><img src="asset-reserving.png" alt="A Tesora reserving study: selected IBNR by accident year, chain-ladder ultimates reported against paid with the tail fitted, and every value traced back to the source triangle file"></div>
   </div>
   <div class="pg"></div>
 </section>
@@ -451,11 +450,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Compliance &amp; audit</h2></div>
   <div class="stage fill">
     <div class="phead"><h1 class="pt">Work you can <b>reopen years later</b>.</h1><p class="pl">AI sessions save your work so you can revisit, reproduce, or audit the work many years later.</p></div>
-    <div class="slot">
-      <span class="si"><svg><use href="#ic-image"/></svg></span>
-      <span class="st1">Document citation screenshot</span>
-      <span class="st2">Tesora reading a source document and citing every value it used, with any caveat surfaced for review.</span>
-    </div>
+    <div class="citehero"><img src="asset-bernegger.png" alt="Tesora reading a source document and citing every value it used, with a caveat surfaced for review"></div>
   </div>
   <div class="pg"></div>
 </section>
@@ -489,15 +484,31 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 09 · TEAM -->
+<!-- 09 · MODEL PROGRESS -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What if the models get better?</h2></div>
+  <div class="stage fill">
+    <div class="phead"><h1 class="pt">It makes us <b>even better</b>.</h1><p class="pl">Better models accelerate the product underneath you, compounding your advantage with every release.</p></div>
+    <div class="rl5">
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><div class="t5">Every release lifts you</div><div class="d5">The workbench is model-agnostic and runs on the strongest model available. Each new generation handles your schemas and messy edge cases more easily, so the work gets sharper <b>at no cost to you</b>.</div></div>
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l2 2 3.5-3.5"/><path d="M3 14l2 2 3.5-3.5"/><path d="M12 6h9"/><path d="M12 14h9"/></svg></span><div class="t5">We keep learning your systems</div><div class="d5">The longer we work with your team, the more of your data, formats, and quirks the workbench encodes, and that knowledge carries across every model upgrade.</div></div>
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg></span><div class="t5">The cheapest correct path</div><div class="d5">Every org is running a dozen AI pilots. We stay anchored on one thing: the fastest, most correct, and lowest-token way to run a complex workflow within your audit standards.</div></div>
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="t5">Audits matter more, not less</div><div class="d5">As the model does more of the work, proving it matters more, so no step gets skipped and nothing is taken for granted. Every value stays cited, reproducible, and signed off.</div></div>
+      <div class="r5 win"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span><div class="t5">The gap widens</div><div class="d5">Better models unlock even more complex work, so the advantage compounds. A rate change that took months now takes days, so you can reprice against the market while slower competitors wait on a filing cycle. The firms that move first pull ahead, and <b>standing still gets more expensive</b>.</div></div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 10 · TEAM -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>The team</h2></div>
   <div class="stage fill">
     <div class="phead"><h1 class="pt">A team built at the intersection of frontier AI research and decades of actuarial experience, <b>the two disciplines this problem demands</b>.</h1></div>
     <div class="team">
-      <div class="mem"><div class="ph ini">VR</div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
-      <div class="mem"><div class="ph ini">FR</div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI (acquired by Nvidia), and on Google's Document OCR team.</p></div>
-      <div class="mem"><div class="ph ini">PB</div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Chief actuary at W. R. Berkley E&amp;S</b>, owning pricing and reserving. Capital modeler at <b>Gen Re</b>; built and sold a brokerage.</p></div>
+      <div class="mem"><div class="ph"><img src="photo-vr.png" alt="Vivek Rao"></div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
+      <div class="mem"><div class="ph"><img src="photo-fr.png" alt="Federico Reyes"></div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI (acquired by Nvidia), and on Google's Document OCR team.</p></div>
+      <div class="mem"><div class="ph"><img src="photo-pb.png" alt="Philo Bishay"></div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Chief actuary at W. R. Berkley E&amp;S</b>, owning pricing and reserving. Capital modeler at <b>Gen Re</b>; built and sold a brokerage.</p></div>
     </div>
     <div class="backed">
       <span class="bk">Backed by</span>
@@ -521,12 +532,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="close">
     <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
     <div class="manifesto">
-      <h1>Start with one workflow. <b>Keep the sign-off.</b></h1>
+      <h1>Above all, we want to see you <b>win</b>.</h1>
       <div class="closecols">
         <div class="closebody">
-          <p>Bringing AI into actuarial work is a decision you will have to explain, to your management, your auditors, and eventually a regulator. That deserves care, so we do not ask for a leap of faith.</p>
-          <p>We start narrow: one workflow, one metric your team already tracks, running in your environment on your data. Your actuaries keep the judgment and the sign-off. Every step is documented, so you can check the work rather than trust it.</p>
-          <p>If it earns a place in your process, we go further together. <b>If it does not, you have spent a few weeks and gained a clear answer.</b></p>
+          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
+          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
           <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
         </div>
         <div class="derisk">
@@ -534,7 +544,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
           <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
           <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
-          <div class="di"><span class="ck">&#10003;</span> Every number stays traceable, so your review is a check, not a leap.</div>
         </div>
       </div>
     </div>
