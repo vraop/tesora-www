@@ -285,14 +285,14 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .takeaway b{color:#E3B7FB}
 
 /* ============ TEAM ============ */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;flex:none;align-items:stretch;max-width:1000px;margin:auto}
-.mem{border:1px solid var(--line);border-radius:8px;padding:28px 20px 24px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:#fff}
-.mem .ph{width:120px;height:120px;border-radius:50%;overflow:hidden;background:var(--ink);flex:none;box-shadow:0 6px 16px rgba(14,17,22,.14)}
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;flex:none;align-items:stretch;margin:auto 0}
+.mem{border:1px solid var(--line);border-radius:8px;padding:22px 16px 20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:#fff}
+.mem .ph{width:104px;height:104px;border-radius:50%;overflow:hidden;background:var(--ink);flex:none;box-shadow:0 6px 16px rgba(14,17,22,.14)}
 .mem .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.14)}
-.mem .ph.ini{display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:800;color:#fff;letter-spacing:.02em;background:linear-gradient(152deg,#1E232C,#0E1116)}
-.mem .nm{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-top:16px}
+.mem .ph.ini{display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:#fff;letter-spacing:.02em;background:linear-gradient(152deg,#1E232C,#0E1116)}
+.mem .nm{font-size:15.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-top:16px}
 .mem .role{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag-deep);margin-top:6px}
-.mem .bio{font-size:12px;line-height:1.5;color:var(--muted);margin:13px 0 0}
+.mem .bio{font-size:11.5px;line-height:1.5;color:var(--muted);margin:13px 0 0}
 .mem .bio b{color:var(--text);font-weight:700}
 .backed{background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:15px 26px;display:flex;align-items:center;gap:22px;color:var(--ink)}
 .backed .bk{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8C95A1;flex:none}
@@ -306,24 +306,25 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .backed .tail{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:500;white-space:nowrap;text-align:right}
 
 /* ============ CLOSE ============ */
-.close{height:100%;background:var(--ink);color:#fff;padding:54px 60px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.close::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--mag)}
-.close .lock{display:flex;align-items:center;gap:12px}
+.close{height:100%;background:linear-gradient(160deg,#FFFFFF 0%,#FAF7FD 58%,#F4EFFA 100%);color:var(--text);
+  padding:54px 60px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.close::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--mag)}
+.close .lock{display:flex;align-items:center;gap:12px;color:var(--ink)}
 .close .lock .mk{width:30px;height:30px}
 .close .lock .wm{font-size:21px;font-weight:800;letter-spacing:-.015em}
 .close .manifesto{margin:auto 0;max-width:1140px;width:100%}
-.close h1{font-size:42px;font-weight:900;letter-spacing:-.032em;line-height:1.06;margin-bottom:22px;max-width:900px}
-.close h1 b{color:#D9A6F7}
+.close h1{font-size:42px;font-weight:900;letter-spacing:-.032em;line-height:1.06;margin-bottom:22px;max-width:900px;color:var(--ink)}
+.close h1 b{color:var(--mag)}
 .closecols{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:start}
-.closebody p{font-size:15px;line-height:1.62;color:#C3C9D2;margin-bottom:13px;font-weight:400}
-.closebody p b{color:#fff;font-weight:600}
+.closebody p{font-size:15px;line-height:1.62;color:var(--muted);margin-bottom:13px;font-weight:400}
+.closebody p b{color:var(--ink);font-weight:600}
 .ctarow{display:flex;align-items:center;gap:16px;margin-top:20px}
-.ctabtn{background:var(--mag);color:#fff;font-size:13.5px;font-weight:700;padding:12px 20px;border-radius:6px}
-.ctaemail{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:#E3B7FB}
-.derisk{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.13);border-left:3px solid var(--mag);border-radius:8px;padding:20px 22px}
-.derisk .dk{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#C79BF2;margin-bottom:13px}
-.derisk .di{display:flex;gap:11px;font-size:13px;line-height:1.5;color:#C3C9D2;padding:7px 0;font-weight:400}
-.derisk .di .ck{color:#79E0B0;font-weight:800;flex:none}
+.ctabtn{background:var(--mag);color:#fff;font-size:13.5px;font-weight:700;padding:12px 20px;border-radius:6px;box-shadow:0 6px 18px rgba(180,0,254,.22)}
+.ctaemail{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--mag-deep)}
+.derisk{background:#fff;border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:8px;padding:20px 22px;box-shadow:0 10px 28px rgba(14,17,22,.06)}
+.derisk .dk{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:13px}
+.derisk .di{display:flex;gap:11px;font-size:13px;line-height:1.5;color:var(--text);padding:7px 0;font-weight:400}
+.derisk .di .ck{color:var(--grn);font-weight:800;flex:none}
 </style>
 </head>
 <body>
@@ -360,7 +361,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="stage fill">
     <div class="phead p2head"><h1 class="pt">Actuarial work is not one workflow. It is a <b>web of intricate, connected tasks</b>.</h1><p class="pl">The more steps an actuary delegates to AI, the less certain they can be of the output. Tesora enables full tracing, documentation, and audit, so the actuary remains in control.</p></div>
     <div class="treewrap">
-      <div class="treeimg"><img src="asset-tree.png" alt="What Actuaries Deliver: a tree mapping the actuarial function, with pricing across rate filing, pricing model, rate manual, rating plan and technical price, and reserving across booked IBNR, reserve movement and the statement of actuarial opinion"></div>
+      <div class="treeimg"><img src="asset-tree-clean.png" alt="What Actuaries Deliver: a tree mapping the actuarial function, with pricing across rate filing, pricing model, rate manual, rating plan and technical price, and reserving across booked IBNR, reserve movement and the statement of actuarial opinion"></div>
       <div class="treeside">
         <div class="tsk">One actuarial function, mapped</div>
         <div class="tstats">
@@ -506,19 +507,19 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="cside">
         <div class="cwho">
           <div class="cw">
-            <div class="cwh"><span class="cwi">A</span>When an actuary leaves</div>
+            <div class="cwh">When an actuary leaves</div>
             <div class="cwd">Their assumptions, sources, and reasoning stay in the session. The next person picks up the thread instead of rebuilding it.</div>
           </div>
           <div class="cw">
-            <div class="cwh"><span class="cwi">F</span>Finance</div>
+            <div class="cwh">Finance</div>
             <div class="cwd">Ties a booked number back to the ledger without waiting on an actuary to explain it.</div>
           </div>
           <div class="cw">
-            <div class="cwh"><span class="cwi">IT</span>IT and data</div>
+            <div class="cwh">IT and data</div>
             <div class="cwd">Sees which files fed which number, so a schema change has a known blast radius.</div>
           </div>
           <div class="cw">
-            <div class="cwh"><span class="cwi">R</span>Auditors and regulators</div>
+            <div class="cwh">Auditors and regulators</div>
             <div class="cwd">Follow any value to its source document, years after the filing closed.</div>
           </div>
         </div>
@@ -527,6 +528,42 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     </div>
   </div>
   <div class="pg"></div>
+</section>
+
+<!-- 10 · CLOSE -->
+<section class="slide">
+  <div class="close">
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="manifesto">
+      <h1>Above all, we want to help you <b>win</b>.</h1>
+      <div class="closecols">
+        <div class="closebody">
+          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
+          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
+          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
+        </div>
+        <div class="derisk">
+          <div class="dk">De-risked by design</div>
+          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
+          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
+          <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- APPENDIX DIVIDER -->
+<section class="slide">
+  <div class="appx">
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="axmid">
+      <div class="axk">Appendix</div>
+      <h1>The supporting detail.</h1>
+    </div>
+  </div>
+  <div class="pg" style="color:#5C6572"></div>
 </section>
 
 <!-- 07 · WHY TESORA OVER CLAUDE ALONE -->
@@ -573,46 +610,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 10 · CLOSE -->
-<section class="slide">
-  <div class="close">
-    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
-    <div class="manifesto">
-      <h1>Above all, we want to help you <b>win</b>.</h1>
-      <div class="closecols">
-        <div class="closebody">
-          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
-          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
-          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
-        </div>
-        <div class="derisk">
-          <div class="dk">De-risked by design</div>
-          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
-          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
-          <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pg" style="color:#5C6572"></div>
-</section>
-
-<!-- APPENDIX DIVIDER -->
-<section class="slide">
-  <div class="appx">
-    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
-    <div class="axmid">
-      <div class="axk">Appendix</div>
-      <h1>The supporting detail.</h1>
-      <div class="axlist">
-        <div class="axi"><span class="axn">A</span>What the recurring month looks like, and the ROI math behind it</div>
-        <div class="axi"><span class="axn">B</span>The team, and who backs us</div>
-      </div>
-    </div>
-  </div>
-  <div class="pg" style="color:#5C6572"></div>
-</section>
-
 <!-- 08 · ROI -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What is the ROI?</h2></div>
@@ -651,6 +648,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="mem"><div class="ph"><img src="photo-vr.png" alt="Vivek Rao"></div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
       <div class="mem"><div class="ph"><img src="photo-fr.png" alt="Federico Reyes"></div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI (acquired by Nvidia), and on Google's Document OCR team.</p></div>
       <div class="mem"><div class="ph"><img src="photo-pb.png" alt="Philo Bishay"></div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Chief actuary at W. R. Berkley E&amp;S</b>, owning pricing and reserving. Capital modeler at <b>Gen Re</b>; built and sold a brokerage.</p></div>
+      <div class="mem"><div class="ph ini">MP</div><div class="nm">Michael Palmich</div><div class="role">Chief Commercial Officer</div><p class="bio"><b>Built and sold actuarial software companies</b> for two decades, including Arius and Akur8.</p></div>
+      <div class="mem"><div class="ph ini">EL</div><div class="nm">Eric Lam</div><div class="role">Founding Engineer</div><p class="bio"><b>MIT</b> math, CS, and physics, with <b>three actuarial exams</b>. Writes the kernels.</p></div>
     </div>
     <div class="backed">
       <span class="bk">Backed by</span>
@@ -663,7 +662,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <span class="yclogo">Y</span>
         <div class="itxt"><div class="inm">Y Combinator <span class="s25">S25</span></div><div class="idesc">The accelerator behind Stripe and Airbnb</div></div>
       </div>
-      <span class="cas"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.4 6.7 19.2l1.1-5.9L3.5 9.2l5.9-.8z"/></svg>Proud sponsor of the CAS</span>
+      <span class="cas"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.4 6.7 19.2l1.1-5.9L3.5 9.2l5.9-.8z"/></svg>Proud sponsors of CAS</span>
     </div>
   </div>
   <div class="pg"></div>
