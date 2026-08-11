@@ -285,14 +285,22 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .takeaway b{color:#E3B7FB}
 
 /* ============ TEAM ============ */
-.team{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;flex:none;align-items:stretch;margin:auto 0}
-.mem{border:1px solid var(--line);border-radius:8px;padding:22px 16px 20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:#fff}
-.mem .ph{width:104px;height:104px;border-radius:50%;overflow:hidden;background:var(--ink);flex:none;box-shadow:0 6px 16px rgba(14,17,22,.14)}
+.teamwrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 268px;gap:26px;align-items:stretch;margin-bottom:16px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:14px;min-height:0}
+.advcol{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:24px;min-height:0;justify-content:center}
+.advk{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:14px}
+.adv{border-left:3px solid var(--mag);background:var(--panel);border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:11px}
+.advn{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.advr{font-size:12px;color:var(--muted);font-weight:500;margin-top:4px;line-height:1.35}
+.advr b{color:var(--text);font-weight:700}
+.advnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:500;margin-top:6px;text-wrap:pretty}
+.mem{border:1px solid var(--line);border-radius:8px;padding:14px 14px 12px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:#fff}
+.mem .ph{width:76px;height:76px;border-radius:50%;overflow:hidden;background:var(--ink);flex:none;box-shadow:0 6px 16px rgba(14,17,22,.14)}
 .mem .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.14)}
-.mem .ph.ini{display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:#fff;letter-spacing:.02em;background:linear-gradient(152deg,#1E232C,#0E1116)}
-.mem .nm{font-size:15.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-top:16px}
-.mem .role{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag-deep);margin-top:6px}
-.mem .bio{font-size:11.5px;line-height:1.5;color:var(--muted);margin:13px 0 0}
+.mem .ph.ini{display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;letter-spacing:.02em;background:linear-gradient(152deg,#1E232C,#0E1116)}
+.mem .nm{font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-top:10px}
+.mem .role{font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--mag-deep);margin-top:4px}
+.mem .bio{font-size:11px;line-height:1.42;color:var(--muted);margin:8px 0 0}
 .mem .bio b{color:var(--text);font-weight:700}
 .backed{background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:15px 26px;display:flex;align-items:center;gap:22px;color:var(--ink)}
 .backed .bk{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8C95A1;flex:none}
@@ -644,12 +652,26 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>The team</h2></div>
   <div class="stage fill">
     <div class="phead"><h1 class="pt">A team built at the intersection of frontier AI research and decades of actuarial experience, <b>the two disciplines this problem demands</b>.</h1></div>
-    <div class="team">
-      <div class="mem"><div class="ph"><img src="photo-vr.png" alt="Vivek Rao"></div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
-      <div class="mem"><div class="ph"><img src="photo-fr.png" alt="Federico Reyes"></div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI (acquired by Nvidia), and on Google's Document OCR team.</p></div>
-      <div class="mem"><div class="ph"><img src="photo-pb.png" alt="Philo Bishay"></div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Chief actuary at W. R. Berkley E&amp;S</b>, owning pricing and reserving. Capital modeler at <b>Gen Re</b>; built and sold a brokerage.</p></div>
-      <div class="mem"><div class="ph ini">MP</div><div class="nm">Michael Palmich</div><div class="role">Chief Commercial Officer</div><p class="bio"><b>Built and sold actuarial software companies</b> for two decades, including Arius and Akur8.</p></div>
-      <div class="mem"><div class="ph ini">EL</div><div class="nm">Eric Lam</div><div class="role">Founding Engineer</div><p class="bio"><b>MIT</b> math, CS, and physics, with <b>three actuarial exams</b>. Writes the kernels.</p></div>
+    <div class="teamwrap">
+      <div class="team">
+        <div class="mem"><div class="ph"><img src="photo-vr.png" alt="Vivek Rao"></div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
+        <div class="mem"><div class="ph"><img src="photo-fr.png" alt="Federico Reyes"></div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI (acquired by Nvidia), and Google's Document OCR team.</p></div>
+        <div class="mem"><div class="ph"><img src="photo-pb.png" alt="Philo Bishay"></div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Chief actuary at W. R. Berkley E&amp;S</b>, owning pricing and reserving. Capital modeler at <b>Gen Re</b>.</p></div>
+        <div class="mem"><div class="ph ini">MP</div><div class="nm">Michael Palmich</div><div class="role">Head of Sales</div><p class="bio"><b>Built and sold actuarial software companies</b> for two decades, including Arius and Akur8.</p></div>
+        <div class="mem"><div class="ph ini">EL</div><div class="nm">Eric Lam</div><div class="role">Founding Engineer</div><p class="bio"><b>MIT</b> math, CS, and physics, with <b>three actuarial exams</b>. Writes the kernels.</p></div>
+      </div>
+      <div class="advcol">
+        <div class="advk">Advisory board</div>
+        <div class="adv">
+          <div class="advn">Ethan Genteman</div>
+          <div class="advr">Former Chief Actuary, <b>Palomar</b></div>
+        </div>
+        <div class="adv">
+          <div class="advn">Joanne Chen</div>
+          <div class="advr">Partner, <b>Foundation Capital</b></div>
+        </div>
+        <p class="advnote">Actuaries who have signed the filings, and investors who have built the category, keep us honest about what carriers will actually adopt.</p>
+      </div>
     </div>
     <div class="backed">
       <span class="bk">Backed by</span>
