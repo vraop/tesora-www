@@ -103,6 +103,44 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .tsplit .sp{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:11.5px;font-weight:600;color:var(--muted);text-align:center}
 .tsplit .sp b{display:block;font-size:16px;font-weight:900;color:var(--mag-deep);letter-spacing:-.02em;margin-bottom:2px}
 .tsnote{font-size:12.5px;line-height:1.5;color:var(--text);font-weight:500;margin-top:14px;text-wrap:pretty}
+/* compliance page */
+.cwrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 372px;gap:24px;align-items:stretch}
+.cshot{min-height:0;display:flex;align-items:center;justify-content:center}
+.cshot img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
+.cside{display:flex;flex-direction:column;min-height:0}
+.cwho{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
+.cw{border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:6px;padding:11px 14px;background:#fff;flex:1;display:flex;flex-direction:column;justify-content:center}
+.cwh{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.cwi{width:22px;height:22px;border-radius:5px;background:var(--mag-tint);border:1px solid var(--mag-line);color:var(--mag-deep);
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex:none}
+.cwd{font-size:12px;line-height:1.42;color:var(--muted);font-weight:500;margin-top:5px;text-wrap:pretty}
+.cband{margin-top:12px;background:var(--ink);color:#E7EAEF;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.45;font-weight:500;text-wrap:pretty}
+.cband b{color:#E3B7FB;font-weight:700}
+/* why-tesora page */
+.whygrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px}
+.wy{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:17px 20px;background:#fff;display:flex;flex-direction:column;justify-content:center}
+.wyh{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px}
+.wyh .wn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--mag-deep);background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:5px;padding:3px 7px;flex:none}
+.wyd{font-size:13px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.wyband{margin-top:16px;background:var(--ink);color:#fff;border-radius:8px;padding:15px 22px;display:flex;align-items:center;gap:14px}
+.wyband .mk{width:22px;height:22px;flex:none}
+.wyt{font-size:13.5px;line-height:1.5;color:#C3C9D2;font-weight:500;text-wrap:pretty}
+.wyt b{color:#E3B7FB;font-weight:700}
+/* appendix divider */
+.appx{height:100%;background:var(--ink);color:#fff;padding:54px 60px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.appx::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--mag)}
+.appx .lock{display:flex;align-items:center;gap:12px}
+.appx .lock .mk{width:30px;height:30px}
+.appx .lock .wm{font-size:21px;font-weight:800;letter-spacing:-.015em}
+.axmid{margin:auto 0;max-width:900px}
+.axk{font-size:12px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#C79BF2;margin-bottom:16px}
+.appx h1{font-size:52px;font-weight:900;letter-spacing:-.032em;line-height:1.05;margin-bottom:34px}
+.axlist{display:flex;flex-direction:column;gap:14px}
+.axi{display:flex;align-items:center;gap:16px;font-size:16px;color:#C3C9D2;font-weight:500;border-top:1px solid rgba(255,255,255,.13);padding-top:14px}
+.axn{width:28px;height:28px;border-radius:6px;background:var(--mag);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none}
+.backed .fclogo:has(img){width:auto;height:auto;background:none;border-radius:0}
+.backed .fclogo img{height:30px;width:auto;display:block}
+.backed .cas{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700;color:var(--mag-deep);background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:999px;padding:7px 14px;white-space:nowrap}
 
 /* ============ PG3 · TRACE COMPARISON ============ */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;min-height:0}
@@ -425,9 +463,35 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <!-- 06 · RESERVING -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Reserving</h2></div>
-  <div class="stage fill">
-    <div class="phead"><h1 class="pt">The triangle is <b>squared before you sit down</b>.</h1><p class="pl">Reserving usually burns days pulling and reconciling triangles. Tesora does that on ingest, so your time goes to selecting factors.</p></div>
-    <div class="citehero"><img src="asset-reserving.png" alt="A Tesora reserving study: selected IBNR by accident year, chain-ladder ultimates reported against paid with the tail fitted, and every value traced back to the source triangle file"></div>
+  <div class="stage fill" style="padding-bottom:30px">
+    <div class="phead"><h1 class="pt">The triangle is <b>squared before you sit down</b>.</h1><p class="pl">A quarterly close moves between actuarial, IT, and finance, and most of the calendar goes to assembling the data rather than judging it.</p></div>
+    <div class="ba">
+      <div class="bacol">
+        <div class="bh">Before &middot; by hand</div>
+        <div class="big">6-8 <small>weeks</small></div>
+        <div class="cap">From close to a booked IBNR, and who is waiting on whom</div>
+        <div class="bsteps">
+          <div class="bstep"><span class="sn">01</span><span class="st">Request the data<small>Actuarial files a ticket for the quarter's extract</small></span><span class="sw">IT</span></div>
+          <div class="bstep"><span class="sn">02</span><span class="st">Wait on the extract<small>The pull sits behind other reporting work</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">03</span><span class="st">Reconcile to the ledger<small>Paid and incurred tied back to finance, by hand</small></span><span class="sw">finance</span></div>
+          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild the triangles<small>Segment mapping and large-loss carve-outs redone each quarter</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">05</span><span class="st">Select factors and methods<small>Chain ladder, Bornhuetter-Ferguson, Cape Cod, tail</small></span><span class="sw">actuarial</span></div>
+          <div class="bstep"><span class="sn">06</span><span class="st">Rebuild the exhibits<small>Roll-forward and movement memo reformatted by hand</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">07</span><span class="st">Peer review<small>A second actuary retraces the work from scratch</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">08</span><span class="st">Book and explain<small>Answer the CFO, the auditor, and the board</small></span><span class="sw">days</span></div>
+        </div>
+      </div>
+      <div class="bacol af">
+        <div class="bh">After &middot; on Tesora</div>
+        <div class="big">1-2 <small>days</small></div>
+        <div class="cap">Triangles squared on ingest, so the quarter starts at the selection</div>
+        <div class="afio">
+          <div class="io"><span class="k">You give</span><span class="v">The loss run, as it comes out of the system.</span></div>
+          <div class="io"><span class="k">You get</span><span class="v">Reconciled triangles, method comparisons, and an IBNR with every value traced to source.</span></div>
+        </div>
+        <div class="shot"><img src="asset-reserving.png" alt="A Tesora reserving study: selected IBNR by accident year, chain-ladder ultimates reported against paid with the tail fitted, and every value traced back to the source triangle file"></div>
+      </div>
+    </div>
   </div>
   <div class="pg"></div>
 </section>
@@ -436,10 +500,117 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Compliance &amp; audit</h2></div>
   <div class="stage fill">
-    <div class="phead"><h1 class="pt">Work you can <b>reopen years later</b>.</h1><p class="pl">AI sessions save your work so you can revisit, reproduce, or audit the work many years later.</p></div>
-    <div class="citehero"><img src="asset-bernegger.png" alt="Tesora reading a source document and citing every value it used, with a caveat surfaced for review"></div>
+    <div class="phead"><h1 class="pt">Work you can <b>reopen years later</b>, by whoever is here then.</h1><p class="pl">AI sessions save your work so you can revisit, reproduce, or audit it many years later. The reasoning stays with the company rather than with the person who did it.</p></div>
+    <div class="cwrap">
+      <div class="cshot"><img src="asset-bernegger.png" alt="Tesora reading a source document and citing every value it used, with a caveat surfaced for review"></div>
+      <div class="cside">
+        <div class="cwho">
+          <div class="cw">
+            <div class="cwh"><span class="cwi">A</span>When an actuary leaves</div>
+            <div class="cwd">Their assumptions, sources, and reasoning stay in the session. The next person picks up the thread instead of rebuilding it.</div>
+          </div>
+          <div class="cw">
+            <div class="cwh"><span class="cwi">F</span>Finance</div>
+            <div class="cwd">Ties a booked number back to the ledger without waiting on an actuary to explain it.</div>
+          </div>
+          <div class="cw">
+            <div class="cwh"><span class="cwi">IT</span>IT and data</div>
+            <div class="cwd">Sees which files fed which number, so a schema change has a known blast radius.</div>
+          </div>
+          <div class="cw">
+            <div class="cwh"><span class="cwi">R</span>Auditors and regulators</div>
+            <div class="cwd">Follow any value to its source document, years after the filing closed.</div>
+          </div>
+        </div>
+        <div class="cband">One shared record of how the work was done, and <b>it outlasts the people who did it</b>.</div>
+      </div>
+    </div>
   </div>
   <div class="pg"></div>
+</section>
+
+<!-- 07 · WHY TESORA OVER CLAUDE ALONE -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>I already have Claude. Why Tesora?</h2></div>
+  <div class="stage fill">
+    <div class="phead"><h1 class="pt">We run <b>on top of Claude</b>, and we are model agnostic.</h1><p class="pl">The model is the engine, not the product. What an actuary needs around it is infrastructure: the data wired in, the workflow decided, the cost controlled, and the record kept. That is the part we build, and we build it for you.</p></div>
+    <div class="whygrid">
+      <div class="wy">
+        <div class="wyh"><span class="wn">01</span>We guide the model</div>
+        <div class="wyd">A raw model will answer anything, confidently. Ours is held to an actuarial method: which factors to consider, which checks to run, when to stop and ask. That guidance is the difference between a plausible answer and a defensible one.</div>
+      </div>
+      <div class="wy">
+        <div class="wyh"><span class="wn">02</span>We wire the infrastructure</div>
+        <div class="wyd">Your loss runs, policy systems, filings, and ledger are connected once and stay connected. A chat window starts empty every time; the workbench already knows your book.</div>
+      </div>
+      <div class="wy">
+        <div class="wyh"><span class="wn">03</span>The workflow is opinionated</div>
+        <div class="wyd">Reserving and pricing have a right order of operations. We encode it, so the work arrives in the shape an actuary expects rather than whatever the prompt happened to produce.</div>
+      </div>
+      <div class="wy">
+        <div class="wyh"><span class="wn">04</span>We manage the token cost</div>
+        <div class="wyd">Running a real book through a frontier model naively is slow and expensive. We route each step to the cheapest model that is still correct, so the economics work at production scale.</div>
+      </div>
+    </div>
+    <div class="wyband"><svg class="mk"><use href="#mark"/></svg><div class="wyt">We exist to build <b>your actuarial infrastructure</b>, not to serve the models or ourselves. When a better model ships, you get it. What stays is the system we built around your book.</div></div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 08 · MODEL PROGRESS -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What if the models get better?</h2></div>
+  <div class="stage fill">
+    <div class="phead"><h1 class="pt">It makes us <b>even better</b>.</h1><p class="pl">Better models accelerate the product underneath you, compounding your advantage with every release.</p></div>
+    <div class="rl5">
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><div class="t5">Every release lifts you</div><div class="d5">The workbench is model-agnostic and runs on the strongest model available. Each new generation handles your schemas and messy edge cases more easily, so the work gets sharper <b>at no cost to you</b>.</div></div>
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l2 2 3.5-3.5"/><path d="M3 14l2 2 3.5-3.5"/><path d="M12 6h9"/><path d="M12 14h9"/></svg></span><div class="t5">We keep learning your systems</div><div class="d5">The longer we work with your team, the more of your data, formats, and quirks the workbench encodes, and that knowledge carries across every model upgrade.</div></div>
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg></span><div class="t5">The cheapest correct path</div><div class="d5">Every org is running a dozen AI pilots. We stay anchored on one thing: the fastest, most correct, and lowest-token way to run a complex workflow within your audit standards.</div></div>
+      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="t5">Audits matter more, not less</div><div class="d5">As the model does more of the work, proving it matters more, so no step gets skipped and nothing is taken for granted. Every value stays cited, reproducible, and signed off.</div></div>
+      <div class="r5 win"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span><div class="t5">The gap widens</div><div class="d5">Better models unlock even more complex work, so the advantage compounds. A rate change that took months now takes days, so you can reprice against the market while slower competitors wait on a filing cycle. The firms that move first pull ahead, and <b>standing still gets more expensive</b>.</div></div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 10 · CLOSE -->
+<section class="slide">
+  <div class="close">
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="manifesto">
+      <h1>Above all, we want to help you <b>win</b>.</h1>
+      <div class="closecols">
+        <div class="closebody">
+          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
+          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
+          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
+        </div>
+        <div class="derisk">
+          <div class="dk">De-risked by design</div>
+          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
+          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
+          <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg" style="color:#5C6572"></div>
+</section>
+
+<!-- APPENDIX DIVIDER -->
+<section class="slide">
+  <div class="appx">
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="axmid">
+      <div class="axk">Appendix</div>
+      <h1>The supporting detail.</h1>
+      <div class="axlist">
+        <div class="axi"><span class="axn">A</span>What the recurring month looks like, and the ROI math behind it</div>
+        <div class="axi"><span class="axn">B</span>The team, and who backs us</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg" style="color:#5C6572"></div>
 </section>
 
 <!-- 08 · ROI -->
@@ -471,22 +642,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 09 · MODEL PROGRESS -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What if the models get better?</h2></div>
-  <div class="stage fill">
-    <div class="phead"><h1 class="pt">It makes us <b>even better</b>.</h1><p class="pl">Better models accelerate the product underneath you, compounding your advantage with every release.</p></div>
-    <div class="rl5">
-      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><div class="t5">Every release lifts you</div><div class="d5">The workbench is model-agnostic and runs on the strongest model available. Each new generation handles your schemas and messy edge cases more easily, so the work gets sharper <b>at no cost to you</b>.</div></div>
-      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l2 2 3.5-3.5"/><path d="M3 14l2 2 3.5-3.5"/><path d="M12 6h9"/><path d="M12 14h9"/></svg></span><div class="t5">We keep learning your systems</div><div class="d5">The longer we work with your team, the more of your data, formats, and quirks the workbench encodes, and that knowledge carries across every model upgrade.</div></div>
-      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg></span><div class="t5">The cheapest correct path</div><div class="d5">Every org is running a dozen AI pilots. We stay anchored on one thing: the fastest, most correct, and lowest-token way to run a complex workflow within your audit standards.</div></div>
-      <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="t5">Audits matter more, not less</div><div class="d5">As the model does more of the work, proving it matters more, so no step gets skipped and nothing is taken for granted. Every value stays cited, reproducible, and signed off.</div></div>
-      <div class="r5 win"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span><div class="t5">The gap widens</div><div class="d5">Better models unlock even more complex work, so the advantage compounds. A rate change that took months now takes days, so you can reprice against the market while slower competitors wait on a filing cycle. The firms that move first pull ahead, and <b>standing still gets more expensive</b>.</div></div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
 <!-- 10 · TEAM -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>The team</h2></div>
@@ -500,42 +655,18 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="backed">
       <span class="bk">Backed by</span>
       <div class="inv">
-        <span class="fclogo">F</span>
-        <div class="itxt"><div class="inm">Foundation Capital</div><div class="idesc">Leading AI and enterprise investors since 1995</div></div>
+        <span class="fclogo"><img src="asset-foundation.png" alt="Foundation Capital"></span>
+        <div class="itxt"><div class="idesc">Leading AI and enterprise investors since 1995</div></div>
       </div>
       <span class="ivrule"></span>
       <div class="inv">
         <span class="yclogo">Y</span>
         <div class="itxt"><div class="inm">Y Combinator <span class="s25">S25</span></div><div class="idesc">The accelerator behind Stripe and Airbnb</div></div>
       </div>
-      <span class="tail">One team, focused on solving this for every actuary</span>
+      <span class="cas"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.4 6.7 19.2l1.1-5.9L3.5 9.2l5.9-.8z"/></svg>Proud sponsor of the CAS</span>
     </div>
   </div>
   <div class="pg"></div>
-</section>
-
-<!-- 10 · CLOSE -->
-<section class="slide">
-  <div class="close">
-    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
-    <div class="manifesto">
-      <h1>Above all, we want to see you <b>win</b>.</h1>
-      <div class="closecols">
-        <div class="closebody">
-          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
-          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
-          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
-        </div>
-        <div class="derisk">
-          <div class="dk">De-risked by design</div>
-          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
-          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
-          <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pg" style="color:#5C6572"></div>
 </section>
 
 </div>
