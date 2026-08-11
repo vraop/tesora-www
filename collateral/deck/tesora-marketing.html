@@ -43,9 +43,9 @@ svg.mk{display:block}
 .phead .pt b{color:var(--mag)}
 .phead .pl{font-size:16.5px;font-weight:400;color:var(--muted);line-height:1.5;margin:0;max-width:1000px}
 .phead .pl b{color:var(--text);font-weight:600}
-.p2head{margin-bottom:26px}
-.p2head .pt{font-size:35px;line-height:1.05;margin-bottom:12px}
-.p2head .pl{font-size:17px;max-width:1120px}
+.p2head{margin-bottom:14px}
+.p2head .pt{font-size:27px;line-height:1.1;margin-bottom:7px;max-width:1160px}
+.p2head .pl{font-size:14.5px;max-width:1160px}
 .splithd{display:flex;align-items:flex-end;justify-content:space-between;gap:54px}
 .splithd .pt{margin:0;max-width:660px}
 .splithd .pl{margin:0 0 6px;max-width:450px;flex:none}
@@ -85,6 +85,24 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .wbspan .wt span{color:#E3B7FB}
 .wbspan .wd{font-size:13px;color:#AEB6C2;font-weight:500;margin-top:2px}
 .wbspan .badge3{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#E3B7FB;border:1px solid rgba(180,0,254,.45);border-radius:999px;padding:6px 13px;white-space:nowrap}
+.wbspan.tall{align-items:flex-start;padding:14px 18px;gap:11px;margin-top:auto}
+.wbspan.tall .mk{margin-top:2px}
+.wbspan.tall .wt{font-size:14px}
+.wbspan.tall .wd{font-size:12px;line-height:1.45;margin-top:4px}
+/* pg2 tree */
+.treewrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 312px;gap:22px;align-items:stretch}
+.treeimg{min-height:0;display:flex;align-items:center;justify-content:center}
+.treeimg img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
+.treeside{display:flex;flex-direction:column;min-height:0}
+.tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
+.tstats{display:flex;flex-direction:column;gap:9px}
+.ts{display:flex;align-items:baseline;gap:12px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.ts .n{font-size:29px;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1;min-width:56px}
+.ts .l{font-size:12.5px;font-weight:600;color:var(--muted);line-height:1.3}
+.tsplit{display:flex;gap:9px;margin-top:13px}
+.tsplit .sp{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:11.5px;font-weight:600;color:var(--muted);text-align:center}
+.tsplit .sp b{display:block;font-size:16px;font-weight:900;color:var(--mag-deep);letter-spacing:-.02em;margin-bottom:2px}
+.tsnote{font-size:12.5px;line-height:1.5;color:var(--text);font-weight:500;margin-top:14px;text-wrap:pretty}
 
 /* ============ PG3 · TRACE COMPARISON ============ */
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;min-height:0}
@@ -303,49 +321,18 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Why a Workbench?</h2></div>
   <div class="stage fill">
     <div class="phead p2head"><h1 class="pt">Actuarial work is not one workflow. It is a <b>web of intricate, connected tasks</b>.</h1><p class="pl">The more steps an actuary delegates to AI, the less certain they can be of the output. Tesora enables full tracing, documentation, and audit, so the actuary remains in control.</p></div>
-    <div class="lifewrap">
-      <div class="liferow">
-        <div class="lstage"><div class="sh"><span class="n">01</span>Ingest</div><div class="lchip">Loss runs</div><div class="lchip">Policy &amp; exposure</div><div class="lchip">Competitor filings</div><div class="lchip">Reconcile</div></div>
-        <div class="larr">&rarr;</div>
-        <div class="lstage"><div class="sh"><span class="n">02</span>Model</div><div class="lchip">Triangles</div><div class="lchip">On-leveling</div><div class="lchip">Loss trend</div><div class="lchip">Frequency &amp; severity</div></div>
-        <div class="larr">&rarr;</div>
-        <div class="lstage"><div class="sh"><span class="n">03</span>Price</div><div class="lchip">Indication</div><div class="lchip">Rate impact</div><div class="lchip">Selected rates</div><div class="lchip">Rater build</div></div>
-        <div class="larr">&rarr;</div>
-        <div class="lstage"><div class="sh"><span class="n">04</span>File</div><div class="lchip">Exhibits</div><div class="lchip">50-state format</div><div class="lchip">SERFF</div><div class="lchip">Objection responses</div></div>
-        <div class="larr">&rarr;</div>
-        <div class="lstage"><div class="sh"><span class="n">05</span>Reserve &amp; close</div><div class="lchip">Loss development</div><div class="lchip">IBNR</div><div class="lchip">Roll-forward</div><div class="lchip">Board reporting</div></div>
-      </div>
-      <div class="wbspan"><svg class="mk"><use href="#mark"/></svg><div><div class="wt">One agentic harness across <span>all of it</span></div><div class="wd">A system of agents keeps every task linked and every value cited, from ingest to filing. That orchestration is the hard part to build, and the harder part to replicate.</div></div><span class="badge3">Audited end to end</span></div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
-<!-- 03 · WHY NOT CLAUDE -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Why not Claude?</h2></div>
-  <div class="stage fill">
-    <div class="lede1"><div class="setup">A frontier model can already do the math&hellip;</div><div class="payoff">&hellip;Tesora puts it in a format an actuary can <b>sign and file</b>.</div></div>
-    <div class="vs">
-      <div class="pcol">
-        <div class="panelhd"><span class="tag" style="color:var(--muted)">A frontier model, on its own</span><span class="who" style="color:var(--faint)">Confident, but guessing</span></div>
-        <div class="gptchat">
-          <div class="gh"><span class="av"></span><span class="lbl">Claude</span></div>
-          <div class="gbody">
-            <div class="um">Here is my GA commercial auto paid-loss triangle, 2019 to 2025. Select development factors, fit a tail, and give me the indicated reserve and the on-leveled rate change.</div>
-            <div class="am"><span class="ava">C</span><div class="txt"><p>From a typical development pattern, age-to-age factors run around <b>1.55, 1.18, 1.08, 1.03</b>, with a tail near <b>1.02</b>, which puts ultimates a little above your latest diagonal.</p><p>Assuming loss trend near 6% and standard on-leveling, a <b>mid-single-digit</b> rate change looks reasonable.</p></div></div>
-            <div class="gflags">
-              <div class="gfhd">Why an actuary cannot sign this</div>
-              <div class="gf"><span class="w">!</span><span>It never saw your triangle. A real book is millions of rows and will not fit in context.</span></div>
-              <div class="gf"><span class="w">!</span><span>The factors and trend are generic, with no source to trace or reproduce.</span></div>
-              <div class="gf"><span class="w">!</span><span>No on-leveling to your history, no exhibits, nothing built to ASOP.</span></div>
-            </div>
-          </div>
+    <div class="treewrap">
+      <div class="treeimg"><img src="asset-tree.png" alt="What Actuaries Deliver: a tree mapping the actuarial function, with pricing across rate filing, pricing model, rate manual, rating plan and technical price, and reserving across booked IBNR, reserve movement and the statement of actuarial opinion"></div>
+      <div class="treeside">
+        <div class="tsk">One actuarial function, mapped</div>
+        <div class="tstats">
+          <div class="ts"><span class="n">10</span><span class="l">major deliverables</span></div>
+          <div class="ts"><span class="n">41</span><span class="l">branches</span></div>
+          <div class="ts"><span class="n">163</span><span class="l">leaves, each a real decision</span></div>
         </div>
-      </div>
-      <div class="pcol">
-        <div class="panelhd"><span class="tag" style="color:var(--mag-deep)">The same models, inside Tesora</span><span class="who" style="color:var(--ink)">Working your real filing</span></div>
-        <div class="tshot"><img src="asset-tesora-chat.png" alt="Tesora ingesting a rate filing, mapping the rating model, scanning competitors, and coordinating agents, every step traced"></div>
+        <div class="tsplit"><span class="sp"><b>~2/3</b> pricing</span><span class="sp"><b>~1/3</b> reserving</span></div>
+        <p class="tsnote">Every leaf is a judgment someone signs for. Automate one and the other 162, with the handoffs between them, are still yours.</p>
+        <div class="wbspan tall"><svg class="mk"><use href="#mark"/></svg><div><div class="wt">One agentic harness across <span>all of it</span></div><div class="wd">A system of agents keeps every task linked and every value cited, from ingest to filing. That orchestration is the hard part to build, and the harder part to replicate.</div></div></div>
       </div>
     </div>
   </div>
