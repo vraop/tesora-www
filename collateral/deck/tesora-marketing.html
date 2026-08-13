@@ -97,15 +97,19 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .treeimg{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
 .treeimg img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
 .treeside{display:flex;flex-direction:column;min-height:0}
-.treeside{justify-content:center}
+.treeside{justify-content:flex-start}
+.tsbody{margin-top:15px;display:flex;flex-direction:column;gap:9px}
+.tsbody p{font-size:12.5px;line-height:1.55;color:var(--muted);font-weight:400;text-wrap:pretty}
+.tsbody p b{color:var(--text);font-weight:700}
 .tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
-.tstats{display:flex;flex-direction:column;gap:0;flex:1;min-height:0;justify-content:center}
-.ts{flex:1;display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--line)}
-.ts.tot{border-bottom:none}
+.tstats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;flex:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ts{display:flex;flex-direction:column;gap:3px;padding:11px 16px 12px;border-right:1px solid var(--line)}
+.ts.tot{border-right:none}
 .ts.tot .n{color:var(--mag)}
 .ts.tot .l{color:var(--text);font-weight:700}
-.ts .n{font-size:40px;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1;min-width:96px}
-.ts .l{font-size:14px;font-weight:600;color:var(--muted);line-height:1.3}
+.ts:first-child{padding-left:0}
+.ts .n{font-size:29px;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.ts .l{font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.3}
 .tsplit{display:flex;gap:9px;margin-top:13px}
 .tsplit .sp{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:11.5px;font-weight:600;color:var(--muted);text-align:center}
 .tsplit .sp b{display:block;font-size:16px;font-weight:900;color:var(--mag-deep);letter-spacing:-.02em;margin-bottom:2px}
@@ -127,10 +131,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .cband b{color:#E3B7FB;font-weight:700}
 /* why-tesora page */
 .whygrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px}
-.wy{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:17px 20px;background:#fff;display:flex;flex-direction:column;justify-content:center}
+.wy{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:19px 22px;background:#fff;display:flex;flex-direction:column;justify-content:flex-start}
 .wyh{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px}
 .wyh .wn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--mag-deep);background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:5px;padding:3px 7px;flex:none}
-.wyd{font-size:13px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.wyd{font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.wyx{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.45;color:var(--mag-deep);font-weight:600;text-wrap:pretty}
 .wyband{margin-top:16px;background:var(--ink);color:#fff;border-radius:8px;padding:15px 22px;display:flex;align-items:center;gap:14px}
 .wyband .mk{width:22px;height:22px;flex:none}
 .wyt{font-size:13.5px;line-height:1.5;color:#C3C9D2;font-weight:500;text-wrap:pretty}
@@ -385,11 +390,16 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="treewrap">
       <div class="postcol"><img src="asset-post.png" alt="A LinkedIn post by Philo Bishay, Tesora's Chief Actuary, sharing his What Actuaries Deliver map of the actuarial function, with 675 reactions, 23 comments and 28 reposts"></div>
       <div class="treeside">
-        <div class="tsk">What covering it takes</div>
+        <div class="tsk">Why a workbench</div>
         <div class="tstats">
           <div class="ts"><span class="n">4</span><span class="l">core functions</span></div>
-          <div class="ts"><span class="n">30+</span><span class="l">workflows per function</span></div>
-          <div class="ts tot"><span class="n">150+</span><span class="l">unique opinionated workflows needed</span></div>
+          <div class="ts"><span class="n">30+</span><span class="l">workflows each</span></div>
+          <div class="ts tot"><span class="n">150+</span><span class="l">opinionated workflows to cover it</span></div>
+        </div>
+        <div class="tsbody">
+          <p>Actuarial work is context. The judgment lives across workflows rather than inside any one of them, and the context specific to a firm takes years to accumulate.</p>
+          <p>So we started where the profession starts, training on the methods, the ASOP standards, and the CAS curriculum. That is the floor, not the product.</p>
+          <p>On top of it we built an opinionated approach that reflects how your organization actually works. <b>General AI holds no opinion</b>. It will do whatever you ask, in whatever order you ask it, which is exactly wrong for work where the order, the method, and the sign-off are the job.</p>
         </div>
         <div class="wbspan tall"><svg class="mk"><use href="#mark"/></svg><div><div class="wt">One agentic harness across <span>all of it</span></div><div class="wd">A system of agents keeps every task linked and every value cited, from ingest to filing. That orchestration is the hard part to build, and the harder part to replicate.</div></div></div>
       </div>
@@ -567,12 +577,12 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="adv">
           <span class="advph"><img src="adv-ethan.png" alt="Ethan Genteman"></span>
           <div><div class="advn">Ethan Genteman<span class="advd">FCAS, MAAA</span></div>
-          <div class="advr">Former Chief Actuary, <b>Palomar Holdings</b> (NYSE: PLMR)</div></div>
+          <div class="advr">Chief Actuary, <b>Palomar</b> (NYSE: PLMR)</div></div>
         </div>
         <div class="adv">
           <span class="advph"><img src="adv-mario.png" alt="Mario DiCaro"></span>
           <div><div class="advn">Mario DiCaro<span class="advd">FCAS, CERA</span></div>
-          <div class="advr">Capital Modeling &amp; Analytics, <b>Tokio Marine HCC</b></div></div>
+          <div class="advr">Head of Capital Modeling, <b>Tokio Marine HCC</b></div></div>
         </div>
         <div class="adv">
           <span class="advph"><img src="adv-joanne.png" alt="Joanne Chen"></span>
@@ -670,19 +680,19 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="whygrid">
       <div class="wy">
         <div class="wyh"><span class="wn">01</span>We guide the model</div>
-        <div class="wyd">A raw model will answer anything, confidently. Ours is held to an actuarial method: which factors to consider, which checks to run, when to stop and ask. That guidance is the difference between a plausible answer and a defensible one.</div>
+        <div class="wyd">A raw model will answer anything, confidently. Ours is held to an actuarial method: which factors to consider, which checks to run, when to stop and ask. That guidance is the difference between a plausible answer and a defensible one.</div><div class="wyx">On a loss trend, frequency and severity are fit separately and tested against your own history before anything is selected.</div>
       </div>
       <div class="wy">
         <div class="wyh"><span class="wn">02</span>We wire the infrastructure</div>
-        <div class="wyd">Your loss runs, policy systems, filings, and ledger are connected once and stay connected. A chat window starts empty every time; the workbench already knows your book.</div>
+        <div class="wyd">Your loss runs, policy systems, filings, and ledger are connected once and stay connected. A chat window starts empty every time; the workbench already knows your book.</div><div class="wyx">Ingest once, and every study after it reads the same reconciled book.</div>
       </div>
       <div class="wy">
         <div class="wyh"><span class="wn">03</span>The workflow is opinionated</div>
-        <div class="wyd">Reserving and pricing have a right order of operations. We encode it, so the work arrives in the shape an actuary expects rather than whatever the prompt happened to produce.</div>
+        <div class="wyd">Reserving and pricing have a right order of operations. We encode it, so the work arrives in the shape an actuary expects rather than whatever the prompt happened to produce.</div><div class="wyx">Chain ladder, Bornhuetter-Ferguson, and Cape Cod run side by side, so the selection stays a choice.</div>
       </div>
       <div class="wy">
         <div class="wyh"><span class="wn">04</span>We manage the token cost</div>
-        <div class="wyd">Running a real book through a frontier model naively is slow and expensive. We route each step to the cheapest model that is still correct, so the economics work at production scale.</div>
+        <div class="wyd">Running a real book through a frontier model naively is slow and expensive. We route each step to the cheapest model that is still correct, so the economics work at production scale.</div><div class="wyx">Extraction runs on a small model. The judgment calls go to the strongest one.</div>
       </div>
     </div>
     <div class="wyband"><svg class="mk"><use href="#mark"/></svg><div class="wyt">We exist to build <b>your actuarial infrastructure</b>, not to serve the models or ourselves. When a better model ships, you get it. What stays is the system we built around your book.</div></div>
