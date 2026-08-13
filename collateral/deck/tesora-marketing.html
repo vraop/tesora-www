@@ -389,7 +389,112 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 04 · HOW TO IMPLEMENT AI -->
+<!-- 03 · RATER DEPLOYMENT -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Rater deployment &amp; filing</h2></div>
+  <div class="stage fill" style="padding-bottom:30px">
+    <div class="phead"><h1 class="pt">Rate changes in <b>days</b>, not months.</h1><p class="pl">Source a rater from a SERFF filing, an Excel file, or a script. Tesora rebuilds it, tests it, and deploys it whenever underwriting is ready.</p></div>
+    <div class="ba">
+      <div class="bacol">
+        <div class="bh">Before &middot; by hand</div>
+        <div class="big">4-6 <small>months</small></div>
+        <div class="cap">From a requested change to a filed, live rater, and where the months actually go</div>
+        <div class="bsteps">
+          <div class="bstep"><span class="sn">01</span><span class="st">Spec the change<small>Actuary writes up the revised rates and factors</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">02</span><span class="st">IT ticket, then the queue<small>The change waits for developer capacity</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">03</span><span class="st">Re-code the rater<small>Engineering reimplements the logic by hand</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild exhibits, 50 states<small>Each state reformatted by hand for SERFF</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">05</span><span class="st">Manual QA<small>No test suite, so regressions are caught by eye</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">06</span><span class="st">Compliance sign-off<small>Actuarial and legal review the filing</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">07</span><span class="st">File and answer objections<small>Back and forth with each department of insurance</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">08</span><span class="st">Release window<small>Deploy only in the next scheduled window</small></span><span class="sw">weeks</span></div>
+        </div>
+      </div>
+      <div class="bacol af">
+        <div class="bh">After &middot; on Tesora</div>
+        <div class="big">1-2 <small>days</small></div>
+        <div class="cap">Deploy as a web interface or API.</div>
+        <div class="afio">
+          <div class="io"><span class="k">You give</span><span class="v">A plain-language change and the source rater, from SERFF, Excel, or a script.</span></div>
+          <div class="io"><span class="k">You get</span><span class="v">A tested rater with a working GUI, sample ratings, and a versioned API.</span></div>
+        </div>
+        <div class="shot"><img src="asset-rater-gui.webp" alt="A deployed rater in Tesora: a working GUI for Georgia commercial auto with vehicle and classification inputs and a calculated final premium"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 04 · RESERVING -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Reserving</h2></div>
+  <div class="stage fill" style="padding-bottom:30px">
+    <div class="phead"><h1 class="pt">The triangle is <b>squared before you sit down</b>.</h1><p class="pl">A quarterly close moves between actuarial, IT, and finance, and most of the calendar goes to assembling the data rather than judging it.</p></div>
+    <div class="ba">
+      <div class="bacol">
+        <div class="bh">Before &middot; by hand</div>
+        <div class="big">~2 <small>weeks</small></div>
+        <div class="cap">From close to a booked IBNR, and who is waiting on whom</div>
+        <div class="bsteps">
+          <div class="bstep"><span class="sn">01</span><span class="st">Request the data<small>Actuarial files a ticket for the quarter's extract</small></span><span class="sw">IT</span></div>
+          <div class="bstep"><span class="sn">02</span><span class="st">Wait on the extract<small>The pull sits behind other reporting work</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">03</span><span class="st">Reconcile to the ledger<small>Paid and incurred tied back to finance, by hand</small></span><span class="sw">finance</span></div>
+          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild the triangles<small>Segment mapping and large-loss carve-outs redone each quarter</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">05</span><span class="st">Select factors and methods<small>Chain ladder, Bornhuetter-Ferguson, Cape Cod, tail</small></span><span class="sw">actuarial</span></div>
+          <div class="bstep"><span class="sn">06</span><span class="st">Rebuild the exhibits<small>Roll-forward and movement memo reformatted by hand</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">07</span><span class="st">Peer review<small>A second actuary retraces the work from scratch</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">08</span><span class="st">Book and explain<small>Answer the CFO, the auditor, and the board</small></span><span class="sw">days</span></div>
+        </div>
+      </div>
+      <div class="bacol af">
+        <div class="bh">After &middot; on Tesora</div>
+        <div class="big">3-4 <small>hours</small></div>
+        <div class="cap">Triangles squared on ingest, so the quarter starts at the selection</div>
+        <div class="afio">
+          <div class="io"><span class="k">You give</span><span class="v">The loss run, as it comes out of the system.</span></div>
+          <div class="io"><span class="k">You get</span><span class="v">Reconciled triangles, method comparisons, and an IBNR with every value traced to source.</span></div>
+        </div>
+        <div class="shot"><img src="asset-triangle.png" alt="A Tesora reserving study for a 2025 commercial auto year-end: the paid loss triangle with all twenty selections confirmed, age-to-age factors by accident year, and the standard exhibits from LDF selection through the reserve summary"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 05 · COMPLIANCE & AUDIT -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Compliance &amp; audit</h2></div>
+  <div class="stage fill">
+    <div class="phead"><h1 class="pt">The <b>full context</b> is baked into the work.</h1><p class="pl">Every session holds the data it used, the assumptions behind it, and the reasoning that got there. Reopen it years later and nothing has to be reconstructed, because the context was never separate from the answer.</p></div>
+    <div class="cwrap">
+      <div class="cshot"><img src="asset-bernegger.png" alt="Tesora reading a source document and citing every value it used, with a caveat surfaced for review"></div>
+      <div class="cside">
+        <div class="cwho">
+          <div class="cw">
+            <div class="cwh">When an actuary leaves</div>
+            <div class="cwd">Their assumptions, sources, and reasoning stay in the session. The next person picks up the thread instead of rebuilding it.</div>
+          </div>
+          <div class="cw">
+            <div class="cwh">Finance</div>
+            <div class="cwd">Ties a booked number back to the ledger without waiting on an actuary to explain it.</div>
+          </div>
+          <div class="cw">
+            <div class="cwh">IT and data</div>
+            <div class="cwd">Sees which files fed which number, so a schema change has a known blast radius.</div>
+          </div>
+          <div class="cw">
+            <div class="cwh">Auditors and regulators</div>
+            <div class="cwd">Follow any value to its source document, years after the filing closed.</div>
+          </div>
+        </div>
+        <div class="cband">One shared record of how the work was done, and <b>it outlasts the people who did it</b>.</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 06 · HOW TO IMPLEMENT AI -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What about alternatives?</h2></div>
   <div class="stage fill" style="padding-bottom:30px">
@@ -436,147 +541,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 05 · RATER DEPLOYMENT -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Rater deployment &amp; filing</h2></div>
-  <div class="stage fill" style="padding-bottom:30px">
-    <div class="phead"><h1 class="pt">Rate changes in <b>days</b>, not months.</h1><p class="pl">Source a rater from a SERFF filing, an Excel file, or a script. Tesora rebuilds it, tests it, and deploys it whenever underwriting is ready.</p></div>
-    <div class="ba">
-      <div class="bacol">
-        <div class="bh">Before &middot; by hand</div>
-        <div class="big">4-6 <small>months</small></div>
-        <div class="cap">From a requested change to a filed, live rater, and where the months actually go</div>
-        <div class="bsteps">
-          <div class="bstep"><span class="sn">01</span><span class="st">Spec the change<small>Actuary writes up the revised rates and factors</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">02</span><span class="st">IT ticket, then the queue<small>The change waits for developer capacity</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">03</span><span class="st">Re-code the rater<small>Engineering reimplements the logic by hand</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild exhibits, 50 states<small>Each state reformatted by hand for SERFF</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">05</span><span class="st">Manual QA<small>No test suite, so regressions are caught by eye</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">06</span><span class="st">Compliance sign-off<small>Actuarial and legal review the filing</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">07</span><span class="st">File and answer objections<small>Back and forth with each department of insurance</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">08</span><span class="st">Release window<small>Deploy only in the next scheduled window</small></span><span class="sw">weeks</span></div>
-        </div>
-      </div>
-      <div class="bacol af">
-        <div class="bh">After &middot; on Tesora</div>
-        <div class="big">1-2 <small>days</small></div>
-        <div class="cap">Deploy as a web interface or API.</div>
-        <div class="afio">
-          <div class="io"><span class="k">You give</span><span class="v">A plain-language change and the source rater, from SERFF, Excel, or a script.</span></div>
-          <div class="io"><span class="k">You get</span><span class="v">A tested rater with a working GUI, sample ratings, and a versioned API.</span></div>
-        </div>
-        <div class="shot"><img src="asset-rater-gui.webp" alt="A deployed rater in Tesora: a working GUI for Georgia commercial auto with vehicle and classification inputs and a calculated final premium"></div>
-      </div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
-<!-- 06 · RESERVING -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Reserving</h2></div>
-  <div class="stage fill" style="padding-bottom:30px">
-    <div class="phead"><h1 class="pt">The triangle is <b>squared before you sit down</b>.</h1><p class="pl">A quarterly close moves between actuarial, IT, and finance, and most of the calendar goes to assembling the data rather than judging it.</p></div>
-    <div class="ba">
-      <div class="bacol">
-        <div class="bh">Before &middot; by hand</div>
-        <div class="big">~2 <small>weeks</small></div>
-        <div class="cap">From close to a booked IBNR, and who is waiting on whom</div>
-        <div class="bsteps">
-          <div class="bstep"><span class="sn">01</span><span class="st">Request the data<small>Actuarial files a ticket for the quarter's extract</small></span><span class="sw">IT</span></div>
-          <div class="bstep"><span class="sn">02</span><span class="st">Wait on the extract<small>The pull sits behind other reporting work</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">03</span><span class="st">Reconcile to the ledger<small>Paid and incurred tied back to finance, by hand</small></span><span class="sw">finance</span></div>
-          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild the triangles<small>Segment mapping and large-loss carve-outs redone each quarter</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">05</span><span class="st">Select factors and methods<small>Chain ladder, Bornhuetter-Ferguson, Cape Cod, tail</small></span><span class="sw">actuarial</span></div>
-          <div class="bstep"><span class="sn">06</span><span class="st">Rebuild the exhibits<small>Roll-forward and movement memo reformatted by hand</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">07</span><span class="st">Peer review<small>A second actuary retraces the work from scratch</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">08</span><span class="st">Book and explain<small>Answer the CFO, the auditor, and the board</small></span><span class="sw">days</span></div>
-        </div>
-      </div>
-      <div class="bacol af">
-        <div class="bh">After &middot; on Tesora</div>
-        <div class="big">3-4 <small>hours</small></div>
-        <div class="cap">Triangles squared on ingest, so the quarter starts at the selection</div>
-        <div class="afio">
-          <div class="io"><span class="k">You give</span><span class="v">The loss run, as it comes out of the system.</span></div>
-          <div class="io"><span class="k">You get</span><span class="v">Reconciled triangles, method comparisons, and an IBNR with every value traced to source.</span></div>
-        </div>
-        <div class="shot"><img src="asset-triangle.png" alt="A Tesora reserving study for a 2025 commercial auto year-end: the paid loss triangle with all twenty selections confirmed, age-to-age factors by accident year, and the standard exhibits from LDF selection through the reserve summary"></div>
-      </div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
-<!-- 07 · COMPLIANCE & AUDIT -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Compliance &amp; audit</h2></div>
-  <div class="stage fill">
-    <div class="phead"><h1 class="pt">The <b>full context</b> is baked into the work.</h1><p class="pl">Every session holds the data it used, the assumptions behind it, and the reasoning that got there. Reopen it years later and nothing has to be reconstructed, because the context was never separate from the answer.</p></div>
-    <div class="cwrap">
-      <div class="cshot"><img src="asset-bernegger.png" alt="Tesora reading a source document and citing every value it used, with a caveat surfaced for review"></div>
-      <div class="cside">
-        <div class="cwho">
-          <div class="cw">
-            <div class="cwh">When an actuary leaves</div>
-            <div class="cwd">Their assumptions, sources, and reasoning stay in the session. The next person picks up the thread instead of rebuilding it.</div>
-          </div>
-          <div class="cw">
-            <div class="cwh">Finance</div>
-            <div class="cwd">Ties a booked number back to the ledger without waiting on an actuary to explain it.</div>
-          </div>
-          <div class="cw">
-            <div class="cwh">IT and data</div>
-            <div class="cwd">Sees which files fed which number, so a schema change has a known blast radius.</div>
-          </div>
-          <div class="cw">
-            <div class="cwh">Auditors and regulators</div>
-            <div class="cwd">Follow any value to its source document, years after the filing closed.</div>
-          </div>
-        </div>
-        <div class="cband">One shared record of how the work was done, and <b>it outlasts the people who did it</b>.</div>
-      </div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
-<!-- 10 · CLOSE -->
-<section class="slide">
-  <div class="close">
-    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
-    <div class="manifesto">
-      <h1>Above all, we want to help you <b>win</b>.</h1>
-      <div class="closecols">
-        <div class="closebody">
-          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
-          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
-          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
-        </div>
-        <div class="derisk">
-          <div class="dk">De-risked by design</div>
-          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
-          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
-          <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
-<!-- APPENDIX DIVIDER -->
-<section class="slide">
-  <div class="appx">
-    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
-    <div class="axmid">
-      <h1>Appendix</h1>
-    </div>
-  </div>
-  <div class="pg" style="color:#5C6572"></div>
-</section>
-
-<!-- 10 · TEAM -->
+<!-- 07 · TEAM -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>The team</h2></div>
   <div class="stage fill">
@@ -625,7 +590,42 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 08 · ROI -->
+<!-- 08 · CLOSE -->
+<section class="slide">
+  <div class="close">
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="manifesto">
+      <h1>Above all, we want to help you <b>win</b>.</h1>
+      <div class="closecols">
+        <div class="closebody">
+          <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
+          <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
+          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
+        </div>
+        <div class="derisk">
+          <div class="dk">De-risked by design</div>
+          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
+          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
+          <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- APPENDIX DIVIDER -->
+<section class="slide">
+  <div class="appx">
+    <div class="lock"><svg class="mk"><use href="#mark"/></svg><span class="wm">Tesora</span></div>
+    <div class="axmid">
+      <h1>Appendix</h1>
+    </div>
+  </div>
+  <div class="pg" style="color:#5C6572"></div>
+</section>
+
+<!-- A1 · ROI -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What is the ROI?</h2></div>
   <div class="stage fill" style="padding-bottom:66px">
@@ -654,7 +654,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 07 · WHY TESORA OVER CLAUDE ALONE -->
+<!-- A2 · WHY TESORA OVER CLAUDE ALONE -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>I already have Claude. Why Tesora?</h2></div>
   <div class="stage fill">
@@ -682,7 +682,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 08 · MODEL PROGRESS -->
+<!-- A3 · MODEL PROGRESS -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What if the models get better?</h2></div>
   <div class="stage fill">
