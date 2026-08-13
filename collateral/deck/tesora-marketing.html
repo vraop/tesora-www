@@ -287,9 +287,12 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .team{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:12px;min-height:0}
 .advcol{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:24px;min-height:0;justify-content:center}
 .advk{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:14px}
-.adv{border-left:3px solid var(--mag);background:var(--panel);border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:11px}
-.advn{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
-.advr{font-size:12px;color:var(--muted);font-weight:500;margin-top:4px;line-height:1.35}
+.adv{display:flex;align-items:center;gap:12px;border-left:3px solid var(--mag);background:var(--panel);border-radius:0 6px 6px 0;padding:11px 13px;margin-bottom:10px}
+.advph{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:var(--ink);box-shadow:0 3px 9px rgba(14,17,22,.14)}
+.advph img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08)}
+.advn{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.advd{display:block;font-size:9px;font-weight:800;letter-spacing:.09em;color:var(--mag-deep);margin-top:2px}
+.advr{font-size:11px;color:var(--muted);font-weight:500;margin-top:4px;line-height:1.35}
 .advr b{color:var(--text);font-weight:700}
 .teamhd{margin-bottom:16px}
 .teamhd .pt{font-size:26px;line-height:1.12;max-width:1120px}
@@ -573,6 +576,84 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg" style="color:#5C6572"></div>
 </section>
 
+<!-- 10 · TEAM -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>The team</h2></div>
+  <div class="stage fill">
+    <div class="phead teamhd"><h1 class="pt">A team built at the intersection of frontier AI research and decades of actuarial experience, <b>the two disciplines this problem demands</b>.</h1></div>
+    <div class="teamwrap">
+      <div class="team">
+        <div class="mem"><div class="ph"><img src="photo-vr.png" alt="Vivek Rao"></div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
+        <div class="mem"><div class="ph"><img src="photo-fr.png" alt="Federico Reyes"></div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI, acquired by Nvidia.</p></div>
+        <div class="mem"><div class="ph"><img src="photo-pb.png" alt="Philo Bishay"></div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Former chief actuary at W. R. Berkley E&amp;S</b>. Capital modeler at <b>Gen Re</b>; built and sold a brokerage.</p></div>
+        <div class="mem"><div class="ph"><img src="photo-mp.png" alt="Michael Palmich" style="transform:scale(1.16)"></div><div class="nm">Michael Palmich</div><div class="role">Head of Sales</div><p class="bio"><b>25+ years in the actuarial software space</b>, most recently at Akur8 and Milliman.</p></div>
+        <div class="mem"><div class="ph"><img src="photo-el.png" alt="Eric Lam" style="transform:scale(1.16)"></div><div class="nm">Eric Lam</div><div class="role">Founding Engineer</div><p class="bio"><b>MIT</b> for CS, physics, and math, with <b>three actuarial exams</b> done.</p></div>
+      </div>
+      <div class="advcol">
+        <div class="advk">Advisory board</div>
+        <div class="adv">
+          <span class="advph"><img src="adv-ethan.png" alt="Ethan Genteman"></span>
+          <div><div class="advn">Ethan Genteman<span class="advd">FCAS, MAAA</span></div>
+          <div class="advr">Former Chief Actuary, <b>Palomar Holdings</b> (NYSE: PLMR)</div></div>
+        </div>
+        <div class="adv">
+          <span class="advph"><img src="adv-mario.png" alt="Mario DiCaro"></span>
+          <div><div class="advn">Mario DiCaro<span class="advd">FCAS, CERA</span></div>
+          <div class="advr">Capital Modeling &amp; Analytics, <b>Tokio Marine HCC</b></div></div>
+        </div>
+        <div class="adv">
+          <span class="advph"><img src="adv-joanne.png" alt="Joanne Chen"></span>
+          <div><div class="advn">Joanne Chen</div>
+          <div class="advr">General Partner, <b>Foundation Capital</b></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="backed">
+      <span class="bk">Backed by</span>
+      <div class="inv">
+        <span class="fclogo"><img src="asset-foundation.png" alt="Foundation Capital"></span>
+        <div class="itxt"><div class="idesc">Leading AI investors, backing enterprise founders since 1995</div></div>
+      </div>
+      <span class="ivrule"></span>
+      <div class="inv">
+        <span class="yclogo">Y</span>
+        <div class="itxt"><div class="inm">Y Combinator <span class="s25">S25</span></div><div class="idesc">The accelerator behind Stripe and Airbnb</div></div>
+      </div>
+      <span class="cas"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.4 6.7 19.2l1.1-5.9L3.5 9.2l5.9-.8z"/></svg>Proud sponsors of CAS</span>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 08 · ROI -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What is the ROI?</h2></div>
+  <div class="stage fill" style="padding-bottom:66px">
+    <div class="phead"><h1 class="pt">The recurring month goes from <b>150 hours to about 60</b>.</h1><p class="pl">Tesora compresses the mechanical grind, the data pulls, the reconciliations, the model updates, so the same team spends its hours on judgment instead of assembly.</p></div>
+    <div class="reswrap">
+      <div class="hours">
+        <div class="hh"><span>Where the recurring month goes</span><span class="r"><span class="key"><i class="sw rec"></i>reclaimed</span><span class="key"><i class="sw rem"></i>still hands-on</span><span class="badge">Illustrative · modeled</span></span></div>
+        <div class="hrow"><div class="nm">Data extraction &amp; reconciliation</div><div class="track"><span class="rec" style="width:90%"></span><span class="rem" style="width:10%"></span></div><div class="fig">39 <span class="a">&rarr; 4</span> <span class="x">10×</span></div></div>
+        <div class="hrow"><div class="nm">Pricing model updates</div><div class="track"><span class="rec" style="width:75%"></span><span class="rem" style="width:25%"></span></div><div class="fig">28 <span class="a">&rarr; 7</span> <span class="x">4×</span></div></div>
+        <div class="hrow"><div class="nm">Loss trend analysis</div><div class="track"><span class="rec" style="width:48%"></span><span class="rem" style="width:52%"></span></div><div class="fig">23 <span class="a">&rarr; 12</span> <span class="x">2×</span></div></div>
+        <div class="hrow"><div class="nm">Reserve &amp; loss development</div><div class="track"><span class="rec" style="width:43%"></span><span class="rem" style="width:57%"></span></div><div class="fig">21 <span class="a">&rarr; 12</span> <span class="x">1.7×</span></div></div>
+        <div class="hrow"><div class="nm">Management &amp; board reporting</div><div class="track"><span class="rec" style="width:41%"></span><span class="rem" style="width:59%"></span></div><div class="fig">17 <span class="a">&rarr; 10</span> <span class="x">1.7×</span></div></div>
+        <div class="hrow"><div class="nm">Reinsurance program analysis</div><div class="track"><span class="rec" style="width:67%"></span><span class="rem" style="width:33%"></span></div><div class="fig">12 <span class="a">&rarr; 4</span> <span class="x">3×</span></div></div>
+        <div class="hrow"><div class="nm">Peer review &amp; documentation</div><div class="track"><span class="rec" style="width:20%"></span><span class="rem" style="width:80%"></span></div><div class="fig">10 <span class="a">&rarr; 8</span> <span class="x">1.3×</span></div></div>
+        <div class="hrow tot"><div class="nm">Monthly total</div><div class="track"><span class="rec" style="width:60%"></span><span class="rem" style="width:40%"></span></div><div class="fig">150 <span class="a">&rarr; ~60</span> <span class="x">2.5×</span></div></div>
+      </div>
+      <div class="resstats">
+        <div class="rstat"><div class="num mag">2.5&times;</div><div class="lab">the recurring workload, same team and sign-off</div><div class="cap">The blended throughput gain across the whole recurring month.</div></div>
+        <div class="rstat"><div class="num">Smarter not harder</div><div class="lab">Time freed for strategy and selections, not assembly</div></div>
+        <div class="rstat"><div class="num">Unlock your actuaries</div><div class="lab">More products, territories, and actuarial capability</div></div>
+      </div>
+    </div>
+    <div class="rnote" style="margin-top:14px">Hours reflect a typical ~150 hour recurring actuarial month, with per-workflow gains from Tesora's engagement framework. Figures are modeled and confirmed against measured results during a build.</div>
+  </div>
+  <div class="takeaway">We hand the mechanical hours back to your team as <b>actuarial judgment</b>, freeing them to focus where it counts. Capacity stops being the ceiling.</div>
+  <div class="pg"></div>
+</section>
+
 <!-- 07 · WHY TESORA OVER CLAUDE ALONE -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>I already have Claude. Why Tesora?</h2></div>
@@ -612,78 +693,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg></span><div class="t5">The cheapest correct path</div><div class="d5">Every org is running a dozen AI pilots. We stay anchored on one thing: the fastest, most correct, and lowest-token way to run a complex workflow within your audit standards.</div></div>
       <div class="r5"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="t5">Audits matter more, not less</div><div class="d5">As the model does more of the work, proving it matters more, so no step gets skipped and nothing is taken for granted. Every value stays cited, reproducible, and signed off.</div></div>
       <div class="r5 win"><span class="ic5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span><div class="t5">The gap widens</div><div class="d5">Better models unlock even more complex work, so the advantage compounds. A rate change that took months now takes days, so you can reprice against the market while slower competitors wait on a filing cycle. The firms that move first pull ahead, and <b>standing still gets more expensive</b>.</div></div>
-    </div>
-  </div>
-  <div class="pg"></div>
-</section>
-
-<!-- 08 · ROI -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>What is the ROI?</h2></div>
-  <div class="stage fill" style="padding-bottom:66px">
-    <div class="phead"><h1 class="pt">The recurring month goes from <b>150 hours to about 60</b>.</h1><p class="pl">Tesora compresses the mechanical grind, the data pulls, the reconciliations, the model updates, so the same team spends its hours on judgment instead of assembly.</p></div>
-    <div class="reswrap">
-      <div class="hours">
-        <div class="hh"><span>Where the recurring month goes</span><span class="r"><span class="key"><i class="sw rec"></i>reclaimed</span><span class="key"><i class="sw rem"></i>still hands-on</span><span class="badge">Illustrative · modeled</span></span></div>
-        <div class="hrow"><div class="nm">Data extraction &amp; reconciliation</div><div class="track"><span class="rec" style="width:90%"></span><span class="rem" style="width:10%"></span></div><div class="fig">39 <span class="a">&rarr; 4</span> <span class="x">10×</span></div></div>
-        <div class="hrow"><div class="nm">Pricing model updates</div><div class="track"><span class="rec" style="width:75%"></span><span class="rem" style="width:25%"></span></div><div class="fig">28 <span class="a">&rarr; 7</span> <span class="x">4×</span></div></div>
-        <div class="hrow"><div class="nm">Loss trend analysis</div><div class="track"><span class="rec" style="width:48%"></span><span class="rem" style="width:52%"></span></div><div class="fig">23 <span class="a">&rarr; 12</span> <span class="x">2×</span></div></div>
-        <div class="hrow"><div class="nm">Reserve &amp; loss development</div><div class="track"><span class="rec" style="width:43%"></span><span class="rem" style="width:57%"></span></div><div class="fig">21 <span class="a">&rarr; 12</span> <span class="x">1.7×</span></div></div>
-        <div class="hrow"><div class="nm">Management &amp; board reporting</div><div class="track"><span class="rec" style="width:41%"></span><span class="rem" style="width:59%"></span></div><div class="fig">17 <span class="a">&rarr; 10</span> <span class="x">1.7×</span></div></div>
-        <div class="hrow"><div class="nm">Reinsurance program analysis</div><div class="track"><span class="rec" style="width:67%"></span><span class="rem" style="width:33%"></span></div><div class="fig">12 <span class="a">&rarr; 4</span> <span class="x">3×</span></div></div>
-        <div class="hrow"><div class="nm">Peer review &amp; documentation</div><div class="track"><span class="rec" style="width:20%"></span><span class="rem" style="width:80%"></span></div><div class="fig">10 <span class="a">&rarr; 8</span> <span class="x">1.3×</span></div></div>
-        <div class="hrow tot"><div class="nm">Monthly total</div><div class="track"><span class="rec" style="width:60%"></span><span class="rem" style="width:40%"></span></div><div class="fig">150 <span class="a">&rarr; ~60</span> <span class="x">2.5×</span></div></div>
-      </div>
-      <div class="resstats">
-        <div class="rstat"><div class="num mag">2.5&times;</div><div class="lab">the recurring workload, same team and sign-off</div><div class="cap">The blended throughput gain across the whole recurring month.</div></div>
-        <div class="rstat"><div class="num">Smarter not harder</div><div class="lab">Time freed for strategy and selections, not assembly</div></div>
-        <div class="rstat"><div class="num">Unlock your actuaries</div><div class="lab">More products, territories, and actuarial capability</div></div>
-      </div>
-    </div>
-    <div class="rnote" style="margin-top:14px">Hours reflect a typical ~150 hour recurring actuarial month, with per-workflow gains from Tesora's engagement framework. Figures are modeled and confirmed against measured results during a build.</div>
-  </div>
-  <div class="takeaway">We hand the mechanical hours back to your team as <b>actuarial judgment</b>, freeing them to focus where it counts. Capacity stops being the ceiling.</div>
-  <div class="pg"></div>
-</section>
-
-<!-- 10 · TEAM -->
-<section class="slide">
-  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>The team</h2></div>
-  <div class="stage fill">
-    <div class="phead teamhd"><h1 class="pt">A team built at the intersection of frontier AI research and decades of actuarial experience, <b>the two disciplines this problem demands</b>.</h1></div>
-    <div class="teamwrap">
-      <div class="team">
-        <div class="mem"><div class="ph"><img src="photo-vr.png" alt="Vivek Rao"></div><div class="nm">Vivek Rao</div><div class="role">CEO</div><p class="bio"><b>Former private-equity investor</b> and McKinsey consultant focused on P&amp;C insurance.</p></div>
-        <div class="mem"><div class="ph"><img src="photo-fr.png" alt="Federico Reyes"></div><div class="nm">Federico Reyes</div><div class="role">CTO</div><p class="bio"><b>Stanford AI researcher</b>. Graph neural nets and relational data at Kumo AI, acquired by Nvidia.</p></div>
-        <div class="mem"><div class="ph"><img src="photo-pb.png" alt="Philo Bishay"></div><div class="nm">Philo Bishay</div><div class="role">CPO &amp; Chief Actuary</div><p class="bio"><b>Former chief actuary at W. R. Berkley E&amp;S</b>. Capital modeler at <b>Gen Re</b>; built and sold a brokerage.</p></div>
-        <div class="mem"><div class="ph"><img src="photo-mp.png" alt="Michael Palmich" style="transform:scale(1.16)"></div><div class="nm">Michael Palmich</div><div class="role">Head of Sales</div><p class="bio"><b>25+ years in the actuarial software space</b>, most recently at Akur8 and Milliman.</p></div>
-        <div class="mem"><div class="ph"><img src="photo-el.png" alt="Eric Lam" style="transform:scale(1.16)"></div><div class="nm">Eric Lam</div><div class="role">Founding Engineer</div><p class="bio"><b>MIT</b> for CS, physics, and math, with <b>three actuarial exams</b> done.</p></div>
-      </div>
-      <div class="advcol">
-        <div class="advk">Advisory board</div>
-        <div class="adv">
-          <div class="advn">Ethan Genteman</div>
-          <div class="advr">Former Chief Actuary, <b>Palomar</b></div>
-        </div>
-        <div class="adv">
-          <div class="advn">Joanne Chen</div>
-          <div class="advr">Partner, <b>Foundation Capital</b></div>
-        </div>
-        <p class="advnote">Actuaries who have signed the filings, and investors who have built the category, keep us honest about what carriers will actually adopt.</p>
-      </div>
-    </div>
-    <div class="backed">
-      <span class="bk">Backed by</span>
-      <div class="inv">
-        <span class="fclogo"><img src="asset-foundation.png" alt="Foundation Capital"></span>
-        <div class="itxt"><div class="idesc">Leading AI investors, backing enterprise founders since 1995</div></div>
-      </div>
-      <span class="ivrule"></span>
-      <div class="inv">
-        <span class="yclogo">Y</span>
-        <div class="itxt"><div class="inm">Y Combinator <span class="s25">S25</span></div><div class="idesc">The accelerator behind Stripe and Airbnb</div></div>
-      </div>
-      <span class="cas"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.4 6.7 19.2l1.1-5.9L3.5 9.2l5.9-.8z"/></svg>Proud sponsors of CAS</span>
     </div>
   </div>
   <div class="pg"></div>

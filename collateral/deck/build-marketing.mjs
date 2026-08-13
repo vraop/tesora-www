@@ -4,7 +4,7 @@ import path from 'node:path';
 const EXEC = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 const dir = '/tmp/claude-0/-home-user-tesora-www/e26d6849-dd06-5ce8-96ca-433d6be610a4/scratchpad';
 let html = readFileSync(path.join(dir, 'tesora-marketing.html'), 'utf8');
-const assets = [['asset-rater-gui.webp','webp'],['asset-tree-clean.png','png'],['asset-foundation.png','png'],['asset-tesora-chat.png','png'],['asset-reserving.png','png'],['asset-triangle.png','png'],['asset-bernegger.png','png'],['photo-vr.png','png'],['photo-fr.png','png'],['photo-pb.png','png'],['photo-mp.png','png'],['photo-el.png','png']];
+const assets = [['asset-rater-gui.webp','webp'],['asset-tree-clean.png','png'],['asset-foundation.png','png'],['asset-tesora-chat.png','png'],['asset-reserving.png','png'],['asset-triangle.png','png'],['asset-bernegger.png','png'],['photo-vr.png','png'],['photo-fr.png','png'],['photo-pb.png','png'],['photo-mp.png','png'],['photo-el.png','png'],['adv-ethan.png','png'],['adv-mario.png','png'],['adv-joanne.png','png']];
 for (const [f, type] of assets) {
   if (!existsSync(path.join(dir, f))) { console.log('skip missing', f); continue; }
   const b64 = readFileSync(path.join(dir, f)).toString('base64');
