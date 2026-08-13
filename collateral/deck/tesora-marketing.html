@@ -91,7 +91,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .wbspan.tall .wd{font-size:12px;line-height:1.45;margin-top:4px}
 /* pg2 tree */
 .treewrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 312px;gap:22px;align-items:stretch}
-.treeimg{min-height:0;display:flex;align-items:center;justify-content:center}
+.treecol{min-height:0;display:flex;flex-direction:column;gap:8px}
+.treeimg{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
 .treeimg img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
 .treeside{display:flex;flex-direction:column;min-height:0}
 .tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
@@ -102,7 +103,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .tsplit{display:flex;gap:9px;margin-top:13px}
 .tsplit .sp{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:11.5px;font-weight:600;color:var(--muted);text-align:center}
 .tsplit .sp b{display:block;font-size:16px;font-weight:900;color:var(--mag-deep);letter-spacing:-.02em;margin-bottom:2px}
-.tsnote{font-size:12.5px;line-height:1.5;color:var(--text);font-weight:500;margin-top:14px;text-wrap:pretty}
+.treecap{flex:none;display:flex;flex-direction:column;gap:3px;text-align:center;padding:0 30px}
+.treecap .tq{font-size:12px;font-style:italic;color:var(--text);font-weight:500;line-height:1.4}
+.treecap .ta{font-size:10px;color:var(--faint);font-weight:600;line-height:1.35}
+.tsnote{font-size:12px;line-height:1.5;color:var(--text);font-weight:500;margin-top:13px;text-wrap:pretty}
+.tsnote b{color:var(--mag-deep);font-weight:700}
 /* compliance page */
 .cwrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 372px;gap:24px;align-items:stretch}
 .cshot{min-height:0;display:flex;align-items:center;justify-content:center}
@@ -372,7 +377,10 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="stage fill">
     <div class="phead p2head"><h1 class="pt">Actuarial work is not one workflow. It is a <b>web of intricate, connected tasks</b>.</h1><p class="pl">The more steps an actuary delegates to AI, the less certain they can be of the output. Tesora enables full tracing, documentation, and audit, so the actuary remains in control.</p></div>
     <div class="treewrap">
-      <div class="treeimg"><img src="asset-tree-clean.png" alt="What Actuaries Deliver: a tree mapping the actuarial function, with pricing across rate filing, pricing model, rate manual, rating plan and technical price, and reserving across booked IBNR, reserve movement and the statement of actuarial opinion"></div>
+      <div class="treecol">
+        <div class="treeimg"><img src="asset-tree-clean.png" alt="What Actuaries Deliver: a tree mapping the actuarial function, with pricing across rate filing, pricing model, rate manual, rating plan and technical price, and reserving across booked IBNR, reserve movement and the statement of actuarial opinion"></div>
+        <div class="treecap"><span class="tq">&ldquo;Every actuary dreads one question: what do actuaries do? I am happy to say we are no closer to an answer.&rdquo;</span><span class="ta">Philo Bishay, our Chief Actuary, on publishing this map. Actuaries across the industry shared it, because they recognized the job.</span></div>
+      </div>
       <div class="treeside">
         <div class="tsk">One actuarial function, mapped</div>
         <div class="tstats">
@@ -381,7 +389,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           <div class="ts"><span class="n">163</span><span class="l">leaves, each a real decision</span></div>
         </div>
         <div class="tsplit"><span class="sp"><b>~2/3</b> pricing</span><span class="sp"><b>~1/3</b> reserving</span></div>
-        <p class="tsnote">Every leaf is a judgment someone signs for. Automate one and the other 162, with the handoffs between them, are still yours.</p>
+        <p class="tsnote">Actuaries recognize this on sight. It is also why no model one-shots it: 163 decisions, each with its own method, order, and sign-off. Clearing that takes an <b>opinionated workflow</b>, not a longer prompt.</p>
         <div class="wbspan tall"><svg class="mk"><use href="#mark"/></svg><div><div class="wt">One agentic harness across <span>all of it</span></div><div class="wd">A system of agents keeps every task linked and every value cited, from ingest to filing. That orchestration is the hard part to build, and the harder part to replicate.</div></div></div>
       </div>
     </div>
