@@ -102,6 +102,25 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .tsbul li{display:flex;gap:11px;font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
 .tsbul li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mag);flex:none;margin-top:8px}
 .tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
+.casc{display:flex;flex-direction:column;gap:0}
+.cl{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+.cl.in1{padding-left:22px}.cl.in2{padding-left:44px;border-bottom:none}
+.cn{font-size:26px;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1;text-align:right;font-variant-numeric:tabular-nums}
+.cn.mag{color:var(--mag)}
+.ct2{font-size:13px;font-weight:700;color:var(--ink);line-height:1.2}
+.cd2{font-size:11.5px;color:var(--muted);font-weight:400;line-height:1.4;margin-top:2px}
+.unit{display:flex;flex-wrap:wrap;gap:3px;margin:12px 0 0 44px;max-width:430px}
+.unit i{width:7px;height:7px;background:var(--ink);opacity:.72;display:block}
+.unit i.r{background:var(--mag);opacity:.85}
+.ukey{display:flex;gap:16px;margin:9px 0 0 44px;font-size:10.5px;color:var(--muted);font-weight:600}
+.ukey span{display:flex;align-items:center;gap:6px}
+.ukey i{width:7px;height:7px;background:var(--ink);opacity:.72;display:inline-block}
+.ukey i.r{background:var(--mag);opacity:.85}
+.ukey .uk3{color:var(--faint);font-weight:500;margin-left:auto}
+.tsbul{list-style:none;margin:16px 0 0;display:flex;flex-direction:column;gap:9px}
+.tsbul li{display:flex;gap:11px;font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.tsbul li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mag);flex:none;margin-top:8px}
+.tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
 .tstats{display:flex;flex-direction:column;gap:0;flex:none}
 .ts{display:grid;grid-template-columns:78px 1fr;align-items:center;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
 .ts.tot{border-bottom:none}
@@ -197,24 +216,29 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 
 
 /* ============ AGENT ARCHITECTURE ============ */
-.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:0;position:relative}
+.agcap{display:grid;grid-template-columns:34px 1fr;gap:20px;align-items:center}
+.agcap .dot{width:26px;display:flex;justify-content:center}
+.agcap .dot i{width:9px;height:9px;border-radius:50%;background:var(--line-2);display:block}
+.agcap .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.aglayer{padding:14px 0;position:relative}
+.agrail{position:absolute;left:13px;top:0;bottom:0;width:1px;background:var(--line-2)}
 .aglayer{display:grid;grid-template-columns:34px 1fr;gap:20px;align-items:start}
-.agn{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;
-  justify-content:center;font-size:12px;font-weight:800;margin-top:1px}
+.agn{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;margin-top:1px;position:relative;z-index:1;box-shadow:0 0 0 5px var(--paper)}
 .aglayer.rev .agn{background:var(--mag)}
-.aglt{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
-.agld{font-size:12.5px;color:var(--muted);font-weight:400;line-height:1.45}
+.aglt{font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
+.agld{font-size:13px;color:var(--muted);font-weight:400;line-height:1.45}
 .agld b{color:var(--ink);font-weight:700}
 .agrow{display:grid;grid-template-columns:repeat(5,1fr);margin-top:11px;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .agc{padding:13px 16px 15px;border-right:1px solid var(--line);display:flex;flex-direction:column}
 .agc:last-child{border-right:none;background:var(--mag-tint)}
-.agc .an2{font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:6px}
+.agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:6px}
 .agc:last-child .an2{color:var(--mag-deep)}
-.agc .ad{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.agc .ad{font-size:12px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
 .agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:11px;padding-top:12px;border-top:1px solid var(--line)}
-.agrv .rn{font-size:12px;font-weight:800;color:var(--ink);letter-spacing:-.005em}
-.agrv .rd{font-size:11px;line-height:1.45;color:var(--muted);font-weight:400;margin-top:4px;text-wrap:pretty}
+.agrv .rn{font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:-.005em}
+.agrv .rd{font-size:11.5px;line-height:1.45;color:var(--muted);font-weight:400;margin-top:4px;text-wrap:pretty}
 
 /* ============ COMPARISON (pg4) ============ */
 .cmp{display:grid;grid-template-columns:164px repeat(4,1fr);grid-template-rows:auto repeat(5,1fr);flex:1;min-height:0;border:1px solid var(--line);border-radius:2px;overflow:hidden}
@@ -355,7 +379,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .backed .tail{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:500;white-space:nowrap;text-align:right}
 
 /* ============ CLOSE ============ */
-.close{height:100%;background:linear-gradient(160deg,#F7F4EE 0%,#F5F0EF 58%,#F2EBF0 100%);color:var(--text);
+.close{height:100%;background:linear-gradient(160deg,#F8F5EE 0%,#F4F1E9 55%,#EFEBE0 100%);color:var(--text);
   padding:54px 60px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .close::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--mag)}
 .close .lock{display:flex;align-items:center;gap:12px;color:var(--ink)}
@@ -413,14 +437,24 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="postcol"><img src="asset-post.png" alt="A LinkedIn post by Philo Bishay, Tesora's Chief Actuary, sharing his What Actuaries Deliver map of the actuarial function, with 675 reactions, 23 comments and 28 reposts"></div>
       <div class="treeside">
         <div class="tsk">Why a workbench</div>
-        <div class="tstats">
-          <div class="ts"><span class="n">2</span><span class="l">main domains, pricing and reserving, that every deliverable rolls up into</span></div>
-          <div class="ts"><span class="n">10</span><span class="l">major deliverables between them, from the rate filing to the statement of actuarial opinion</span></div>
-          <div class="ts tot"><span class="n">163</span><span class="l">individual workflows underneath, each with its own method, order, and sign-off</span></div>
+        <div class="casc">
+          <div class="cl">
+            <div class="cn">2</div>
+            <div class="cb"><div class="ct2">domains</div><div class="cd2">Pricing and reserving. Every deliverable rolls up into one of them.</div></div>
+          </div>
+          <div class="cl in1">
+            <div class="cn">10</div>
+            <div class="cb"><div class="ct2">major deliverables</div><div class="cd2">From the rate filing to the statement of actuarial opinion.</div></div>
+          </div>
+          <div class="cl in2">
+            <div class="cn mag">163</div>
+            <div class="cb"><div class="ct2">workflows underneath</div><div class="cd2">Each with its own method, order, and sign-off.</div></div>
+          </div>
+          <div class="unit"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i></div>
+          <div class="ukey"><span><i></i>121 pricing</span><span><i class="r"></i>42 reserving</span><span class="uk3">one mark per workflow</span></div>
         </div>
         <ul class="tsbul">
-          <li>Every workflow carries its own method, its own order of operations, and its own sign-off.</li>
-          <li>The judgment lives between them as much as inside any one of them.</li>
+          <li>The judgment lives between these as much as inside any one of them.</li>
           <li>Firm context takes years to build in a person, and a general model arrives with none of it.</li>
           <li>So we start from the methods, the ASOP standards, and the CAS curriculum, then encode an opinionated layer shaped to how your team works.</li>
         </ul>
@@ -439,6 +473,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <p class="pl">A request passes through three layers before anyone sees it.</p>
     </div>
     <div class="agwrap">
+      <div class="agrail"></div>
+      <div class="agcap"><span class="dot"><i></i></span><span class="lbl">A request arrives</span></div>
       <div class="aglayer">
         <span class="agn">1</span>
         <div>
@@ -473,6 +509,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           </div>
         </div>
       </div>
+      <div class="agcap"><span class="dot"><i></i></span><span class="lbl">Your actuary reviews and signs off</span></div>
     </div>
   </div>
   <div class="pg"></div>
@@ -485,7 +522,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="phead"><h1 class="pt">Rate changes in <b>days</b>, not months.</h1><p class="pl">Source a rater from a SERFF filing, an Excel file, or a script. Tesora rebuilds it, tests it, and deploys it whenever underwriting is ready.</p></div>
     <div class="ba">
       <div class="bacol">
-        <div class="bh">Before &middot; by hand</div>
+        <div class="bh">Before: by hand</div>
         <div class="big">4-6 <small>months</small></div>
         <div class="cap">From a requested change to a filed, live rater, and where the months actually go</div>
         <div class="bsteps">
@@ -500,7 +537,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
       </div>
       <div class="bacol af">
-        <div class="bh">After &middot; on Tesora</div>
+        <div class="bh">After: on Tesora</div>
         <div class="big">1-2 <small>days</small></div>
         <div class="cap">Deploy as a web interface or API.</div>
         <div class="afio">
@@ -521,7 +558,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="phead"><h1 class="pt">The triangle is <b>squared before you sit down</b>.</h1><p class="pl">A quarterly close moves between actuarial, IT, and finance, and most of the calendar goes to assembling the data rather than judging it.</p></div>
     <div class="ba">
       <div class="bacol">
-        <div class="bh">Before &middot; by hand</div>
+        <div class="bh">Before: by hand</div>
         <div class="big">~2 <small>weeks</small></div>
         <div class="cap">From close to a booked IBNR, and who is waiting on whom</div>
         <div class="bsteps">
@@ -536,7 +573,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
       </div>
       <div class="bacol af">
-        <div class="bh">After &middot; on Tesora</div>
+        <div class="bh">After: on Tesora</div>
         <div class="big">3-4 <small>hours</small></div>
         <div class="cap">Triangles squared on ingest, so the quarter starts at the selection</div>
         <div class="afio">
@@ -557,7 +594,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="phead"><h1 class="pt">Read a competitor's filed algorithm, then <b>price your book through it</b>.</h1><p class="pl">Every rate they charge is public. The work is turning a filing back into something you can run your own risks through, and by the time a team finishes that by hand, the competitor has filed again.</p></div>
     <div class="ba">
       <div class="bacol">
-        <div class="bh">Before &middot; by hand</div>
+        <div class="bh">Before: by hand</div>
         <div class="big">3-6 <small>months</small></div>
         <div class="cap">From a competitor filing to a usable read, and where it goes wrong</div>
         <div class="bsteps">
@@ -572,7 +609,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
       </div>
       <div class="bacol af">
-        <div class="bh">After &middot; on Tesora</div>
+        <div class="bh">After: on Tesora</div>
         <div class="big">1-2 <small>days</small></div>
         <div class="cap">An executable competitor rater, and your whole book priced through it</div>
         <div class="afio">
