@@ -156,12 +156,10 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .f4t{font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:-.005em}
 .f4d{font-size:11px;line-height:1.45;color:var(--muted);font-weight:400;margin-top:4px;text-wrap:pretty}
 /* why-tesora page */
-.whygrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px}
-.wy{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:19px 22px;background:var(--card);display:flex;flex-direction:column;justify-content:flex-start}
-.wyh{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px}
-.wyh .wn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--mag-deep);background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:5px;padding:3px 7px;flex:none}
-.wyd{font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
-.wyx{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.45;color:var(--mag-deep);font-weight:600;text-wrap:pretty}
+.whyrows{flex:1;min-height:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.wr{flex:1;display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.wrt{font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
+.wrd{font-size:13px;line-height:1.55;color:var(--muted);font-weight:400;text-wrap:pretty}
 .wyband{margin-top:16px;background:var(--ink);color:#fff;border-radius:8px;padding:15px 22px;display:flex;align-items:center;gap:14px}
 .wyband .mk{width:22px;height:22px;flex:none}
 .wyt{font-size:13.5px;line-height:1.5;color:#C3C9D2;font-weight:500;text-wrap:pretty}
@@ -179,7 +177,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .axi{display:flex;align-items:center;gap:16px;font-size:16px;color:#C3C9D2;font-weight:500;border-top:1px solid rgba(255,255,255,.13);padding-top:14px}
 .axn{width:28px;height:28px;border-radius:6px;background:var(--mag);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none}
 .backed .fclogo:has(img){width:auto;height:auto;background:none;border-radius:0}
-.backed .fclogo img{height:30px;width:auto;display:block}
+.backed .fclogo img{height:30px;width:auto;display:block;mix-blend-mode:multiply}
 .backed .cas{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700;color:var(--mag-deep);background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:999px;padding:7px 14px;white-space:nowrap}
 
 /* ============ PG3 · TRACE COMPARISON ============ */
@@ -477,7 +475,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="stage fill">
     <div class="phead">
       <h1 class="pt">No single agent does the whole job, and <b>none of it reaches you unchecked</b>.</h1>
-      <p class="pl">A request passes through three layers before anyone sees it.</p>
     </div>
     <div class="agwrap">
       <div class="agrail"></div>
@@ -599,7 +596,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Competitive intelligence</h2></div>
   <div class="stage fill" style="padding-bottom:30px">
-    <div class="phead"><h1 class="pt">Read a competitor's filed algorithm, then <b>price your book through it</b>.</h1><p class="pl">Every rate they charge is public. The work is turning a filing back into something you can run your own risks through, which by hand takes long enough that the competitor has often filed again before you finish.</p></div>
+    <div class="phead"><h1 class="pt">Rebuild what a competitor charges from their filings, then <b>price your book through it</b>.</h1><p class="pl">A filing gives you tables, rules, and inputs rather than a working model, and the order of operations is rarely spelled out. Turning that into something you can run your own risks through is the work, and by hand it takes long enough that the competitor has often filed again before you finish.</p></div>
     <div class="ba">
       <div class="bacol">
         <div class="bh">Before: by hand</div>
@@ -622,10 +619,10 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="cap">An executable competitor rater, and your whole book priced through it</div>
         <div class="afio">
           <div class="io"><span class="k">You give</span><span class="v">A competitor, a state, and a line. Or the SERFF filing itself.</span></div>
-          <div class="io"><span class="k">You get</span><span class="v">Their algorithm running against your risks, every factor cited to the page it came from.</span></div>
+          <div class="io"><span class="k">You get</span><span class="v">Their rating logic running against your risks, every factor cited to the page it came from.</span></div>
         </div>
         <div class="shot"><img src="asset-compete.png" alt="Annual premium by representative risk, comparing an ISO benchmark against three competitors across classes and territories"></div>
-        <div class="shotcap">Built only from public rate filings.</div>
+        <div class="shotcap">Built from public rate filings, and any additional data sources you provide.</div>
       </div>
     </div>
   </div>
@@ -642,30 +639,23 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="cside">
         <div class="cwho">
           <div class="cw">
-            <div class="cwh">When an actuary leaves</div>
-            <div class="cwd">Their assumptions, sources, and reasoning stay in the session. The next person picks up the thread instead of rebuilding it.</div>
+            <div class="cwh">Implementation</div>
+            <div class="cwd">The models are wired into your loss runs, policy systems, and ledger, running inside your own environment.</div>
           </div>
           <div class="cw">
-            <div class="cwh">Finance</div>
-            <div class="cwd">Ties a booked number back to the ledger without waiting on an actuary to explain it.</div>
+            <div class="cwh">Governance</div>
+            <div class="cwd">Who ran what, on which data, and who signed it. Finance and IT find what they need without waiting on an actuary to explain it.</div>
           </div>
           <div class="cw">
-            <div class="cwh">IT and data</div>
-            <div class="cwd">Sees which files fed which number, so a schema change has a known blast radius.</div>
+            <div class="cwh">Compliance</div>
+            <div class="cwd">Built to ASOP from the start, so a filing survives the objection, the examination, and the auditor years later.</div>
           </div>
           <div class="cw">
-            <div class="cwh">Auditors and regulators</div>
-            <div class="cwd">Follow any value to its source document, years after the filing closed.</div>
+            <div class="cwh">Continuity</div>
+            <div class="cwd">When an actuary leaves, their assumptions, sources, and reasoning stay in the session. The next person picks up the thread.</div>
           </div>
         </div>
-      </div>
     </div>
-    <div class="cout">We are ensuring outcomes while staying compliant and following your governance.</div>
-    <div class="fourway">
-      <div class="fw4"><div class="f4t">Implementation</div><div class="f4d">The models are wired into your loss runs, policy systems, and ledger, inside your environment.</div></div>
-      <div class="fw4"><div class="f4t">Governance</div><div class="f4d">Who ran what, on which data, and who signed it, recorded without anyone maintaining a log.</div></div>
-      <div class="fw4"><div class="f4t">Compliance</div><div class="f4d">Built to ASOP from the start, so a filing survives the objection and the examination.</div></div>
-      <div class="fw4"><div class="f4t">Actuarial context</div><div class="f4d">Triangles, on-leveling, and development factors are understood as methods, not as spreadsheets.</div></div>
   </div>
   <div class="pg"></div>
 </section>
@@ -835,22 +825,22 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>I already have Claude. Why Tesora?</h2></div>
   <div class="stage fill">
     <div class="phead"><h1 class="pt">We run <b>on top of Claude</b>, and we are model agnostic.</h1><p class="pl">The model is the engine, not the product. What an actuary needs around it is infrastructure: the data wired in, the workflow decided, the cost controlled, and the record kept. That is the part we build, and we build it for you.</p></div>
-    <div class="whygrid">
-      <div class="wy">
-        <div class="wyh"><span class="wn">01</span>We guide the model</div>
-        <div class="wyd">A raw model will answer anything, confidently. Ours is held to an actuarial method: which factors to consider, which checks to run, when to stop and ask. That guidance is the difference between a plausible answer and a defensible one.</div><div class="wyx">On a loss trend, frequency and severity are fit separately and tested against your own history before anything is selected.</div>
+    <div class="whyrows">
+      <div class="wr">
+        <div class="wrt">We guide the model</div>
+        <div class="wrd">A raw model will answer anything, confidently. Ours is held to an actuarial method: which factors to consider, which checks to run, when to stop and ask. On a loss trend that means frequency and severity are fit separately and tested against your own history before anything is selected.</div>
       </div>
-      <div class="wy">
-        <div class="wyh"><span class="wn">02</span>We wire the infrastructure</div>
-        <div class="wyd">Your loss runs, policy systems, filings, and ledger are connected once and stay connected. A chat window starts empty every time; the workbench already knows your book.</div><div class="wyx">Ingest once, and every study after it reads the same reconciled book.</div>
+      <div class="wr">
+        <div class="wrt">We wire the infrastructure</div>
+        <div class="wrd">Your loss runs, policy systems, filings, and ledger are connected once and stay connected. A chat window starts empty every time. Ingest once here, and every study after it reads the same reconciled book.</div>
       </div>
-      <div class="wy">
-        <div class="wyh"><span class="wn">03</span>The workflow is opinionated</div>
-        <div class="wyd">Reserving and pricing have a right order of operations. We encode it, so the work arrives in the shape an actuary expects rather than whatever the prompt happened to produce.</div><div class="wyx">Chain ladder, Bornhuetter-Ferguson, and Cape Cod run side by side, so the selection stays a choice.</div>
+      <div class="wr">
+        <div class="wrt">The workflow is opinionated</div>
+        <div class="wrd">Reserving and pricing have a right order of operations, and we encode it. Chain ladder, Bornhuetter-Ferguson, and Cape Cod run side by side, so the selection stays a choice your actuary makes rather than whatever the prompt happened to produce.</div>
       </div>
-      <div class="wy">
-        <div class="wyh"><span class="wn">04</span>We manage the token cost</div>
-        <div class="wyd">Running a real book through a frontier model naively is slow and expensive. We route each step to the cheapest model that is still correct, so the economics work at production scale.</div><div class="wyx">Extraction runs on a small model. The judgment calls go to the strongest one.</div>
+      <div class="wr">
+        <div class="wrt">We manage the cost</div>
+        <div class="wrd">Running a real book through a frontier model naively is slow and expensive. Extraction runs on a small model and the judgment calls go to the strongest one, so the economics work at production scale.</div>
       </div>
     </div>
     <div class="wyband"><svg class="mk"><use href="#mark"/></svg><div class="wyt">We exist to build <b>your actuarial infrastructure</b>, not to serve the models or ourselves. When a better model ships, you get it. What stays is the system we built around your book.</div></div>
