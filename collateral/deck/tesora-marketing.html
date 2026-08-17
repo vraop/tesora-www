@@ -43,9 +43,9 @@ svg.mk{display:block}
 .phead .pt b{color:var(--mag)}
 .phead .pl{font-size:16.5px;font-weight:400;color:var(--muted);line-height:1.5;margin:0;max-width:1000px}
 .phead .pl b{color:var(--text);font-weight:600}
-.p2head{margin-bottom:14px}
-.p2head .pt{font-size:27px;line-height:1.1;margin-bottom:7px;max-width:1160px}
-.p2head .pl{font-size:14.5px;max-width:1160px}
+.p2head{margin-bottom:12px}
+.p2head .pt{font-size:25px;line-height:1.12;margin-bottom:6px;max-width:1120px}
+.p2head .pl{font-size:13.5px;max-width:1120px}
 .splithd{display:flex;align-items:flex-end;justify-content:space-between;gap:54px}
 .splithd .pt{margin:0;max-width:660px}
 .splithd .pl{margin:0 0 6px;max-width:450px;flex:none}
@@ -90,20 +90,20 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .wbspan.tall .wt{font-size:14px}
 .wbspan.tall .wd{font-size:12px;line-height:1.45;margin-top:4px}
 /* pg2 tree */
-.treewrap{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:stretch;justify-content:start}
+.treewrap{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:stretch;justify-content:start}
 .postcol{min-height:0;display:flex;align-items:center}
-.postcol img{max-height:100%;width:auto;border:1px solid var(--line-2);border-radius:10px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
+.postcol img{max-height:100%;width:auto;filter:contrast(1.04);image-rendering:auto;border:1px solid var(--line-2);border-radius:10px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
 .treecol{min-height:0;display:flex;flex-direction:column;gap:8px}
 .treeimg{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
 .treeimg img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
 .treeside{display:flex;flex-direction:column;min-height:0}
 .treeside{justify-content:flex-start}
-.tsbul{list-style:none;margin:16px 0 0;display:flex;flex-direction:column;gap:9px}
-.tsbul li{display:flex;gap:11px;font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.tsbul{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:9px}
+.tsbul li{display:flex;gap:11px;font-size:13px;line-height:1.55;color:var(--muted);font-weight:400;text-wrap:pretty}
 .tsbul li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mag);flex:none;margin-top:8px}
 .tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
 .casc{display:flex;flex-direction:column;gap:0}
-.cl{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);position:relative}
+.cl{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);position:relative}
 .cl.in1,.cl.in2{padding-left:26px}
 .cl.in2{padding-left:52px;border-bottom:none}
 .cl.in1::before,.cl.in2::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:1px;background:var(--line-2)}
@@ -111,7 +111,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .cn{font-size:26px;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1;text-align:right;font-variant-numeric:tabular-nums}
 .cn.mag{color:var(--mag)}
 .ct2{font-size:13px;font-weight:700;color:var(--ink);line-height:1.2}
-.cd2{font-size:11.5px;color:var(--muted);font-weight:400;line-height:1.4;margin-top:2px}
+.cd2{font-size:12px;color:var(--muted);font-weight:400;line-height:1.4;margin-top:2px}
 .unit{display:flex;flex-wrap:wrap;gap:3px;margin:13px 0 0 52px;max-width:430px}
 .unit i{width:7px;height:7px;background:var(--ink);opacity:.72;display:block}
 .unit i.r{background:var(--mag);opacity:.85}
@@ -120,8 +120,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .ukey i{width:7px;height:7px;background:var(--ink);opacity:.72;display:inline-block}
 .ukey i.r{background:var(--mag);opacity:.85}
 .ukey .uk3{color:var(--faint);font-weight:500;margin-left:auto}
-.tsbul{list-style:none;margin:16px 0 0;display:flex;flex-direction:column;gap:9px}
-.tsbul li{display:flex;gap:11px;font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.tsbul{list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:9px}
+.tsbul li{display:flex;gap:11px;font-size:13px;line-height:1.55;color:var(--muted);font-weight:400;text-wrap:pretty}
 .tsbul li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mag);flex:none;margin-top:8px}
 .tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
 .tstats{display:flex;flex-direction:column;gap:0;flex:none}
@@ -458,8 +458,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
             <div class="cn mag">163</div>
             <div class="cb"><div class="ct2">individual workflows</div><div class="cd2">Each with its own inputs, its own method, its own order, and its own sign-off.</div></div>
           </div>
-          <div class="unit"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i></div>
-          <div class="ukey"><span><i></i>121 pricing</span><span><i class="r"></i>42 reserving</span><span class="uk3">one mark per workflow</span></div>
+          
         </div>
         <ul class="tsbul">
           <li>The judgment lives between these as much as inside any one of them.</li>
