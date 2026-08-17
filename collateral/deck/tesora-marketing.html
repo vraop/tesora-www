@@ -34,18 +34,18 @@ svg.mk{display:block}
 
 .stage{position:absolute;top:66px;left:0;right:0;bottom:0;padding:34px 44px 30px}
 .stage.fill{display:flex;flex-direction:column}
-.pg{display:none}
+.pg{position:absolute;right:20px;bottom:14px;font-size:0;color:var(--faint-d)}
 .pg::after{content:counter(pg,decimal-leading-zero) " / 14";font-size:10px;font-weight:600;letter-spacing:.1em}
 
 /* page head */
 .phead{margin-bottom:24px}
-.phead .pt{font-size:28px;font-weight:800;letter-spacing:-.022em;color:var(--ink);margin:0 0 9px;line-height:1.08;max-width:1060px}
+.phead .pt{font-size:31px;font-weight:800;letter-spacing:-.022em;color:var(--ink);margin:0 0 9px;line-height:1.08;max-width:1060px}
 .phead .pt b{color:var(--mag)}
-.phead .pl{font-size:15px;font-weight:400;color:var(--muted);line-height:1.5;margin:0;max-width:1000px}
+.phead .pl{font-size:16.5px;font-weight:400;color:var(--muted);line-height:1.5;margin:0;max-width:1000px}
 .phead .pl b{color:var(--text);font-weight:600}
 .p2head{margin-bottom:12px}
-.p2head .pt{max-width:1120px}
-.p2head .pl{max-width:1120px}
+.p2head .pt{font-size:25px;line-height:1.12;margin-bottom:6px;max-width:1120px}
+.p2head .pl{font-size:13.5px;max-width:1120px}
 .splithd{display:flex;align-items:flex-end;justify-content:space-between;gap:54px}
 .splithd .pt{margin:0;max-width:660px}
 .splithd .pl{margin:0 0 6px;max-width:450px;flex:none}
@@ -380,7 +380,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .team{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:12px;min-height:0}
 .advcol{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:24px;min-height:0;justify-content:center}
 .advk{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:14px}
-.adv{display:flex;align-items:center;gap:12px;border-left:3px solid var(--mag);background:var(--panel);border-radius:0 6px 6px 0;padding:11px 13px;margin-bottom:10px}
+.adv{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-left:3px solid var(--mag);background:var(--card);border-radius:0 6px 6px 0;padding:11px 13px;margin-bottom:10px}
 .advph{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:var(--ink);box-shadow:0 3px 9px rgba(14,17,22,.14)}
 .advph img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08)}
 .advn{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
@@ -388,7 +388,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .advr{font-size:11px;color:var(--muted);font-weight:500;margin-top:4px;line-height:1.35}
 .advr b{color:var(--text);font-weight:700}
 .teamhd{margin-bottom:16px}
-.teamhd .pt{max-width:1060px}
+.teamhd .pt{font-size:26px;line-height:1.12;max-width:1120px}
 .advnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:500;margin-top:6px;text-wrap:pretty}
 .mem{border:1px solid var(--line);border-radius:8px;padding:13px 14px 11px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:var(--card)}
 .mem .ph{width:86px;height:86px;border-radius:50%;overflow:hidden;background:var(--ink);flex:none;box-shadow:0 6px 16px rgba(14,17,22,.14)}
@@ -616,7 +616,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="shot"><img src="asset-triangle.png" alt="A Tesora reserving study for a 2025 commercial auto year-end: the paid loss triangle with all twenty selections confirmed, age-to-age factors by accident year, and the standard exhibits from LDF selection through the reserve summary"></div>
       </div>
     </div>
-</div>
   </div>
   <div class="pg"></div>
 </section>
