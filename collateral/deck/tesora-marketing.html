@@ -195,6 +195,32 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   font-size:12px;font-weight:700;color:#116046;display:flex;align-items:center;gap:9px}
 .tfoot .ck{width:17px;height:17px;border-radius:50%;background:var(--grn);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex:none}
 
+
+/* ============ AGENT ARCHITECTURE ============ */
+.aghd{position:relative}
+.agcount{position:absolute;right:0;top:2px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag-deep);border:1px solid var(--mag-line);background:var(--mag-tint);border-radius:999px;padding:8px 16px}
+.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.agcoord{align-self:center;border:1.5px solid var(--mag);background:var(--mag-tint);border-radius:8px;padding:10px 26px;text-align:center;position:relative}
+.agcoord .ct{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.agcoord .cs{font-size:11.5px;color:var(--mag-deep);font-weight:600;margin-top:2px}
+.agstem{height:16px;width:1px;background:var(--mag-line);align-self:center}
+.agrail{height:1px;background:var(--mag-line);margin:0 10%}
+.agrow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;flex:none;margin-top:16px;align-items:stretch}
+.agc{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:14px 15px;background:#fff;display:flex;flex-direction:column}
+.agc.aud{background:var(--mag-tint);border-color:var(--mag-line);border-top-color:var(--mag)}
+.agc .ai{width:30px;height:30px;border-radius:8px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:9px}
+.agc.aud .ai{background:var(--mag);color:#fff}
+.agc .ai svg{width:16px;height:16px}
+.agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.2;margin-bottom:6px}
+.agc.aud .an2{color:var(--mag-deep)}
+.agc .ad{font-size:11.5px;line-height:1.45;color:var(--muted);font-weight:400;text-wrap:pretty}
+.agrev{margin-top:18px;background:var(--ink);color:#fff;border-radius:8px;padding:13px 20px}
+.agrev .rh{font-size:12.5px;font-weight:700;color:#fff;margin-bottom:10px}
+.agrev .rh span{color:#AEB6C2;font-weight:500}
+.agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.agrv .rn{font-size:11.5px;font-weight:800;color:#E3B7FB;letter-spacing:.01em}
+.agrv .rd{font-size:10.5px;line-height:1.4;color:#AEB6C2;font-weight:400;margin-top:3px;text-wrap:pretty}
+
 /* ============ COMPARISON (pg4) ============ */
 .cmp{display:grid;grid-template-columns:164px repeat(4,1fr);grid-template-rows:auto repeat(5,1fr);flex:1;min-height:0;border:1px solid var(--line);border-radius:2px;overflow:hidden}
 .cmp>div{padding:13px 15px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:flex}
@@ -408,7 +434,57 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 03 · RATER DEPLOYMENT -->
+<!-- 03 · THE HARNESS -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Inside the workbench</h2></div>
+  <div class="stage fill">
+    <div class="phead p2head aghd"><span class="agcount">A team of 10 agents</span><h1 class="pt">Five specialists, <b>not one generalist</b>.</h1><p class="pl">Every request is broken into tracked work and handed to the agent built for it. They run at the same time, and nothing reaches you until it has been checked back against its sources and a person has approved it.</p></div>
+    <div class="agwrap">
+      <div class="agcoord"><div class="ct">Tesora coordinator</div><div class="cs">plans the work, tracks it, and reports back</div></div>
+      <div class="agstem"></div>
+      <div class="agrail"></div>
+      <div class="agrow">
+        <div class="agc">
+          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span>
+          <div class="an2">Pricing and experience</div>
+          <div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div>
+        </div>
+        <div class="agc">
+          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>
+          <div class="an2">Reserving</div>
+          <div class="ad">Loss development, IBNR, and triangle studies, delivered as a formatted exhibit.</div>
+        </div>
+        <div class="agc">
+          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9M12 21V4M19 21v-7"/><path d="M2.5 13h5M9.5 8h5M16.5 16h5"/></svg></span>
+          <div class="an2">Rating models</div>
+          <div class="ad">Builds, validates, and tests a rating algorithm from the filing it came out of.</div>
+        </div>
+        <div class="agc">
+          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+          <div class="an2">Document extraction</div>
+          <div class="ad">Turns filings, loss runs, and PDFs into clean tables, cell by cell.</div>
+        </div>
+        <div class="agc aud">
+          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div class="an2">Audit your existing work</div>
+          <div class="ad">Reads a spreadsheet, document, or formula you already have and reports what is wrong.</div>
+        </div>
+      </div>
+      <div class="agrev">
+        <div class="rh">Behind all five, the same four review agents check what Tesora produced. <span>They report findings, and they never edit the work.</span></div>
+        <div class="agrevrow">
+          <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered out of the standards library.</div></div>
+          <div class="agrv"><div class="rn">Citation check</div><div class="rd">Verifies every cited figure against the page it came from.</div></div>
+          <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Confirms each number in the output ties back to a document.</div></div>
+          <div class="agrv"><div class="rn">Coverage check</div><div class="rd">Reads what was not cited, to catch anything skipped.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 04 · RATER DEPLOYMENT -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Rater deployment &amp; filing</h2></div>
   <div class="stage fill" style="padding-bottom:30px">
