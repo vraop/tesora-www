@@ -112,7 +112,16 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .ukey i{width:9px;height:9px;background:var(--ink);opacity:.7;display:inline-block}
 .ukey i.r{background:var(--mag);opacity:.85}
 .ukey .uk3{color:var(--faint);font-weight:500}
-.wfcols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+.chainviz{display:flex;align-items:center;margin-top:22px}
+.cnode{font-size:11px;font-weight:700;color:var(--ink);background:var(--card);border:1px solid var(--line-2);
+  border-radius:5px;padding:7px 11px;white-space:nowrap}
+.cnode.dim{color:var(--faint);border-color:var(--line);background:transparent}
+.clink{flex:1;height:2px;background:var(--ink);opacity:.55;min-width:14px}
+.clink.dim{opacity:.18}
+.clink.brk{background:none;border-top:2px dashed var(--red);opacity:1;position:relative}
+.clink.brk::after{content:"\2715";position:absolute;left:50%;top:-9px;transform:translateX(-50%);
+  font-size:11px;font-weight:900;color:var(--red);background:var(--paper);padding:0 3px}
+.chainlab{font-size:11.5px;color:var(--red);font-weight:600;margin-top:11px}
 .wfk{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:7px}
 .wfi{font-size:12px;color:var(--muted);font-weight:500;line-height:1.6;padding:1px 0}
 .chain{margin-top:18px;padding-top:14px;border-top:2px solid var(--ink)}
@@ -262,6 +271,9 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .agc{padding:13px 16px 15px;border-right:1px solid var(--line);display:flex;flex-direction:column}
 .agc:last-child{border-right:none;background:var(--mag-tint)}
+.ic6{width:26px;height:26px;border-radius:6px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:9px;flex:none}
+.agc.aud .ic6{background:var(--mag);color:#fff}
+.ic6 svg{width:14px;height:14px;display:block}
 .agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:6px}
 .agc:last-child .an2{color:var(--mag-deep)}
 .agc .ad{font-size:12px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
@@ -470,24 +482,14 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="wfhd">Over 150 workflows are core to the actuarial function</div>
         <div class="unit"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><span class="more">&hellip;</span></div>
         <div class="ukey"><span><i></i>121 pricing</span><span><i class="r"></i>42 reserving</span><span class="uk3">one mark per workflow</span></div>
-        <div class="wfcols">
-          <div class="wfc">
-            <div class="wfi">Order of operations</div>
-            <div class="wfi">Base rate and factor structure</div>
-            <div class="wfi">Limit and deductible factors</div>
-            <div class="wfi">Schedule rating ranges</div>
-            <div class="wfi">IRPM guardrails</div>
-            <div class="wfi">Rating engine parity</div>
-          </div>
-          <div class="wfc">
-            <div class="wfi">Chain ladder, paid and incurred</div>
-            <div class="wfi">Bornhuetter-Ferguson</div>
-            <div class="wfi">Cape Cod</div>
-            <div class="wfi">Development factor and tail picks</div>
-            <div class="wfi">Cat and large loss carve-out</div>
-            <div class="wfi">IBNR by line and accident year</div>
-          </div>
+        <div class="chainviz">
+          <span class="cnode">Ingest</span><span class="clink"></span>
+          <span class="cnode">Triangles</span><span class="clink"></span>
+          <span class="cnode">Trend</span><span class="clink brk"></span>
+          <span class="cnode dim">Indication</span><span class="clink dim"></span>
+          <span class="cnode dim">Filing</span>
         </div>
+        <div class="chainlab">One weak handoff and everything downstream is unusable.</div>
         <div class="chain">
           <div class="cht">This is not a get-one-thing-right problem.</div>
           <div class="chd">A rate filing or a booked reserve needs dozens of these correct, in sequence, each one feeding the next. Automate a single step and the chain still breaks at the handoff after it.</div>
@@ -512,19 +514,19 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <span class="agn">1</span>
         <div>
           <div class="aglt">The coordinator breaks the request into tracked work</div>
-          <div class="agld">It decides which specialists are needed, runs them at the same time, and reports back on what each one produced.</div>
+          <div class="agld">It picks the specialists, runs them in parallel, and reports back.</div>
         </div>
       </div>
       <div class="aglayer">
         <span class="agn">2</span>
         <div>
           <div class="aglt">A specialist agent owns each domain end to end</div>
-          <div class="agld">Each returns a deliverable in the format that domain expects, rather than a block of text you have to reformat.</div>
+          <div class="agld">Each returns a finished deliverable in the format that domain expects.</div>
           <div class="agrow">
-            <div class="agc"><div class="an2">Pricing and experience</div><div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div></div>
-            <div class="agc"><div class="an2">Reserving</div><div class="ad">Loss development, IBNR, and triangle studies, delivered as a formatted exhibit.</div></div>
-            <div class="agc"><div class="an2">Rating models</div><div class="ad">Builds, validates, and tests a rating algorithm from the filing it came out of.</div></div>
-            <div class="agc"><div class="an2">Document extraction</div><div class="ad">Turns filings, loss runs, and PDFs into clean tables, cell by cell.</div></div>
+            <div class="agc"><span class="ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span><div class="an2">Pricing and experience</div><div class="ad">Loss ratios, trend, and frequency-severity, as a documented report.</div></div>
+            <div class="agc"><span class="ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><div class="an2">Reserving</div><div class="ad">Loss development, IBNR, and triangles, as a formatted exhibit.</div></div>
+            <div class="agc"><span class="ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9M12 21V4M19 21v-7"/><path d="M2.5 13h5M9.5 8h5M16.5 16h5"/></svg></span><div class="an2">Rating models</div><div class="ad">Builds, validates, and tests a rater from its filing.</div></div>
+            <div class="agc"><span class="ic6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><div class="an2">Document extraction</div><div class="ad">Filings, loss runs, and PDFs into clean tables, cell by cell.</div></div>
             <div class="agc"><div class="an2">Audit your existing work</div><div class="ad">Reads a spreadsheet, document, or formula you already have and reports what is wrong.</div></div>
           </div>
         </div>
@@ -533,11 +535,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <span class="agn">3</span>
         <div>
           <div class="aglt">Review agents check the work before you do</div>
-          <div class="agld">They have read access only. <b>They report findings, and they never edit the work.</b></div>
+          <div class="agld">Read access only. <b>They report findings, and never edit the work.</b></div>
           <div class="agrevrow">
-            <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered out of the standards library.</div></div>
-            <div class="agrv"><div class="rn">Citation check</div><div class="rd">Every cited figure hyperlinks to the page it came from. If the link does not resolve, the value does not move forward.</div></div>
-            <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Confirms each number ties back to a source document or to a sum of numbers that do.</div></div>
+            <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered from the standards library.</div></div>
+            <div class="agrv"><div class="rn">Citation check</div><div class="rd">Every figure hyperlinks to its page. No link, no value.</div></div>
+            <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Each number ties to a document, or to a sum of ones that do.</div></div>
             <div class="agrv"><div class="rn">Coverage check</div><div class="rd">Reads what was not cited, to catch anything skipped.</div></div>
           </div>
         </div>
