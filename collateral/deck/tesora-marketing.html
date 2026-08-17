@@ -197,32 +197,24 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 
 
 /* ============ AGENT ARCHITECTURE ============ */
-.agkick{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
-.aghd .pt{margin-bottom:8px}
-.agnote{font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--muted)}
-.agnote b{color:var(--ink);font-weight:700}
-.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start}
-.agtier{display:grid;grid-template-columns:130px 1fr;gap:26px;align-items:baseline;
-  border-top:2px solid var(--ink);padding-top:12px}
-.agtier .tl,.agrev .tl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);line-height:1.4}
-.agtier .tl b,.agrev .tl b{display:block;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink);font-weight:700;letter-spacing:0;margin-top:3px}
-.agcoord{display:flex;align-items:baseline;gap:14px}
-.agcoord .ct{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
-.agcoord .cs{font-size:13px;color:var(--muted);font-weight:400}
-.agrow{display:grid;grid-template-columns:repeat(5,1fr);margin-top:16px;
+.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.aglayer{display:grid;grid-template-columns:34px 1fr;gap:20px;align-items:start}
+.agn{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:12px;font-weight:800;margin-top:1px}
+.aglayer.rev .agn{background:var(--mag)}
+.aglt{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
+.agld{font-size:12.5px;color:var(--muted);font-weight:400;line-height:1.45}
+.agld b{color:var(--ink);font-weight:700}
+.agrow{display:grid;grid-template-columns:repeat(5,1fr);margin-top:11px;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.agc{padding:14px 18px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column}
-.agc:last-child{border-right:none}
-.agc .num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--faint);margin-bottom:7px}
-.agc.aud .num{color:var(--mag)}
-.agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:7px}
+.agc{padding:13px 16px 15px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.agc:last-child{border-right:none;background:var(--mag-tint)}
+.agc .an2{font-size:13px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:6px}
+.agc:last-child .an2{color:var(--mag-deep)}
 .agc .ad{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
-.agrev{margin-top:20px;display:grid;grid-template-columns:130px 1fr;gap:26px;align-items:baseline;
-  border-top:2px solid var(--ink);padding-top:12px}
-.agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:10px}
+.agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:11px;padding-top:12px;border-top:1px solid var(--line)}
 .agrv .rn{font-size:12px;font-weight:800;color:var(--ink);letter-spacing:-.005em}
 .agrv .rd{font-size:11px;line-height:1.45;color:var(--muted);font-weight:400;margin-top:4px;text-wrap:pretty}
-.agsrc{margin-top:auto;padding-top:14px;font-size:10px;color:var(--faint);font-weight:500;letter-spacing:.02em}
 
 /* ============ COMPARISON (pg4) ============ */
 .cmp{display:grid;grid-template-columns:164px repeat(4,1fr);grid-template-rows:auto repeat(5,1fr);flex:1;min-height:0;border:1px solid var(--line);border-radius:2px;overflow:hidden}
@@ -442,31 +434,37 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Inside the workbench</h2></div>
   <div class="stage fill">
-    <div class="phead aghd">
-      <div class="agkick">The harness &middot; ten agents</div>
+    <div class="phead">
       <h1 class="pt">No single agent does the whole job, and <b>none of it reaches you unchecked</b>.</h1>
-      <p class="pl">Every request is broken into tracked work and handed to the agent built for it. They run at the same time, and the output is verified against its sources before a person approves it.</p>
+      <p class="pl">A request passes through three layers before anyone sees it.</p>
     </div>
     <div class="agwrap">
-      <div class="agtier">
-        <div class="tl">Orchestration<b>1</b></div>
-        <div class="agcoord"><span class="ct">Tesora coordinator</span><span class="cs">plans the work, tracks it, and reports back</span></div>
-      </div>
-      <div class="agtier" style="margin-top:20px">
-        <div class="tl">Specialists<b>5</b></div>
-        <div class="agcoord"><span class="cs">Each owns one domain end to end, and produces a deliverable in the format that domain expects.</span></div>
-      </div>
-      <div class="agrow">
-        <div class="agc"><div class="num">01</div><div class="an2">Pricing and experience</div><div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div></div>
-        <div class="agc"><div class="num">02</div><div class="an2">Reserving</div><div class="ad">Loss development, IBNR, and triangle studies, delivered as a formatted exhibit.</div></div>
-        <div class="agc"><div class="num">03</div><div class="an2">Rating models</div><div class="ad">Builds, validates, and tests a rating algorithm from the filing it came out of.</div></div>
-        <div class="agc"><div class="num">04</div><div class="an2">Document extraction</div><div class="ad">Turns filings, loss runs, and PDFs into clean tables, cell by cell.</div></div>
-        <div class="agc aud"><div class="num">05</div><div class="an2">Audit your existing work</div><div class="ad">Reads a spreadsheet, document, or formula you already have and reports what is wrong.</div></div>
-      </div>
-      <div class="agrev">
-        <div class="tl">Review<b>4</b></div>
+      <div class="aglayer">
+        <span class="agn">1</span>
         <div>
-          <div class="agnote">The same four agents check every deliverable. <b>They report findings, and they never edit the work.</b></div>
+          <div class="aglt">The coordinator breaks the request into tracked work</div>
+          <div class="agld">It decides which specialists are needed, runs them at the same time, and reports back on what each one produced.</div>
+        </div>
+      </div>
+      <div class="aglayer">
+        <span class="agn">2</span>
+        <div>
+          <div class="aglt">A specialist owns each domain end to end</div>
+          <div class="agld">Each returns a deliverable in the format that domain expects, rather than a block of text you have to reformat.</div>
+          <div class="agrow">
+            <div class="agc"><div class="an2">Pricing and experience</div><div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div></div>
+            <div class="agc"><div class="an2">Reserving</div><div class="ad">Loss development, IBNR, and triangle studies, delivered as a formatted exhibit.</div></div>
+            <div class="agc"><div class="an2">Rating models</div><div class="ad">Builds, validates, and tests a rating algorithm from the filing it came out of.</div></div>
+            <div class="agc"><div class="an2">Document extraction</div><div class="ad">Turns filings, loss runs, and PDFs into clean tables, cell by cell.</div></div>
+            <div class="agc"><div class="an2">Audit your existing work</div><div class="ad">Reads a spreadsheet, document, or formula you already have and reports what is wrong.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="aglayer rev">
+        <span class="agn">3</span>
+        <div>
+          <div class="aglt">Review agents check the work before you do</div>
+          <div class="agld">They have read access only. <b>They report findings, and they never edit the work.</b></div>
           <div class="agrevrow">
             <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered out of the standards library.</div></div>
             <div class="agrv"><div class="rn">Citation check</div><div class="rd">Verifies every cited figure against the page it came from.</div></div>
@@ -475,7 +473,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           </div>
         </div>
       </div>
-      <div class="agsrc">Agents run concurrently under the coordinator. Review agents have read access only, by design.</div>
     </div>
   </div>
   <div class="pg"></div>
