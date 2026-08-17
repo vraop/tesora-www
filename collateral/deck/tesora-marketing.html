@@ -103,16 +103,19 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .tsbul li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mag);flex:none;margin-top:8px}
 .tsk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:12px}
 .casc{display:flex;flex-direction:column;gap:0}
-.cl{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
-.cl.in1{padding-left:22px}.cl.in2{padding-left:44px;border-bottom:none}
+.cl{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);position:relative}
+.cl.in1,.cl.in2{padding-left:26px}
+.cl.in2{padding-left:52px;border-bottom:none}
+.cl.in1::before,.cl.in2::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:1px;background:var(--line-2)}
+.cl.in2::before{left:36px}
 .cn{font-size:26px;font-weight:900;letter-spacing:-.03em;color:var(--ink);line-height:1;text-align:right;font-variant-numeric:tabular-nums}
 .cn.mag{color:var(--mag)}
 .ct2{font-size:13px;font-weight:700;color:var(--ink);line-height:1.2}
 .cd2{font-size:11.5px;color:var(--muted);font-weight:400;line-height:1.4;margin-top:2px}
-.unit{display:flex;flex-wrap:wrap;gap:3px;margin:12px 0 0 44px;max-width:430px}
+.unit{display:flex;flex-wrap:wrap;gap:3px;margin:13px 0 0 52px;max-width:430px}
 .unit i{width:7px;height:7px;background:var(--ink);opacity:.72;display:block}
 .unit i.r{background:var(--mag);opacity:.85}
-.ukey{display:flex;gap:16px;margin:9px 0 0 44px;font-size:10.5px;color:var(--muted);font-weight:600}
+.ukey{display:flex;gap:16px;margin:9px 0 0 52px;font-size:10.5px;color:var(--muted);font-weight:600}
 .ukey span{display:flex;align-items:center;gap:6px}
 .ukey i{width:7px;height:7px;background:var(--ink);opacity:.72;display:inline-block}
 .ukey i.r{background:var(--mag);opacity:.85}
@@ -439,19 +442,18 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="treewrap">
       <div class="postcol"><img src="asset-post.png" alt="A LinkedIn post by Philo Bishay, Tesora's Chief Actuary, sharing his What Actuaries Deliver map of the actuarial function, with 675 reactions, 23 comments and 28 reposts"></div>
       <div class="treeside">
-        <div class="tsk">Why a workbench</div>
         <div class="casc">
           <div class="cl">
             <div class="cn">2</div>
-            <div class="cb"><div class="ct2">domains</div><div class="cd2">Pricing and reserving. Every deliverable rolls up into one of them.</div></div>
+            <div class="cb"><div class="ct2">core domains</div><div class="cd2">Pricing and reserving. Every deliverable rolls up into one of them.</div></div>
           </div>
           <div class="cl in1">
             <div class="cn">10</div>
-            <div class="cb"><div class="ct2">major deliverables</div><div class="cd2">From the rate filing to the statement of actuarial opinion.</div></div>
+            <div class="cb"><div class="ct2">major deliverables</div><div class="cd2">The rate filing, the rating plan, the booked IBNR, the statement of actuarial opinion, and six more.</div></div>
           </div>
           <div class="cl in2">
             <div class="cn mag">163</div>
-            <div class="cb"><div class="ct2">workflows underneath</div><div class="cd2">Each with its own method, order, and sign-off.</div></div>
+            <div class="cb"><div class="ct2">individual workflows</div><div class="cd2">Each with its own inputs, its own method, its own order, and its own sign-off.</div></div>
           </div>
           <div class="unit"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i></div>
           <div class="ukey"><span><i></i>121 pricing</span><span><i class="r"></i>42 reserving</span><span class="uk3">one mark per workflow</span></div>
@@ -488,7 +490,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="aglayer">
         <span class="agn">2</span>
         <div>
-          <div class="aglt">A specialist owns each domain end to end</div>
+          <div class="aglt">A specialist agent owns each domain end to end</div>
           <div class="agld">Each returns a deliverable in the format that domain expects, rather than a block of text you have to reformat.</div>
           <div class="agrow">
             <div class="agc"><div class="an2">Pricing and experience</div><div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div></div>
@@ -506,8 +508,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           <div class="agld">They have read access only. <b>They report findings, and they never edit the work.</b></div>
           <div class="agrevrow">
             <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered out of the standards library.</div></div>
-            <div class="agrv"><div class="rn">Citation check</div><div class="rd">Verifies every cited figure against the page it came from.</div></div>
-            <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Confirms each number in the output ties back to a document.</div></div>
+            <div class="agrv"><div class="rn">Citation check</div><div class="rd">Every cited figure hyperlinks to the page it came from. If the link does not resolve, the value does not move forward.</div></div>
+            <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Confirms each number ties back to a source document or to a sum of numbers that do.</div></div>
             <div class="agrv"><div class="rn">Coverage check</div><div class="rd">Reads what was not cited, to catch anything skipped.</div></div>
           </div>
         </div>
@@ -595,26 +597,26 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Competitive intelligence</h2></div>
   <div class="stage fill" style="padding-bottom:30px">
-    <div class="phead"><h1 class="pt">Read a competitor's filed algorithm, then <b>price your book through it</b>.</h1><p class="pl">Every rate they charge is public. The work is turning a filing back into something you can run your own risks through, and by the time a team finishes that by hand, the competitor has filed again.</p></div>
+    <div class="phead"><h1 class="pt">Read a competitor's filed algorithm, then <b>price your book through it</b>.</h1><p class="pl">Every rate they charge is public. The work is turning a filing back into something you can run your own risks through, which by hand takes long enough that the competitor has often filed again before you finish.</p></div>
     <div class="ba">
       <div class="bacol">
         <div class="bh">Before: by hand</div>
-        <div class="big">3-6 <small>months</small></div>
+        <div class="big">2-3 <small>weeks</small></div>
         <div class="cap">From a competitor filing to a usable read, and where it goes wrong</div>
         <div class="bsteps">
           <div class="bstep"><span class="sn">01</span><span class="st">Pull the filings<small>An analyst searches SERFF, state by state</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">02</span><span class="st">Read the rate manual<small>Rules, factors, and order of operations, by eye</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">03</span><span class="st">Rekey the rate tables<small>Hundreds of tables retyped into a spreadsheet</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild the algorithm<small>The logic is inferred, then argued over</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">02</span><span class="st">Read the rate manual<small>Rules, factors, and order of operations, by eye</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">03</span><span class="st">Rekey the rate tables<small>Hundreds of tables retyped into a spreadsheet</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild the algorithm<small>The logic is inferred, then argued over</small></span><span class="sw">days</span></div>
           <div class="bstep"><span class="sn">05</span><span class="st">Price a sample<small>A dozen test risks, never the real book</small></span><span class="sw">days</span></div>
-          <div class="bstep"><span class="sn">06</span><span class="st">Compare by hand<small>Deltas built in a one-off workbook nobody owns</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">07</span><span class="st">Explain the gaps<small>Each difference traced back to a single factor</small></span><span class="sw">weeks</span></div>
-          <div class="bstep"><span class="sn">08</span><span class="st">The read goes stale<small>They filed again while you were rebuilding</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">06</span><span class="st">Compare by hand<small>Deltas built in a one-off workbook nobody owns</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">07</span><span class="st">Explain the gaps<small>Each difference traced back to a single factor</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">08</span><span class="st">The read goes stale<small>They filed again while you were rebuilding</small></span><span class="sw">ongoing</span></div>
         </div>
       </div>
       <div class="bacol af">
         <div class="bh">After: on Tesora</div>
-        <div class="big">1-2 <small>days</small></div>
+        <div class="big">10-15 <small>minutes</small></div>
         <div class="cap">An executable competitor rater, and your whole book priced through it</div>
         <div class="afio">
           <div class="io"><span class="k">You give</span><span class="v">A competitor, a state, and a line. Or the SERFF filing itself.</span></div>
