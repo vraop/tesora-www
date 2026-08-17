@@ -10,8 +10,8 @@
 <style>
 :root{
   --ink:#0E1116; --ink-soft:#161A21; --ink-2:#1E232C;
-  --paper:#FFFFFF; --panel:#F5F6F8; --panel-2:#EDEFF3;
-  --line:#E4E7EC; --line-2:#D6DAE1;
+  --paper:#F4F1E9; --card:#FBFAF6; --panel:#EBE7DE; --panel-2:#E2DDD2;
+  --line:#DBD6CB; --line-2:#C9C3B6;
   --text:#2A2F37; --muted:#5C6572; --faint:#8C95A1; --faint-d:#B6BDC6;
   --mag:#B400FE; --mag-deep:#8A00C4; --mag-tint:#FBF2FF; --mag-line:#EBD2FA;
   --red:#C42F2A; --red-tint:#FBEEED; --red-line:#EFD1CF;
@@ -22,7 +22,7 @@ body{background:#20242B;font-family:'Figtree',sans-serif;color:var(--text);-webk
 .deck{display:flex;flex-direction:column;align-items:center;gap:30px;padding:30px 0;counter-reset:pg}
 .slide{width:1280px;height:720px;background:var(--paper);position:relative;overflow:hidden;
   box-shadow:0 18px 50px rgba(0,0,0,.35);counter-increment:pg;font-size:16px;line-height:1.4}
-@media print{body{background:#fff}.deck{gap:0;padding:0}.slide{box-shadow:none;page-break-after:always}}
+@media print{body{background:var(--card)}.deck{gap:0;padding:0}.slide{box-shadow:none;page-break-after:always}}
 svg.mk{display:block}
 
 /* top bar */
@@ -74,7 +74,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 /* ============ LIFECYCLE (pg2) ============ */
 .lifewrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:22px}
 .liferow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;flex:1;min-height:0}
-.lstage{display:flex;flex-direction:column;border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:16px 18px;background:#fff}
+.lstage{display:flex;flex-direction:column;border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:16px 18px;background:var(--card)}
 .lstage .sh{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:6px;line-height:1.25}
 .lstage .sh .n{font-family:'JetBrains Mono',monospace;color:var(--faint);margin-right:5px}
 .lchip{flex:1;display:flex;align-items:center;font-size:14px;font-weight:600;color:var(--text);line-height:1.2;border-top:1px solid var(--line)}
@@ -124,14 +124,14 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .cshot img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 32px rgba(14,17,22,.13);display:block}
 .cside{display:flex;flex-direction:column;min-height:0}
 .cwho{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
-.cw{border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:6px;padding:11px 14px;background:#fff;flex:1;display:flex;flex-direction:column;justify-content:center}
+.cw{border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:6px;padding:11px 14px;background:var(--card);flex:1;display:flex;flex-direction:column;justify-content:center}
 .cwh{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
 .cwd{font-size:12px;line-height:1.42;color:var(--muted);font-weight:500;margin-top:5px;text-wrap:pretty}
 .cband{margin-top:12px;background:var(--ink);color:#E7EAEF;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.45;font-weight:500;text-wrap:pretty}
 .cband b{color:#E3B7FB;font-weight:700}
 /* why-tesora page */
 .whygrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px}
-.wy{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:19px 22px;background:#fff;display:flex;flex-direction:column;justify-content:flex-start}
+.wy{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:19px 22px;background:var(--card);display:flex;flex-direction:column;justify-content:flex-start}
 .wyh{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);margin-bottom:8px}
 .wyh .wn{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--mag-deep);background:var(--mag-tint);border:1px solid var(--mag-line);border-radius:5px;padding:3px 7px;flex:none}
 .wyd{font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
@@ -162,7 +162,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .panelhd .tag{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 .panelhd .who{font-size:15px;font-weight:800;letter-spacing:-.01em}
 .pcol{display:flex;flex-direction:column;min-height:0}
-.gptchat{background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;overflow:hidden;flex:1;min-height:0}
+.gptchat{background:var(--card);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;overflow:hidden;flex:1;min-height:0}
 .gptchat .gh{display:flex;align-items:center;gap:9px;padding:11px 15px;border-bottom:1px solid var(--line);background:var(--panel)}
 .gptchat .gh .av{width:20px;height:20px;border-radius:50%;background:#D97757;flex:none}
 .gptchat .gh .lbl{font-size:12.5px;font-weight:700;color:var(--text)}
@@ -178,7 +178,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .gflags .gf{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.4;color:#7d2b27;font-weight:500}
 .gflags .gf .w{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;font-size:11px;flex:none;margin-top:1px}
 /* tesora trace panel */
-.trace{background:#fff;border:1.5px solid var(--mag);border-radius:10px;display:flex;flex-direction:column;overflow:hidden;flex:1;min-height:0;box-shadow:0 10px 26px rgba(180,0,254,.09)}
+.trace{background:var(--card);border:1.5px solid var(--mag);border-radius:10px;display:flex;flex-direction:column;overflow:hidden;flex:1;min-height:0;box-shadow:0 10px 26px rgba(180,0,254,.09)}
 .trace .th{display:flex;align-items:center;gap:9px;padding:11px 15px;border-bottom:1px solid var(--mag-line);background:var(--mag-tint)}
 .trace .th .mk{width:19px;height:19px}
 .trace .th .lbl{font-size:12.5px;font-weight:700;color:var(--mag-deep)}
@@ -197,29 +197,32 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 
 
 /* ============ AGENT ARCHITECTURE ============ */
-.aghd{position:relative}
-.agcount{position:absolute;right:0;top:2px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag-deep);border:1px solid var(--mag-line);background:var(--mag-tint);border-radius:999px;padding:8px 16px}
-.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
-.agcoord{align-self:center;border:1.5px solid var(--mag);background:var(--mag-tint);border-radius:8px;padding:10px 26px;text-align:center;position:relative}
-.agcoord .ct{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
-.agcoord .cs{font-size:11.5px;color:var(--mag-deep);font-weight:600;margin-top:2px}
-.agstem{height:16px;width:1px;background:var(--mag-line);align-self:center}
-.agrail{height:1px;background:var(--mag-line);margin:0 10%}
-.agrow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;flex:none;margin-top:16px;align-items:stretch}
-.agc{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:14px 15px;background:#fff;display:flex;flex-direction:column}
-.agc.aud{background:var(--mag-tint);border-color:var(--mag-line);border-top-color:var(--mag)}
-.agc .ai{width:30px;height:30px;border-radius:8px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:9px}
-.agc.aud .ai{background:var(--mag);color:#fff}
-.agc .ai svg{width:16px;height:16px}
-.agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.2;margin-bottom:6px}
-.agc.aud .an2{color:var(--mag-deep)}
-.agc .ad{font-size:11.5px;line-height:1.45;color:var(--muted);font-weight:400;text-wrap:pretty}
-.agrev{margin-top:18px;background:var(--ink);color:#fff;border-radius:8px;padding:13px 20px}
-.agrev .rh{font-size:12.5px;font-weight:700;color:#fff;margin-bottom:10px}
-.agrev .rh span{color:#AEB6C2;font-weight:500}
-.agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.agrv .rn{font-size:11.5px;font-weight:800;color:#E3B7FB;letter-spacing:.01em}
-.agrv .rd{font-size:10.5px;line-height:1.4;color:#AEB6C2;font-weight:400;margin-top:3px;text-wrap:pretty}
+.agkick{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+.aghd .pt{margin-bottom:8px}
+.agnote{font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--muted)}
+.agnote b{color:var(--ink);font-weight:700}
+.agwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start}
+.agtier{display:grid;grid-template-columns:130px 1fr;gap:26px;align-items:baseline;
+  border-top:2px solid var(--ink);padding-top:12px}
+.agtier .tl,.agrev .tl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);line-height:1.4}
+.agtier .tl b,.agrev .tl b{display:block;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink);font-weight:700;letter-spacing:0;margin-top:3px}
+.agcoord{display:flex;align-items:baseline;gap:14px}
+.agcoord .ct{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.agcoord .cs{font-size:13px;color:var(--muted);font-weight:400}
+.agrow{display:grid;grid-template-columns:repeat(5,1fr);margin-top:16px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.agc{padding:14px 18px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.agc:last-child{border-right:none}
+.agc .num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--faint);margin-bottom:7px}
+.agc.aud .num{color:var(--mag)}
+.agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:7px}
+.agc .ad{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
+.agrev{margin-top:20px;display:grid;grid-template-columns:130px 1fr;gap:26px;align-items:baseline;
+  border-top:2px solid var(--ink);padding-top:12px}
+.agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:10px}
+.agrv .rn{font-size:12px;font-weight:800;color:var(--ink);letter-spacing:-.005em}
+.agrv .rd{font-size:11px;line-height:1.45;color:var(--muted);font-weight:400;margin-top:4px;text-wrap:pretty}
+.agsrc{margin-top:auto;padding-top:14px;font-size:10px;color:var(--faint);font-weight:500;letter-spacing:.02em}
 
 /* ============ COMPARISON (pg4) ============ */
 .cmp{display:grid;grid-template-columns:164px repeat(4,1fr);grid-template-rows:auto repeat(5,1fr);flex:1;min-height:0;border:1px solid var(--line);border-radius:2px;overflow:hidden}
@@ -264,6 +267,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .bacol.af .io{display:flex;gap:12px;align-items:baseline}
 .bacol.af .io .k{flex:none;width:60px;font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--mag-deep);padding-top:1px}
 .bacol.af .io .v{font-size:12.5px;line-height:1.4;color:var(--text);font-weight:500}
+.shotcap{font-size:10px;color:var(--faint);font-weight:600;margin-top:6px;letter-spacing:.02em}
 .bacol .shot{margin-top:10px;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .bacol .shot img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border:1px solid var(--line-2);border-radius:6px;display:block;box-shadow:0 6px 18px rgba(14,17,22,.1)}
 
@@ -272,11 +276,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .citehero img{max-width:100%;max-height:100%;border:1px solid var(--line-2);border-radius:8px;box-shadow:0 12px 34px rgba(14,17,22,.14);display:block}
 .slot{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
   border:2px dashed var(--mag-line);border-radius:10px;background:var(--mag-tint);margin-top:4px}
-.slot .si{width:38px;height:38px;border-radius:9px;background:#fff;border:1px solid var(--mag-line);display:flex;align-items:center;justify-content:center;color:var(--mag-deep)}
+.slot .si{width:38px;height:38px;border-radius:9px;background:var(--card);border:1px solid var(--mag-line);display:flex;align-items:center;justify-content:center;color:var(--mag-deep)}
 .slot .si svg{width:20px;height:20px}
 .slot .st1{font-size:14px;font-weight:800;color:var(--mag-deep);letter-spacing:-.01em}
 .slot .st2{font-size:12px;color:var(--muted);font-weight:500;max-width:420px;text-align:center;line-height:1.45}
-.tshot{flex:1;min-height:0;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;box-shadow:0 10px 28px rgba(14,17,22,.12);background:#fff}
+.tshot{flex:1;min-height:0;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;box-shadow:0 10px 28px rgba(14,17,22,.12);background:var(--card)}
 .tshot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 /* pg9 model progress */
 .rl5{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -339,7 +343,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .teamhd{margin-bottom:16px}
 .teamhd .pt{font-size:26px;line-height:1.12;max-width:1120px}
 .advnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:500;margin-top:6px;text-wrap:pretty}
-.mem{border:1px solid var(--line);border-radius:8px;padding:13px 14px 11px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:#fff}
+.mem{border:1px solid var(--line);border-radius:8px;padding:13px 14px 11px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;background:var(--card)}
 .mem .ph{width:86px;height:86px;border-radius:50%;overflow:hidden;background:var(--ink);flex:none;box-shadow:0 6px 16px rgba(14,17,22,.14)}
 .mem .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
 .mem .ph.ini{display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;letter-spacing:.02em;background:linear-gradient(152deg,#1E232C,#0E1116)}
@@ -347,7 +351,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .mem .role{font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--mag-deep);margin-top:4px}
 .mem .bio{font-size:11px;line-height:1.42;color:var(--muted);margin:8px 0 0}
 .mem .bio b{color:var(--text);font-weight:700}
-.backed{background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:15px 26px;display:flex;align-items:center;gap:22px;color:var(--ink)}
+.backed{background:var(--card);border:1px solid var(--line-2);border-radius:10px;padding:15px 26px;display:flex;align-items:center;gap:22px;color:var(--ink)}
 .backed .bk{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8C95A1;flex:none}
 .backed .inv{display:flex;align-items:center;gap:13px;flex:none}
 .backed .fclogo{width:32px;height:32px;border-radius:7px;background:var(--ink);color:#fff;font-weight:800;font-size:15px;line-height:32px;text-align:center;flex:none;letter-spacing:-.02em}
@@ -359,7 +363,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .backed .tail{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:500;white-space:nowrap;text-align:right}
 
 /* ============ CLOSE ============ */
-.close{height:100%;background:linear-gradient(160deg,#FFFFFF 0%,#FAF7FD 58%,#F4EFFA 100%);color:var(--text);
+.close{height:100%;background:linear-gradient(160deg,#F7F4EE 0%,#F5F0EF 58%,#F2EBF0 100%);color:var(--text);
   padding:54px 60px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .close::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--mag)}
 .close .lock{display:flex;align-items:center;gap:12px;color:var(--ink)}
@@ -374,7 +378,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .ctarow{display:flex;align-items:center;gap:16px;margin-top:20px}
 .ctabtn{background:var(--mag);color:#fff;font-size:13.5px;font-weight:700;padding:12px 20px;border-radius:6px;box-shadow:0 6px 18px rgba(180,0,254,.22)}
 .ctaemail{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:var(--mag-deep)}
-.derisk{background:#fff;border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:8px;padding:20px 22px;box-shadow:0 10px 28px rgba(14,17,22,.06)}
+.derisk{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:8px;padding:20px 22px;box-shadow:0 10px 28px rgba(14,17,22,.06)}
 .derisk .dk{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:13px}
 .derisk .di{display:flex;gap:11px;font-size:13px;line-height:1.5;color:var(--text);padding:7px 0;font-weight:400}
 .derisk .di .ck{color:var(--grn);font-weight:800;flex:none}
@@ -438,47 +442,40 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Inside the workbench</h2></div>
   <div class="stage fill">
-    <div class="phead p2head aghd"><span class="agcount">A team of 10 agents</span><h1 class="pt">Five specialists, <b>not one generalist</b>.</h1><p class="pl">Every request is broken into tracked work and handed to the agent built for it. They run at the same time, and nothing reaches you until it has been checked back against its sources and a person has approved it.</p></div>
+    <div class="phead aghd">
+      <div class="agkick">The harness &middot; ten agents</div>
+      <h1 class="pt">No single agent does the whole job, and <b>none of it reaches you unchecked</b>.</h1>
+      <p class="pl">Every request is broken into tracked work and handed to the agent built for it. They run at the same time, and the output is verified against its sources before a person approves it.</p>
+    </div>
     <div class="agwrap">
-      <div class="agcoord"><div class="ct">Tesora coordinator</div><div class="cs">plans the work, tracks it, and reports back</div></div>
-      <div class="agstem"></div>
-      <div class="agrail"></div>
+      <div class="agtier">
+        <div class="tl">Orchestration<b>1</b></div>
+        <div class="agcoord"><span class="ct">Tesora coordinator</span><span class="cs">plans the work, tracks it, and reports back</span></div>
+      </div>
+      <div class="agtier" style="margin-top:20px">
+        <div class="tl">Specialists<b>5</b></div>
+        <div class="agcoord"><span class="cs">Each owns one domain end to end, and produces a deliverable in the format that domain expects.</span></div>
+      </div>
       <div class="agrow">
-        <div class="agc">
-          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></span>
-          <div class="an2">Pricing and experience</div>
-          <div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div>
-        </div>
-        <div class="agc">
-          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>
-          <div class="an2">Reserving</div>
-          <div class="ad">Loss development, IBNR, and triangle studies, delivered as a formatted exhibit.</div>
-        </div>
-        <div class="agc">
-          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9M12 21V4M19 21v-7"/><path d="M2.5 13h5M9.5 8h5M16.5 16h5"/></svg></span>
-          <div class="an2">Rating models</div>
-          <div class="ad">Builds, validates, and tests a rating algorithm from the filing it came out of.</div>
-        </div>
-        <div class="agc">
-          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
-          <div class="an2">Document extraction</div>
-          <div class="ad">Turns filings, loss runs, and PDFs into clean tables, cell by cell.</div>
-        </div>
-        <div class="agc aud">
-          <span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 12l2 2 4-4"/></svg></span>
-          <div class="an2">Audit your existing work</div>
-          <div class="ad">Reads a spreadsheet, document, or formula you already have and reports what is wrong.</div>
-        </div>
+        <div class="agc"><div class="num">01</div><div class="an2">Pricing and experience</div><div class="ad">Loss ratios, trend, and frequency-severity studies, written up as a documented report.</div></div>
+        <div class="agc"><div class="num">02</div><div class="an2">Reserving</div><div class="ad">Loss development, IBNR, and triangle studies, delivered as a formatted exhibit.</div></div>
+        <div class="agc"><div class="num">03</div><div class="an2">Rating models</div><div class="ad">Builds, validates, and tests a rating algorithm from the filing it came out of.</div></div>
+        <div class="agc"><div class="num">04</div><div class="an2">Document extraction</div><div class="ad">Turns filings, loss runs, and PDFs into clean tables, cell by cell.</div></div>
+        <div class="agc aud"><div class="num">05</div><div class="an2">Audit your existing work</div><div class="ad">Reads a spreadsheet, document, or formula you already have and reports what is wrong.</div></div>
       </div>
       <div class="agrev">
-        <div class="rh">Behind all five, the same four review agents check what Tesora produced. <span>They report findings, and they never edit the work.</span></div>
-        <div class="agrevrow">
-          <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered out of the standards library.</div></div>
-          <div class="agrv"><div class="rn">Citation check</div><div class="rd">Verifies every cited figure against the page it came from.</div></div>
-          <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Confirms each number in the output ties back to a document.</div></div>
-          <div class="agrv"><div class="rn">Coverage check</div><div class="rd">Reads what was not cited, to catch anything skipped.</div></div>
+        <div class="tl">Review<b>4</b></div>
+        <div>
+          <div class="agnote">The same four agents check every deliverable. <b>They report findings, and they never edit the work.</b></div>
+          <div class="agrevrow">
+            <div class="agrv"><div class="rn">Actuarial expert</div><div class="rd">Method questions, answered out of the standards library.</div></div>
+            <div class="agrv"><div class="rn">Citation check</div><div class="rd">Verifies every cited figure against the page it came from.</div></div>
+            <div class="agrv"><div class="rn">Value tracing</div><div class="rd">Confirms each number in the output ties back to a document.</div></div>
+            <div class="agrv"><div class="rn">Coverage check</div><div class="rd">Reads what was not cited, to catch anything skipped.</div></div>
+          </div>
         </div>
       </div>
+      <div class="agsrc">Agents run concurrently under the coordinator. Review agents have read access only, by design.</div>
     </div>
   </div>
   <div class="pg"></div>
@@ -556,7 +553,44 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
   <div class="pg"></div>
 </section>
 
-<!-- 05 · COMPLIANCE & AUDIT -->
+<!-- 06 · COMPETITIVE INTELLIGENCE -->
+<section class="slide">
+  <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Competitive intelligence</h2></div>
+  <div class="stage fill" style="padding-bottom:30px">
+    <div class="phead"><h1 class="pt">Read a competitor's filed algorithm, then <b>price your book through it</b>.</h1><p class="pl">Every rate they charge is public. The work is turning a filing back into something you can run your own risks through, and by the time a team finishes that by hand, the competitor has filed again.</p></div>
+    <div class="ba">
+      <div class="bacol">
+        <div class="bh">Before &middot; by hand</div>
+        <div class="big">3-6 <small>months</small></div>
+        <div class="cap">From a competitor filing to a usable read, and where it goes wrong</div>
+        <div class="bsteps">
+          <div class="bstep"><span class="sn">01</span><span class="st">Pull the filings<small>An analyst searches SERFF, state by state</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">02</span><span class="st">Read the rate manual<small>Rules, factors, and order of operations, by eye</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">03</span><span class="st">Rekey the rate tables<small>Hundreds of tables retyped into a spreadsheet</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">04</span><span class="st">Rebuild the algorithm<small>The logic is inferred, then argued over</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">05</span><span class="st">Price a sample<small>A dozen test risks, never the real book</small></span><span class="sw">days</span></div>
+          <div class="bstep"><span class="sn">06</span><span class="st">Compare by hand<small>Deltas built in a one-off workbook nobody owns</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">07</span><span class="st">Explain the gaps<small>Each difference traced back to a single factor</small></span><span class="sw">weeks</span></div>
+          <div class="bstep"><span class="sn">08</span><span class="st">The read goes stale<small>They filed again while you were rebuilding</small></span><span class="sw">weeks</span></div>
+        </div>
+      </div>
+      <div class="bacol af">
+        <div class="bh">After &middot; on Tesora</div>
+        <div class="big">1-2 <small>days</small></div>
+        <div class="cap">An executable competitor rater, and your whole book priced through it</div>
+        <div class="afio">
+          <div class="io"><span class="k">You give</span><span class="v">A competitor, a state, and a line. Or the SERFF filing itself.</span></div>
+          <div class="io"><span class="k">You get</span><span class="v">Their algorithm running against your risks, every factor cited to the page it came from.</span></div>
+        </div>
+        <div class="shot"><img src="asset-compete.png" alt="Annual premium by representative risk, comparing an ISO benchmark against three competitors across classes and territories"></div>
+        <div class="shotcap">Built only from public rate filings.</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- 07 · COMPLIANCE & AUDIT -->
 <section class="slide">
   <div class="bar"><svg class="mk"><use href="#mark"/></svg><span class="brand">Tesora</span><span class="sep"></span><h2>Compliance &amp; audit</h2></div>
   <div class="stage fill">
@@ -695,7 +729,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="closebody">
           <p>We are a thought partner first. This technology is powerful, and it only helps once it is opinionated: built with a real point of view on how the work gets done and defended.</p>
           <p>We are here to push the frontier forward with the right partners, not to sell you a license. Doing right by you comes first, so every deployment starts with a proof of concept anchored on your organization's own success metrics. Some teams are stronger at reserving, others at pricing, and we work with yours to find where the workbench sets the best practices and shared learnings first.</p>
-          <div class="ctarow"><span class="ctabtn">Start a POC discussion</span><span class="ctaemail">sales@tesora.ai</span></div>
+          <div class="ctarow"><span class="ctabtn">Let’s set up a call</span><span class="ctaemail">sales@tesora.ai</span></div>
         </div>
         <div class="derisk">
           <div class="dk">De-risked by design</div>
