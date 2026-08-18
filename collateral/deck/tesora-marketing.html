@@ -454,7 +454,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .derisk .di .ck{color:var(--grn);font-weight:800;flex:none}
 .socrow{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
 .socimg{flex:none;width:92px;height:92px;display:block}
-.socnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400}
+.nb{white-space:nowrap}
+.socnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:balance}
 </style>
 </head>
 <body>
@@ -821,7 +822,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           <div class="di"><span class="ck">&#10003;</span> Your rate plans, filings, and books are never used to train shared models.</div>
           <div class="di"><span class="ck">&#10003;</span> AES-256 at rest, TLS 1.3 in transit, and your own SSO.</div>
           <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
-          <div class="socrow"><img class="socimg" src="asset-soc2.png" alt="AICPA SOC for Service Organizations"><span class="socnote">SOC 2 Type II, audited annually against the trust services criteria for security, availability, processing integrity, and confidentiality. SOX-aligned for carriers with public-company parents.</span></div>
+          <div class="socrow"><img class="socimg" src="asset-soc2.png" alt="AICPA SOC for Service Organizations"><span class="socnote">SOC 2 Type II. Independent auditors test our security controls in operation over a monitored period each year, not at a single point in time. <span class="nb">SOX-aligned</span> for carriers with public-company parents.</span></div>
         </div>
       </div>
     </div>
