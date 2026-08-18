@@ -4,7 +4,7 @@ let h = readFileSync('tesora-marketing.html','utf8');
 // 1. swap in compressed web images, inlined
 const imgs = ['asset-post.png','asset-triangle.png','asset-bernegger.png','asset-compete.png',
   'adv-ethan.png','adv-mario.png','adv-joanne.png','photo-vr.png','photo-fr.png','photo-pb.png',
-  'photo-mp.png','photo-el.png','asset-foundation.png'];
+  'photo-mp.png','photo-el.png','asset-foundation.png','asset-soc2.png'];
 for (const f of imgs){
   const web = f.replace(/\.(png|webp)$/,'')+'-web.webp';
   if(!existsSync(web)) { console.log('missing',web); continue; }

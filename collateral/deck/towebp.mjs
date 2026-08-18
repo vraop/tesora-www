@@ -8,6 +8,7 @@ const jobs=[
   ['photo-vr.png','png',300,0.85],['photo-fr.png','png',300,0.85],['photo-pb.png','png',300,0.85],
   ['photo-mp.png','png',300,0.85],['photo-el.png','png',300,0.85],
   ['asset-foundation.png','png',400,0.9],
+  ['asset-soc2.png','png',260,0.92],
 ];
 const b=await chromium.launch({executablePath:EXEC,args:['--no-sandbox']});
 const p=await b.newPage();
