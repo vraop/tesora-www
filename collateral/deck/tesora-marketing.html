@@ -122,8 +122,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .clink.brk::after{content:"\2715";position:absolute;left:50%;top:-9px;transform:translateX(-50%);
   font-size:11px;font-weight:900;color:var(--red);background:var(--paper);padding:0 3px}
 .chainlab{font-size:11.5px;color:var(--red);font-weight:600;margin-top:11px}
-.wfcols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;padding-top:13px;border-top:1px solid var(--line)}
-.wfi::before{content:"";width:3px;height:3px;border-radius:50%;background:var(--line-2);display:inline-block;vertical-align:middle;margin-right:8px}
 .wfk{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:7px}
 .wfi{font-size:12px;color:var(--muted);font-weight:500;line-height:1.6;padding:1px 0}
 .chain{margin-top:18px;padding-top:14px;border-top:2px solid var(--ink)}
@@ -502,10 +500,6 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="wfhd">Over 150 workflows are core to the actuarial function</div>
         <div class="unit"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><span class="more">&hellip;</span></div>
         <div class="ukey"><span><i></i>121 pricing</span><span><i class="r"></i>42 reserving</span><span class="uk3">one mark per workflow</span></div>
-        <div class="wfcols">
-          <div class="wfc"><div class="wfi">Order of operations</div><div class="wfi">Base rate and factor structure</div><div class="wfi">Limit and deductible factors</div><div class="wfi">Schedule rating ranges</div><div class="wfi">IRPM guardrails</div><div class="wfi">Rating engine parity</div></div>
-          <div class="wfc"><div class="wfi">Chain ladder, paid and incurred</div><div class="wfi">Bornhuetter-Ferguson</div><div class="wfi">Cape Cod</div><div class="wfi">Development factor and tail picks</div><div class="wfi">Cat and large loss carve-out</div><div class="wfi">IBNR by line and accident year</div></div>
-        </div>
         <div class="chainviz">
           <span class="cnode">Ingest</span><span class="clink"></span>
           <span class="cnode">Triangles</span><span class="clink"></span>
@@ -516,6 +510,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="chainlab">One weak handoff and everything downstream is unusable.</div>
         <div class="chain">
           <div class="cht">Ask a model to do all of it in one shot and you get a confident number nobody can trace.</div>
+          <div class="chd">A rate filing or a booked reserve needs dozens of these correct, in sequence, each one feeding the next.</div>
           
         </div>
         <div class="wbspan tall"><svg class="mk"><use href="#mark"/></svg><div><div class="wt">One agentic harness across <span>all of it</span></div><div class="wd">A system of agents keeps every task linked and every value cited, from ingest to filing. That orchestration is the hard part to build, and the harder part to replicate.</div></div></div>
