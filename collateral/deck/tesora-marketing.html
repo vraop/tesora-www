@@ -296,10 +296,13 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .cmp .cell.tes{background:var(--mag-tint);color:var(--text);font-weight:500;box-shadow:inset 3px 0 0 var(--mag)}
 .cmp .cell.tes .txt{color:#3A1148}
 .cmp>div:nth-child(5n+5){border-right:none}
-.ic{width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex:none}
-.ic.ok{background:var(--grn-tint);color:var(--grn);border:1px solid var(--grn-line)}
-.ic.mid{background:#FBF3DC;color:#8A6D1A;border:1px solid #EDDFB4}
-.ic.no{background:var(--red-tint);color:var(--red);border:1px solid var(--red-line)}
+.ic{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--text);flex:none;font-size:0;overflow:hidden}
+.ic.ok{background:var(--text)}
+.ic.mid{background:linear-gradient(90deg,var(--text) 50%,transparent 50%)}
+.ic.no{background:transparent;border-color:var(--faint)}
+.cmp .cell.tes .ic{border-color:var(--mag)}
+.cmp .cell.tes .ic.ok{background:var(--mag)}
+.legend .ic{border-color:var(--text)}
 .legend{display:flex;gap:20px;margin:12px 2px 0;font-size:11.5px;color:var(--muted);font-weight:500}
 .legend span{display:flex;align-items:center;gap:7px}
 
@@ -735,7 +738,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="cell"><span class="ic mid">&#8776;</span><span class="txt">Pricing or reserving, rarely filing too</span></div>
       <div class="cell tes"><span class="ic ok">&#10003;</span><span class="txt">Pricing, reserving, filing, and close in one place</span></div>
     </div>
-    <div class="legend"><span><span class="ic ok">&#10003;</span> Strength</span><span><span class="ic mid">&#8776;</span> Partial or conditional</span><span><span class="ic no">&#10007;</span> Gap</span></div>
+    <div class="legend"><span><span class="ic ok"></span>Full capability</span><span><span class="ic mid"></span>Partial or conditional</span><span><span class="ic no"></span>Gap</span></div>
   </div>
   <div class="pg"></div>
 </section>
