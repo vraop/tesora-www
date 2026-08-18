@@ -444,6 +444,12 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .derisk .dk{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:13px}
 .derisk .di{display:flex;gap:11px;font-size:13px;line-height:1.5;color:var(--text);padding:7px 0;font-weight:400}
 .derisk .di .ck{color:var(--grn);font-weight:800;flex:none}
+.socrow{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.socbadge{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;width:74px;height:74px;
+  border-radius:50%;border:2px solid var(--ink);color:var(--ink);text-align:center;line-height:1.1}
+.socbadge b{font-size:15px;font-weight:900;letter-spacing:-.01em}
+.socbadge i{font-style:normal;font-size:7px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:3px;padding:0 6px}
+.socnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400}
 </style>
 </head>
 <body>
@@ -577,10 +583,10 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <div class="bacol af">
         <div class="bh">After: on Tesora</div>
         <div class="big">1-2 <small>days</small></div>
-        <div class="cap">Deploy as a GUI, a web interface, or an API.</div>
+        <div class="cap">Deploy to a GUI, an API, or back into Excel.</div>
         <div class="afio">
           <div class="io"><span class="k">You give</span><span class="v">A plain-language change and the source rater, from SERFF, Excel, or a script.</span></div>
-          <div class="io"><span class="k">You get</span><span class="v">A tested rater with a working GUI, sample ratings, and a versioned API.</span></div>
+          <div class="io"><span class="k">You get</span><span class="v">A tested rater with a working GUI, sample ratings, a versioned API, or an Excel file your team can open.</span></div>
         </div>
         <div class="shot"><img src="asset-rater-gui.webp" alt="A deployed rater in Tesora: a working GUI for Georgia commercial auto with vehicle and classification inputs and a calculated final premium"></div>
       </div>
@@ -680,11 +686,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
           </div>
           <div class="cw">
             <div class="cwh">Governance</div>
-            <div class="cwd">Who ran what, on which data, and who signed it. Finance and IT find what they need without waiting on an actuary to explain it.</div>
+            <div class="cwd">Author, reviewer, and approver are separate identities, and the trail survives every promotion. Finance and IT find what they need without waiting on an actuary.</div>
           </div>
           <div class="cw">
             <div class="cwh">Compliance</div>
-            <div class="cwd">Built to ASOP from the start, so a filing survives the objection, the examination, and the auditor years later.</div>
+            <div class="cwd">Built to ASOP from the start, and SOX-aligned for carriers with public-company parents. Same input, same answer, every time.</div>
           </div>
           <div class="cw">
             <div class="cwh">Continuity</div>
@@ -806,9 +812,11 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
         <div class="derisk">
           <div class="dk">De-risked by design</div>
-          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment. We never hold your data.</div>
-          <div class="di"><span class="ck">&#10003;</span> SOC 2 Type II, with the highest data-security controls.</div>
+          <div class="di"><span class="ck">&#10003;</span> It runs in your own environment, in a dedicated tenant. No cross-tenant inference.</div>
+          <div class="di"><span class="ck">&#10003;</span> Your rate plans, filings, and books are never used to train shared models.</div>
+          <div class="di"><span class="ck">&#10003;</span> AES-256 at rest, TLS 1.3 in transit, and your own SSO.</div>
           <div class="di"><span class="ck">&#10003;</span> We clear your security review before any work touches a filing.</div>
+          <div class="socrow"><span class="socbadge"><b>SOC 2</b><i>audited annually</i></span><span class="socnote">Security, availability, processing integrity, and confidentiality. SOX-aligned for public-company parents.</span></div>
         </div>
       </div>
     </div>
