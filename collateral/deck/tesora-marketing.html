@@ -21,7 +21,7 @@
 body{background:#20242B;font-family:'Figtree',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
 .deck{display:flex;flex-direction:column;align-items:center;gap:30px;padding:30px 0;counter-reset:pg}
 .slide{width:1280px;height:720px;background:var(--paper);position:relative;overflow:hidden;
-  box-shadow:0 18px 50px rgba(0,0,0,.35);counter-increment:pg;font-size:16px;line-height:1.4}
+  box-shadow:0 18px 50px rgba(0,0,0,.35);counter-increment:pg;font-size:16.5px;line-height:1.4}
 @media print{body{background:var(--card)}.deck{gap:0;padding:0}.slide{box-shadow:none;page-break-after:always}}
 svg.mk{display:block}
 
@@ -44,8 +44,8 @@ svg.mk{display:block}
 .phead .pl{font-size:16.5px;font-weight:400;color:var(--muted);line-height:1.5;margin:0;max-width:1000px}
 .phead .pl b{color:var(--text);font-weight:600}
 .p2head{margin-bottom:12px}
-.p2head .pt{font-size:25px;line-height:1.12;margin-bottom:6px;max-width:1120px}
-.p2head .pl{font-size:13.5px;max-width:1120px}
+.p2head .pt{font-size:26px;line-height:1.12;margin-bottom:6px;max-width:1120px}
+.p2head .pl{font-size:15px;max-width:1120px}
 .splithd{display:flex;align-items:flex-end;justify-content:space-between;gap:54px}
 .splithd .pt{margin:0;max-width:660px}
 .splithd .pl{margin:0 0 6px;max-width:450px;flex:none}
@@ -62,12 +62,12 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .cover .lock .mk{width:32px;height:32px}
 .cover .lock .wm{font-size:23px;font-weight:800;letter-spacing:-.015em}
 .cover h1{font-size:60px;font-weight:900;letter-spacing:-.035em;line-height:1.02;margin-bottom:22px}
-.cover .sub{font-size:17px;line-height:1.55;color:#AEB6C2;font-weight:400;max-width:520px}
-.cover .right{background:var(--paper);padding:60px 50px;display:flex;flex-direction:column}
+.cover .sub{font-size:17.5px;line-height:1.55;color:#AEB6C2;font-weight:400;max-width:520px}
+.cover .right{background:var(--paper);padding:60px 50px;display:flex;flex-direction:column;justify-content:center;position:relative}
 .cover .rk{font-size:10.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:16px}
 .cover .custname{font-size:26px;font-weight:800;letter-spacing:-.022em;color:var(--ink);line-height:1.18;margin-bottom:16px}
 .cover .desc{font-size:14.5px;line-height:1.55;color:var(--muted)}
-.cover .right .covmeta{margin-top:auto;display:flex;flex-direction:column;gap:5px;align-items:flex-end;text-align:right}
+.cover .right .covmeta{position:absolute;right:50px;bottom:60px;display:flex;flex-direction:column;gap:5px;align-items:flex-end;text-align:right}
 .covmeta .d{font-size:12.5px;font-weight:600;color:#7E8794;font-family:'JetBrains Mono',monospace}
 .covmeta .c{font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
 
@@ -78,13 +78,13 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .lstage .sh{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:6px;line-height:1.25}
 .lstage .sh .n{font-family:'JetBrains Mono',monospace;color:var(--faint);margin-right:5px}
 .lchip{flex:1;display:flex;align-items:center;font-size:14px;font-weight:600;color:var(--text);line-height:1.2;border-top:1px solid var(--line)}
-.larr{display:flex;align-items:center;justify-content:center;padding:0 10px;color:var(--mag);font-weight:900;font-size:16px}
+.larr{display:flex;align-items:center;justify-content:center;padding:0 10px;color:var(--mag);font-weight:900;font-size:16.5px}
 .wbspan{background:var(--ink);color:#fff;border-radius:8px;padding:15px 24px;display:flex;align-items:center;gap:14px}
 .wbspan .mk{width:22px;height:22px;flex:none}
 .wbspan .wt{font-size:15px;font-weight:800;letter-spacing:-.01em}
 .wbspan .wt span{color:#E3B7FB}
 .wbspan .wd{font-size:13px;color:#AEB6C2;font-weight:500;margin-top:2px}
-.wbspan .badge3{margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#E3B7FB;border:1px solid rgba(180,0,254,.45);border-radius:999px;padding:6px 13px;white-space:nowrap}
+.wbspan .badge3{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#E3B7FB;border:1px solid rgba(180,0,254,.45);border-radius:999px;padding:6px 13px;white-space:nowrap}
 .wbspan.tall{align-items:flex-start;padding:13px 17px;gap:11px;margin-top:18px}
 .wbspan.tall .mk{margin-top:2px}
 .wbspan.tall .wt{font-size:14px}
@@ -122,6 +122,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .clink.brk::after{content:"\2715";position:absolute;left:50%;top:-9px;transform:translateX(-50%);
   font-size:11px;font-weight:900;color:var(--red);background:var(--paper);padding:0 3px}
 .chainlab{font-size:11.5px;color:var(--red);font-weight:600;margin-top:11px}
+.wfcols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;padding-top:13px;border-top:1px solid var(--line)}
+.wfi::before{content:"";width:3px;height:3px;border-radius:50%;background:var(--line-2);display:inline-block;vertical-align:middle;margin-right:8px}
 .wfk{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:7px}
 .wfi{font-size:12px;color:var(--muted);font-weight:500;line-height:1.6;padding:1px 0}
 .chain{margin-top:18px;padding-top:14px;border-top:2px solid var(--ink)}
@@ -164,10 +166,10 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .ts .l{font-size:12px;font-weight:500;color:var(--muted);line-height:1.4}
 .tsplit{display:flex;gap:9px;margin-top:13px}
 .tsplit .sp{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:11.5px;font-weight:600;color:var(--muted);text-align:center}
-.tsplit .sp b{display:block;font-size:16px;font-weight:900;color:var(--mag-deep);letter-spacing:-.02em;margin-bottom:2px}
+.tsplit .sp b{display:block;font-size:16.5px;font-weight:900;color:var(--mag-deep);letter-spacing:-.02em;margin-bottom:2px}
 .treecap{flex:none;display:flex;flex-direction:column;gap:3px;text-align:center;padding:0 30px}
 .treecap .tq{font-size:12px;font-style:italic;color:var(--text);font-weight:500;line-height:1.4}
-.treecap .ta{font-size:10px;color:var(--faint);font-weight:600;line-height:1.35}
+.treecap .ta{font-size:10.5px;color:var(--faint);font-weight:600;line-height:1.35}
 .tsnote{font-size:12px;line-height:1.5;color:var(--text);font-weight:500;margin-top:13px;text-wrap:pretty}
 .tsnote b{color:var(--mag-deep);font-weight:700}
 /* compliance page */
@@ -180,7 +182,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .cside{display:flex;flex-direction:column;min-height:0}
 .cwho{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0}
 .cw{border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:6px;padding:11px 14px;background:var(--card);flex:1;display:flex;flex-direction:column;justify-content:center}
-.cwh{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.cwh{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
 .cwd{font-size:12px;line-height:1.42;color:var(--muted);font-weight:500;margin-top:5px;text-wrap:pretty}
 .cband{margin-top:12px;background:var(--ink);color:#E7EAEF;border-radius:8px;padding:13px 16px;font-size:13px;line-height:1.45;font-weight:500;text-wrap:pretty}
 .cband b{color:#E3B7FB;font-weight:700}
@@ -191,7 +193,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 /* why-tesora page */
 .whyrows{flex:1;min-height:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .wr{flex:1;display:grid;grid-template-columns:270px minmax(0,760px);gap:40px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
-.wrt{font-size:17px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
+.wrt{font-size:17.5px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
 .wrd{font-size:14.5px;line-height:1.6;color:var(--muted);font-weight:400;text-wrap:balance}
 .wyband{margin-top:16px;background:var(--ink);color:#fff;border-radius:8px;padding:15px 22px;display:flex;align-items:center;gap:14px}
 .wyband .mk{width:22px;height:22px;flex:none}
@@ -207,7 +209,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .axk{font-size:12px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#C79BF2;margin-bottom:16px}
 .appx h1{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0}
 .axlist{display:flex;flex-direction:column;gap:14px}
-.axi{display:flex;align-items:center;gap:16px;font-size:16px;color:#C3C9D2;font-weight:500;border-top:1px solid rgba(255,255,255,.13);padding-top:14px}
+.axi{display:flex;align-items:center;gap:16px;font-size:16.5px;color:#C3C9D2;font-weight:500;border-top:1px solid rgba(255,255,255,.13);padding-top:14px}
 .axn{width:28px;height:28px;border-radius:6px;background:var(--mag);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none}
 .backed .fclogo:has(img){width:auto;height:auto;background:none;border-radius:0}
 .backed .fclogo img{height:30px;width:auto;display:block;mix-blend-mode:multiply}
@@ -230,7 +232,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .gptchat .am .txt{font-size:13px;line-height:1.5;color:var(--text)}
 .gptchat .am .txt b{font-weight:700}
 .gflags{margin-top:auto;border-top:3px solid var(--red);padding:12px 15px 14px;display:flex;flex-direction:column;gap:8px;background:var(--red-tint)}
-.gflags .gfhd{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red)}
+.gflags .gfhd{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red)}
 .gflags .gfhd::before{content:"!";display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:900;flex:none}
 .gflags .gf{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.4;color:#7d2b27;font-weight:500}
 .gflags .gf .w{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;font-size:11px;flex:none;margin-top:1px}
@@ -239,7 +241,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .trace .th{display:flex;align-items:center;gap:9px;padding:11px 15px;border-bottom:1px solid var(--mag-line);background:var(--mag-tint)}
 .trace .th .mk{width:19px;height:19px}
 .trace .th .lbl{font-size:12.5px;font-weight:700;color:var(--mag-deep)}
-.trace .th .sess{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mag-deep);font-weight:600}
+.trace .th .sess{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--mag-deep);font-weight:600}
 .trace .tb{padding:13px 15px;flex:1;display:flex;flex-direction:column;min-height:0}
 .tstep{display:grid;grid-template-columns:auto 1fr;gap:11px;padding:8px 0;border-bottom:1px solid var(--line);flex:1;align-items:center}
 .tstep:last-of-type{border-bottom:none}
@@ -264,7 +266,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .aglayer{display:grid;grid-template-columns:34px 1fr;gap:20px;align-items:start}
 .agn{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;margin-top:1px;position:relative;z-index:1;box-shadow:0 0 0 5px var(--paper)}
 .aglayer.rev .agn{background:var(--mag)}
-.aglt{font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
+.aglt{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:3px}
 .agld{font-size:13px;color:var(--muted);font-weight:400;line-height:1.45}
 .agld b{color:var(--ink);font-weight:700}
 .agrow{display:grid;grid-template-columns:repeat(5,1fr);margin-top:11px;
@@ -274,7 +276,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .ic6{width:26px;height:26px;border-radius:6px;background:var(--panel);display:flex;align-items:center;justify-content:center;color:var(--ink);margin-bottom:9px;flex:none}
 .agc.aud .ic6{background:var(--mag);color:#fff}
 .ic6 svg{width:14px;height:14px;display:block}
-.agc .an2{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:6px}
+.agc .an2{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:6px}
 .agc:last-child .an2{color:var(--mag-deep)}
 .agc .ad{font-size:12px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:pretty}
 .agrevrow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:11px;padding-top:12px;border-top:1px solid var(--line)}
@@ -312,26 +314,25 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .bacol{border:1px solid var(--line);border-radius:8px;padding:18px 26px;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;overflow:hidden}
 .bacol.af{border:1.5px solid var(--mag);background:var(--mag-tint)}
 .bacol .bh{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);min-height:15px;line-height:1.35}
-.csvc .ast{font-weight:700;color:var(--text)}
-.csvc .ast::after{content:"*";color:var(--mag-deep);vertical-align:super;font-size:.75em;margin-left:1px}
-.csvcn{font-size:9.5px;line-height:1.45;color:var(--faint);font-style:italic;margin-top:7px}
 .bacol.af .bh{color:var(--mag-deep);display:flex;align-items:center;gap:7px}
-.bhmk{width:19px;height:19px;flex:none}
+.bhlk{display:inline-flex;align-items:center;gap:6px}
+.bhlk .mk{width:17px;height:17px;flex:none}
+.bhlk b{font-size:14px;font-weight:800;letter-spacing:-.015em;text-transform:none;color:var(--ink)}
 .bacol .big{font-size:40px;font-weight:900;letter-spacing:-.03em;line-height:1;margin:10px 0 4px;color:var(--muted)}
 .bacol.af .big{color:var(--mag)}
 .bacol .big small{font-size:19px;font-weight:700;color:var(--faint);letter-spacing:0}
-.bacol .cap{font-size:13.5px;color:var(--muted);margin-bottom:12px}
+.bacol .cap{font-size:14px;color:var(--muted);margin-bottom:12px}
 .bacol .bsteps{margin-top:6px;display:flex;flex-direction:column;flex:1;justify-content:space-between}
 .bacol .bstep{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:baseline;padding:4px 0;border-top:1px solid var(--line)}
 .bacol .bstep:first-child{border-top:none}
-.bacol .bstep .sn{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);font-weight:700}
+.bacol .bstep .sn{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint);font-weight:700}
 .bacol .bstep .st{font-size:13px;color:var(--text);font-weight:700;line-height:1.25}
 .bacol .bstep .st small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;margin-top:2px;line-height:1.35}
 .bacol .bstep .sw{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--red);font-weight:700;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
 .bacol.af .afio{display:flex;flex-direction:column;gap:7px;margin:5px 0 2px}
 .bacol.af .io{font-size:12.5px;line-height:1.46;color:var(--text);font-weight:500}
 .bacol.af .io b{font-weight:800;color:var(--mag-deep)}
-.shotcap{font-size:10px;color:var(--faint);font-weight:600;margin-top:6px;letter-spacing:.02em}
+.shotcap{font-size:10.5px;color:var(--faint);font-weight:600;margin-top:6px;letter-spacing:.02em}
 .bacol .shot{margin-top:10px;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .bacol .shot img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border:1px solid var(--line-2);border-radius:6px;display:block;box-shadow:0 6px 18px rgba(14,17,22,.1)}
 
@@ -353,8 +354,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .r5.win{background:var(--mag-tint)}
 .ic5{width:40px;height:40px;border-radius:10px;background:var(--mag-tint);border:1px solid var(--mag-line);display:flex;align-items:center;justify-content:center;color:var(--mag-deep)}
 .ic5 svg{width:20px;height:20px}
-.t5{font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.2}
-.d5{font-size:13.5px;line-height:1.5;color:var(--muted);font-weight:400}
+.t5{font-size:16.5px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.2}
+.d5{font-size:14px;line-height:1.5;color:var(--muted);font-weight:400}
 .d5 b{color:var(--text);font-weight:700}
 
 .lede1{margin-bottom:20px}
@@ -374,7 +375,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .hrow:last-child{border-bottom:none}
 .hrow .nm{font-size:12.5px;font-weight:600;color:var(--text);line-height:1.2}
 .hax{display:grid;grid-template-columns:210px 1fr 116px;gap:14px;padding:7px 18px 5px;background:var(--card);border-bottom:1px solid var(--line)}
-.hax .axr{display:grid;grid-template-columns:repeat(4,1fr);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:600;color:var(--faint);letter-spacing:.04em}
+.hax .axr{display:grid;grid-template-columns:repeat(4,1fr);text-align:right;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;color:var(--faint);letter-spacing:.04em}
 .hax .axr i{font-style:normal}
 .hrow .track{display:flex;height:15px;width:100%;border-radius:2px;
   background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),var(--line) calc(25% - 1px) 25%)}
@@ -391,7 +392,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .hrow.tot .nm{font-weight:800;color:var(--ink)}
 .resstats{display:flex;flex-direction:column;gap:14px}
 .rstat{border:1px solid var(--line);border-top:3px solid var(--mag);border-radius:8px;padding:15px 18px;flex:1;display:flex;flex-direction:column;justify-content:center}
-.rstat .rh2{font-size:17px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
+.rstat .rh2{font-size:17.5px;font-weight:800;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
 .rstat .rh2 b{color:var(--mag);font-weight:900}
 .rstat .rb2{font-size:12.5px;line-height:1.5;color:var(--muted);font-weight:400;margin-top:8px;text-wrap:pretty}
 .rstat .num.mag{color:var(--mag)}
@@ -405,12 +406,12 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .teamwrap{flex:1;min-height:0;display:grid;grid-template-columns:1fr 268px;gap:24px;align-items:stretch;margin-bottom:14px}
 .team{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:12px;min-height:0}
 .advcol{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:24px;min-height:0;justify-content:center}
-.advk{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:14px}
+.advk{font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:14px}
 .adv{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-left:3px solid var(--mag);background:var(--card);border-radius:0 6px 6px 0;padding:11px 13px;margin-bottom:10px}
 .advph{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:var(--ink);box-shadow:0 3px 9px rgba(14,17,22,.14)}
 .advph img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08)}
-.advn{font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
-.advd{display:block;font-size:9px;font-weight:800;letter-spacing:.09em;color:var(--mag-deep);margin-top:2px}
+.advn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.advd{display:block;font-size:9.5px;font-weight:800;letter-spacing:.09em;color:var(--mag-deep);margin-top:2px}
 .advr{font-size:11px;color:var(--muted);font-weight:500;margin-top:4px;line-height:1.35}
 .advr b{color:var(--text);font-weight:700}
 .teamhd{margin-bottom:16px}
@@ -421,7 +422,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .mem .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
 .mem .ph.ini{display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;letter-spacing:.02em;background:linear-gradient(152deg,#1E232C,#0E1116)}
 .mem .nm{font-size:14.5px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-top:11px}
-.mem .role{font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--mag-deep);margin-top:4px}
+.mem .role{font-size:9.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--mag-deep);margin-top:4px}
 .mem .bio{font-size:11px;line-height:1.42;color:var(--muted);margin:8px 0 0}
 .mem .bio b{color:var(--text);font-weight:700}
 .backed{background:var(--card);border:1px solid var(--line-2);border-radius:10px;padding:15px 26px;display:flex;align-items:center;gap:22px;color:var(--ink)}
@@ -430,7 +431,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .backed .fclogo{width:32px;height:32px;border-radius:7px;background:var(--ink);color:#fff;font-weight:800;font-size:15px;line-height:32px;text-align:center;flex:none;letter-spacing:-.02em}
 .backed .yclogo{width:32px;height:32px;border-radius:7px;background:#FB651E;color:#fff;font-weight:800;font-size:21px;line-height:32px;text-align:center;flex:none}
 .backed .itxt .inm{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;display:flex;align-items:center;gap:8px;line-height:1.1}
-.backed .itxt .inm .s25{font-size:9px;font-weight:800;letter-spacing:.09em;color:var(--mag-deep);background:var(--mag-tint);border-radius:4px;padding:2px 6px}
+.backed .itxt .inm .s25{font-size:9.5px;font-weight:800;letter-spacing:.09em;color:var(--mag-deep);background:var(--mag-tint);border-radius:4px;padding:2px 6px}
 .backed .itxt .idesc{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:3px}
 .backed .ivrule{width:1px;height:40px;background:var(--line);flex:none}
 .backed .tail{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:500;white-space:nowrap;text-align:right}
@@ -453,7 +454,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .ctabtn{background:var(--mag);color:#fff;font-size:14.5px;font-weight:700;padding:13px 23px;border-radius:6px;box-shadow:0 6px 18px rgba(180,0,254,.22)}
 .ctaemail{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--mag-deep)}
 .derisk{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--mag);border-radius:8px;padding:20px 22px;box-shadow:0 10px 28px rgba(14,17,22,.06)}
-.derisk .dk{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:13px}
+.derisk .dk{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--mag-deep);margin-bottom:13px}
 .derisk .di{display:flex;gap:11px;font-size:13px;line-height:1.5;color:var(--text);padding:7px 0;font-weight:400}
 .derisk .di .ck{color:var(--grn);font-weight:800;flex:none}
 .socrow{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
@@ -481,7 +482,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
       <h1>Frontier AI<br>for Actuaries.</h1>
       <p class="sub">AI helps actuaries perform complex, multi-step actuarial tasks with every step documented and reproducible.</p>
     </div>
-    <div class="right" style="justify-content:center">
+    <div class="right">
       <div class="rk">The Workbench</div>
       <div class="custname">One collaborative workspace for pricing, reserving, and filing</div>
       <div class="desc">For all actuaries at admitted and specialty carriers, MGAs, and reinsurers.</div>
@@ -501,6 +502,10 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="wfhd">Over 150 workflows are core to the actuarial function</div>
         <div class="unit"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><span class="more">&hellip;</span></div>
         <div class="ukey"><span><i></i>121 pricing</span><span><i class="r"></i>42 reserving</span><span class="uk3">one mark per workflow</span></div>
+        <div class="wfcols">
+          <div class="wfc"><div class="wfi">Order of operations</div><div class="wfi">Base rate and factor structure</div><div class="wfi">Limit and deductible factors</div><div class="wfi">Schedule rating ranges</div><div class="wfi">IRPM guardrails</div><div class="wfi">Rating engine parity</div></div>
+          <div class="wfc"><div class="wfi">Chain ladder, paid and incurred</div><div class="wfi">Bornhuetter-Ferguson</div><div class="wfi">Cape Cod</div><div class="wfi">Development factor and tail picks</div><div class="wfi">Cat and large loss carve-out</div><div class="wfi">IBNR by line and accident year</div></div>
+        </div>
         <div class="chainviz">
           <span class="cnode">Ingest</span><span class="clink"></span>
           <span class="cnode">Triangles</span><span class="clink"></span>
@@ -511,7 +516,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         <div class="chainlab">One weak handoff and everything downstream is unusable.</div>
         <div class="chain">
           <div class="cht">Ask a model to do all of it in one shot and you get a confident number nobody can trace.</div>
-          <div class="chd">A rate filing or a booked reserve needs dozens of these correct, in sequence, each one feeding the next.</div>
+          
         </div>
         <div class="wbspan tall"><svg class="mk"><use href="#mark"/></svg><div><div class="wt">One agentic harness across <span>all of it</span></div><div class="wd">A system of agents keeps every task linked and every value cited, from ingest to filing. That orchestration is the hard part to build, and the harder part to replicate.</div></div></div>
       </div>
@@ -591,7 +596,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
       </div>
       <div class="bacol af">
-        <div class="bh">After: <svg class="mk bhmk"><use href="#mark"/></svg></div>
+        <div class="bh">After: <span class="bhlk"><svg class="mk"><use href="#mark"/></svg><b>Tesora</b></span></div>
         <div class="big">1-2 <small>days</small></div>
         <div class="cap">Deploy to a GUI, an API, or back into Excel.</div>
         <div class="afio">
@@ -627,7 +632,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
       </div>
       <div class="bacol af">
-        <div class="bh">After: <svg class="mk bhmk"><use href="#mark"/></svg></div>
+        <div class="bh">After: <span class="bhlk"><svg class="mk"><use href="#mark"/></svg><b>Tesora</b></span></div>
         <div class="big">3-4 <small>hours</small></div>
         <div class="cap">Triangles squared on ingest, so the quarter starts at the selection</div>
         <div class="afio">
@@ -663,7 +668,7 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
         </div>
       </div>
       <div class="bacol af">
-        <div class="bh">After: <svg class="mk bhmk"><use href="#mark"/></svg></div>
+        <div class="bh">After: <span class="bhlk"><svg class="mk"><use href="#mark"/></svg><b>Tesora</b></span></div>
         <div class="big">10-15 <small>minutes</small></div>
         <div class="cap">An executable competitor rater, and your whole book priced through it</div>
         <div class="afio">
@@ -686,8 +691,8 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
     <div class="cwrap">
       <div class="cshotcol">
         <div class="cshot"><img src="asset-bernegger.png" alt="Tesora reading a source document and citing every value it used, with a caveat surfaced for review"></div>
-        <div class="csvc"><b>Every request from the platform pings our chief actuary and CTO.</b> Support is 24/7, agents and people together, so you are never left with a bot. A real person answers within two to three minutes, and we have had no unplanned downtime to date, which is <b class="ast">model routing</b> doing its job.</div>
-        <div class="csvcn">* Extraction and retrieval run on small models, and the judgment calls go to the strongest one.</div>
+        <div class="csvc"><b>Every request from the platform pings our chief actuary and CTO.</b> Support is 24/7, agents and people together, so you are never left with a bot. A real person answers within two to three minutes, and we have had no unplanned downtime to date, which is <b>model routing</b> doing its job.</div>
+        
       </div>
       <div class="cside">
         <div class="cwho">
