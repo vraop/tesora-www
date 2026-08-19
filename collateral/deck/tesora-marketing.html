@@ -459,6 +459,13 @@ h1,h2,h3,h4,p,.txt,.setup,.payoff,.pt,.pl,.cap,.bio,.takeaway,.desc,.custname,.r
 .socimg{flex:none;width:92px;height:92px;display:block}
 .nb{white-space:nowrap}
 .socnote{font-size:11.5px;line-height:1.5;color:var(--muted);font-weight:400;text-wrap:balance}
+@media print{/* Chromium rasterises every blurred box-shadow into a greyscale layer that some PDF
+   previewers (Quick Look, and so iMessage) paint as an opaque grey rectangle. Every
+   element below already carries a hairline border, which is what should define the
+   edge in a printed document anyway. Inset shadows are fills, not soft masks, so the
+   rules on the comparison matrix stay. */
+.postcol img,.treeimg img,.cshot img,.bacol .shot img,.citehero img,
+.tshot,.trace,.advph,.mem .ph,.ctabtn,.derisk{box-shadow:none}}
 </style>
 </head>
 <body>
