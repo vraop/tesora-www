@@ -10,6 +10,14 @@ for (const [f, type] of assets) {
   const b64 = readFileSync(path.join(dir, f)).toString('base64');
   html = html.split(`src="${f}"`).join(`src="data:image/${type};base64,${b64}"`);
 }
+// The Google Fonts link does not resolve in this container, so print-to-PDF was
+// silently falling back to Liberation Sans. Inline the real faces, same as the
+// artifact build does.
+const fonts = readFileSync(path.join(dir,'fonts-inline.css'),'utf8');
+html = html.replace(/<link rel="preconnect"[^>]*>\s*/g,'');
+html = html.replace(/<link href="https:\/\/fonts\.googleapis\.com[^>]*>\s*/,'');
+html = html.replace('<style>', '<style>\n'+fonts+'\n');
+
 const standalone = path.join(dir, 'tesora-marketing-standalone.html');
 writeFileSync(standalone, html);
 console.log('wrote standalone', (html.length/1024).toFixed(0)+'kb');

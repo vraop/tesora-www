@@ -10,6 +10,8 @@ const only = process.argv[4];
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--no-sandbox', '--force-color-profile=srgb'] });
 const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 2 });
 await page.goto('file://' + path.resolve(file), { waitUntil: 'networkidle' });
+await page.addStyleTag({content: (await import('node:fs')).readFileSync('/tmp/claude-0/-home-user-tesora-www/e26d6849-dd06-5ce8-96ca-433d6be610a4/scratchpad/fonts-inline.css','utf8')});
+await page.evaluate(()=>document.fonts.ready);
 await page.waitForTimeout(600);
 
 const slides = await page.$$('.slide');

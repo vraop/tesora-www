@@ -1,12 +1,15 @@
 import { chromium } from 'playwright-core';
 import { readFileSync, writeFileSync } from 'node:fs';
 const EXEC='/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
+const FONTCSS=readFileSync('fonts-inline.css','utf8');
 
 // LinkedIn frame spec, measured off the screenshot (fractions of outer radius / screen degrees)
 const F={ inner:211/310.5, fadeIn:[35,58], solid:[58,185], fadeOut:[185,211],
           txtIn:241/310.5, txtOut:282/310.5, txtMid:120.5 };
-const OUT=400, C=OUT/2, R=OUT/2, CAP=0.729;
-const rIn=F.inner*R, rTxt=F.txtOut*R, fs=((F.txtOut-F.txtIn)*R)/CAP;
+const OUT=400, C=OUT/2, R=OUT/2;
+let CAP=0.729;   // replaced with a measured value once the page is up
+const rIn=F.inner*R, rTxt=F.txtOut*R;
+let fs=0;   // set from the measured cap height
 const f=(n)=>Math.round(n*1000)/1000;
 const cw=(a)=>f(a+90);
 const pt=(a,r)=>[f(C+r*Math.cos(a*Math.PI/180)), f(C+r*Math.sin(a*Math.PI/180))];
@@ -42,6 +45,7 @@ function html(b64,g,zoom,dyFrac,label){
   const k=(R/g.r)*zoom, dw=g.W*k, dh=g.H*k;
   const dx=C-g.cx*k, dy=C-g.cy*k+R*dyFrac;
   return `<!doctype html><meta charset="utf-8"><style>
+${FONTCSS}
 html,body{margin:0;background:transparent}
 #w{position:relative;width:${OUT}px;height:${OUT}px;border-radius:50%;overflow:hidden}
 #ph{position:absolute;left:${f(dx)}px;top:${f(dy)}px;width:${f(dw)}px;height:${f(dh)}px}
@@ -53,7 +57,7 @@ html,body{margin:0;background:transparent}
                    #000 ${cw(F.fadeOut[0])}deg, rgba(0,0,0,0) ${cw(F.fadeOut[1])}deg);
   -webkit-mask-composite:source-in;mask-composite:intersect}
 svg{position:absolute;inset:0}
-text{font-family:"Liberation Sans",Arial,sans-serif;font-weight:700;font-size:${f(fs)}px;letter-spacing:.045em;fill:#fff}
+text{font-family:'Figtree',system-ui,sans-serif;font-weight:800;font-size:${f(fs)}px;letter-spacing:.045em;fill:#fff}
 </style><div id="w">
 <img id="ph" src="data:image/png;base64,${b64}">
 <div id="band"></div>
@@ -86,6 +90,19 @@ async function faceHits(b64,g,zoom,dyFrac){
     return {n,worst:Math.round(worst)};
   }, {png,OUT,C,R,rIn,dx:C-g.cx*k,dy:C-g.cy*k+R*dyFrac,dw:g.W*k,dh:g.H*k});
 }
+
+// Figtree's cap height is not Arial's, and the type is sized from the measured
+// glyph band, so read the real ratio rather than assuming one.
+await pg.setContent('<style>'+FONTCSS+'</style><span id="m" style="font-family:Figtree;font-weight:800">H</span>');
+await pg.waitForTimeout(400);
+CAP=await pg.evaluate(()=>{
+  const c=document.createElement('canvas'), x=c.getContext('2d');
+  x.font='800 200px Figtree';
+  const m=x.measureText('H');
+  return m.actualBoundingBoxAscent/200;
+});
+fs=((F.txtOut-F.txtIn)*R)/CAP;
+console.log('Figtree cap height ratio', CAP.toFixed(4), '-> font-size', fs.toFixed(2)+'px\n');
 
 for (const [file,name,outfile] of PEOPLE){
   const b64=readFileSync(file).toString('base64');
